@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Sangeun shin"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "기록하며 성장하는 **개발자**가 되고 싶습니다."
   location         : "Korea"
   email            :
   links:
