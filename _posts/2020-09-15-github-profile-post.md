@@ -5,6 +5,7 @@ layout: posts
 permalink: '/categories/Github/github-profile'
 categories: Github
 taxonomy: Github
+comments: true
 ---
 
 안녕하세요!

@@ -5,6 +5,7 @@ layout: posts
 permalink: '/categories/Project/figle-1'
 categories: Project React
 taxonomy: Project
+comments: true
 ---
 
 안녕하세요!
