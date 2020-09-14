@@ -1,4 +1,6 @@
 # main links
 main:
-  - title: "Github"
-    url: https://github.com/shinsangeun/shinsangeun.github.io
+  - title: "Category"
+    url: /category/
+  - title: "Tag"
+    url: /tags/
