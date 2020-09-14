@@ -1,7 +1,7 @@
 ---
 title: "FIGLE - 토이 프로젝트의 시작"
 date: 2020-09-14 15:39:28 -0400
-categories: Project, React, FIGLE
+categories: Project
 ---
 
 안녕하세요!
