@@ -2,7 +2,7 @@
 title: "FIGLE - 토이 프로젝트의 시작"
 date: 2020-09-14 15:39:28 -0400
 layout: category
-permalink: '/categories/Project'
+permalink: '/categories/Project/figle-1'
 categories: Project React
 taxonomy: Project
 ---

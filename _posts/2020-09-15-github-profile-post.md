@@ -14,8 +14,8 @@ Github를 구경 하다가 아주 흥미로운 기능이 있어서 **2020년 7�
 
 개발자라면 자신의 Github 프로필에 간단한 포트폴리오 정도로 자신을 나타낼 수 있는 화면이 있으면 편리하고 다른 사람들이 보기에도 좋겠죠?
 
-이번 포스팅에 소개 해드릴 내용으로 아래는 저의 Github 프로필 입니다.
-![Profile](/assets/images/github/github-profile-overview.png)
+이번 포스팅에 소개 해드릴 내용의 적용 버전으로 아래는 제 계정의 Github 프로필 입니다.
+![Profile1](/assets/images/github/github-profile-overview.png)
 
 Overview 메뉴에 자신을 소개할 수 있는 **README.md** 파일이 추가된 것이 보이시나요? 생각보다 **정말 간단하게** 만들 수 있습니다.
 
@@ -25,7 +25,7 @@ Overview 메뉴에 자신을 소개할 수 있는 **README.md** 파일이 추가
 
 # 1. 자신의 아이디와 같은 Repository 생성
 - 자신의 아이디와 같은 새로운 레포지토리를 생성 합니다. 제 아이디는 `shinsangeun` 이므로 `shinsangeun` 이라는 새로운 레포지토리를 생성 하였습니다.
-![Profile Repository](/assets/images/github/github-profile-repository.png)
+![Profile2](/assets/images/github/github-profile-repository.png)
 - 그럼 위와 같이 아래에 깃허브 고양이가 스페셜 레포지토리를 만들었다고 축하해 줍니다.
 ```
 You found a secret! shinsangeun/shinsangeun is a ✨special ✨ repository that you can use to add a README.md to your GitHub profile. Make sure it’s public and initialize it with a README to get started.
