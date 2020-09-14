@@ -2,7 +2,7 @@
 title: "Jekyll Github 블로그 시작하기"
 date: 2020-09-14 17:39:28 -0400
 layout: category
-permalink: '/categories/Github'
+permalink: '/categories/Github/Jekyll-Github-블로그-시작하기'
 categories: Github
 taxonomy: Github
 ---
