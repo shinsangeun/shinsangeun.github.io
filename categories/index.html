@@ -1,21 +1,47 @@
-<ul class="entry-meta inline-list">
-    {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-    {% capture this_word %}{{ categories_list[item] | strip_newlines }}{% endcapture %}
-    <li><a href="#{{ this_word }}" class="tag">
-        <span class="term">{{ this_word }}</span>
-        <span class="count">{{ site.categories[this_word].size }}</span>
-    </a></li>
-    {% endunless %}{% endfor %}
-</ul>
+---
+layout: default
+permalink: '/categories'
+---
 
-{% for item in (0..site.categories.size) %}{% unless forloop.last %}
-{% capture this_word %}{{ categories_list[item] | strip_newlines }}{% endcapture %}
-<article>
-    <a href="{{site.url}}/categories/{{this_word}}"><h2 id="{{ this_word }}" class="tag-heading">{{ this_word }}</h2></a>
-    <ul>
-        {% for post in site.categories[this_word] %}{% if post.title != null %}
-        <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-        {% endif %}{% endfor %}
+<div class="category-wrap">
+
+    <h1 class="category-title"><a href="/categories/Algorithm">Algorithm</a></h1>
+    <ul class="posts-list">
+
     </ul>
-</article><!-- /.hentry -->
-{% endunless %}{% endfor %}
+
+    <h1 class="category-title"><a href="/categories/Github">Github</a></h1>
+    <ul class="posts-list">
+        <li>
+            <h3>
+                <a href="/categories/Github/Jekyll Github 블로그 시작하기">Jekyll Github 블로그 시작하기</a>
+                <small>14 Sep 2020</small>
+            </h3>
+        </li>
+    </ul>
+
+    <h1 class="category-title"><a href="/categories/Nodejs">Node.js</a></h1>
+    <ul class="posts-list">
+
+    </ul>
+
+    <h1 class="category-title"><a href="/categories/Project">Project</a></h1>
+    <ul class="posts-list">
+        <li>
+            <h3>
+                <a href="/categories/Project/FIGLE - 토이 프로젝트의 시작">FIGLE - 토이 프로젝트의 시작</a>
+                <small>14 Sep 2020</small>
+            </h3>
+        </li>
+    </ul>
+
+    <h1 class="category-title"><a href="/categories/Python">Python</a></h1>
+    <ul class="posts-list">
+
+    </ul>
+
+    <h1 class="category-title"><a href="/categories/React">React</a></h1>
+    <ul class="posts-list">
+
+    </ul>
+</div>
