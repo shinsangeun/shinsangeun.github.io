@@ -1,5 +1,5 @@
 ---
-title: "Jekyll Github 블로그 시작하기"
+title: "[Github] Jekyll Github 블로그 시작하기"
 date: 2020-09-14 17:39:28 -0400
 layout: posts
 permalink: '/categories/Github/jekyll-1'

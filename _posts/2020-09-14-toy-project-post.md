@@ -1,5 +1,5 @@
 ---
-title: "FIGLE - 토이 프로젝트의 시작"
+title: "[Project] FIGLE - 토이 프로젝트의 시작"
 date: 2020-09-14 15:39:28 -0400
 layout: posts
 permalink: '/categories/Project/figle-1'
