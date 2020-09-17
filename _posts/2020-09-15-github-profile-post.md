@@ -1,11 +1,10 @@
 ---
 title: "[Github] Profile 관리하기 - Overview"
 date: 2020-09-15 00:13:22 -0400
-layout: posts
+layout: post
 permalink: '/categories/Github/github-profile'
 categories: Github
 taxonomy: Github
-comments: true
 ---
 
 안녕하세요!

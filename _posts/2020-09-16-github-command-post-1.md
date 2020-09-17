@@ -1,11 +1,10 @@
 ---
 title: "[Github] Github 명령어 정리"
 date: 2020-09-16 21:12:23 -0400
-layout: posts
+layout: post
 permalink: '/categories/Github/github-command-1'
 categories: Github
 taxonomy: Github
-comments: true
 ---
 
 안녕하세요!

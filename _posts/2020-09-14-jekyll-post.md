@@ -1,11 +1,10 @@
 ---
 title: "[Github] Jekyll Github 블로그 시작하기"
 date: 2020-09-14 17:39:28 -0400
-layout: posts
+layout: post
 permalink: '/categories/Github/jekyll-1'
 categories: Github
 taxonomy: Github
-comments: true
 ---
 
 안녕하세요!
