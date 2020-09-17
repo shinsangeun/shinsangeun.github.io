@@ -1,19 +1,10 @@
 ---
-layout: default
+layout: archive
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+{{ content }}
 
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-
-    </header>
-
-    <div class="post-content" itemprop="articleBody">
-        {{ content }}
-
-    </div>
-
+<div>
     {% if page.comments != false %}
     {% include disqus_comments.html %}
     {% endif %}
-</article>
+</div>
