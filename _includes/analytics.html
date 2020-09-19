@@ -1,3 +1,12 @@
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178386171-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-178386171-1');
+</script>
+
 {% if jekyll.environment == 'production' and site.analytics.provider and page.analytics != false %}
 
 {% case site.analytics.provider %}
