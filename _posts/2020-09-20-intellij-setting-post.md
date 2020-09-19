@@ -8,8 +8,8 @@ categories: Intellij
 
 안녕하세요!
 
-개발 할 때 `Intellij`를 주로 사용 하는데, 환경 설정을 간혹 잊는 경우가 있습니다.  
-그럴 때마다 매번 구글링 하기가 귀찮아서 이번 포스팅으로 환경 설정 방법을 정리하고자 합니다.    
+개발 할 때 `Intellij`를 주로 사용 하는데 환경 설정 방법을 간혹 까먹는 경우가 있습니다.  
+그럴 때마다 매번 구글링 하기가 귀찮아서 이번 포스팅으로 환경 설정 방법을 정리 하고자 합니다.    
 (개발 환경을 `Mac OS`으로 사용하기 때문에 `Windows` 환경과 다를 수 있습니다!)
 
 
@@ -17,7 +17,7 @@ categories: Intellij
 
 # 목차
 [1. Font & Theme 설정 하기](#Font-&-Theme)  
-[2. Github 설정 하기](#Github)
+[2. Github 설정 하기](#Github)  
 [3. 창 여러개 Tab으로 띄우기](#Tab-설정)
 
 -----
@@ -56,6 +56,7 @@ categories: Intellij
 1. 창 여러개 Tab으로 띄우기
 - Intellij에서 파일을 여러개 띄울 때 Tab으로 띄우는 방법입니다.  
 - 파일을 여러개 띄우면 상단에 파일 이름이 hidden되어 나타납니다. 그러면 파일을 한번에 찾기가 어려워 집니다.
+- 적용 전 모습
 ![file1](/assets/images/intellij/intellij-tab-setting.png)
 
 - 아래 체크 표시를 해제하면 창을 여러개 Tab으로 띄울수 있게 됩니다.
