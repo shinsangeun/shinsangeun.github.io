@@ -35,19 +35,21 @@ Google은 Urchin을 인수 한 후 2005 년 11 월에 서비스를 시작했습�
 - [구글 애널리틱스](https://analytics.google.com/)
 
 2. 가입을 한 후에 아래 해당하는 내용을 입력합니다.
-[Analytics 속성 생성](/assets/images/google/github-google-analytics.png)
+![Analytics 속성 생성](/assets/images/google/github-google-analytics.png)
 
 3. 약관 동의 후 생성된 추적 ID를 복사 합니다.
-[추적 ID](/assets/images/google/github-google-analytics-2.png)
+![추적 ID](/assets/images/google/github-google-analytics-2.png)
 
 
 # 3. Jekyll 블로그와 연동 하기 
-- 2번 내용에서 복사한 추적 ID를 Jekyll 블로그에 입력해 줘야 합니다. 이 블로그는 Jekyll 테마를 사용 하고 있어서 이 테마에 맞추어 설정하는 방법을 알려 드리겠습니다.  
+- 2번 내용에서 복사한 추적 ID를 Jekyll 블로그에 입력해 줘야 합니다. 이 블로그는 Jekyll 테마를 사용 하고 있어서 이 테마에 맞추어 설정하는 방법을 알려 드리겠습니다.
+
+
 1. `/root/_includes/analytics.html` 파일에 `gtag.js` 내용을 복사해서 붙여넣습니다.
-[analytics.html](/assets/images/google/github-google-analytics-3.png)
+![analytics.html](/assets/images/google/github-google-analytics-3.png)
 
 2. `/root/_layouts/default.html` 파일 하단에 아래의 내용을 추가해 줍니다.
-[default.html](/assets/images/google/github-google-analytics-4.png)
+![default.html](/assets/images/google/github-google-analytics-4.png)
 
 3. 수정한 파일을 github에 push 합니다.
 
@@ -55,7 +57,7 @@ Google은 Urchin을 인수 한 후 2005 년 11 월에 서비스를 시작했습�
 # 4. 연동 후 확인 하기
 - 3번까지 작업을 마친 후에는 `Google Analytics`와 제대로 연동이 되었는지 확인 합니다.  
 - 자신의 블로그에 접속 한 후에 애널리틱스 화면을 확인 합니다. 활성화된 숫자가 있으면 제대로 연동이 완료 된 것입니다!
-[애널리틱스 화면](/assets/images/google/github-google-analytics-5.png)
+![애널리틱스 화면](/assets/images/google/github-google-analytics-5.png)
 
 
 
