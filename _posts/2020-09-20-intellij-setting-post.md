@@ -19,6 +19,7 @@ categories: Intellij
 [1. Font & Theme 설정 하기](#Font-&-Theme)  
 [2. Github 설정 하기](#Github)  
 [3. 창 여러개 Tab으로 띄우기](#Tab-설정)
+[4. 단축기 설정](#단축키-설정)
 
 -----
 
@@ -67,7 +68,20 @@ categories: Intellij
 ![file3](/assets/images/intellij/intellij-tab-setting-3.png)
 
 
+### 딘축키 설정 
+- Mac 단축키 설정을 기반 으로 작성한 내용 입니다.
+
+|        단축키        |              내용            |
+|:------------------:|:---------------------------:|
+| command + opt + L  |           코드 자동 정렬        | 
+|   Shift + Shift    |     프로젝트 내 파일 이름 검색     |
+|   Shift + F        |          파일 내 검색          |
+|   command + x      |            한 줄 삭제          |
+
+
 -----
+
+
 
 오늘 준비한 내용은 여기까지 입니다.  
 이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️💡
