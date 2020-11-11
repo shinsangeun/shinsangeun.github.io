@@ -25,7 +25,7 @@ categories: React
 - 여기서는 데이터를 가져오기 위해 `Get` 함수를 사용 하였고, 받아온 데이터를 `this.state.seasonResult` 에 저장 하였습니다.
 - 아래 url들은 [FIFA Online 개발자 센터](https://developers.nexon.com/fifaonline4/apiList) 에 있는 데이터 정보 입니다.
 
-```$xslt
+```
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const getSeasonIdDetail = 'https://static.api.nexon.co.kr/fifaonline4/latest/seasonid.json';
 axios.get(proxyurl + getSeasonIdDetail).then(response => {
@@ -42,7 +42,7 @@ axios.get(proxyurl + getSeasonIdDetail).then(response => {
 - 여기서는 데이터를 가져오기 위해 `Get` 함수를 사용 하였고, api를 통해 받아온 데이터를 `this.state.positionList` 에 저장 하였습니다. 
 - 아래 url들은 [FIFA Online 개발자 센터](https://developers.nexon.com/fifaonline4/apiList) 에 있는 데이터 정보 입니다. 
 
-```$xslt
+```
 getPositionList = async () => {
     const url = '/fifaonline4/latest/spposition.json';
     const options = {
