@@ -18,8 +18,8 @@ categories: Intellij
 # 목차
 [1. Font & Theme 설정 하기](#Font-&-Theme)  
 [2. Github 설정 하기](#Github)  
-[3. 창 여러개 Tab으로 띄우기](#Tab-설정)
-[4. 단축기 설정](#단축키-설정)
+[3. 창 여러개 Tab으로 띄우기](#Tab-설정)  
+[4. 단축키 설정](#단축키-설정)
 
 -----
 
@@ -68,7 +68,7 @@ categories: Intellij
 ![file3](/assets/images/intellij/intellij-tab-setting-3.png)
 
 
-### 딘축키 설정 
+### 단축키 설정 
 - Mac 단축키 설정을 기반 으로 작성한 내용 입니다.
 
 |        단축키         |              내용            |
