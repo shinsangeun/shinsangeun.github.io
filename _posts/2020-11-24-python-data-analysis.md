@@ -9,7 +9,7 @@ categories: Python Data-analysis
 안녕하세요!
 
 이번 포스팅은 `Python`을 이용 해서 개발 시에 많은 도움이 되었던 글들을 소개해 보고자 합니다.  
-부족한 자료 지만, 제가 데이터 분석 시에 유용 하게 사용 했던 함수와 블로그 자료 모음 입니다.  
+부족한 자료 이지만, 데이터 분석과 머신 러닝을 공부할 때 유용 하게 사용 했던 함수와 블로그 자료 모음 입니다.  
 
 여러분 에게도 유용 하게 쓰였으면 좋겠습니다!😄
 
@@ -51,6 +51,19 @@ df2.resample(rule='5T').mean()
 df2.resample(rule='5T').count()
 ```
 
+#### 9. 머신 러닝
+- 랜덤 포레스트(Random Forest)
+  - ``` random_state=0 ``` 
+     - 데이터 분류 시, 해당 값으로 설정하면 재 수행 할때마다 동일한 예측결과를 출력 함
+  - [랜덤 포레스트 vs 고객 이탈 예측을 위한 신경망](https://towardsdatascience.com/random-forest-vs-neural-networks-for-predicting-customer-churn-691666c7431e)
+  
+- 의사 결정 트리(Decision Tree)
+  - 그래프
+    - [Graphviz 패키지 설치](https://graphviz.org/download/)
+    - [환경 변수 설정 방법 1](https://stackoverflow.com/questions/35064304/runtimeerror-make-sure-the-graphviz-executables-are-on-your-systems-path-aft)
+    - [환경 변수 설정 방법 2](https://datascience.stackexchange.com/questions/37428/graphviz-not-working-when-imported-inside-pydotplus-graphvizs-executables-not)
+    - [그래프 그리기](https://pythonprogramminglanguage.com/decision-tree-visual-example/)
+     
 -----
 
 
