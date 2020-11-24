@@ -18,38 +18,32 @@ categories: Python Data-analysis
 - 엔터: \
 
 #### 2. 문자열 자료형
-- https://wikidocs.net/13
+- [https://wikidocs.net/13](https://wikidocs.net/13)
 
 #### 3. 일별 데이터를 주별로 묶기
-- https://jsideas.net/daily_to_weekly/
+- [https://jsideas.net/daily_to_weekly/](https://jsideas.net/daily_to_weekly/)
 
 #### 4. lambda 함수
-- https://wikidocs.net/64
+- [https://wikidocs.net/64](https://wikidocs.net/64)
 
 #### 5. 내장 함수
-- https://wikidocs.net/32#all
+- [https://wikidocs.net/32#all](https://wikidocs.net/32#all)
 
 #### 6. Data 컬럼 쪼개고 새로운 컬럼으로 만들기
-- https://www.geeksforgeeks.org/python-pandas-split-strings-into-two-list-columns-using-str-split/
+- [https://www.geeksforgeeks.org/python-pandas-split-strings-into-two-list-columns-using-str-split/](https://www.geeksforgeeks.org/python-pandas-split-strings-into-two-list-columns-using-str-split/)
 
 #### 7. Timestamp 시간 변환
-- https://blog.doosikbae.com/89
+- [https://blog.doosikbae.com/89](https://blog.doosikbae.com/89)
 
 #### 8. 시간 관련 함수
-- 5분 마다
-```
-df2.resample(rule='5T')
-```
+- 5분 마다:
+``` df2.resample(rule='5T') ```
 
-- 5분마다 평균 값
-```
-df2.resample(rule='5T').mean()
-```
+- 5분마다 평균 값:
+``` df2.resample(rule='5T').mean() ```
 
-- 5분마다 갯수
-```
-df2.resample(rule='5T').count()
-```
+- 5분마다 갯수:
+``` df2.resample(rule='5T').count() ```
 
 #### 9. 머신 러닝
 - 랜덤 포레스트(Random Forest)
