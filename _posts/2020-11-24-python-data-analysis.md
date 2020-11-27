@@ -3,7 +3,8 @@ title: "[Python] 데이터 분석 참고 자료"
 date: 2020-11-24 01:30:22
 layout: post
 permalink: '/categories/Python/data-analysis'
-categories: Python Data-analysis
+categories: Python
+tags: Data-analysis Python
 ---
 
 안녕하세요!
