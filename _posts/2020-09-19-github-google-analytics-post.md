@@ -4,7 +4,7 @@ date: 2020-09-19 22:05:23 -0400
 layout: post
 permalink: '/categories/Github/github-google-analytics'
 categories: Github Google-Analytics
-taxonomy: Github
+tags: Github Google-analytics
 ---
 
 안녕하세요!

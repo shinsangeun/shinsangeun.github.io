@@ -4,6 +4,7 @@ date: 2020-09-20 12:39:12 -0400
 layout: post
 permalink: '/categories/Intellij/Intellij-setting-1'
 categories: Intellij
+tags: Intellij
 ---
 
 안녕하세요!

@@ -4,6 +4,7 @@ date: 2020-11-19 23:14:55
 layout: post
 permalink: '/categories/Daily/preparing-job'
 categories: Daily
+tags: Daily Interview
 --- 
 
 안녕하세요!

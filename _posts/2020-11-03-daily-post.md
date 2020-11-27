@@ -4,6 +4,7 @@ date: 2020-11-03 12:40:12
 layout: post
 permalink: '/categories/Daily/daily-post-2020-11'
 categories: Daily
+tags: Daily
 ---
 
 안녕하세요!  

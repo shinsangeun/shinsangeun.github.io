@@ -4,7 +4,7 @@ date: 2020-09-14 17:39:28 -0400
 layout: post
 permalink: '/categories/Github/jekyll-1'
 categories: Github
-taxonomy: Github
+tags: Github Jekyll Blog
 ---
 
 안녕하세요!

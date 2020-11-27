@@ -4,7 +4,7 @@ date: 2020-09-16 21:48:24 -0400
 layout: post
 permalink: '/categories/Project/figle-2'
 categories: Project React
-taxonomy: Project
+tags: Toy-project FIGLE React
 ---
 
 안녕하세요!

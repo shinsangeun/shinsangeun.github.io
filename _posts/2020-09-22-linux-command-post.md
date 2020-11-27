@@ -4,6 +4,7 @@ date: 2020-09-28 12:45:12 -0400
 layout: post
 permalink: '/categories/Linux/linux-command-1'
 categories: Linux
+tags: Linux Command
 ---
 
 안녕하세요!  

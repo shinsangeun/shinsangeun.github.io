@@ -4,7 +4,7 @@ date: 2020-09-16 21:12:23 -0400
 layout: post
 permalink: '/categories/Github/github-command-1'
 categories: Github
-taxonomy: Github
+tags: Github Command
 ---
 
 안녕하세요!
