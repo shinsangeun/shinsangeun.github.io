@@ -14,19 +14,19 @@ tags: Project React API Toy-project
 
 -----
 
-#### FIGLE 관련 포스팅
+### 1. FIGLE 관련 포스팅
 
 👇🏻 궁금 하신 분들은 참고 해 주세요!
 - [[Project] FIGLE - 토이 프로젝트의 시작](https://shinsangeun.github.io/categories/Project/figle-1)  
 - [[Project] FIGLE - 개발 항목 정리(1)](https://shinsangeun.github.io/categories/Project/figle-2)
 
 
-#### FIGLE Github
+### 2. FIGLE Github
 - Figle을 개발한 github 링크 입니다.
-- 링크: [FIGLE](https://github.com/gksthf2271/FIGLE)
+- 링크: [Github 👉🏻 FIGLE](https://github.com/gksthf2271/FIGLE)
 
 
-#### FIGLE 스크린 샷
+### 3. FIGLE 스크린 샷
 - Figle의 완성본 스크린 샷 입니다.  
 
 1. 유저 아이디 검색  
@@ -43,8 +43,8 @@ tags: Project React API Toy-project
 ![image3](/assets/images/figle/figle-3.png)
 
 
-#### 프로젝트 완성 소감
-- `React`로 도전한 첫 프로젝트라 그런지 많이 두렵기도 하고 완성을 할지 막막 했지, 다행히도 마무리를 하게 되어 뿌듯 하고 `React`에 대한 자신감이 생긴것 같습니다.만
+### 4. 프로젝트 완성 소감
+- `React`로 도전한 첫 프로젝트라 그런지 처음에는 많이 두렵기도 하고 완성을 할지 막막 했지만, 다행히도 마무리를 하게 되어 뿌듯 하고 `React`에 대한 자신감이 생긴것 같습니다.
 - `왜 진작 토이 프로젝트를 개발 하지 않았는지?` 에 대한 후회와 미련이 남긴 하지만 작은것 이라도 일단 개발을 해 보는 것이 중요 하다고 느끼게 되었습니다. 그래서 React를 이용해서 새로운 토이 프로젝트를 하나 더 만들어 볼 생각 입니다.
 - 앞으로 새로운 토이 프로젝트도 기대 많이 해 주시고 제가 잘 해내고 있는지 지켜봐 주세요!😆🔥
 
