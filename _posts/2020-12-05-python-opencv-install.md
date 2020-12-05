@@ -2,7 +2,7 @@
 title: "[Python] Mac OS에 OpenCV & cv2 설치 하기"
 date: 2020-12-05 18:00:22
 layout: post
-permalink: '/categories/Python/cv2-setting'
+permalink: '/categories/Python/cv2-install'
 categories: Python
 tags: Python OpenCV cv2
 ---
