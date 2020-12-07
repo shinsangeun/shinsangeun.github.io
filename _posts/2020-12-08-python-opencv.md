@@ -24,6 +24,8 @@ tags: Python OpenCV
 
 
 ### 코드 설명
+- 아래 코드는 [👉🏻Github](https://github.com/shinsangeun/PythonStudy/tree/master/Opencv) 에서 볼 수 있습니다.
+
 1. 실습에 필요한 `sys`, `cv2` 라이브러리를 import 합니다.
 ```
 import sys
