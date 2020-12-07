@@ -63,14 +63,13 @@ print("감지된 사람:", str(len(faces)))
 face_list = cascade.detectMultiScale(image_gs, scaleFactor=1.1, minNeighbors=1, minSize=(150, 150))
 print("face_list 길이:", str(len(face_list)))
 ```
-
 ```python
 # 사람 2명 이상 일 때
 face_list = cascade.detectMultiScale(image_gs, scaleFactor=1.1, minNeighbors=1, minSize=(50, 50), maxSize=(60,60))
 print("face_list 길이:", str(len(face_list)))
 ```
 
-7. 불러온 이미지 안에 사람의 얼굴을 사각형으로 표시 합니다.  
+7. 불러온 이미지 안에 인식된 사람의 얼굴을 사각형으로 표시 합니다.  
   사각형으로 표시된 이미지는 `facedetect-output.PNG`라는 이름으로 새로 이미지가 저장 됩니다.
 ```
 if len(face_list) > 0:
