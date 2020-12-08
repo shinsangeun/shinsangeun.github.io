@@ -27,7 +27,7 @@ tags: Python OpenCV
 - 아래 코드는 [👉🏻Github](https://github.com/shinsangeun/PythonStudy/tree/master/Opencv) 에서 볼 수 있습니다.
 
 1. 실습에 필요한 `sys`, `cv2` 라이브러리를 import 합니다.
-```
+```python
 import sys
 sys.path.append('/usr/local/lib/python3.9/site-packages')
 import cv2
@@ -35,26 +35,26 @@ import cv2
 
 2. 테스트 할 경로에 이미지 파일을 저장 하고 해당 경로의 이미지를 가져옵니다.  
 (저는 같은 경로에 `soccer.jpg`라는 이미지 파일을 저장 하였습니다.) 
-```
+```python
 image_file = "./soccer.jpg"
 # Documents/Github/PythonExample/Opencv
 ```
 
 3. 이미지 인식을 위해 `haarcascade_frontface.xml` 파일을 불러 옵니다.  
 (이 때, 해당 경로에 저 xml 파일이 없으면 에러가 나므로 꼭 저장해 주셔야 합니다.)
-```
+```python
 cascade_file = "./haarcascade_frontface.xml"
 ```
 
 4. 이미지를 읽어서 인식합니다.
-```
+```python
 image = cv2.imread(image_file)
 image_gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 cascade = cv2.CascadeClassifier(cascade_file)
 ```
 
 5. 불러온 이미지 안에 감지된 사람의 얼굴이 몇명 인지 확인 합니다.
-```
+```python
 faces = cascade.detectMultiScale(image_gs, 1.2, 5)
 print("감지된 사람:", str(len(faces)))
 ```
@@ -73,7 +73,7 @@ print("face_list 길이:", str(len(face_list)))
 
 7. 불러온 이미지 안에 인식된 사람의 얼굴을 사각형으로 표시 합니다.  
   사각형으로 표시된 이미지는 `facedetect-output.PNG`라는 이름으로 새로 이미지가 저장 됩니다.
-```
+```python
 if len(face_list) > 0:
     print(face_list)
     color = (0,255,255)
