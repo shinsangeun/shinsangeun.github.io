@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "default" # "default", "air", "aqua", "contrast", "da
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Welcome to my blog"
+title                    : "기록하며 성장하기"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Sangeun Shin"
-description              : "An amazing website."
+description              : ""
 url                      : "https://shinsangeun.github.io" # the base hostname & protocol for your site e.g.
 baseurl                  : "" # the subpath of your site, e.g.
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
