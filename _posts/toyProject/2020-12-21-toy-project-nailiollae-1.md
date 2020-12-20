@@ -9,7 +9,7 @@ tags: Toy-project NailOllae Nodejs
 
 안녕하세요!
 
-**토이 프로젝트**를 개발하기 위해 기록을 남기고자 포스트를 작성하게 되었습니다.
+**토이 프로젝트**를 개발하기 위해 기록을 남기고자 포스트를 작성 하게 되었습니다.
 
 이번에 개발하게 된 내용은 `NailOllae(네일 올래?)` 라는 프로젝트 입니다.  
 
@@ -36,8 +36,8 @@ tags: Toy-project NailOllae Nodejs
   - 간단한 문자인증
   - 아이디 / 비밀번호 or 네이버 / 카카오 연동
 - 네일 예약
-  - 달력->날짜 선택
-  - 이달의 아트 / 페디 / 네일 등 선택하도록..
+  - 달력 조회 및 날짜 선택
+  - 이달의 아트 / 페디 / 네일 등 선택하도록
 - 마이페이지
   - 적립금
     - 잔여 적립금
@@ -61,7 +61,8 @@ tags: Toy-project NailOllae Nodejs
    
 
 ## 5. Github
-- [네일올래? Github](https://github.com/shinsangeun/Nail-Ollae)
+- [네일올래? 👉🏻 Github](https://github.com/shinsangeun/Nail-Ollae)
+- 위 내용을 구현할 Github 레포지토리 입니다. 궁금하신 분들은 링크를 참고해 주세요!
 
 -----
 
