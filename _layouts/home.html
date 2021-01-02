@@ -6,13 +6,6 @@ layout: archive
 
 <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
-<!--카카오 애드핏-->
-<ins class="kakao_ad_area" style="display:none;"
-     data-ad-unit    = "DAN-GMJwOjkYTP2hwhta"
-     data-ad-width   = "160"
-     data-ad-height  = "600"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-
 {% if paginator %}
   {% assign posts = paginator.posts %}
 {% else %}

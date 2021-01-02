@@ -20,6 +20,14 @@ layout: default
   <div class="archive">
     {% unless page.header.overlay_color or page.header.overlay_image %}
       <h1 id="page-title" class="page__title">{{ page.title }}</h1>
+
+    <!--카카오 애드핏-->
+    <ins class="kakao_ad_area" style="display:none;"
+         data-ad-unit    = "DAN-GMJwOjkYTP2hwhta"
+         data-ad-width   = "160"
+         data-ad-height  = "600"></ins>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
     {% endunless %}
     {{ content }}
   </div>
