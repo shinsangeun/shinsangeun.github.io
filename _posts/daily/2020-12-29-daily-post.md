@@ -1,5 +1,5 @@
 ---
-title: "[Daily] 12월의 마무리"
+title: "[Daily] 2020년의 회고록"
 date: 2020-12-29 17:00:00
 layout: post
 permalink: '/categories/Daily/daily-post-2020-12'
