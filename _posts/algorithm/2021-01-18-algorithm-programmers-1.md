@@ -10,13 +10,13 @@ tags: Algorithm Javascript
 안녕하세요!
 
 오늘은 알고리즘 문제 풀이에 대해 포스팅을 하려고 합니다.
-문제 출처 사이트는 [👉🏻프로그래머스_위](https://programmers.co.kr/learn/courses/30/lessons/42578) 입니다.
+문제 출처 사이트는 [👉🏻프로그래머스_위장](https://programmers.co.kr/learn/courses/30/lessons/42578) 입니다.
 
 
 ## 1. 문제
 - 스파이들은 매일 다른 옷을 조합하여 입어 자신을 위장합니다.
 - 예를 들어 스파이가 가진 옷이 아래와 같고 오늘 스파이가 동그란 안경, 긴 코트, 파란색 티셔츠를 입었다면 다음날은 청바지를 추가로 입거나 동그란 안경 대신 검정 선글라스를 착용하거나 해야 합니다.
-[programmers_1](/assets/images/algorithm/programmers_1.png)
+![programmers_1](/assets/images/algorithm/programmers_1.png)
 
 - 스파이가 가진 의상들이 담긴 2차원 배열 clothes가 주어질 때 서로 다른 옷의 조합의 수를 return 하도록 solution 함수를 작성해주세요.
 
@@ -29,7 +29,7 @@ tags: Algorithm Javascript
 5. 모든 문자열의 길이는 1 이상 20 이하인 자연수이고 알파벳 소문자 또는 '_' 로만 이루어져 있습니다.
 6. 스파이는 하루에 최소 한 개의 의상은 입습니다.
 ```
-[programmers_2](/assets/images/algorithm/programmers_2.png)
+![programmers_2](/assets/images/algorithm/programmers_2.png)
 
 #### 입출력 설명
 **예제 #1**
@@ -50,7 +50,7 @@ tags: Algorithm Javascript
 3. smoky_makeup
 ```
 
-## 2. 풀이 
+## 2. 문제 풀이 
 ```
 function solution(clothes) {
     let answer = 1;
@@ -68,7 +68,6 @@ function solution(clothes) {
     for (let value of map.values())
         answer *= value + 1;
 
-    // 모두 선택하지 않은 경우는 제외
     return answer - 1;
 }
 ```
