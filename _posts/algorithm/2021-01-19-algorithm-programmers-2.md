@@ -15,7 +15,7 @@ tags: Algorithm Javascript
 
 ## 1. 문제
 ![programmers_3](/assets/images/algorithm/programmers_3.png)
-- 문제가 잘 안 보이시면 [👉🏻가장 큰 수](https://programmers.co.kr/learn/courses/30/lessons/42746) 이 링크에서 봐주세요!
+- 문제가 잘 안 보이시면 [👉🏻링크](https://programmers.co.kr/learn/courses/30/lessons/42746) 에서 봐주세요!
 
 ## 2. 문제 풀이
 ### 1. 첫번째 시도 (🙅🏻‍♀️)
