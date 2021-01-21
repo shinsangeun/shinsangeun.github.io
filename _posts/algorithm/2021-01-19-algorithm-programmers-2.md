@@ -14,7 +14,7 @@ tags: Algorithm Javascript
 
 
 ## 1. 문제
-![programmers_3](/assets/images/algorithm/programmers_3.png)
+![programmers_3](/assets/images/algorithm/programmers/programmers_3.png)
 - 문제가 잘 안 보이시면 [👉🏻링크](https://programmers.co.kr/learn/courses/30/lessons/42746) 에서 봐주세요!
 
 ## 2. 문제 풀이
@@ -47,7 +47,7 @@ console.log(solution([6, 10, 2]));
 ```
 
 - 결과
-![programmers_4](/assets/images/algorithm/programmers_4.png)
+![programmers_4](/assets/images/algorithm/programmers/programmers_4.png)
     - 정확성이 `36.4`로 테스트 11개 중 4개만 통과 되었습니다.
     - 다른 방법으로 시도 해야 할 것 같아서 구글링을 통해 방법을 얻게 되었습니다.
     
