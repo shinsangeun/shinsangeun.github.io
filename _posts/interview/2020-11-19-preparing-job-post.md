@@ -1,10 +1,10 @@
 ---
-title: "[Daily] 이직 & 면접 예상 질문 정리"
+title: "[Interview] 이직 & 면접 예상 질문 정리"
 date: 2020-11-19 23:14:55
 layout: post
-permalink: '/categories/Daily/preparing-job'
-categories: Daily
-tags: Daily Interview
+permalink: '/categories/Interview/preparing-job'
+categories: Interview
+tags: Interview
 --- 
 
 안녕하세요!
