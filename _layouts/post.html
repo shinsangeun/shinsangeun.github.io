@@ -32,24 +32,24 @@ layout: archive
 </script>
 
 
-<h4>You May Also Enjoy</h4>
-{% if page.url contains 'jekyll-themes' %}
 <div class="relatedPosts">
 
+    <h4>You May Also Enjoy</h4>
+
     {% assign maxRelated = 4 %}
-    {% assign minCommonTags =  1 %}
+    {% assign minCommonTags =  2 %}
     {% assign maxRelatedCounter = 0 %}
 
-    {% for jekyll-themes in site.jekyll-themes %}
+    {% for post in site.posts %}
 
     {% assign sameTagCount = 0 %}
     {% assign commonTags = '' %}
 
-    {% for tag in jekyll-themes.tags %}
-    {% if jekyll-themes.url != page.url %}
-    {% if page.tags contains tag %}
+    {% for category in post.categories %}
+    {% if post.url != page.url %}
+    {% if page.categories contains category %}
     {% assign sameTagCount = sameTagCount | plus: 1 %}
-    {% capture tagmarkup %} <span class="label label-default">{{ tag }}</span> {% endcapture %}
+    {% capture tagmarkup %} <span class="label label-default">{{ category }}</span> {% endcapture %}
     {% assign commonTags = commonTags | append: tagmarkup %}
     {% endif %}
     {% endif %}
@@ -57,7 +57,7 @@ layout: archive
 
     {% if sameTagCount >= minCommonTags %}
     <div>
-        <h5><a href="{{ site.baseurl }}{{ jekyll-themes.url }}">{{ jekyll-themes.title }}{{ commonTags }}</a></h5>
+        <h5><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}{{ commonTags }}</a></h5>
     </div>
     {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
     {% if maxRelatedCounter >= maxRelated %}
@@ -68,10 +68,6 @@ layout: archive
     {% endfor %}
 
 </div>
-
-{% else %}
-
-{% endif %}
 
 <div>
     {% if page.comments != false %}
