@@ -26,6 +26,7 @@ tags: Interview
 - HTTP Header값의 구성에 대해 설명
 - HTML의 파싱 과정에 대해 설명(DOM Tree 과정)
 - 쿠키와 세션의 특징 [👉🏻링크](https://shinsangeun.github.io/categories/Web/cookie-session)
+- 웹이 갑자기 느려지는 경우 해결 방법
 
 
 2. Node.js
@@ -52,8 +53,8 @@ tags: Interview
 
 - Mysql
     - JOIN을 써본 경험이 있는지, 종류와 특징 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Database/join)
-    
-        
+
+ 
 4. React
 - 장단점/특징/쓰이는 곳에 대해 설명
 - SPA란 무엇인지, SPA로 구현한 경험 설명[👉🏻링크](https://shinsangeun.github.io/categories/React/react-spa)
@@ -61,8 +62,8 @@ tags: Interview
 - 'Access-Control-Allow-Origin: *(아스트릭)을 써도 허용이 안되는 경우가 있는데 어떤 것인지?
 - CSRF란 무엇인지
 - Hooks이나 Redux에 대해 설명, 사용해 본 경험이 있는지
-   
-   
+
+
 5. Javascript
 - 기본형, 참조형 변수에 대해 설명
 - ES6 문법에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/es6-11)
@@ -70,13 +71,13 @@ tags: Interview
 - 클로저란 무엇인지
 - 이벤트에 대해 설명(이벤트 버블링/이벤트 캡처/이벤트 위임)
 - Ajax와 Websocket의 차이 설명
-        
-   
+
+
 6. REST API
 - Restful API란 무엇인지
 - Restful API의 메소드 종류에 대해 설명
-    
-    
+
+ 
 7. CI/CD
 - 웹 서비스 구축 및 배포 경험이 있는지
 - AWS를 사용해 본 경험
@@ -86,8 +87,8 @@ tags: Interview
 - MSA란 무엇인지 설명
 - MSA를 하기 위해 무엇이 필요한 지
 - MSA의 장단점
-        
-   
+
+
 9. Design Pattern
 - 싱글톤 패턴, 팩토리 패턴에 대해 설명
 - MVC 패턴이란, 사용한 경험에 대해 설명
