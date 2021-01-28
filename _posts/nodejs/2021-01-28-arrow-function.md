@@ -1,5 +1,5 @@
 ---
-title: "[Node.js] 화살표 함수(Arrow Function)와 일반 함수의 차이"
+title: "[Node.js] 화살표 함수와 일반 함수의 차이"
 date: 2021-01-28 18:15:31
 layout: post
 permalink: '/categories/Nodejs/arrow-function'
@@ -17,7 +17,7 @@ tags: Nodejs Javascript ES6 ArrowFunction
 
 ### 화살표 함수(Arrow Function).
 - 화살표 함수는 function 키워드 대신 화살표(=>)를 사용하여 간략한 방법으로 함수를 선언 할 수 있습니다.
-- 하지만 모든 경우 화살표 함수를 사용할 수 있는 것은 아닙니다.
+- 하지만 모든 경우 화살표 함수를 사용할 수 있는 것은 아닙니다. 그 이유는 아래의 차이점을 확인 하시면 됩니다.
 
 
 #### 1. 화살표 함수 선언
@@ -59,16 +59,19 @@ console.log(pow(10)); // 100
 - 또는, 콜백 함수로 사용할 수 있습니다. 이 경우 일반적인 함수 표현식 보다 간결합니다.
 
 - ES5 버전
+
 ```javascript
 var arr = [1, 2, 3];
-var pow = arr.map(function (x) { // x는 요소값
+var pow = arr.map(function (x) {
   return x * x;
 });
 
-console.log(pow); // [ 1, 4, 9 ]
+console.log(pow); 
+// [ 1, 4, 9 ]
 ```
 
 - ES6 버전
+
 ```javascript
 const arr = [1, 2, 3];
 const pow = arr.map(x => x * x);
