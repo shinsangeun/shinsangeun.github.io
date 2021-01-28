@@ -20,7 +20,7 @@ tags: Interview
 -----
 
 ### 1. 기술 면접
-1. Web
+##### 1. Web
 - 웹 브라우저의 동작 과정에 대해 설명
 - HTTP 상태 코드에 대해 설명
 - HTTP Header값의 구성에 대해 설명
@@ -29,7 +29,7 @@ tags: Interview
 - 웹이 갑자기 느려지는 경우 해결 방법
 
 
-2. Node.js
+##### 2. Node.js
 - 장단점/특징/쓰이는 곳에 대해 설명
 - 비동기 동작 방식에 대해 설명
 - 이벤트 루프에 대해 설명
@@ -44,18 +44,16 @@ tags: Interview
 - 화살표 함수와 일반 함수의 차이점 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/arrow-function)
 
 
-3. Database
-
+##### 3. Database
 - Redis
     - 장단점/특징/쓰이는 곳 설명
     - Mysql과 차이점 설명
     - pub/sub이란 무엇인지
-
 - Mysql
     - JOIN을 써본 경험이 있는지, 종류와 특징 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Database/join)
 
- 
-4. React
+
+##### 4. React
 - 장단점/특징/쓰이는 곳에 대해 설명
 - SPA란 무엇인지, SPA로 구현한 경험 설명[👉🏻링크](https://shinsangeun.github.io/categories/React/react-spa)
 - CORS란 무엇인지, 원인과 해결 방안 설명 [👉🏻링크](https://shinsangeun.github.io/categories/React/react-cors)
@@ -64,7 +62,7 @@ tags: Interview
 - Hooks이나 Redux에 대해 설명, 사용해 본 경험이 있는지
 
 
-5. Javascript
+##### 5. Javascript
 - 기본형, 참조형 변수에 대해 설명
 - ES6 문법에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/es6-11)
 - Javascript의 this는 무엇인지
@@ -73,26 +71,26 @@ tags: Interview
 - Ajax와 Websocket의 차이 설명
 
 
-6. REST API
+##### 6. REST API
 - Restful API란 무엇인지
 - Restful API의 메소드 종류에 대해 설명
 
- 
-7. CI/CD
+
+##### 7. CI/CD
 - 웹 서비스 구축 및 배포 경험이 있는지
 - AWS를 사용해 본 경험
 
 
-8. Architecture
+##### 8. Architecture
 - MSA란 무엇인지 설명
 - MSA를 하기 위해 무엇이 필요한 지
 - MSA의 장단점
 
 
-9. Design Pattern
+##### 9. Design Pattern
 - 싱글톤 패턴, 팩토리 패턴에 대해 설명
 - MVC 패턴이란, 사용한 경험에 대해 설명
-  
+
 
 ### 2. 경력 관련 면접
 - 진행 했던 프로젝트 내용
