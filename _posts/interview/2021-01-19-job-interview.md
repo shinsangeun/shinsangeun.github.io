@@ -21,58 +21,54 @@ tags: Interview
 
 ### 1. 기술 면접
 1. Web
-- 웹 브라우저의 동작 과정에 대해 설명해 보세요.
-- HTTP 상태 코드에 대해 설명해 보세요.
-- HTTP Header값의 구성에 대해 설명해 보세요.
-- HTML의 파싱 과정에 대해 설명해 보세요. (DOM Tree 과정)
-- 쿠키와 세션의 특징에 대해 설명해 보세요. [👉🏻링크](https://shinsangeun.github.io/categories/Web/cookie-session)
-    
-    
-2. Node.js
-- 장단점/특징/쓰이는 곳에 대해 설명해 보세요.
-- 비동기 동작 방식에 대해 설명해 보세요.
-- 이벤트 루프에 대해 설명해 보세요.
-- async/await/promise에 대해 설명해 보세요.
-- 로그인(인증 방식)에 대해 설명해 보세요.
-- const, let의 차이점에 대해 설명해 보세요.(scope 관점)
-- 싱글 스레드의 원리에 대해 설명해 보세요.
-- 'use strict'를 쓰는 이유에 대해 설명해 보세요.
-- package-lock.json 파일이 무엇인지 설명해 보세요.
-- middleware란 무엇인지, 어떤 것을 사용해 보았는지 설명해 보세요.
-- 호이스팅이란 무엇인지 설명해 보세요.
-- 화살표 함수와 일반 함수의 차이점에 대해 설명해 보세요. [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/arrow-function)
+- 웹 브라우저의 동작 과정에 대해 설명
+- HTTP 상태 코드에 대해 설명
+- HTTP Header값의 구성에 대해 설명
+- HTML의 파싱 과정에 대해 설명(DOM Tree 과정)
+- 쿠키와 세션의 특징 [👉🏻링크](https://shinsangeun.github.io/categories/Web/cookie-session)
 
-    
+2. Node.js
+- 장단점/특징/쓰이는 곳에 대해 설명
+- 비동기 동작 방식에 대해 설명
+- 이벤트 루프에 대해 설명
+- async/await/promise에 대해 설명
+- 로그인(인증 방식)에 대해 설명
+- const, let의 차이점(scope 관점)
+- 싱글 스레드의 원리
+- 'use strict'를 쓰는 이유
+- package-lock.json 파일이 무엇인지
+- middleware란 무엇인지, 어떤 것을 사용해 보았는지
+- 호이스팅이란 무엇인지
+- 화살표 함수와 일반 함수의 차이점 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/arrow-function)
+
 3. Database
 - Redis
-    - 장단점/특징/쓰이는 곳에 대해 설명해 보세요.
-    - Mysql과 다른 점이 무엇인지 설명해 보세요.
-    - pub/sub이란 무엇인지 설명해 보세요.
+    - 장단점/특징/쓰이는 곳 설명
+    - Mysql과 차이점 설명
+    - pub/sub이란 무엇인지
+
 - Mysql
-    - JOIN을 써본 경험이 있는지, 종류와 특징에 대해 설명해 보세요. [👉🏻링크](https://shinsangeun.github.io/categories/Database/join)
-    
+    - JOIN을 써본 경험이 있는지, 종류와 특징 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Database/join)
     
 4. React
-- 장단점/특징/쓰이는 곳에 대해 설명해 보세요.
-- SPA란 무엇인지, SPA로 구현한 경험에 대해 설명해 보세요. [👉🏻링크](https://shinsangeun.github.io/categories/React/react-spa)
-- CORS란 무엇인지, 원인과 해결 방안에 대해 설명해 보세요. [👉🏻링크](https://shinsangeun.github.io/categories/React/react-cors)
+- 장단점/특징/쓰이는 곳에 대해 설명
+- SPA란 무엇인지, SPA로 구현한 경험 설명[👉🏻링크](https://shinsangeun.github.io/categories/React/react-spa)
+- CORS란 무엇인지, 원인과 해결 방안 설명 [👉🏻링크](https://shinsangeun.github.io/categories/React/react-cors)
     - 'Access-Control-Allow-Origin: *(아스트릭)을 써도 허용이 안되는 경우가 있는데 어떤 것인지?
-- CSRF란 무엇인지 설명해 보세요.
-- Hooks이나 Redux에 대해 설명, 사용해 본 경험이 있는지 설명해 보세요.
-
-        
+- CSRF란 무엇인지
+- Hooks이나 Redux에 대해 설명, 사용해 본 경험이 있는지
+   
 5. Javascript
-- 기본형, 참조형 변수에 대해 설명해 보세요.
-- ES6 문법에 대해 설명해 보세요. [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/es6-11)
-- Javascript의 this는 무엇인지 설명해 보세요.
-- 클로저란 무엇인지 설명해 보세요.
-- 이벤트에 대해 설명해 보세요.(이벤트 버블링/이벤트 캡처/이벤트 위임)
-- Ajax와 Websocket의 차이에 대해 설명해 보세요.
-
+- 기본형, 참조형 변수에 대해 설명
+- ES6 문법에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/es6-11)
+- Javascript의 this는 무엇인지
+- 클로저란 무엇인지
+- 이벤트에 대해 설명(이벤트 버블링/이벤트 캡처/이벤트 위임)
+- Ajax와 Websocket의 차이 설명
         
 6. REST API
-- Restful API란 무엇인지 설명해 보세요.
-- Restful API의 메소드 종류에 대해 설명해 보세요.
+- Restful API란 무엇인지
+- Restful API의 메소드 종류에 대해 설명
     
     
 7. CI/CD
@@ -81,14 +77,14 @@ tags: Interview
 
 
 8. Architecture
-- MSA란 무엇인지 설명해 보세요.
-    - MSA를 하기 위해 무엇이 필요한지 설명해 보세요.
-    - MSA의 장단점
+- MSA란 무엇인지 설명
+- MSA를 하기 위해 무엇이 필요한 지
+- MSA의 장단점
         
         
 9. Design Pattern
-- 싱글톤 패턴, 팩토리 패턴에 대해 설명해 보세요.
-- MVC 패턴이란, 사용한 경험에 대해 설명해 보세요.
+- 싱글톤 패턴, 팩토리 패턴에 대해 설명
+- MVC 패턴이란, 사용한 경험에 대해 설명
   
 
 ### 2. 경력 관련 면접
