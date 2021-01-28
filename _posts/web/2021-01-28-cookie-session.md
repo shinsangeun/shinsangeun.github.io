@@ -1,5 +1,5 @@
 ---
-title: "[Web] 쿠키와 세션의 차이"
+title: "[Web] 쿠키(Cookie)와 세션(Session)"
 date: 2021-01-28 21:01:10
 layout: post
 permalink: '/categories/Web/cookie-session'
@@ -9,7 +9,7 @@ tags: Web cookie session
 
 안녕하세요!
 
-이번 포스팅 에서는 웹 개발자 라면 꼭 알아야 할 개념인 `쿠키(cookie)`, `세션(Session)` 에 대한 각각의 특징과 차이점을 알아 보도록 하겠습니다!😄 
+이번 포스팅 에서는 웹 개발자 라면 꼭 알아야 할 개념인 `쿠키(cookie)`🍪, `세션(Session)` 에 대한 각각의 특징과 차이점을 알아 보도록 하겠습니다!😄 
 
 -----
 ### 1. 쿠키(cookie)
