@@ -3,7 +3,7 @@ title: "[Algorithm] 프로그래머스(Javascript) - K번째 수"
 date: 2021-01-21 17:53:33
 layout: post
 permalink: '/categories/Algorithm/programmers-3'
-categories: Algorithm Javascript
+categories: Algorithm
 tags: Algorithm Javascript
 ---
 

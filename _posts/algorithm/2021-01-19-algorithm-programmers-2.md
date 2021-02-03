@@ -3,7 +3,7 @@ title: "[Algorithm] 프로그래머스(Javascript) - 가장 큰 수"
 date: 2021-01-19 17:42:33
 layout: post
 permalink: '/categories/Algorithm/programmers-2'
-categories: Algorithm Javascript
+categories: Algorithm
 tags: Algorithm Javascript
 ---
 

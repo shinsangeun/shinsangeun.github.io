@@ -3,7 +3,7 @@ title: "[Algorithm] 프로그래머스(Javascript) - 위장"
 date: 2021-01-18 15:38:33
 layout: post
 permalink: '/categories/Algorithm/programmers-1'
-categories: Algorithm Javascript
+categories: Algorithm
 tags: Algorithm Javascript
 ---
 
