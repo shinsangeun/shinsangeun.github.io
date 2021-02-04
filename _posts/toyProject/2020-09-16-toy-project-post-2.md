@@ -3,7 +3,7 @@ title: "[Project] FIGLE - 개발 항목 정리(1)"
 date: 2020-09-16 21:48:24 -0400
 layout: post
 permalink: '/categories/Project/figle-2'
-categories: Project React
+categories: Project
 tags: Toy-project FIGLE React
 ---
 

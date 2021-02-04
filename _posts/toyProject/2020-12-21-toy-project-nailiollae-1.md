@@ -3,7 +3,7 @@ title: "[Project] NailOllae - 토이 프로젝트의 시작"
 date: 2020-12-21 12:53:28
 layout: post
 permalink: '/categories/Project/nailollae-1'
-categories: Project Nodejs
+categories: Project
 tags: Toy-project NailOllae Nodejs
 ---
 

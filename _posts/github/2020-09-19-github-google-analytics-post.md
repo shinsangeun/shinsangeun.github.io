@@ -3,7 +3,7 @@ title: "[Github] Google analytics 연동하기"
 date: 2020-09-19 22:05:23 -0400
 layout: post
 permalink: '/categories/Github/github-google-analytics'
-categories: Github Google-Analytics
+categories: Github
 tags: Github Google-analytics
 ---
 
