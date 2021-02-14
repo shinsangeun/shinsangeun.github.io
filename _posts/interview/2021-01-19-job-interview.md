@@ -12,7 +12,7 @@ tags: Interview
 이직을 준비하며 면접 때 받았던 질문들에 대해서 정리해 보고자 합니다.  
 참고로 저는 `node.js`, `React` 분야에 주로 지원 해서 javascript 기반 면접 질문이 많이 있었습니다.  
 
-질문에 대한 답은 옆에 있는 [👉🏻링크]()에 들어가면 자세히 설명 되어 있습니다.🙆🏻‍♀️
+질문에 대한 답은 옆에 있는 [👉🏻링크]()를 누르시면 설명 포스팅으로 이동 합니다.🙆🏻‍♀️
 
 비슷한 분야를 지원 하시는 분들에게 참고 자료로 도움이 되었으면 좋겠습니다!
 
@@ -22,7 +22,7 @@ tags: Interview
 ### 1. 기술 면접
 ##### 1. Web
 - 웹 브라우저의 동작 과정에 대해 설명
-- HTTP 상태 코드에 대해 설명
+- HTTP 상태 코드에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Web/status-code)
 - HTTP Header값의 구성에 대해 설명
 - HTML의 파싱 과정에 대해 설명(DOM Tree 과정)
 - 쿠키와 세션의 특징 [👉🏻링크](https://shinsangeun.github.io/categories/Web/cookie-session)
