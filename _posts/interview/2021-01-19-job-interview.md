@@ -21,7 +21,7 @@ tags: Interview
 
 ### 1. 기술 면접
 ##### 1. Web
-- 웹 브라우저의 동작 과정에 대해 설명
+- 웹 브라우저의 동작 과정에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Web/web-process)
 - HTTP 상태 코드에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Web/status-code)
 - HTTP Header값의 구성에 대해 설명
 - HTML의 파싱 과정에 대해 설명(DOM Tree 과정)
