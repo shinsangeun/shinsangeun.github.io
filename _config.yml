@@ -265,5 +265,6 @@ defaults:
       share: true
       related: true
 
+# sidebar
 category_dir: category/
 tag_dir: tag/
