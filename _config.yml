@@ -264,3 +264,6 @@ defaults:
       comments: true  # 댓글 활성화
       share: true
       related: true
+
+category_dir: category/
+tag_dir: tag/
