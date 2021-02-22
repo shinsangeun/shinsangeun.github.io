@@ -27,7 +27,7 @@ tags: Interview
 - HTML의 파싱 과정에 대해 설명(DOM Tree 과정)
 - 쿠키와 세션의 특징 [👉🏻링크](https://shinsangeun.github.io/categories/Web/cookie-session)
 - 웹이 갑자기 느려지는 경우 해결 방법
-
+- GET/POST 방식 설명과 차이 [👉🏻링크](https://shinsangeun.github.io/categories/Web/get-post)
 
 ##### 2. Node.js
 - 장단점/특징/쓰이는 곳에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/advantage-disadvantage)
