@@ -1,7 +1,7 @@
 ---
 title: "[Web] 웹 브라우저 동작 과정"
 date: 2021-02-15 01:15:33
-layout: post
+layout: single
 permalink: '/categories/Web/web-process'
 categories: Web
 tags: Web process
