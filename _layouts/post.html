@@ -42,7 +42,7 @@ layout: archive
 
 <style>
     .PageNavigation {
-        font-size: 14px;
+        font-size: 15px;
         display: block;
         width: auto;
         overflow: hidden;
@@ -60,30 +60,7 @@ layout: archive
     }
 </style>
 
-<div>
-    {% if page.id and page.related and site.related_posts.size > 0 %}
-    <div class="page__related">
-        <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
-        <div class="grid__wrapper">
-            {% for post in site.related_posts limit:4 %}
-            {% include archive-single.html type="grid" %}
-            {% endfor %}
-        </div>
-    </div>
-    {% elsif page.id and page.related %}
-    <div class="page__related">
-        <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
-        <div class="grid__wrapper">
-            {% for post in site.posts limit:4 %}
-            {% if post.id == page.id %}
-            {% continue %}
-            {% endif %}
-            {% include archive-single.html type="grid" %}
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
-
+<div id="disqus">
     {% if page.comments != false %}
     {% include disqus_comments.html %}
     {% endif %}
