@@ -14,8 +14,8 @@ tags: Algorithm Javascript
 
 
 ## 1. 문제
-![programmers_1](/assets/images/algorithm/programmers/programmers_1.png)
-![programmers_2](/assets/images/algorithm/programmers/programmers_2.png)
+![problem1](/assets/images/algorithm/programmers/algorithm-1/problem1.png)
+![problem12](/assets/images/algorithm/programmers/algorithm-1/problem2.png)
 
 - 문제가 잘 안 보이시면 [👉🏻링크](https://programmers.co.kr/learn/courses/30/lessons/42578) 에서 봐주세요!
 
