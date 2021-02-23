@@ -25,7 +25,7 @@ tags: Algorithm Javascript
 - numbers이 `[0,0,0,0]` 인 경우에는 answer이 "0000" 이 나올 경우도 있으므로 answer의 맨 앞자리가 0인 경우에는 "0"을 return 하도록 만들었습니다.  
 - 이 방법으로 했을 때는 `[6,10,2]`이 코드를 통과 하였지만, `[3, 30, 34, 5, 9]` 배열은 통과하지 못했습니다..🥲
 
-```
+```javascript
 function solution(numbers) {
     let answer = '';
 
@@ -62,7 +62,7 @@ console.log(solution([6, 10, 2]));
     - compareFunction(a, b)은 요소 a와 b의 특정 쌍이 두 개의 인수로 주어질 때 항상 동일한 값을 반환해야합니다. 일치하지 않는 결과가 반환되면 정렬 순서는 정의되지 않습니다.
 - 따라서 아래의 코드로 실행하게 되면 compareFunction 함수에 의해서 **12121**라는 정답을 얻을 수 있게 됩니다.
 
-```    
+```javascript   
 function solution(numbers) {
     var answer = numbers.sort((a,b) => (b.toString() + a.toString())-(a.toString() + b.toString())).join('');
 
@@ -78,7 +78,7 @@ console.log(solution([12, 121]));
 
 
 ## 3. 다른 사람의 풀이
-```
+```javascript
 function solution(numbers) {
     var answer = numbers.map(v=>v+'')
                         .sort((a,b) => (b+a)*1 - (a+b)*1)

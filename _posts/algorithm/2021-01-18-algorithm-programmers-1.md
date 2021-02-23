@@ -21,7 +21,7 @@ tags: Algorithm Javascript
 
 
 ## 2. 문제 풀이 
-```
+```javascript
 function solution(clothes) {
     let answer = 1;
     let map = new Map();
@@ -50,7 +50,7 @@ function solution(clothes) {
 
 
 ## 3. 다른 사람의 풀이
-```
+```javascript
 function solution(clothes) {
     return Object.values(clothes.reduce((obj, t)=> {
         obj[t[1]] = obj[t[1]] ? obj[t[1]] + 1 : 1;

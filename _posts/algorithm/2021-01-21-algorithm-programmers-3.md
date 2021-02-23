@@ -24,7 +24,7 @@ tags: Algorithm Javascript
 - 잘라진 result 배열을 sort 하고, 해당 배열을 다시 **result2**에 할당 하였습니다.
 - 아래의 코드로 실행 하였을 때는 테스트 케이스가 통과하여 제출을 해보았습니다.
 
-```
+```javascript
 function solution(array, commands) {
     var answer = [];
     for(var i = 0; i < commands.length; i++){
@@ -59,7 +59,7 @@ console.log(solution([1,5,2,6,3,7,4], [[2,5,3],[4,4,1],[1,7,3]]));
     - compareFunction(a, b)이 0보다 큰 경우, b를 a보다 낮은 인덱스로 소트
     - compareFunction(a, b)은 요소 a와 b의 특정 쌍이 두 개의 인수로 주어질 때 항상 동일한 값을 반환
 
-```    
+```javascript
 function solution(array, commands) {
    var answer = [];
     for(var i = 0; i < commands.length; i++){
@@ -75,7 +75,7 @@ function solution(array, commands) {
 
 
 ## 3. 다른 사람의 풀이
-```
+```javascript
 function solution(array, commands) {
     var answer = [];
 
