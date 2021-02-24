@@ -87,7 +87,7 @@ hard 옵션은 커밋의 이력을 모두 삭제 하므로 협업 시에는 다�
 
 2. (터미널 명령어) hard: 커밋의 이력까지 모두 삭제
     - `git reset --<옵션:여기서는 hard> <commit ID: 되돌아 갈 커밋의 아이디>`
-![image2](/assets/images/github/git-branch-pointer.png)
+![image2](/assets/images/github/github-branch-pointer.png)
 
 3. 로컬 저장소의 경우 커밋 히스토리가 원격 히스토리보다 뒤(non-fast-forward)인 경우, push를 진행시 오류가 발생 하기 때문에 강제로 브랜치에 덮어 씌워야 합니다.
 - commit 이력 삭제 이후에는 해당 브랜치에 강제로 push를 해주어야 함
