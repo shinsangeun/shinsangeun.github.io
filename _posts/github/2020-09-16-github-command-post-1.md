@@ -83,13 +83,13 @@ hard 옵션은 커밋의 이력을 모두 삭제 하므로 협업 시에는 다�
 
 1. (UI) 만약 자신의 작업 브랜치에 커밋을 되돌리기 위한 경우, `source tree`의 UI에 대해 설명 하겠습니다.  
 ![image](/assets/images/github/git-commit-reset.png)
-`[Algorithm] 프로그래머스(Javascript)-가운데 글자 가져오기 - 포스팅 업로드` 이후에 커밋한 내역을 삭제 하려면 Source Tree에서 해당 커밋을 선택하고 오른쪽 버튼을 누르면, **master를 이 커밋으로 초기화** 버튼을 눌러서 HEAD를 커밋 아이디 **6a6dbe9**로 맞춰 줍니다.
+- 예를 들어, `[Algorithm] 프로그래머스(Javascript)-가운데 글자 가져오기 - 포스팅 업로드` 이후에 커밋한 내역을 삭제 하려면 Source Tree에서 해당 커밋을 선택하고 오른쪽 버튼을 누르면, **master를 이 커밋으로 초기화** 버튼을 눌러서 HEAD를 커밋 아이디 **6a6dbe9**로 맞춰 줍니다.
 
 2. (터미널 명령어) hard: 커밋의 이력까지 모두 삭제
     - `git reset --<옵션:여기서는 hard> <commit ID: 되돌아 갈 커밋의 아이디>`
-![image](/assets/images/github/git-branch-pointer.png)
+![image2](/assets/images/github/git-branch-pointer.png)
 
-3. 로컬 저장소의 경우 커밋 히스토리가 원격 히스토리보다 뒤(non-fast-forward)인 경우, push를 진행시 오류가 발생 하기 때문에 강제로 브랜치에 덮어 씌워야 함
+3. 로컬 저장소의 경우 커밋 히스토리가 원격 히스토리보다 뒤(non-fast-forward)인 경우, push를 진행시 오류가 발생 하기 때문에 강제로 브랜치에 덮어 씌워야 합니다.
 - commit 이력 삭제 이후에는 해당 브랜치에 강제로 push를 해주어야 함
    - `git push -f`
 
