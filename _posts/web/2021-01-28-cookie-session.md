@@ -9,7 +9,9 @@ tags: Web cookie session
 
 안녕하세요!
 
-이번 포스팅 에서는 웹 개발자 라면 꼭 알아야 할 개념인 `쿠키(cookie)`🍪, `세션(Session)` 에 대한 각각의 특징과 차이점을 알아 보도록 하겠습니다!😄 
+이번 포스팅 에서는 웹 개발자 라면 꼭 알아야 할 개념인 `쿠키(cookie)`🍪, `세션(Session)` 에 대한 각각의 특징과 차이점을 알아 보도록 하겠습니다!😄   
+
+🗣 참고: [👉🏻경력 개발자 면접 질문](https://shinsangeun.github.io/categories/Interview/job-Interview) 포스팅도 함께 읽으시면 면접 시 도움이 됩니다!🙆🏻‍♀️
 
 -----
 ### 1. 쿠키(cookie)
