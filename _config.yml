@@ -264,3 +264,13 @@ defaults:
       comments: true  # 댓글 활성화
       share: true
       related: true
+
+
+tipue_search:
+  include:
+    pages: false
+    collections: []
+  exclude:
+    files: [search.html, index.html, tags.html]
+    categories: []
+    tags: []
