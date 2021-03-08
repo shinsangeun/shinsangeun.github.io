@@ -99,7 +99,7 @@ author:
   location         : "Korea"
   email            : "s0813se@naver.com"
   github           : "shinsangeun"
-  instagram        : "ssang__eunii"
+  instagram        : "ssang_eunii"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -118,7 +118,7 @@ author:
       # url: "https://github.com/shinsangeun"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      # url: "https://instagram.com/ssang_eunii"
 
 # Site Footer
 footer:
