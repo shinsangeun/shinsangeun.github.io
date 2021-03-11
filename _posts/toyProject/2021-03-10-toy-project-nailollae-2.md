@@ -56,31 +56,31 @@ tags: Toy-project NailOllae Nodejs
     
 
 ## 4. 구현 화면
-- 여태까지 개발한 기능과 앞으로 해야할 TODO 기능을 정리해 보았습니다.
 - 아래는 현재까지 개발된 구현 화면 입니다.
-- Home
+
+#### 4-1. Home
 ![home](/assets/images/toyProject/home.png)
 
-- Login
+#### 4-2. Login
 ![login](/assets/images/toyProject/login.png)
 
-- Reservation
+#### 4-3. Reservation
 ![reservation](/assets/images/toyProject/reservation.png)
 
-- Review
+#### 4-4. Review
 ![review](/assets/images/toyProject/review.png)
 
-- Review 작성
+#### 4-5. Review 작성
 ![review_write](/assets/images/toyProject/review_write.png)
 
-- My page
+#### 4-6. My page
 ![mypage](/assets/images/toyProject/mypage.png)
 
 
 ## 5. 마치며
 - 아직 추가 해야 할 기능 들이 많이 있지만, 여태 까지 개발한 기능과 개선이 필요한 기능에 대해 정리해 보고자 포스팅을 작성 하게 되었습니다.
 - 혼자서 토이 프로 젝트를 하니까 직접 `기획`, `개발`을 해볼 수 있다는 점이 좋은 것 같습니다. **네일 올래?** 프로젝트가 완성이 되면 다시 토이 프로젝트 포스팅 으로 돌아 오겠습니다!😊
- 
+- 혹시...이 포스팅을 읽고 나서, **수정**이나 **추가 사항**이 필요할 것 같은 부분이 있다면 <U>댓글로 남겨 주시면 너무 좋을 것 같아요!👍🏻</U> 
 
 -----
 
