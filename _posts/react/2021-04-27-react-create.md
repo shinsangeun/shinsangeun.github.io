@@ -25,6 +25,8 @@ npm install -g create-react-app
 
 * 위의 명령어 실행 시, 아래처럼 권한 문제로 설치에 실패 한다면 `sudo` 명령어로 권한을 부여해 줍니다.
 ![react-create-err](/assets/images/react/react_create_err.png)
+  
+* 명령어 실행  
 ```shell
 sudo npm install -g create-react-app
 ```
@@ -32,16 +34,16 @@ sudo npm install -g create-react-app
 ![react-create-sudo](/assets/images/react/react_create_sudo.png)  
 
 
-2. 1번 명령어가 실행이 완료 되면, 프로젝트 이름을 입력해서 프로젝트를 생성 합니다.
+2. 명령어 실행이 완료 되면, 프로젝트 이름을 입력해서 프로젝트를 생성 합니다.
 - React 프로젝트는 npm 모듈 설치 하듯이 명령어 한 줄이면 알아서 프로젝트 구조가 생성이 되어 편리합니다!
 ```shell
-create-react-app [프로젝트 이름]
+create-react-app "프로젝트 이름"
 ```
 ![react-create-app](/assets/images/react/react_create_app.png)
 
 - 자신이 생성한 **프로젝트 이름** 해당 경로로 이동하여 프로젝트가 제대로 생성이 되었는지 확인 합니다.
 ```shell
-cd [프로젝트 이름]
+cd "프로젝트 이름"
 ```
 
 
@@ -50,8 +52,8 @@ cd [프로젝트 이름]
 ![react-script](/assets/images/react/react_script.png)
   
 - `script`에 작성된 명령어로 프로젝트를 실행 할 수 있습니다. 
-- 프로젝트 실행 방법은, 
-  (1) 왼쪽의 재생 버튼을 눌러 프로젝트를 실행 합니다.
+- 프로젝트 실행 방법은,  
+  (1) 왼쪽의 재생 버튼을 눌러 프로젝트를 실행 합니다.  
   (2) 터미널에서 명령어를 입력 합니다.
   ```shell
   npm run start
