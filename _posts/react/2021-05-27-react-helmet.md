@@ -7,16 +7,17 @@ categories: React
 tags: React react-app react-helmet
 ---
 
-안녕하세요!
+안녕하세요! 
+요즘 너무 바쁘다 보니 블로그를 너무 오랜만에 쓰는 것 같네요..🥲
 
-이번 포스팅 에서는 `React.js`에서 **react-helmet** 라이브러리를 이용하여 웹 페이지 마다(라우팅 별) `Title`을 수정하는 방법 방법에 대해 알아보도록 하겠습니다.!🤔
+이번 포스팅 에서는 `React.js`에서 **react-helmet** 라이브러리를 이용하여 웹 페이지 마다(라우팅 별) `Title`을 수정하는 방법 방법에 대해 알아보도록 하겠습니다!😲
 
 -----
 ### 1. Title 설정
 - react.js에서 초기에 프로젝트의 title은 아래 사진과 같이 `<title>` 태그로 되어 있습니다.  
 ![title-html](/assets/images/react/react_title_html.png)
   
-- React.js는 기본적으로 [`SPA(Single Page Application)` 동작 방식](https://shinsangeun.github.io/categories/React/react-spa) 이기 때문에, 페이지 타이틀은 맨 처음에 서버에서 받은 값을 사용 합니다. 그래서 브라우저 단에서 라우팅이 변경이 되어도 이 값은 계속 유지가 됩니다. 
+- React.js는 기본적으로 [SPA(Single Page Application) 동작 방식](https://shinsangeun.github.io/categories/React/react-spa) 이기 때문에, 페이지 타이틀은 맨 처음에 서버에서 받은 값을 사용 합니다. 그래서 브라우저 단에서 라우팅이 변경이 되어도 이 값은 계속 유지가 됩니다. 
 - 하지만 라우팅 별로 title 제목을 다르게 설정 하고 싶을 수도 있기 때문에 웹 페이지 별로 다른 타이틀을 보여 주고 싶은 상황이 생길 수 있습니다.
 
 
@@ -26,7 +27,8 @@ tags: React react-app react-helmet
 npm install react-helmet
 ``` 
 
-- 함수형 컴포넌트 에서 사용하기
+- 함수형 컴포넌트에서 사용하기
+
 ```javascript
 import {Helmet} from "react-helmet";
 
@@ -35,7 +37,8 @@ const title = () => {
 }
 ```
 
-- 자식 컴포넌트 설정
+- 자식 컴포넌트에서 사용하기
+
 ```javascript
 <Helmet>
     <title>FIGLE - 경기 매치 리스트</title>
