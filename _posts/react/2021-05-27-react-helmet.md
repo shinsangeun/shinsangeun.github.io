@@ -23,11 +23,13 @@ tags: React react-app react-helmet
 
 ### 2. react-helmet 사용 방법
 - 프로젝트에 react-helmet 라이브러리를 적용하기 위해 설치 합니다.
+
 ```shell
 npm install react-helmet
 ``` 
 
 - 함수형 컴포넌트에서 사용하기
+
 ```javascript
 import {Helmet} from "react-helmet";
 
@@ -36,8 +38,8 @@ const title = () => {
 }
 ```
 
+- 자식 컴포넌트에서 사용하기
 
-- 자식 컴포넌트에서 사용하기  
 ```javascript
 <Helmet>
     <title>FIGLE - 경기 매치 리스트</title>
