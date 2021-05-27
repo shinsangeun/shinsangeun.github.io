@@ -7,7 +7,7 @@ categories: React
 tags: React react-app react-helmet
 ---
 
-안녕하세요! 
+안녕하세요!  
 요즘 너무 바쁘다 보니 블로그를 너무 오랜만에 쓰는 것 같네요..🥲
 
 이번 포스팅 에서는 `React.js`에서 **react-helmet** 라이브러리를 이용하여 웹 페이지 마다(라우팅 별) `Title`을 수정하는 방법 방법에 대해 알아보도록 하겠습니다!😲
@@ -28,7 +28,6 @@ npm install react-helmet
 ``` 
 
 - 함수형 컴포넌트에서 사용하기
-
 ```javascript
 import {Helmet} from "react-helmet";
 
@@ -37,8 +36,8 @@ const title = () => {
 }
 ```
 
-- 자식 컴포넌트에서 사용하기
 
+- 자식 컴포넌트에서 사용하기  
 ```javascript
 <Helmet>
     <title>FIGLE - 경기 매치 리스트</title>
