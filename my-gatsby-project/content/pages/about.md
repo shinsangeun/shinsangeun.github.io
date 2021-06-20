@@ -1,7 +1,7 @@
 ---
 title: "About me"
 template: "page"
-socialImage: "../assets/images/github-profile.png"
+socialImage: "/assets/images/github-profile.png"
 ---
 
 ## Introduce.
