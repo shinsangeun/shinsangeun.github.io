@@ -22,12 +22,12 @@ module.exports = {
   ],
   author: {
     name: 'Sangeun shin',
-    photo: '/media/photo.jpg',
+    photo: '/media/git-profile.png',
     bio: '기록하며 성장하는 개발자가 되고 싶습니다.',
     contacts: {
       email: 's0813se@naver.com',
-      github: 'https://github.com/shinsangeun',
-      instagram: 'https://www.instagram.com/ssang_eunii/',
+      github: 'shinsangeun',
+      instagram: 'ssang_eunii',
       facebook: '',
       linkedin: '',
       twitter: '',

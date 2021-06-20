@@ -9,7 +9,7 @@ tags:
   - "React"
   - "react-app"
   - "react-helmet"
-description: "이번 포스팅 에서는 `React.js`에서 **react-helmet** 라이브러리를 이용하여 웹 페이지 마다(라우팅 별) `Title`을 수정하는 방법 방법에 대해 알아보도록 하겠습니다!😲"
+description: "이번 포스팅 에서는 `React.js`에서 react-helmet 라이브러리를 이용하여 웹 페이지 마다(라우팅 별) `Title`을 수정하는 방법 방법에 대해 알아보도록 하겠습니다!😲"
 ---
 
 안녕하세요!  
