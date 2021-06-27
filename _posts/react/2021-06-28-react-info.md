@@ -13,11 +13,11 @@ tags: React Vue Next Nuxt
 
 -----
 ### 1. 프레임 워크 비교
+
 |       비교       |       React.js      |          Vue.js         |
 |:----------------:|:-------------------:|:-----------------------:|
 |    사용 방법     | 플레인 자바스크립트 | 마크업 스타일 스크립트  |
 |  SSR 프레임 워크 |     Next.js         |        Nuxt.js          |
-|  공식 홈페이지  | [next.js 가이드](https://nextjs.org/docs/getting-started) |  [nuxt.js 가이드](https://ko.nuxtjs.org/docs/2.x/get-started/installation)|
 |     공통점       |         SPA, Component 기반, Lifecycle       ||
 
 - 한국어로 가이드가 자세히 나와 있어서 Node.js 나 Javascript를 이미 알고 있는 분들은 크게 어렵지 않을 거라고 생각 됩니다.
@@ -37,6 +37,9 @@ tags: React Vue Next Nuxt
 
   
 2.  next.js
+- 공식 문서
+  - [https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started)
+  
 - 페이지네이션 구현 예제
   - [https://velog.io/@ksh4820/React-Pagination-구현](https://velog.io/@ksh4820/React-Pagination-%EA%B5%AC%ED%98%84)
   - [https://chanhuiseok.github.io/posts/react-12/](https://chanhuiseok.github.io/posts/react-12/)
@@ -50,8 +53,11 @@ tags: React Vue Next Nuxt
 - 메뉴별 style 색상 다르게 표시 하기
   - [https://velopert.com/2937](https://velopert.com/2937)
 
+3. nuxt.js
+- 공식 문서
+  - [https://ko.nuxtjs.org/docs/2.x/get-started/installation](https://ko.nuxtjs.org/docs/2.x/get-started/installation)
   
-3. 개발 서적
+4. 개발 서적
 - [리액트를 다루는 기술](http://www.yes24.com/Product/Goods/78233628)
 - [리액트 교과서](http://www.yes24.com/Product/Goods/60763065?OzSrank=13)
 - [Do it! Vue.js 입문](http://www.yes24.com/Product/Goods/58206961?OzSrank=2)
