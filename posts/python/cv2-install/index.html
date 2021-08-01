@@ -58,7 +58,7 @@
 
         gtag('config', 'UA-178386171-1', {"send_page_view":false});
       }
-      </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=1f35d2769c0e6f3060cac521c69b7109" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#F7A046"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=1f35d2769c0e6f3060cac521c69b7109"/><title data-react-helmet="true">[Python] Mac OS에 OpenCV &amp; cv2 설치 하기 - 기록하며 성장하기</title><meta data-react-helmet="true" name="description" content="이번 포스팅 에서는 `OpenCV`를 사용 해서 이미지 인식하는 프로그램을 만들어 보던 중에 만나게 된 트러블 슈팅 방안에 대해 알아 보겠습니다."/><meta data-react-helmet="true" property="og:site_name" content="[Python] Mac OS에 OpenCV &amp; cv2 설치 하기 - 기록하며 성장하기"/><meta data-react-helmet="true" property="og:image" content="https://shinsangeun.github.io//media/git-profile.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="[Python] Mac OS에 OpenCV &amp; cv2 설치 하기 - 기록하며 성장하기"/><meta data-react-helmet="true" name="twitter:description" content="이번 포스팅 에서는 `OpenCV`를 사용 해서 이미지 인식하는 프로그램을 만들어 보던 중에 만나게 된 트러블 슈팅 방안에 대해 알아 보겠습니다."/><meta data-react-helmet="true" name="twitter:image" content="https://shinsangeun.github.io//media/git-profile.png"/><script data-react-helmet="true" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6350007631151961" crossorigin="anonymous"></script><link as="script" rel="preload" href="/webpack-runtime-b801fede4d05006af5ff.js"/><link as="script" rel="preload" href="/framework-b2f816f437730bdc94bf.js"/><link as="script" rel="preload" href="/532a2f07-d05f238db5f768b1710d.js"/><link as="script" rel="preload" href="/dc6a8720040df98778fe970bf6c000a41750d3ae-f9c288b65727632fb68e.js"/><link as="script" rel="preload" href="/app-24ac8e0a644d4fe6cdf1.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/cd95ea5cbd2c605f26db819f07999610c9ff4310-f0e4815a48feb91d6b3f.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-js-381c1b847824134fa4bd.js"/><link as="fetch" rel="preload" href="/page-data/posts/python/cv2-install/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/251939775.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/401334301.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/825871152.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--3Pyz6"><div><a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a><div><div class="Content-module--content--3p512"><h1 class="Content-module--content__title--2BDW9">[Python] Mac OS에 OpenCV &amp; cv2 설치 하기</h1><div class="Content-module--content__body--2TrQ-"><p>안녕하세요!  </p>
+      </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=b9b794fa12f246e5503dc74d677e5f1a" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#F7A046"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><title data-react-helmet="true">[Python] Mac OS에 OpenCV &amp; cv2 설치 하기 - 기록하며 성장하기</title><meta data-react-helmet="true" name="description" content="이번 포스팅 에서는 `OpenCV`를 사용 해서 이미지 인식하는 프로그램을 만들어 보던 중에 만나게 된 트러블 슈팅 방안에 대해 알아 보겠습니다."/><meta data-react-helmet="true" property="og:site_name" content="[Python] Mac OS에 OpenCV &amp; cv2 설치 하기 - 기록하며 성장하기"/><meta data-react-helmet="true" property="og:image" content="https://shinsangeun.github.io//media/git-profile.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="[Python] Mac OS에 OpenCV &amp; cv2 설치 하기 - 기록하며 성장하기"/><meta data-react-helmet="true" name="twitter:description" content="이번 포스팅 에서는 `OpenCV`를 사용 해서 이미지 인식하는 프로그램을 만들어 보던 중에 만나게 된 트러블 슈팅 방안에 대해 알아 보겠습니다."/><meta data-react-helmet="true" name="twitter:image" content="https://shinsangeun.github.io//media/git-profile.png"/><script data-react-helmet="true" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6350007631151961" crossorigin="anonymous"></script><link as="script" rel="preload" href="/webpack-runtime-d4d1779d43f2dd57cb1d.js"/><link as="script" rel="preload" href="/framework-b2f816f437730bdc94bf.js"/><link as="script" rel="preload" href="/532a2f07-d05f238db5f768b1710d.js"/><link as="script" rel="preload" href="/dc6a8720040df98778fe970bf6c000a41750d3ae-f9c288b65727632fb68e.js"/><link as="script" rel="preload" href="/app-826e068f2b98b3263c04.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/cd95ea5cbd2c605f26db819f07999610c9ff4310-2434aeb2977963cc66f5.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-js-1ef42a99aa4c97e0b019.js"/><link as="fetch" rel="preload" href="/page-data/posts/python/cv2-install/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/251939775.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/401334301.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/825871152.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--3Pyz6"><div><a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a><div><div class="Content-module--content--3p512"><h1 class="Content-module--content__title--2BDW9">[Python] Mac OS에 OpenCV &amp; cv2 설치 하기</h1><div class="Content-module--content__body--2TrQ-"><p>안녕하세요!  </p>
 <p>이번 포스팅 에서는 <code class="language-text">OpenCV</code>를 사용 해서 이미지 인식하는 프로그램을 만들어 보던 중에 만나게 된 트러블 슈팅 방안에 대해 알아 보겠습니다.<br>
 <code class="language-text">OpenCV</code>와 <code class="language-text">cv2</code> 라이브러리를 설치하고 import 할 때 발생한 이슈와 해결 방안에 대해 포스팅 해보 도록 하겠습니다!🤔</p>
 <hr>
@@ -69,7 +69,47 @@
 <code class="language-text">No module named &#39;cv2.cv2&#39;</code></li>
 </ul>
 <p>👇🏻cv2 에러가 발생한 모습
-<img src="static/images/python/python_cv2.png" alt="cv2"> </p>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 797px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2998f3d800ae72a182683e1b3c4f391c/43fbc/python_cv2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 34.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABEUlEQVQoz42S226EMAxE9/9/slJbLQshIVdyz3RgxWqrvtTSkRXAk7HNzbmKRc/4XD6g1IaYEvZ9RwxP9hCYAxKfZb5LMf4hkqPm4AZG9Q5xmVHkirwKZGtYvKOQyo9rzvDWQkwT9LrCSAktBKySRMEbc8hgjPEU9NFh1hMmfcf3+gVhBLZkYLJDoKimoCWJDkspyCTxfORaK2pruOIULL3CJIdHWHE3MzavkRtd5QCdLCyJla21dLLzElsqYu8vocPdy2HrDY4uH27GIgXmbYGKBr0P0tHHxTjzVfzOq+XrkA+XxcNxEZs3dBDwn7jqf7XcucXGAQ+tAdK5LSkVhFgI57lt/AMUMuf23t67s0v2B40QIZk7NlnyAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2998f3d800ae72a182683e1b3c4f391c/8ac56/python_cv2.webp 240w,
+/static/2998f3d800ae72a182683e1b3c4f391c/d3be9/python_cv2.webp 480w,
+/static/2998f3d800ae72a182683e1b3c4f391c/9eee1/python_cv2.webp 797w"
+              sizes="(max-width: 797px) 100vw, 797px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2998f3d800ae72a182683e1b3c4f391c/8ff5a/python_cv2.png 240w,
+/static/2998f3d800ae72a182683e1b3c4f391c/e85cb/python_cv2.png 480w,
+/static/2998f3d800ae72a182683e1b3c4f391c/43fbc/python_cv2.png 797w"
+            sizes="(max-width: 797px) 100vw, 797px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2998f3d800ae72a182683e1b3c4f391c/43fbc/python_cv2.png"
+            alt="cv2"
+            title="cv2"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span> </p>
 <h3 id="해결-방안" style="position:relative;"><a href="#%ED%95%B4%EA%B2%B0-%EB%B0%A9%EC%95%88" aria-label="해결 방안 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>해결 방안</h3>
 <ul>
 <li>
@@ -84,7 +124,51 @@
 <li>설치 되어 있지 않는 경우, 터미널에 <code class="language-text">conda</code>라고 입력 하면 <code class="language-text">zsh: command not found: conda</code> 라고 해당 커맨드가 없다고 나옵니다.</li>
 <li>설치 되어 있는 경우, <code class="language-text">conda</code> 명령어를 사용할 수 있는 목록과 내용들이 나타납니다.<br>
 👇🏻conda가 설치 된 모습
-<img src="static/images/python/conda.png" alt="conda"> </li>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/aaaaf0b71ba6eb1a8b4a9501db767502/1e1c3/conda.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA0ElEQVQY05VRya6DMBDL//8fCLHz9AhlJyAkdhdPSy/l0pEsOxPJsynf9xHHMVzXBTU5TVM8sgydMTCZRv//h7s4juMLqixL9H0vaJoGeZ6jbVu0XQdzgjyMI7qTq6oSLooC45m7M1Vaa/mcpkmwLIuAep7nF976+iev63pvGAQBkiRBXdfSJZP7vgsu/UsojsG9saLjOKItyxLNYlEUyYjm3CfN2eG2bcJX19c0zCk+uDMmaEYD27Y/h6IpC4RhCM/zBDwe980iZDZFj2EY8ASv9MsR13Yp8AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/aaaaf0b71ba6eb1a8b4a9501db767502/8ac56/conda.webp 240w,
+/static/aaaaf0b71ba6eb1a8b4a9501db767502/d3be9/conda.webp 480w,
+/static/aaaaf0b71ba6eb1a8b4a9501db767502/e46b2/conda.webp 960w,
+/static/aaaaf0b71ba6eb1a8b4a9501db767502/f992d/conda.webp 1440w,
+/static/aaaaf0b71ba6eb1a8b4a9501db767502/5afe4/conda.webp 1670w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/aaaaf0b71ba6eb1a8b4a9501db767502/8ff5a/conda.png 240w,
+/static/aaaaf0b71ba6eb1a8b4a9501db767502/e85cb/conda.png 480w,
+/static/aaaaf0b71ba6eb1a8b4a9501db767502/d9199/conda.png 960w,
+/static/aaaaf0b71ba6eb1a8b4a9501db767502/07a9c/conda.png 1440w,
+/static/aaaaf0b71ba6eb1a8b4a9501db767502/1e1c3/conda.png 1670w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/aaaaf0b71ba6eb1a8b4a9501db767502/d9199/conda.png"
+            alt="conda"
+            title="conda"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span> </li>
 </ul>
 </li>
 <li>
@@ -96,18 +180,154 @@
 <li>터미널에 <code class="language-text">source .zshrc</code> 명령어를 입력 하여 바뀐 내용을 적용 합니다.</li>
 <li>위 과정 까지 모두 마친 후에 터미널에 <code class="language-text">conda</code> 명령어를 입력하여 정상적으로 설치가 되었는 지 확인 합니다.</li>
 </ul>
-<p><img src="static/images/python/bash_profile.png" alt="bash_profile"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a5ee264a6f56d0c256dced2f8f2659bc/55681/bash_profile.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAABV0lEQVQoz5WT626CQBCFef+X648KKhdBECEg97tSTveM0cRK03STyeA6fLtzzqCdTie4rgvLsnA8HhGGIfb7PeI4Rhz4CCwToWPj7DpI0xSXy0VinmdwLcvyElrbtqjrGlVVoWka8HdRFOi6Dl3fo6ob1Gq/VDVZlkkQeLvd1oFlWSLPcykiiHA+y0FNq6ADvlThOI4Yh0Hy9XqVlxXuHch2N5uNBFs9HA6wbVvgWXRGGZ8xVQUw32/0WD9BTyAhpmlC13XsdjsJAoMgQKQ0TB0TyefHG/A3qEbxqQvbZqZJfKam1K5WrbdKy0ZlykNJePte7a1qGEWRmEGRqQ8LmakhjekZam9Q+j0y/5umaR3o+760x5Hg6f9Zd2Nel8bbbbdbmSvCPc8TYxzHkfa5x/YfLf5pCkeALzLTDA44HWemWQQbhiHDzzoeyA8gyzPRkiOWJMnTh299h/1mfw12CAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a5ee264a6f56d0c256dced2f8f2659bc/8ac56/bash_profile.webp 240w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/d3be9/bash_profile.webp 480w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/e46b2/bash_profile.webp 960w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/f992d/bash_profile.webp 1440w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/882b9/bash_profile.webp 1920w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/721a0/bash_profile.webp 2062w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a5ee264a6f56d0c256dced2f8f2659bc/8ff5a/bash_profile.png 240w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/e85cb/bash_profile.png 480w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/d9199/bash_profile.png 960w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/07a9c/bash_profile.png 1440w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/29114/bash_profile.png 1920w,
+/static/a5ee264a6f56d0c256dced2f8f2659bc/55681/bash_profile.png 2062w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a5ee264a6f56d0c256dced2f8f2659bc/d9199/bash_profile.png"
+            alt="bash_profile"
+            title="bash_profile"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
 </li>
 <li>그 다음 <code class="language-text">cv2</code>를 설치 하기 위해 가상 환경을 생성 합니다.</li>
 <li>
 <p><code class="language-text">conda create --name opencv-env python=3.6</code></p>
 <p>👇🏻설치가 되면 아래와 같이 나타납니다!
-<img src="static/images/python/create_virtual.png" alt="create_virtual"></p>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6aa70f4aabf6ae9d2baf6593abad143b/966c1/create_virtual.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 92.08333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAACA0lEQVQ4y52Uh47iMBCG8/7PBUI0URI2CAihEzqEltDm+ObO0Wa1Wa3O0siO7Xz+p9hWo9EQx3GkVqtJqVSScrkszA0GA+n1ejr2fV/89od4dkMC35PLeim76UT2s4mEwfzdT3V8P4ZizWYzCYJAlsulzOdzCcNQ4jiW/23WbrdT4Hq9lu12K7fbTR6Ph0Ixvs04iiKJsTjS78f9Lq/XS17P5197jy02Advv93I4HGSz2SiYucViocoxxniwWq10TH+5XFSVQv+ZBYQYEa/hcKibUfjb9hmmQCaPx6Mqu16vqU1ZP/1kFq4ZwyXiCRw3Sdh0Ok3gvwLi3mg0UuDzHViSgKGWnkbiOOQnV1NAlABFITFVYHTVQ4it53kJkHW8yFJtkf5ut6tAUzY01JJ5ir5SqWiyaBzebrd1PRNYrValXq9Lv9/XBLEAGDXACoVCAiS2qM5UaGKEutPppCUDjPrEmKesCAeHAxyPx9kKUQQIQxEArt/5fNYetznQAIB+La8UkJ9wh/IwVxA1pnSYAwiIm2Hs/r523ypEAS7R4yI/N5tNjRPzk8lEe9u2te90OpoUBJhHJAVEheu6SZBRyxPGHNkHzJjS4du8Stxlc0VTQBbIsHGBzblcTlW2Wi2FOI6t72M+n9c5wpQVRwuA634kp30G4iYAelxFebFY1D1ZSfkD1+Be/y12d8QAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/6aa70f4aabf6ae9d2baf6593abad143b/8ac56/create_virtual.webp 240w,
+/static/6aa70f4aabf6ae9d2baf6593abad143b/d3be9/create_virtual.webp 480w,
+/static/6aa70f4aabf6ae9d2baf6593abad143b/e46b2/create_virtual.webp 960w,
+/static/6aa70f4aabf6ae9d2baf6593abad143b/f992d/create_virtual.webp 1440w,
+/static/6aa70f4aabf6ae9d2baf6593abad143b/94107/create_virtual.webp 1694w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/6aa70f4aabf6ae9d2baf6593abad143b/8ff5a/create_virtual.png 240w,
+/static/6aa70f4aabf6ae9d2baf6593abad143b/e85cb/create_virtual.png 480w,
+/static/6aa70f4aabf6ae9d2baf6593abad143b/d9199/create_virtual.png 960w,
+/static/6aa70f4aabf6ae9d2baf6593abad143b/07a9c/create_virtual.png 1440w,
+/static/6aa70f4aabf6ae9d2baf6593abad143b/966c1/create_virtual.png 1694w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/6aa70f4aabf6ae9d2baf6593abad143b/d9199/create_virtual.png"
+            alt="create_virtual"
+            title="create_virtual"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
 </li>
 <li>설치한 가상 환경을 실행 시킵니다.</li>
 <li>
 <p><code class="language-text">activate opencv-env</code></p>
-<p><img src="static/images/python/activate.png" alt="activate"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e7181db78720707b81702c2519753693/f45e2/activate.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.583333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABP0lEQVQoz1WSC2+CQBCE+f//TeT9EA6l1log2CJq00SZ3mxYUi6Z3Ontfruzh1NVFYqiQJqmKMsSxqqwOlUGZeDBhD7OpkR/fMPl/YjhfML4+YHf7y9wTdO0kuO6LqIoEsVxLGKRMAjgex687RaB78PdbGSvDwf8PB4kYSaugb4NyrJsEbtlpweb6FlgEIaiJEkQ2j3f7dA0DcbbDdfrFa/XC/+XwyR2xQSKUP4W+8ZI5/w/nYEU7wPrgHf7/R5d12EcRzxs5wKUBDtDBTKJthnMM5MVpgUonuu6lk6fz6dILCuQMO55nguQCYQxRuecponc72brwzAIaG05iRco7XCOtEsQpfa4qxPe06au1aMwSMUuOT+e5VFmmIrFWJRdtm2L+/2+Bm7tZ6GPoh3qDHkmVLvUB2Gszp7F+75foH9dz4oUdMK9TQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/e7181db78720707b81702c2519753693/8ac56/activate.webp 240w,
+/static/e7181db78720707b81702c2519753693/d3be9/activate.webp 480w,
+/static/e7181db78720707b81702c2519753693/e46b2/activate.webp 960w,
+/static/e7181db78720707b81702c2519753693/f992d/activate.webp 1440w,
+/static/e7181db78720707b81702c2519753693/882b9/activate.webp 1920w,
+/static/e7181db78720707b81702c2519753693/bfb6a/activate.webp 2628w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/e7181db78720707b81702c2519753693/8ff5a/activate.png 240w,
+/static/e7181db78720707b81702c2519753693/e85cb/activate.png 480w,
+/static/e7181db78720707b81702c2519753693/d9199/activate.png 960w,
+/static/e7181db78720707b81702c2519753693/07a9c/activate.png 1440w,
+/static/e7181db78720707b81702c2519753693/29114/activate.png 1920w,
+/static/e7181db78720707b81702c2519753693/f45e2/activate.png 2628w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/e7181db78720707b81702c2519753693/d9199/activate.png"
+            alt="activate"
+            title="activate"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
 </li>
 <li>
 <p>4번까지 모두 정상적으로 설치가 완료 되었으면, <code class="language-text">OpenCV</code>와 다른 패키지들을 설치 합니다.</p>
@@ -122,8 +342,46 @@ cv2.__version__</code></pre></div>
 </li>
 </ul>
 <p>👇🏻아래와 같이 나타나면 cv2가 설치된 것 입니다!
-<img src="static/images/python/check_cv2.png" alt="check_cv2"></p>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 265px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a91b0b520fbf6f59cc4d9051a0b76e0e/78e79/check_cv2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 34.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABJklEQVQoz32QXWuDQBBF/f9/p/SlL6WPNbQmWI1BA61NGoyRaPzY1VVP1wVLSj8WDjOzDHfmjiWEQKmWrmtRM7pumpq6bOgahax1XQnKstT/jYl5nlMUxQ8s9HvfX8gLySGp2L6eSbMGKXrceMH9+pbH8EHnT6SnFNd9IY5jhmFASmkGXGMEz7mg0ltcSskpq02UomO5WXBn3xDELvssJtgEOM8OURSx2+3Isoy2bZlczljjOPLbU6rD99aEwZbjIeWYpKxWKxzHwfM8bNvG932SJKGqqi+MYF+VDK2kbyrUJTf5qC1N080GUpjmvu/NsHmJKSqlvmEsi8ijCZaI7drk7ccb2jOFPn4UhcZeGIZGdBb6y5l1Xcwt4zgw90/Hn7je7j8+AXQJGE+Te1qeAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a91b0b520fbf6f59cc4d9051a0b76e0e/8ac56/check_cv2.webp 240w,
+/static/a91b0b520fbf6f59cc4d9051a0b76e0e/4dbec/check_cv2.webp 265w"
+              sizes="(max-width: 265px) 100vw, 265px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a91b0b520fbf6f59cc4d9051a0b76e0e/8ff5a/check_cv2.png 240w,
+/static/a91b0b520fbf6f59cc4d9051a0b76e0e/78e79/check_cv2.png 265w"
+            sizes="(max-width: 265px) 100vw, 265px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a91b0b520fbf6f59cc4d9051a0b76e0e/78e79/check_cv2.png"
+            alt="check_cv2"
+            title="check_cv2"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
 <hr>
 <p>오늘 준비한 내용은 여기까지 입니다.<br>
 이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    </p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"> </code></pre></div></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->Dec 5, 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/python/">Python</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/open-cv/">OpenCV</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/cv-2/">cv2</a></li></ul></div><div class="Author-module--author--2Yefr"><p>기록하며 성장하는 개발자가 되고 싶습니다.<a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/" rel="noopener noreferrer" target="_blank"><strong>Sangeun shin</strong> on Twitter</a></p></div></div><div class="Post-module--post__comments--25y6I"><div><div id="disqus_thread"></div></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/python/cv2-install";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b11f7ed7be365f7aa0c9.js"],"app":["/app-24ac8e0a644d4fe6cdf1.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-fd4fb51a6fac1c18bdde.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-2181ec47d28e5c35d3e9.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-6a4ccb9f4a6261541e29.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-fdd8536acd3c57081720.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-658f4507169e2836a377.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-d8aeb4e67f2e8af3e6cd.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-381c1b847824134fa4bd.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-6f77d5f667fd901ff51f.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-2d7007993fc2bf0f9caf.js"]};/*]]>*/</script><script src="/polyfill-b11f7ed7be365f7aa0c9.js" nomodule=""></script><script src="/component---src-templates-post-template-js-381c1b847824134fa4bd.js" async=""></script><script src="/cd95ea5cbd2c605f26db819f07999610c9ff4310-f0e4815a48feb91d6b3f.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-24ac8e0a644d4fe6cdf1.js" async=""></script><script src="/dc6a8720040df98778fe970bf6c000a41750d3ae-f9c288b65727632fb68e.js" async=""></script><script src="/532a2f07-d05f238db5f768b1710d.js" async=""></script><script src="/framework-b2f816f437730bdc94bf.js" async=""></script><script src="/webpack-runtime-b801fede4d05006af5ff.js" async=""></script></body></html>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"> </code></pre></div></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->Dec 5, 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/python/">Python</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/open-cv/">OpenCV</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/cv-2/">cv2</a></li></ul></div><div class="Author-module--author--2Yefr"><p>기록하며 성장하는 개발자가 되고 싶습니다.</p></div></div><div class="Post-module--post__comments--25y6I"><div><div id="disqus_thread"></div></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/python/cv2-install";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b11f7ed7be365f7aa0c9.js"],"app":["/app-826e068f2b98b3263c04.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-fd4fb51a6fac1c18bdde.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-91533c34d4c04158b3bf.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-9a8ab6a02add1d489a0d.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-e133b6bf534af92835e5.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-ea42bffee1320a898f17.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-9a81f4ebf13f285e62da.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-1ef42a99aa4c97e0b019.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-02327161be6f6fce449d.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-5eb45ea93f9e416dc132.js"]};/*]]>*/</script><script src="/polyfill-b11f7ed7be365f7aa0c9.js" nomodule=""></script><script src="/component---src-templates-post-template-js-1ef42a99aa4c97e0b019.js" async=""></script><script src="/cd95ea5cbd2c605f26db819f07999610c9ff4310-2434aeb2977963cc66f5.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-826e068f2b98b3263c04.js" async=""></script><script src="/dc6a8720040df98778fe970bf6c000a41750d3ae-f9c288b65727632fb68e.js" async=""></script><script src="/532a2f07-d05f238db5f768b1710d.js" async=""></script><script src="/framework-b2f816f437730bdc94bf.js" async=""></script><script src="/webpack-runtime-d4d1779d43f2dd57cb1d.js" async=""></script></body></html>

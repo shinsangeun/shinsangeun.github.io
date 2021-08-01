@@ -58,7 +58,7 @@
 
         gtag('config', 'UA-178386171-1', {"send_page_view":false});
       }
-      </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=1f35d2769c0e6f3060cac521c69b7109" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#F7A046"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=1f35d2769c0e6f3060cac521c69b7109"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=1f35d2769c0e6f3060cac521c69b7109"/><title data-react-helmet="true">[Python] OpenCV를 이용한 이미지 얼굴 인식 - 기록하며 성장하기</title><meta data-react-helmet="true" name="description" content="이번 포스팅에서는 `OpenCV`를 사용 해서 이미지 인식을 통해 얼굴만 사각형으로 표시 하는 방법을 포스팅 해보 려고 합니다."/><meta data-react-helmet="true" property="og:site_name" content="[Python] OpenCV를 이용한 이미지 얼굴 인식 - 기록하며 성장하기"/><meta data-react-helmet="true" property="og:image" content="https://shinsangeun.github.io//media/git-profile.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="[Python] OpenCV를 이용한 이미지 얼굴 인식 - 기록하며 성장하기"/><meta data-react-helmet="true" name="twitter:description" content="이번 포스팅에서는 `OpenCV`를 사용 해서 이미지 인식을 통해 얼굴만 사각형으로 표시 하는 방법을 포스팅 해보 려고 합니다."/><meta data-react-helmet="true" name="twitter:image" content="https://shinsangeun.github.io//media/git-profile.png"/><script data-react-helmet="true" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6350007631151961" crossorigin="anonymous"></script><link as="script" rel="preload" href="/webpack-runtime-b801fede4d05006af5ff.js"/><link as="script" rel="preload" href="/framework-b2f816f437730bdc94bf.js"/><link as="script" rel="preload" href="/532a2f07-d05f238db5f768b1710d.js"/><link as="script" rel="preload" href="/dc6a8720040df98778fe970bf6c000a41750d3ae-f9c288b65727632fb68e.js"/><link as="script" rel="preload" href="/app-24ac8e0a644d4fe6cdf1.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/cd95ea5cbd2c605f26db819f07999610c9ff4310-f0e4815a48feb91d6b3f.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-js-381c1b847824134fa4bd.js"/><link as="fetch" rel="preload" href="/page-data/posts/python/opencv-example/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/251939775.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/401334301.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/825871152.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--3Pyz6"><div><a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a><div><div class="Content-module--content--3p512"><h1 class="Content-module--content__title--2BDW9">[Python] OpenCV를 이용한 이미지 얼굴 인식</h1><div class="Content-module--content__body--2TrQ-"><p>안녕하세요!  </p>
+      </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=b9b794fa12f246e5503dc74d677e5f1a" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#F7A046"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=b9b794fa12f246e5503dc74d677e5f1a"/><title data-react-helmet="true">[Python] OpenCV를 이용한 이미지 얼굴 인식 - 기록하며 성장하기</title><meta data-react-helmet="true" name="description" content="이번 포스팅에서는 `OpenCV`를 사용 해서 이미지 인식을 통해 얼굴만 사각형으로 표시 하는 방법을 포스팅 해보 려고 합니다."/><meta data-react-helmet="true" property="og:site_name" content="[Python] OpenCV를 이용한 이미지 얼굴 인식 - 기록하며 성장하기"/><meta data-react-helmet="true" property="og:image" content="https://shinsangeun.github.io//media/git-profile.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="[Python] OpenCV를 이용한 이미지 얼굴 인식 - 기록하며 성장하기"/><meta data-react-helmet="true" name="twitter:description" content="이번 포스팅에서는 `OpenCV`를 사용 해서 이미지 인식을 통해 얼굴만 사각형으로 표시 하는 방법을 포스팅 해보 려고 합니다."/><meta data-react-helmet="true" name="twitter:image" content="https://shinsangeun.github.io//media/git-profile.png"/><script data-react-helmet="true" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6350007631151961" crossorigin="anonymous"></script><link as="script" rel="preload" href="/webpack-runtime-d4d1779d43f2dd57cb1d.js"/><link as="script" rel="preload" href="/framework-b2f816f437730bdc94bf.js"/><link as="script" rel="preload" href="/532a2f07-d05f238db5f768b1710d.js"/><link as="script" rel="preload" href="/dc6a8720040df98778fe970bf6c000a41750d3ae-f9c288b65727632fb68e.js"/><link as="script" rel="preload" href="/app-826e068f2b98b3263c04.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/cd95ea5cbd2c605f26db819f07999610c9ff4310-2434aeb2977963cc66f5.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-js-1ef42a99aa4c97e0b019.js"/><link as="fetch" rel="preload" href="/page-data/posts/python/opencv-example/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/251939775.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/401334301.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/825871152.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--3Pyz6"><div><a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a><div><div class="Content-module--content--3p512"><h1 class="Content-module--content__title--2BDW9">[Python] OpenCV를 이용한 이미지 얼굴 인식</h1><div class="Content-module--content__body--2TrQ-"><p>안녕하세요!  </p>
 <p>이번 포스팅에서는 <code class="language-text">OpenCV</code>를 사용 해서 <strong>이미지 인식</strong>을 통해 <strong>얼굴만 사각형</strong>으로 표시 하는 방법을 포스팅 해보 려고 합니다.<br>
 아래 예제를 실행 하면서 발생한 에러와 해결 방안에 대해 정리한 내용은 <a href="https://shinsangeun.github.io/categories/Python/cv2-install" target="_blank" rel="nofollow noopener noreferrer">👉🏻여기</a> 를 참고해 주세요!</p>
 <ul>
@@ -132,18 +132,182 @@ cv2<span class="token punctuation">.</span>imwrite<span class="token punctuation
 <p>실행 전</p>
 <ul>
 <li>1명일 때: 요즘 가장 핫한 배우인 <code class="language-text">김선호</code>님의 이미지를 사용해 보았습니다..😆<br>
-<img src="static/images/python/kimseonho.png" alt="김선호"> </li>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 543px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/186d64a5255911e437bcdb4290e5b881/29579/kimseonho.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 107.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/186d64a5255911e437bcdb4290e5b881/8ac56/kimseonho.webp 240w,
+/static/186d64a5255911e437bcdb4290e5b881/d3be9/kimseonho.webp 480w,
+/static/186d64a5255911e437bcdb4290e5b881/4b567/kimseonho.webp 543w"
+              sizes="(max-width: 543px) 100vw, 543px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/186d64a5255911e437bcdb4290e5b881/8ff5a/kimseonho.png 240w,
+/static/186d64a5255911e437bcdb4290e5b881/e85cb/kimseonho.png 480w,
+/static/186d64a5255911e437bcdb4290e5b881/29579/kimseonho.png 543w"
+            sizes="(max-width: 543px) 100vw, 543px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/186d64a5255911e437bcdb4290e5b881/29579/kimseonho.png"
+            alt="김선호"
+            title="김선호"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span> </li>
 <li>2명이상 일 때: 여러명의 이미지로 쓰기 좋은 축구단 이미지를 사용해 보았습니다..😆<br>
-<img src="static/images/python/soccer.png" alt="soccer"></li>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8e42204afea68a2cdda0312fd0c35d57/f6f7a/soccer.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAADPklEQVQozyWOS1NbBRxH7zdw7aIuaoGBpEggQMiDmxeQhEAuJORFbgJJIDxCGiBAQAmPSElahlAIpWKhD+1YO0odbOt0tC50Robp1J1+AP0gx6suzvw3v/+ZI1z78Aq6NhMNDWrqapupr6tHo65F16LHrDegrlNTo2zUqqv/oVJdQ9NUQ7Omhm6DlXQyh9Peha8vgOZ6DUJzYxMWkxF9hw6VIm1q1GDUaWhrbaejXYehQ4tWex1du4amJvX/aD7CoG9BNIp0GixYTZ3oWvU0qlUIdnsPZosNu9XB+EiAhBzEbhZxdukxmsxEfP0MSf24bFYCkhubKBLy2HCazYh6M5LLhqvLgs3aic1mRnA7nfj6zbjtVqbiIeXJwVTMxdbyIEsLEarlMMWCj1S0l83FAJmpAe7thjjck8llJYrLMQIeB3aTHkeXFSHg6iPh78OmbadVr8ViE9kp9/D2Ms3rcwe//Brlh/Mwv1+EuLiY5eyxzB9/zvH6RZSfXg5w+W6GL06CyE43fiVOKN+MUt6O4Q9YkbwdTMes7FfMSpmXj7N2fn7jYzPv58dXEu/extjdGuLytyGqt+wc7Hr56+8Uhwe9fLoZoVSKIJycS5x+L3F4GuT0pI2pdD1H94wU1nQcHUmcHBuQY+9TKqp4dS6yut5AZc/Dzm0dK5/U8OwrkbPncZ68nOTZmwmE47M+7j8foLhpIT5yBXvPVcJKZW7+PUp7A2TzawyHaxketlIuuSlvfYAcTxJPeJnLNjI6Os92pciD7yTF40e4+/W/QhfF7TwGk5f+wAzx9Az+4ChLq4t0S3fp9hQYiu0TTBwzs7jFaqlKeqnKwvIdwpEsY7lZHr3wUH3ai3D41MXxtxLj01mCIy1M5lcpFPcJJ6OEhrO0GfP4kzKZlXVGEpsEx2QWV8pEJzeIJDIUbsWZzgd4eC7z2Tc+hMpjkb0vvYTTN8gUtNxYz9Iv58htOQim/Kg0E6RmJYaScUS3Ik8M4pGXCYzP4UvMsHYnxeJ2hoMnfoVBhNLnIrdPuqncXyNf7FPuAhs7a2RWRXIbvcTiBRJjNsITYyTnbyo1IeaLKxQqyq5aYLnsYffhLLsPJPYeefgHnJoH/rDwOcEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/8e42204afea68a2cdda0312fd0c35d57/8ac56/soccer.webp 240w,
+/static/8e42204afea68a2cdda0312fd0c35d57/d3be9/soccer.webp 480w,
+/static/8e42204afea68a2cdda0312fd0c35d57/e46b2/soccer.webp 960w,
+/static/8e42204afea68a2cdda0312fd0c35d57/288cc/soccer.webp 1009w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/8e42204afea68a2cdda0312fd0c35d57/8ff5a/soccer.png 240w,
+/static/8e42204afea68a2cdda0312fd0c35d57/e85cb/soccer.png 480w,
+/static/8e42204afea68a2cdda0312fd0c35d57/d9199/soccer.png 960w,
+/static/8e42204afea68a2cdda0312fd0c35d57/f6f7a/soccer.png 1009w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/8e42204afea68a2cdda0312fd0c35d57/d9199/soccer.png"
+            alt="soccer"
+            title="soccer"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></li>
 </ul>
 </li>
 <li>
 <p>실행 후</p>
 <ul>
 <li>1명일 때<br>
-<img src="static/images/python/kimseonho_result.png" alt="김선호_result"> </li>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c8dba2e82959b2da55e9ceda79f09695/07484/kimseonho_result.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 106.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c8dba2e82959b2da55e9ceda79f09695/8ac56/kimseonho_result.webp 240w,
+/static/c8dba2e82959b2da55e9ceda79f09695/d3be9/kimseonho_result.webp 480w,
+/static/c8dba2e82959b2da55e9ceda79f09695/9e625/kimseonho_result.webp 540w"
+              sizes="(max-width: 540px) 100vw, 540px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c8dba2e82959b2da55e9ceda79f09695/8ff5a/kimseonho_result.png 240w,
+/static/c8dba2e82959b2da55e9ceda79f09695/e85cb/kimseonho_result.png 480w,
+/static/c8dba2e82959b2da55e9ceda79f09695/07484/kimseonho_result.png 540w"
+            sizes="(max-width: 540px) 100vw, 540px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c8dba2e82959b2da55e9ceda79f09695/07484/kimseonho_result.png"
+            alt="김선호_result"
+            title="김선호_result"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span> </li>
 <li>2명이상 일 때<br>
-<img src="static/images/python/soccer_result.png" alt="soccer_result"></li>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/af94fd776a101a150e5955c8df720d06/b12f7/soccer_result.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAADQ0lEQVQozxWR609aBwDF7x+xJcu+9EPXiVi1iE+4FwXq5XURRd6KimgBX3VURFB01NZHGD6Lq65q3dZZ07Vpa0pWt7WZ2dclS7fv23/yG/twcpKTnHNycgS1+hpabROahkbq6rQ0VPhGvRp9aysGsQ1NvYb6umo0GjWNTddpadWgFzW0tdXjlO1EBkewW6143F4atbUINdUqpP/NUjufX62poI7WBjUtWgmxVaK5oZlq1dVKqAp1dRVqdRVVKhXNjbWYRCtKp5ebkhldo57rqs8QTB2dSJKEJBrpC9xkIu5ENov0dGvRSzrCwXb6Q1YclnZCPgPWTpGhkI4eRaRD0tPl0FQ0CYNBrECPYJVlentsWI1GcrMeltIykaCZjbyRRNzLo+0u1vIKQwEzu6sWRiMWDnfsrN91Eo/a+browqMYMIp6FIeM0NtpZcCr4JJEdGILZouBXMbM3x+G+bns4t27AG/LQd6/9XJ5meDNj34+/DXOrxdD/PKTm8vfY2yuevGabbhkC0L2ToC7uQiDITs6Qw25lI7top7zZ04KeT2/vXfzw6GdywulUhLl9MjGn3/4ONkXKb9S+OffBDubdhbTQbKVhcI3z90cveqmeODn+NjM/XtqDvZb2N5q5mHJypNvJWZTV9go1HNRNrO8coPHxzZKuw0UinWUX3dyejbE92/GeHoxhnDwQuHwvIeNXRvJqSvYHB8RHDCSTn9MYUcmlUszEP6UaKSJ3W0rSwufEI6OEY+ZSCWvMTE+SelRhsevPRy+9CPsnSkcvLBRfDCBbAlisg8zmIjhD/qYnR+nu38fk2MRh+8rQiMlUgs50vkit5LbTN0p0uOd4/ZSkuNzBw9O7QilUwf7z23M35vB7dOTmJtkbmmfgcQEHv8XGOV5XP1RZvILhIfW6IuNkMltMXo7TzQ+zfxKmOlciO/K/Tx81otQPDFTOpMZTc8wONlGpjCMEsqSzNsJxXup1caJTrkJJSLo5RSBURfO0Bz+WBL38ATLpQSzq+PsPfWw+6RyytpBB4WjdjaPFsje97O+F2N5c43JBRPpVSeB0DQjo134omH6EitMZoNMLc3x5VaWxa0MmXUXmyczbBwrbJ108x8N8wmT4pzoBAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/af94fd776a101a150e5955c8df720d06/8ac56/soccer_result.webp 240w,
+/static/af94fd776a101a150e5955c8df720d06/d3be9/soccer_result.webp 480w,
+/static/af94fd776a101a150e5955c8df720d06/e46b2/soccer_result.webp 960w,
+/static/af94fd776a101a150e5955c8df720d06/52c2b/soccer_result.webp 1020w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/af94fd776a101a150e5955c8df720d06/8ff5a/soccer_result.png 240w,
+/static/af94fd776a101a150e5955c8df720d06/e85cb/soccer_result.png 480w,
+/static/af94fd776a101a150e5955c8df720d06/d9199/soccer_result.png 960w,
+/static/af94fd776a101a150e5955c8df720d06/b12f7/soccer_result.png 1020w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/af94fd776a101a150e5955c8df720d06/d9199/soccer_result.png"
+            alt="soccer_result"
+            title="soccer_result"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></li>
 </ul>
 </li>
 </ul>
@@ -152,4 +316,4 @@ cv2<span class="token punctuation">.</span>imwrite<span class="token punctuation
 여러분도 직접 해보시면서 재미있게 느끼셨으면 좋겠습니다.</p>
 <hr>
 <p>오늘 준비한 내용은 여기까지 입니다.<br>
-이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    </p></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->Dec 8, 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/python/">Python</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/open-cv/">OpenCV</a></li></ul></div><div class="Author-module--author--2Yefr"><p>기록하며 성장하는 개발자가 되고 싶습니다.<a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/" rel="noopener noreferrer" target="_blank"><strong>Sangeun shin</strong> on Twitter</a></p></div></div><div class="Post-module--post__comments--25y6I"><div><div id="disqus_thread"></div></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/python/opencv-example";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b11f7ed7be365f7aa0c9.js"],"app":["/app-24ac8e0a644d4fe6cdf1.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-fd4fb51a6fac1c18bdde.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-2181ec47d28e5c35d3e9.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-6a4ccb9f4a6261541e29.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-fdd8536acd3c57081720.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-658f4507169e2836a377.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-d8aeb4e67f2e8af3e6cd.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-381c1b847824134fa4bd.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-6f77d5f667fd901ff51f.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-2d7007993fc2bf0f9caf.js"]};/*]]>*/</script><script src="/polyfill-b11f7ed7be365f7aa0c9.js" nomodule=""></script><script src="/component---src-templates-post-template-js-381c1b847824134fa4bd.js" async=""></script><script src="/cd95ea5cbd2c605f26db819f07999610c9ff4310-f0e4815a48feb91d6b3f.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-24ac8e0a644d4fe6cdf1.js" async=""></script><script src="/dc6a8720040df98778fe970bf6c000a41750d3ae-f9c288b65727632fb68e.js" async=""></script><script src="/532a2f07-d05f238db5f768b1710d.js" async=""></script><script src="/framework-b2f816f437730bdc94bf.js" async=""></script><script src="/webpack-runtime-b801fede4d05006af5ff.js" async=""></script></body></html>
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    </p></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->Dec 8, 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/python/">Python</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/open-cv/">OpenCV</a></li></ul></div><div class="Author-module--author--2Yefr"><p>기록하며 성장하는 개발자가 되고 싶습니다.</p></div></div><div class="Post-module--post__comments--25y6I"><div><div id="disqus_thread"></div></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/python/opencv-example";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b11f7ed7be365f7aa0c9.js"],"app":["/app-826e068f2b98b3263c04.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-fd4fb51a6fac1c18bdde.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-91533c34d4c04158b3bf.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-9a8ab6a02add1d489a0d.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-e133b6bf534af92835e5.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-ea42bffee1320a898f17.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-9a81f4ebf13f285e62da.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-1ef42a99aa4c97e0b019.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-02327161be6f6fce449d.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-5eb45ea93f9e416dc132.js"]};/*]]>*/</script><script src="/polyfill-b11f7ed7be365f7aa0c9.js" nomodule=""></script><script src="/component---src-templates-post-template-js-1ef42a99aa4c97e0b019.js" async=""></script><script src="/cd95ea5cbd2c605f26db819f07999610c9ff4310-2434aeb2977963cc66f5.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-826e068f2b98b3263c04.js" async=""></script><script src="/dc6a8720040df98778fe970bf6c000a41750d3ae-f9c288b65727632fb68e.js" async=""></script><script src="/532a2f07-d05f238db5f768b1710d.js" async=""></script><script src="/framework-b2f816f437730bdc94bf.js" async=""></script><script src="/webpack-runtime-d4d1779d43f2dd57cb1d.js" async=""></script></body></html>
