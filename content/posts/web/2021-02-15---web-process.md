@@ -31,7 +31,7 @@ A: 해당 주소로 요청을 하고, 응답을 받는 과정..입니다...(?)
 그래서 웹 브라우저의 동작 과정에 대해 찾아 보니 **TCP 통신**, **HTTP 통신** 등 여러가지 핵심 단어를 사용해서 설명하는 것이 면접관이 원하는 대답인 것을 찾게 되었습니다.
 
 ### 1. 웹 브라우저 동작 과정
-![process](static/images/web/web-process.png)
+![process](../../../static/assets/images/web/web-process.png)
 
 
 ### 2. 설명

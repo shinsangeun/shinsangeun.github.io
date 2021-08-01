@@ -23,7 +23,7 @@ description: "이번 포스팅에서는 `Open API`를 사용해서 `React` 개�
 - 저는 보통 토이 프로젝트를 개발 할 때 `React`와 `Open API`를 주로 사용 해서 개발 합니다. 그런데 프로젝트를 실행 시키면 데이터를 요청 할 때 콘솔 창에 자꾸 `CORS`라는 에러가 뜨게 되어 찾아보게 되었습니다.
 
 👇🏻CORS 에러가 발생한 모습
-![CORS](static/images/react/CORS.png)
+![CORS](../../../static/assets/images/react/CORS.png)
 
 
 ### 원인
@@ -54,13 +54,13 @@ description: "이번 포스팅에서는 `Open API`를 사용해서 `React` 개�
 - 프록시를 추가 할 때는 서버에 요청할 주소를 입력합니다. fetch를 함수를 사용해서 해당 주소로 요청을 보낼 거라서 데이터 센터의 주소를 입력 했습니다.
 
 👇🏻package.json에 Proxy를 추가한 모습
-![package.json](static/images/react/package.png)
+![package.json](../../../static/assets/images/react/package.png)
 
 - 프록시 주소를 추가한 이후에는 프로젝트를 다시 실행 시켜서 콘솔 창에 `CORS` 에러가 해결 되었는지 확인 합니다!
 - 프록시 주소를 설정하고 나서 fetch 함수를 사용 할 때는, `url` 호출 만으로 요청이 가능합니다.
 
 👇🏻fetch 함수 사용 방법
-![fetch](static/images/react/proxy_fetch.png)
+![fetch](../../../static/assets/images/react/proxy_fetch.png)
 
 
 -----

@@ -18,7 +18,7 @@ description: "오늘은 알고리즘 문제 풀이에 대해 포스팅을 하려
 
 
 ## 1. 문제
-![problem](static/images/algorithm/programmers/algorithm-4/problem.png)
+![problem](../../../static/assets/images/algorithm/programmers/algorithm-4/problem.png)
 - 문제가 잘 안 보이시면 [👉🏻링크](https://programmers.co.kr/learn/courses/30/lessons/12903) 에서 봐주세요!
 
 ## 2. 문제 풀이
@@ -45,7 +45,7 @@ console.log(solution("abc"));
 ```
 
 - 결과
-![result_5](static/images/algorithm/programmers/algorithm-4/result.png)
+![result_5](../../../static/assets/images/algorithm/programmers/algorithm-4/result.png)
     - 정확성이 `100`로 테스트 16개 모두 통과 되었습니다.
     
 ### 2. 두번째 시도 (🙆🏻‍♀️)

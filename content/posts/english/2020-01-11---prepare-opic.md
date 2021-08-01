@@ -24,7 +24,7 @@ description: "이번 포스팅에서는 `오픽(OPIc)` 시험을 준비 하기 �
 - 컴퓨터를 이용해 응시자 개개인의 질문에 대한 **대답을 녹음**한 후 미국의 평가 서버에 전송 하여 **공인 평가자가 평가** 합니다.
 - 오픽은 토익의 점수와 달리 등급으로 평가가 되는데요, 저도 오픽은 처음 공부 하다보니 등급에 대해 잘 몰라서 찾아 보았습니다. 
 - `Advanced Low`이 높은 등급이고, `Novice Low`가 가장 낮은 등급 입니다. 보통 취업 준비를 위해서 `AL` 이나 `IH` 등급을 목표로 설정 한다고 합니다.
-![오픽 등급](static/images/english/opic-grade.png)
+![오픽 등급](../../../static/assets/images/english/opic-grade.png)
 - 출처: [👉🏻오픽 홈페이지](https://m.opic.or.kr/opics/jsp/senior/receipt/aboutOpicMobile.jsp)
 
 

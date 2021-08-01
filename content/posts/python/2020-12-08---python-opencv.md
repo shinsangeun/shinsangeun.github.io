@@ -94,15 +94,15 @@ else:
 ### 결과
 - 실행 전
   - 1명일 때: 요즘 가장 핫한 배우인 `김선호`님의 이미지를 사용해 보았습니다..😆  
-   ![김선호](static/images/python/kimseonho.png) 
+   ![김선호](../../../static/assets/images/python/kimseonho.png) 
   - 2명이상 일 때: 여러명의 이미지로 쓰기 좋은 축구단 이미지를 사용해 보았습니다..😆  
-   ![soccer](static/images/python/soccer.png)
+   ![soccer](../../../static/assets/images/python/soccer.png)
 
 - 실행 후
   - 1명일 때  
-   ![김선호_result](static/images/python/kimseonho_result.png) 
+   ![김선호_result](../../../static/assets/images/python/kimseonho_result.png) 
   - 2명이상 일 때  
-   ![soccer_result](static/images/python/soccer_result.png)
+   ![soccer_result](../../../static/assets/images/python/soccer_result.png)
 
 
 ### 마치며

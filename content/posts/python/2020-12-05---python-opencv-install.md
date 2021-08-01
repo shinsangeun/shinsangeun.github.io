@@ -25,7 +25,7 @@ description: "이번 포스팅 에서는 `OpenCV`를 사용 해서 이미지 인
 ```No module named 'cv2.cv2' ```
 
 👇🏻cv2 에러가 발생한 모습
-![cv2](static/images/python/python_cv2.png) 
+![cv2](../../../static/assets/images/python/python_cv2.png) 
 
 
 ### 해결 방안
@@ -36,7 +36,7 @@ description: "이번 포스팅 에서는 `OpenCV`를 사용 해서 이미지 인
     - 설치 되어 있지 않는 경우, 터미널에 `conda`라고 입력 하면 ```zsh: command not found: conda``` 라고 해당 커맨드가 없다고 나옵니다.
     - 설치 되어 있는 경우, `conda` 명령어를 사용할 수 있는 목록과 내용들이 나타납니다.  
     👇🏻conda가 설치 된 모습
-    ![conda](static/images/python/conda.png) 
+    ![conda](../../../static/assets/images/python/conda.png) 
     
 2. 저는 `conda`도 설치 되어 있지 않은 상태여서 설치하는 것 부터 작성 해 보도록 하겠습니다.  
  (👇🏻Conda 설치 방법)  
@@ -45,18 +45,18 @@ description: "이번 포스팅 에서는 `OpenCV`를 사용 해서 이미지 인
      - 터미널에 `source .zshrc` 명령어를 입력 하여 바뀐 내용을 적용 합니다.
      - 위 과정 까지 모두 마친 후에 터미널에 `conda` 명령어를 입력하여 정상적으로 설치가 되었는 지 확인 합니다.
    
-    ![bash_profile](static/images/python/bash_profile.png)
+    ![bash_profile](../../../static/assets/images/python/bash_profile.png)
 
 3. 그 다음 `cv2`를 설치 하기 위해 가상 환경을 생성 합니다.
 - `conda create --name opencv-env python=3.6`
     
     👇🏻설치가 되면 아래와 같이 나타납니다!
-    ![create_virtual](static/images/python/create_virtual.png)
+    ![create_virtual](../../../static/assets/images/python/create_virtual.png)
 
 4. 설치한 가상 환경을 실행 시킵니다.
 - `activate opencv-env`
     
-    ![activate](static/images/python/activate.png)
+    ![activate](../../../static/assets/images/python/activate.png)
 
 5. 4번까지 모두 정상적으로 설치가 완료 되었으면, `OpenCV`와 다른 패키지들을 설치 합니다.
 ```
@@ -72,7 +72,7 @@ cv2.__version__
 ```
 
 👇🏻아래와 같이 나타나면 cv2가 설치된 것 입니다!
-![check_cv2](static/images/python/check_cv2.png)
+![check_cv2](../../../static/assets/images/python/check_cv2.png)
 
 
 -----

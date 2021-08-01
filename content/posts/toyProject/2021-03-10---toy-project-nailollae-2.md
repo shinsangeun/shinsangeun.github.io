@@ -64,22 +64,22 @@ description: "이번 포스팅 에서는 오랜만에 토이 프로젝트 `NailO
 - 아래는 현재까지 개발된 구현 화면 입니다.
 
 #### 4-1. Home
-![home](static/images/toyProject/home.png)
+![home](../../../static/assets/images/toyProject/home.png)
 
 #### 4-2. Login
-![login](static/images/toyProject/login.png)
+![login](../../../static/assets/images/toyProject/login.png)
 
 #### 4-3. Reservation
-![reservation](static/images/toyProject/reservation.png)
+![reservation](../../../static/assets/images/toyProject/reservation.png)
 
 #### 4-4. Review
-![review](static/images/toyProject/review.png)
+![review](../../../static/assets/images/toyProject/review.png)
 
 #### 4-5. Review 작성
-![review_write](static/images/toyProject/review_write.png)
+![review_write](../../../static/assets/images/toyProject/review_write.png)
 
 #### 4-6. My page
-![mypage](static/images/toyProject/mypage.png)
+![mypage](../../../static/assets/images/toyProject/mypage.png)
 
 
 ## 5. 마치며

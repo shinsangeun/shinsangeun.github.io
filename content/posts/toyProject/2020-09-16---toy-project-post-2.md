@@ -52,7 +52,7 @@ description: "토이 프로젝트인 `FIGLE`을 진행하며 개발한 항목과
 
 ## 4. FIGLE 모바일 버전
 - 모바일 버전으로 만들어진 `FIGLE` 앱을 참고하여 웹 버전도 완성 예정 입니다.
-![모바일 버전](static/images/figle/figle-mobile.png)
+![모바일 버전](../../../static/assets/images/figle/figle-mobile.png)
 
 - 링크: [https://play.google.com/store/apps/details?id=com.khs.figle_m](https://play.google.com/store/apps/details?id=com.khs.figle_m)
 - Github 링크: [https://github.com/gksthf2271/FIGLE_M](https://github.com/gksthf2271/FIGLE_M)

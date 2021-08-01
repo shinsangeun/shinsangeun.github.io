@@ -33,7 +33,7 @@ description: "이번 포스팅에서는 React에서 Open API를 통해 데이터
 
 ```javascript
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const getSeasonIdDetail = 'https://static.api.nexon.co.kr/fifaonline4/latest/seasonid.json';
+const getSeasonIdDetail = 'https://../../../static/assets.api.nexon.co.kr/fifaonline4/latest/seasonid.json';
 axios.get(proxyurl + getSeasonIdDetail).then(response => {
     let data = response.data;
     this.setState({
@@ -56,7 +56,7 @@ getPositionList = async () => {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Accept": "*/*",
-            "Host": "static.api.nexon.co.kr",
+            "Host": "../../../static/assets.api.nexon.co.kr",
             "Connection":"keep-alive"
         }
     };

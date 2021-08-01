@@ -32,10 +32,10 @@ React 파일을 실행시키면 상단에 귀여운 React 모양의 `favicon.ico
 3. 웹 페이지를 새로고침 하면 상단의 아이콘이 적용한 모습으로 바뀌게 됩니다.  
 
 👇🏻토이 프로젝트의 아이콘
-![icon1](static/images/react/react_LHhome.png)
+![icon1](../../../static/assets/images/react/react_LHhome.png)
 
 👇🏻위와 같이 적용한 아이콘의 모습 입니다!
-![favicon1](static/images/react/favicon.png)
+![favicon1](../../../static/assets/images/react/favicon.png)
 
 
 ### 2. Why?
@@ -47,7 +47,7 @@ React 파일을 실행시키면 상단에 귀여운 React 모양의 `favicon.ico
 상단의 아이콘이 해당 경로에 있는 아이콘을 가져오기 때문에 아이콘의 이미지를 바꾸면 저장이 됩니다.
 
 아래 사진에 있는 `href`의 경로에 자신의 아이콘을 적용 했기 때문에 잘 나타나게 되는 것이겠죠?😄
-![head](static/images/react/react_head.png)
+![head](../../../static/assets/images/react/react_head.png)
 
 
 -----

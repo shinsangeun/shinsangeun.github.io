@@ -38,7 +38,7 @@ description: "안녕하세요!"
 
 - 링크: [👉🏻무료 다이어 그램 툴 - digram.net](https://www.diagrams.net/)
 
-![draw-6.png](static/images/algorithm/diagram/draw-6.png)
+![draw-6.png](../../../static/assets/images/algorithm/diagram/draw-6.png)
 
 
 
@@ -47,24 +47,24 @@ description: "안녕하세요!"
 - 새로운 다이어 그램을 그릴지, 기존의 다이어 그램을 오픈할 지 선택 합니다.
 - 새로운 다이어 그램을 그리기 위해 위에 버튼을 선택 합니다.
 
- ![draw-1.png](static/images/algorithm/diagram/draw-1.png)
+ ![draw-1.png](../../../static/assets/images/algorithm/diagram/draw-1.png)
     
     
 2. 본인이 그릴 다이어그램을 선택하고 **Create** 버튼을 눌러 생성 합니다.
 - ex) Class Diagram, Flowchart, Org Chart, Sequence Diagram...
 
- ![draw-2.png](static/images/algorithm/diagram/draw-2.png)
+ ![draw-2.png](../../../static/assets/images/algorithm/diagram/draw-2.png)
 
 
 3. 예시로 FlowChart를 생성 하였습니다. 필요한 기능에 맞게 도형을 추가하고 삭제할 수 있습니다.
-![draw-3.png](static/images/algorithm/diagram/draw-3.png)
+![draw-3.png](../../../static/assets/images/algorithm/diagram/draw-3.png)
 
 - 도형을 선택하면 오른쪽 사이드 `Style` 탭에서 도형의 색상, 선, 스타일, 투명도 등을 지정 할 수 있습니다.
-![draw-4.png](static/images/algorithm/diagram/draw-4.png)
+![draw-4.png](../../../static/assets/images/algorithm/diagram/draw-4.png)
 
 - 도형을 선택하고 오른쪽 마우스를 누르면 제어 메뉴가 나타납니다.
 - `To Front`, `To Back`, `Bring Forward`, `Send Backward` 로 도형의 위치를 맨 앞/맨 뒤로 설정 할 수 있습니다.
-![draw-5.png](static/images/algorithm/diagram/draw-5.png)
+![draw-5.png](../../../static/assets/images/algorithm/diagram/draw-5.png)
   
 
 - 웹에서는 영어 버전으로 나오지만 앱으로 다운받아서 사용 할 수도 있습니다.

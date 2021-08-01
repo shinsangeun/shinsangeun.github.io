@@ -24,7 +24,7 @@ description: "이번에 이직을 준비 하면서 면접에 나올 만한 질�
 
 ### 2. package-lock.json 이란
 - Node.js 프로젝트를 생성하면 `package-lock.json` 파일이 항상 새로 생겼습니다. 그때마다 github에 commit을 해야하는지 말아야 하는지 고민을 했었는데 이번에 면접준비를 하면서 이 파일에 대한 설명과 기능이 무엇인지 조사하게 되었습니다.
-![image1](static/images/daily/package-lock.png)
+![image1](../../../static/assets/images/daily/package-lock.png)
   * `package-lock.json` 파일은 `npm`을 사용해서 `node_modules` 트리나 `package.json` 파일을 수정하게 되면 자동으로 생성되는 파일 입니다.
   * `package.json` 파일의 의존성 선언에는 `version range`가 사용됩니다. `version range`란 특정 버전이 아니라 버전의 범위를 의미합니다.
   * 가장 흔한 예로 `npm install express`를 실행하게 되면 `package.json` 파일에는 `“^4.16.3”(Caret Ranges)`로 버전 범위가 추가됩니다. 저 `package.json` 파일로 `npm install`을 실행하면 현재는 `4.16.3` 버전이 설치되지만 `express`의 새로운 minor, patch가 publish 되면 동일한 `package.json` 파일로 `npm install`을 실행해도 `4.17.3`, 이나 `4.16.4` 같은 업데이트된 버전이 설치됩니다.
@@ -34,7 +34,7 @@ description: "이번에 이직을 준비 하면서 면접에 나올 만한 질�
 ### 3. padding vs. margin
 * Padding: Object 내의 내부 여백
 * Margin: Object와 화면 과의 여백(외부 여백)
-![image2](static/images/daily/css-box-model-box-sizing.png)
+![image2](../../../static/assets/images/daily/css-box-model-box-sizing.png)
 
 
 ### 4. article vs. section vs. div
