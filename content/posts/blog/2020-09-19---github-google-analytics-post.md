@@ -1,10 +1,10 @@
 ---
-title: "[Github] Google analytics 연동하기"
+title: "[Blog] Google analytics & Blog 연동하기"
 date: "2020-09-19 22:05:23 -0400"
 template: "post"
 draft: false
 slug: "github-google-analytics"
-category: "Github"
+category: "Blog"
 tags:
     - "Github"
     - "Google-analytics"

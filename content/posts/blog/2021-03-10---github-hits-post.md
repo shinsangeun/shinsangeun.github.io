@@ -1,10 +1,10 @@
 ---
-title: "[Github] Jekyll Blog - Hits(방문자 수) 추가 하기"
+title: "[Blog] Jekyll Blog - Hits(방문자 수) 추가 하기"
 date: "2021-03-10 19:05:23"
 template: "post"
 draft: false
 slug: "github-blog-hits"
-category: "Github"
+category: "Blog"
 tags:
     - "Github"
     - "Jekyll"

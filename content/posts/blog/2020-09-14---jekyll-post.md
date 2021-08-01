@@ -1,10 +1,10 @@
 ---
-title: "[Github] Jekyll Github 블로그 시작하기"
+title: "[Blog] Github - Jekyll 블로그 시작하기"
 date: "2020-09-14 17:39:28 -0400"
 template: "post"
 draft: false
 slug: "jekyll-1"
-category: "Github"
+category: "Blog"
 tags:
     - "Github"
     - "Blog"

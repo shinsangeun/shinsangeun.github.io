@@ -1,10 +1,10 @@
 ---
-title: "[Github] Google analytics & Search Console 확인 하기"
+title: "[Blog] Google analytics & Search Console 확인 하기"
 date: "2021-03-10 17:22:30"
 template: "post"
 draft: false
 slug: "github-google-analytics-2"
-category: "Github"
+category: "Blog"
 tags:
     - "Github"
     - "Google-analytics"
