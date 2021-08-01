@@ -26,7 +26,7 @@ Github 블로그에서도 여러가지 테마가 있는데 오늘은 `jekyll` �
 --- 
 ### 1. Github Repository 생성하기
 1. 자신의 깃허브에 레포지토리를 생성 합니다. Jekyll 테마를 사용하기 위해 레포지토리 이름은 `username.github.io`로 생성 합니다.
-![Repository](/assets/images/github/github-repository.png)
+![Repository](../../assets/images/github/github-repository.png)
 
 2. 생성된 레포지토리를 로컬에 clone 합니다. (or 소스트리를 이용해서 로컬에 clone 합니다.)  
 `git clone https://github.com/username/username.github.io`

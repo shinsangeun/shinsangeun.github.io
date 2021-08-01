@@ -18,8 +18,8 @@ description: "오늘은 알고리즘 문제 풀이에 대해 포스팅을 하려
 
 
 ## 1. 문제
-![problem1](/assets/images/algorithm/programmers/algorithm-1/problem1.png)
-![problem12](/assets/images/algorithm/programmers/algorithm-1/problem2.png)
+![problem1](../../assets/images/algorithm/programmers/algorithm-1/problem1.png)
+![problem12](../../assets/images/algorithm/programmers/algorithm-1/problem2.png)
 
 - 문제가 잘 안 보이시면 [👉🏻링크](https://programmers.co.kr/learn/courses/30/lessons/42578) 에서 봐주세요!
 

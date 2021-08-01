@@ -16,7 +16,7 @@ description: "이번 포스팅 에서는 웹 개발자 라면 꼭 알아야 할 
 이번 포스팅 에서는 웹 개발자 라면 꼭 알아야 할 개념인 `웹 브라우저의 동작 과정`에 대해 알아 보도록 하겠습니다!😄  
 개발자 면접을 볼 때 가끔 질문을 받는 내용이여서 정리하게 되었습니다.📙  
 
-🗣 참고: [👉🏻경력 개발자 면접 질문](https://shinsangeun.github.io/categories/Interview/job-Interview) 포스팅도 함께 읽으시면 면접 시 도움이 됩니다!🙆🏻‍♀️
+🗣 참고: [👉🏻경력 개발자 면접 질문](https://shinsangeun.github.io/posts/interview/job-Interview) 포스팅도 함께 읽으시면 면접 시 도움이 됩니다!🙆🏻‍♀️
 
 -----
 
@@ -31,7 +31,7 @@ A: 해당 주소로 요청을 하고, 응답을 받는 과정..입니다...(?)
 그래서 웹 브라우저의 동작 과정에 대해 찾아 보니 **TCP 통신**, **HTTP 통신** 등 여러가지 핵심 단어를 사용해서 설명하는 것이 면접관이 원하는 대답인 것을 찾게 되었습니다.
 
 ### 1. 웹 브라우저 동작 과정
-![process](/assets/images/web/web-process.png)
+![process](../../assets/images/web/web-process.png)
 
 
 ### 2. 설명

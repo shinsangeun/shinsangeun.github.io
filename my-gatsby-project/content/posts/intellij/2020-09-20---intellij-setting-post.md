@@ -34,19 +34,19 @@ description: "개발 할 때 `Intellij`를 주로 사용 하는데 환경 설정
 1. Intellij 폰트 설정
 - 글씨 폰트와 글씨 크기, 자간 등을 설정 할수 있습니다.
 - 메뉴: Preference > Appearance & Behavior > Appearance
-![Font](/assets/images/intellij/intellij-font-setting.png)
+![Font](../../assets/images/intellij/intellij-font-setting.png)
 
 
 2. 마우스 휠을 이용해서 폰트 크기를 조정
 - `Control+마우스 휠`을 이용해서 폰트 크기를 조정 할 수 있도록 하는 셋팅 입니다. 초기 셋에는 마우스 휠이 체크가 되어 있지 않으므로 설정 해주어야 합니다.
 - 메뉴: Preference > Editor > General
-![Mouse wheel](/assets/images/intellij/intellij-mouse-wheel.png)
+![Mouse wheel](../../assets/images/intellij/intellij-mouse-wheel.png)
 
 
 3. Intellij 테마 설정
 - Intellij 테마를 설정 할 수 있습니다. 저는 검정색의 `드라큘라` 테마 입니다.
 - 메뉴: Preference > Appearance & Behavior > Appearance
-![Appearance](/assets/images/intellij/intellij-theme-setting.png)
+![Appearance](../../assets/images/intellij/intellij-theme-setting.png)
 
 
 ### Github
@@ -54,7 +54,7 @@ description: "개발 할 때 `Intellij`를 주로 사용 하는데 환경 설정
 - Intellij에서 Github와 연동하는 방법 입니다. 아래 `+` 버튼을 눌러서 자신의 깃허브 계정으로 로그인 합니다.  
 - 계정을 추가 하였으면 아래 `Apply` 버튼을 누르고 `OK` 버튼을 눌러서 저장 합니다.
 - 메뉴: Preference > Version Control > Github
-![Github](/assets/images/intellij/intellij-github-setting.png)
+![Github](../../assets/images/intellij/intellij-github-setting.png)
 
 
 ### Tab 설정
@@ -62,14 +62,14 @@ description: "개발 할 때 `Intellij`를 주로 사용 하는데 환경 설정
 - Intellij에서 파일을 여러개 띄울 때 Tab으로 띄우는 방법입니다.  
 - 파일을 여러개 띄우면 상단에 파일 이름이 hidden되어 나타납니다. 그러면 파일을 한번에 찾기가 어려워 집니다.
 - 적용 전 모습
-![file1](/assets/images/intellij/intellij-tab-setting.png)
+![file1](../../assets/images/intellij/intellij-tab-setting.png)
 
 - 아래 체크 표시를 해제하면 창을 여러개 Tab으로 띄울수 있게 됩니다.
 - 메뉴: Preference > Editor > General > Editor Tabs
-![file2](/assets/images/intellij/intellij-tab-setting-2.png)
+![file2](../../assets/images/intellij/intellij-tab-setting-2.png)
 
 - 적용 후 모습
-![file3](/assets/images/intellij/intellij-tab-setting-3.png)
+![file3](../../assets/images/intellij/intellij-tab-setting-3.png)
 
 
 ### 단축키 설정 

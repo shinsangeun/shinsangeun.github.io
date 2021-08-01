@@ -30,13 +30,13 @@ Window에서는 **Mysql workbench** 툴을 사용 하였는데 Mac에서 사용 
     - [👉🏻설치 링크 (여기에서는 하지 마세요!)](https://sequelpro.com/download)
 
 - 처음에 위의 링크로 Sequel Pro를 설치 하였는데 Database를 로드 하는 중에 **무한 로딩**이 발생하는 현상이 있었습니다. 그래서 구글링을 해보니, 툴 버전이 달라서 생긴 문제라고 하여 아래의 링크에서 다시 설치를 하였습니다.
-![image](/assets/images/database/sequel-pro-download.png)
+![image](../../assets/images/database/sequel-pro-download.png)
     - [⭐️여기에서 설치 하세요!!⭐](https://sequelpro.com/test-builds)
 
 
 ### 3. Sequel Pro 사용법
 1. 설치 후 Sequel Pro를 실행하면 아래의 화면이 나타납니다.
-![image2](/assets/images/database/sequel-pro-main.png)
+![image2](../../assets/images/database/sequel-pro-main.png)
     - Name: 자신이 저장할 연결 이름
     - Host: Database 연결 주소
     - Username: 로그인 할 유저 이름
@@ -46,7 +46,7 @@ Window에서는 **Mysql workbench** 툴을 사용 하였는데 Mac에서 사용 
 - 해당 정보를 입력한 후 connect 버튼을 눌러 연결을 시도 합니다.
 
 2. 정상적으로 연결이 된 이후에는 아래의 화면이 나타납니다.
-![image3](/assets/images/database/sequel-pro-database.png)
+![image3](../../assets/images/database/sequel-pro-database.png)
 - 왼쪽 상단에서 Database를 선택 할 수 있습니다.
 - 옆에 있는 메뉴에서는 테이블을 생성하고 관리할 수 있는 메뉴 입니다.
 - 상단에 있는 메뉴는 아래와 같습니다.

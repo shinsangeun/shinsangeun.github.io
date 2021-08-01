@@ -37,16 +37,16 @@ description: "블로그를 시작하고 진행한 토이 프로젝트 `FIGLE`에
 
 1. 유저 아이디 검색  
 - FIFA Online의 유저의 아이디를 검색하는 페이지 입니다.  
-![image1](/assets/images/figle/figle-1.png)  
+![image1](../../assets/images/figle/figle-1.png)  
 
 2. 유저 아이디 게임 목록 조회 
 - 1번 페이지에서 검색한 해당 유저의 게임 목록을 조회 합니다. (100개 게임 조회)   
-![image2](/assets/images/figle/figle-2.png)
+![image2](../../assets/images/figle/figle-2.png)
 
 3. 게임 상세 내용 조회  
 - 2번 페이지에서 검색된 게임 목록 중에서 원하는 게임의 `Detail` 버튼을 누르면 게임의 상세 내용이 조회 됩니다.
 - 유저와 상대 유저의 `점유율/파울/코너킥/카드/패스 성공률/슛 성공률/수비 성공률`, 게임에 사용한 `선수 명단`에 대한 정보가 조회 됩니다.  
-![image3](/assets/images/figle/figle-3.png)
+![image3](../../assets/images/figle/figle-3.png)
 
 
 ### 4. 프로젝트 완성 소감

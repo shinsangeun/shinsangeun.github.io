@@ -18,7 +18,7 @@ description: "오늘은 알고리즘 문제 풀이에 대해 포스팅을 하려
 
 
 ## 1. 문제
-![problem](/assets/images/algorithm/programmers/algorithm-3/problem.png)
+![problem](../../assets/images/algorithm/programmers/algorithm-3/problem.png)
 - 문제가 잘 안 보이시면 [👉🏻링크](https://programmers.co.kr/learn/courses/30/lessons/42748) 에서 봐주세요!
 
 ## 2. 문제 풀이
@@ -46,7 +46,7 @@ console.log(solution([1,5,2,6,3,7,4], [[2,5,3],[4,4,1],[1,7,3]]));
 ```
 
 - 결과
-![result](/assets/images/algorithm/programmers/algorithm-3/result.png)
+![result](../../assets/images/algorithm/programmers/algorithm-3/result.png)
     - 정확성이 `85.7`로 테스트 7개 중 6개가 통과 되었습니다.
     - 테스트 케이스 2번만 실패를 하여 구글링을 통해 풀이를 찾아 보았습니다.
     

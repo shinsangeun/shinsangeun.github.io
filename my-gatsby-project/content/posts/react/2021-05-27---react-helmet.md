@@ -20,7 +20,7 @@ description: "이번 포스팅 에서는 `React.js`에서 react-helmet 라이브
 -----
 ### 1. Title 설정
 - react.js에서 초기에 프로젝트의 title은 아래 사진과 같이 `<title>` 태그로 되어 있습니다.  
-![title-html](/assets/images/react/react_title_html.png)
+![title-html](../../assets/images/react/react_title_html.png)
   
 - React.js는 기본적으로 [SPA(Single Page Application) 동작 방식](https://shinsangeun.github.io/categories/React/react-spa) 이기 때문에, 페이지 타이틀은 맨 처음에 서버에서 받은 값을 사용 합니다. 그래서 브라우저 단에서 라우팅이 변경이 되어도 이 값은 계속 유지가 됩니다. 
 - 하지만 라우팅 별로 title 제목을 다르게 설정 하고 싶을 수도 있기 때문에 웹 페이지 별로 다른 타이틀을 보여 주고 싶은 상황이 생길 수 있습니다.
@@ -52,8 +52,8 @@ const title = () => {
 ```
 
 - 결과
-![title-list](/assets/images/react/react_title_list.png)
-![title-list-matchId](/assets/images/react/react_title_match.png)
+![title-list](../../assets/images/react/react_title_list.png)
+![title-list-matchId](../../assets/images/react/react_title_match.png)
   - 라우팅 페이지 별로 Title이 다르게 나타나는 모습을 확인 할 수 있습니다.
 
 

@@ -51,9 +51,9 @@ description: "이번에 취준(이직)을 준비하면서 코딩 테스트가 �
     - 해커랭크는 문제가 **영어**로 되어있어서 문제를 풀면서 자동으로 영어를 공부할 수 있다는 장점이 있고, 영어로 되어 있어서 전 세계 사람들이 알고리즘을 풀 수 있습니다. 
     - 문제 밑에 코드를 바로 입력해서 결과를 볼 수 있는 것이 장점이고, 테스트 케이스가 많이 있을 때 몇개가 합격/불합격으로 나와서 UI가 직관적이며 쉽다는 장점이 있습니다.
     - 또한 문제 유형이 여러개로 정리가 되어있고, 알고리즘 뿐만 아니라 데이터 구조, 수학 연산, 데이터 베이스 등 여러가지 스킬을 연습해 볼수 있습니다.
-    ![Skill](/assets/images/algorithm/hackerRank_skill.png)
+    ![Skill](../../assets/images/algorithm/hackerRank_skill.png)
     - 알고리즘을 풀게되면 마이 페이지에서 자신이 풀었던 문제를 확인해 볼 수 있고 카테고리 별로 푼 문제에 대한 뱃지를 획득하게 됩니다. 그래서 성취감을 주고 더 많은 문제를 풀 수 있도록 동기부여를 줍니다.
-    ![Mypage](/assets/images/algorithm/hackerRank_Mypage.png)
+    ![Mypage](../../assets/images/algorithm/hackerRank_Mypage.png)
     
   2. [백준 알고리즘](https://www.acmicpc.net/)
     - 백준 알고리즘 사이트도 너무나 유명한 사이트 입니다.
