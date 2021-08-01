@@ -1,25 +1,26 @@
 ---
 title: "About me"
 template: "page"
-socialImage: "/assets/images/github-profile.png"
+socialImage: "static/images/github-profile.png"
 ---
 
 ## Introduce.
 안녕하세요.<br>
 <b>Node.js</b>와 <b>Python</b>, <b>React.js</b>을 좋아하는 4년차 개발자 입니다.🙋🏻‍♀️<br>
-<b>React.js</b>를 프론트엔드 개발자로 일하고 있고, <br>
-개발 블로그를 운영 하고 있으며 주말마다 틈틈히 토이 프로젝트를 개발 합니다.👩🏻‍💻✨
+현재는 <b>Frontend 개발자</b> 로 일하고 있고, <br>
+틈틈히 <U>개발 블로그</U> 를 운영 하고 있으며, <br>
+재밌는 아이디어가 생각나면 <U>토이 프로젝트</U> 를 개발 합니다.👩🏻‍💻✨
 
 ---
 
 ## Work Experience.
 
+👩🏻‍💻 2021.04 ~ ing: 방송 & 신문사 재직 중 <br>
+&nbsp;&nbsp;&nbsp; 👉🏻 React.js 기반의 Frontend 개발 ️<br>
+
 ‍💻 2017.10 ~ 2020.09: IoT 회사 퇴사️<br>
 &nbsp;&nbsp;&nbsp; 👉🏻 실내 위치 측위 솔루션(RTLS) 기능 개발 및 유지보수️<br>
 &nbsp;&nbsp;&nbsp; 👉🏻 빅데이터 분석 및 예측 모델 개발
-
-👩🏻‍💻 2021.04 ~ ing: 방송 & 신문사 재직 중 <br>
-&nbsp;&nbsp;&nbsp; 👉🏻 React.js 기반의 Frontend 개발 ️<br>
 
 ---
 

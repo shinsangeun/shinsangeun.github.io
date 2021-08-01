@@ -26,14 +26,14 @@ description: "이번 포스팅에서는 제 블로그 왼쪽 사이드 바 하�
 ## 2. Hits 생성하기
 - [👉🏻Hits 사이트](https://hits.seeyoufarm.com)에 들어가서 방문자 수를 추적하기 위한 작업을 합니다.
 
-![hits](../../assets/images/jekyll/hits.png)
+![hits](static/images/jekyll/hits.png)
 - `TARGET URL`에 자신이 추적할 URL을 입력 합니다.
 - `OPTIONS`에는 hits 아이콘 모양, 색깔, TITLE을 변경 할 수 있습니다.
 
-![hits2](../../assets/images/jekyll/hits-2.png)
+![hits2](static/images/jekyll/hits-2.png)
 - 저는 이런 식으로 커스텀을 하여 수정 하였습니다. 지금 보니 TITLE 옆에 귀여운 Icon을 추가 할 수도 있네요!😊
 
-![hits3](../../assets/images/jekyll/hits-3.png)
+![hits3](static/images/jekyll/hits-3.png)
 - 자신만의 아이콘을 만들고 나면 아래에 `MARKDOWN`, `HTML LINK`, `EMBED URL` 각각의 형태로 소스 코드가 수정 됩니다. 이 중에서 자신이 원하는 타입의 코드를 복사해서 붙여넣기 해주면 됩니다!
 - Github 프로필을 꾸밀 때는 markdown 코드를 사용 했지만, 이번에는 Github 블로그에 적용을 시켜야 하므로 `HTML LINK`를 복사해 옵니다!
  
@@ -45,14 +45,14 @@ description: "이번 포스팅에서는 제 블로그 왼쪽 사이드 바 하�
 1. `/_includes/sidebar.html` 파일을 엽니다.
  
 2. 아까 복사해온 코드를 맨 아래쪽에 붙여넣기 합니다.
-![hits4](../../assets/images/jekyll/hits-html.png)
+![hits4](static/images/jekyll/hits-html.png)
 
 - 여기에서 `<style>` 태그를 추가한 이유는, 처음에 <img> 태그만 복사해서 붙여넣기 했더니 sidebar에 전체 아이콘 크기가 가득 차더라구요.
 - 그래서 `<style>` 태그에 `max-width`, `max-height`를 hits 아이콘 사이즈를 조절해 주는 코드를 추가해 주었습니다.
 - 사실 계속 사이드바에 맞게 아이콘이 크게 보여서 이 부분에서 삽질을 많이 했습니다..🥲 그래서 저와 같은 문제가 있는 분들에게 도움이 되셨으면 좋겠습니다!
 
 3. Github에 Push하고 블로그를 확인 합니다.
-![hits5](../../assets/images/jekyll/hits-profile.png)
+![hits5](static/images/jekyll/hits-profile.png)
 
 - 짜잔!✨ 기존의 Hits 아이콘 크기처럼 작고 예쁘게 사이드바에 나온것을 확인할 수 있습니다. 이렇게나마 자신의 Github 블로그 방문자 수를 확인 할 수 있어서 좋은 것 같아요!👍🏻 
 
