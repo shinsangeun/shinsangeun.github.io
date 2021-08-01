@@ -16,7 +16,7 @@ description: "이번 포스팅에서는 `오픽(OPIc)` 시험을 준비 하기 �
 새해를 맞이해서 빼 놓을 수 없는 목표 한가지!  
 바로, **⭐️영어⭐️** 라고 할 수 있는데요.  
 
-성장 하기 위한 **2021년**을 보내기 위해 [👉🏻알고리즘 강의](https://shinsangeun.github.io/categories/Algorithm/online-lecture) 에 이어서 영어 오픽 시험을 준비해 보려고 합니다.
+성장 하기 위한 **2021년**을 보내기 위해 [👉🏻알고리즘 강의](https://shinsangeun.github.io/posts/algorithm/online-lecture) 에 이어서 영어 오픽 시험을 준비해 보려고 합니다.
 
 
 ## 1. 오픽(OPIc) 이란?

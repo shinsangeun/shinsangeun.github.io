@@ -23,8 +23,8 @@ description: "블로그를 시작하고 진행한 토이 프로젝트 `FIGLE`에
 ### 1. FIGLE 관련 포스팅
 
 👇🏻 궁금 하신 분들은 참고 해 주세요!
-- [[Project] FIGLE - 토이 프로젝트의 시작](https://shinsangeun.github.io/categories/Project/figle-1)  
-- [[Project] FIGLE - 개발 항목 정리(1)](https://shinsangeun.github.io/categories/Project/figle-2)
+- [[Project] FIGLE - 토이 프로젝트의 시작](https://shinsangeun.github.io/posts/toyProject/figle-1)  
+- [[Project] FIGLE - 개발 항목 정리(1)](https://shinsangeun.github.io/posts/toyProject/figle-2)
 
 
 ### 2. FIGLE Github

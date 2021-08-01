@@ -15,13 +15,13 @@ description: "이번 포스팅 에서는 제가 직접 구매한 코딩 테스�
 2021년, 새해 첫 포스팅 이네요!◕‿◕✿  
 여러분 모두들 새해 복 많이 받으세요!🐮  
 
-이번 포스팅에서는 지난 [👉🏻알고리즘 강의](https://shinsangeun.github.io/categories/Algorithm/online-lecture) 포스팅에 이어서 제가 직접 구매한 코딩 테스트 온라인 강의에 대해서 소개해 드리 려고 합니다.   
+이번 포스팅에서는 지난 [👉🏻알고리즘 강의](https://shinsangeun.github.io/posts/algorithm/online-lecture) 포스팅에 이어서 제가 직접 구매한 코딩 테스트 온라인 강의에 대해서 소개해 드리 려고 합니다.   
 (🙃뒷광고 아니고 협찬도 아닌 **내돈내산** 포스팅 입니다!)
 
 
 ## 1. 온라인 강의 선택
 - 지난 포스팅에서 온라인 강의에 대해 소개 드렸던 3개의 강의 중에서 구매를 하게 되었습니다.
-- 혹시 못보신 분들은 [👉🏻알고리즘 강의](https://shinsangeun.github.io/categories/Algorithm/online-lecture) 이 포스팅을 참고 해 주세요!
+- 혹시 못보신 분들은 [👉🏻알고리즘 강의](https://shinsangeun.github.io/posts/algorithm/online-lecture) 이 포스팅을 참고 해 주세요!
 - 고심 끝에 선택한 강의는 **패스트 캠퍼스**의 [👉🏻알고리즘 기술면접 완전 정복](https://www.fastcampus.co.kr/dev_online_algo) 이 강의를 구매하게 되었습니다.
 
 

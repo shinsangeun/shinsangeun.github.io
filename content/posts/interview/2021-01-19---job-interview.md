@@ -24,16 +24,16 @@ description: "이직을 준비하며 면접 때 받았던 질문들에 대해서
 
 ### 1. 기술 면접
 ##### 1. Web
-- 웹 브라우저의 동작 과정에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Web/web-process)
-- HTTP 상태 코드에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Web/status-code)
+- 웹 브라우저의 동작 과정에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/posts/web/web-process)
+- HTTP 상태 코드에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/posts/web/status-code)
 - HTTP Header값의 구성에 대해 설명
 - HTML의 파싱 과정에 대해 설명(DOM Tree 과정)
-- 쿠키와 세션의 특징 [👉🏻링크](https://shinsangeun.github.io/categories/Web/cookie-session)
+- 쿠키와 세션의 특징 [👉🏻링크](https://shinsangeun.github.io/posts/web/cookie-session)
 - 웹이 갑자기 느려지는 경우 해결 방법
-- GET/POST 방식 설명과 차이 [👉🏻링크](https://shinsangeun.github.io/categories/Web/get-post)
+- GET/POST 방식 설명과 차이 [👉🏻링크](https://shinsangeun.github.io/posts/web/get-post)
 
 ##### 2. Node.js
-- 장단점/특징/쓰이는 곳에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/advantage-disadvantage)
+- 장단점/특징/쓰이는 곳에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/posts/nodejs/advantage-disadvantage)
 - 비동기 동작 방식에 대해 설명
 - 이벤트 루프에 대해 설명
 - async/await/promise에 대해 설명
@@ -44,7 +44,7 @@ description: "이직을 준비하며 면접 때 받았던 질문들에 대해서
 - package-lock.json 파일이 무엇인지
 - middleware란 무엇인지, 어떤 것을 사용해 보았는지
 - 호이스팅이란 무엇인지
-- 화살표 함수와 일반 함수의 차이점 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/arrow-function)
+- 화살표 함수와 일반 함수의 차이점 [👉🏻링크](https://shinsangeun.github.io/posts/nodejs/arrow-function)
 
 
 ##### 3. Database
@@ -53,13 +53,13 @@ description: "이직을 준비하며 면접 때 받았던 질문들에 대해서
     - Mysql과 차이점 설명
     - pub/sub이란 무엇인지
 - Mysql
-    - JOIN을 써본 경험이 있는지, 종류와 특징 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Database/join)
+    - JOIN을 써본 경험이 있는지, 종류와 특징 설명 [👉🏻링크](https://shinsangeun.github.io/posts/database/join)
 
 
 ##### 4. React
 - 장단점/특징/쓰이는 곳에 대해 설명
-- SPA란 무엇인지, SPA로 구현한 경험 설명[👉🏻링크](https://shinsangeun.github.io/categories/React/react-spa)
-- CORS란 무엇인지, 원인과 해결 방안 설명 [👉🏻링크](https://shinsangeun.github.io/categories/React/react-cors)
+- SPA란 무엇인지, SPA로 구현한 경험 설명[👉🏻링크](https://shinsangeun.github.io/posts/react/react-spa)
+- CORS란 무엇인지, 원인과 해결 방안 설명 [👉🏻링크](https://shinsangeun.github.io/posts/react/react-cors)
 - 'Access-Control-Allow-Origin: *(아스트릭)을 써도 허용이 안되는 경우가 있는데 어떤 것인지?
 - CSRF란 무엇인지
 - Hooks이나 Redux에 대해 설명, 사용해 본 경험이 있는지
@@ -67,7 +67,7 @@ description: "이직을 준비하며 면접 때 받았던 질문들에 대해서
 
 ##### 5. Javascript
 - 기본형, 참조형 변수에 대해 설명
-- ES6 문법에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/categories/Nodejs/es6-11)
+- ES6 문법에 대해 설명 [👉🏻링크](https://shinsangeun.github.io/posts/nodejs/es6-11)
 - Javascript의 this는 무엇인지
 - 클로저란 무엇인지
 - 이벤트에 대해 설명(이벤트 버블링/이벤트 캡처/이벤트 위임)

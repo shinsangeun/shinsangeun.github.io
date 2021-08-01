@@ -94,7 +94,7 @@ description: "이번 포스팅 에서는 Heroku란 무엇 인지, Github Reposit
 
 
 ## 5. Heroku 배포 확인
-- 이전에 작성한 포스팅인 [👉🏻[Project] NailOllae - 개발 항목 정리](https://shinsangeun.github.io/categories/Project/nailollae-2) 를 **Node.js** 로 만들어서 **Heroku**에 배포를 해 보았습니다.
+- 이전에 작성한 포스팅인 [👉🏻[Project] NailOllae - 개발 항목 정리](https://shinsangeun.github.io/posts/toyProject/nailollae-2) 를 **Node.js** 로 만들어서 **Heroku**에 배포를 해 보았습니다.
 - [👉🏻 네일 올래? 배포 사이트](https://nailollae.herokuapp.com/) 가 성공적으로 배포 되었습니다!
 ![nailOllae](../../../static/assets/images/deploy/heroku-nailollae.png)
 

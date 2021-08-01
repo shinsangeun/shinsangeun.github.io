@@ -19,7 +19,7 @@ description: "이번 포스팅에서는 제 블로그 왼쪽 사이드 바 하�
 -----
 ## 1. 개요
 - `티스토리 블로그`, `네이버 블로그` 등 여러 블로그 사이트에서는 전체 방문자수와 일별 방문자수를 확인 할 수 있는 UI가 있습니다. 
-- 하지만 Github Blog에는 이러한 정보를 확인 할 수 있는 메뉴가 없더라구요. 그래서 찾아본 것 중에 [👉🏻Github 프로필을 꾸밀 때](https://shinsangeun.github.io/categories/Github/github-profile) 사용했던 Hits를 블로그에 적용 시켜보고자 시작하게 되었습니다.
+- 하지만 Github Blog에는 이러한 정보를 확인 할 수 있는 메뉴가 없더라구요. 그래서 찾아본 것 중에 [👉🏻Github 프로필을 꾸밀 때](https://shinsangeun.github.io/posts/github/github-profile) 사용했던 Hits를 블로그에 적용 시켜보고자 시작하게 되었습니다.
 - 사실 Hits가 새로고침 할 때마다 숫자가 올라가는 거라 정확한 방문자 수는 아닐 수 있지만, 깔끔하고 제가 찾은 것 중에는 이 방법이 좋을 것 같아서 선택하게 되었습니다.
 
 

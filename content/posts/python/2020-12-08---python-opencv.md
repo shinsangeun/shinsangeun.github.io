@@ -14,7 +14,7 @@ description: "이번 포스팅에서는 `OpenCV`를 사용 해서 이미지 인�
 안녕하세요!  
 
 이번 포스팅에서는 `OpenCV`를 사용 해서 **이미지 인식**을 통해 **얼굴만 사각형**으로 표시 하는 방법을 포스팅 해보 려고 합니다.   
-아래 예제를 실행 하면서 발생한 에러와 해결 방안에 대해 정리한 내용은 [👉🏻여기](https://shinsangeun.github.io/categories/Python/cv2-install) 를 참고해 주세요!
+아래 예제를 실행 하면서 발생한 에러와 해결 방안에 대해 정리한 내용은 [👉🏻여기](https://shinsangeun.github.io/posts/python/cv2-install) 를 참고해 주세요!
 
 
 * 출처: `파이선을 이용한 머신러닝, 딥러닝 실전 개발 입문` 책에 있는 예제를 사용 하였습니다.

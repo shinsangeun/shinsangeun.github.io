@@ -14,7 +14,7 @@ description: "이번 포스팅 에서는 `Google Analytics`를 확인하는 방�
 
 안녕하세요!
 
-개발 블로그를 시작하고 나서 처음으로 했던 것중 하나가 [👉🏻Google Analytics 연동](https://shinsangeun.github.io/categories/Github/github-google-analytics) 입니다.
+개발 블로그를 시작하고 나서 처음으로 했던 것중 하나가 [👉🏻Google Analytics 연동](https://shinsangeun.github.io/posts/github/github-google-analytics) 입니다.
 그 이후로 블로그에 글을 작성 할 때마다 궁금해서 애널리틱스 창을 확인해 보곤 합니다.
 
 그래서 이번 포스팅 에서는 `Google Analytics`를 확인하는 방법과, `Google search console`에서 보이는 데이터에 대해 포스팅 해보도록 하겠습니다!
@@ -30,7 +30,7 @@ description: "이번 포스팅 에서는 `Google Analytics`를 확인하는 방�
 
 - 이 중에서 눈에 띈 데이터는 `사용자가 방문하는 페이지` 입니다. 어떤 포스팅이 가장 인기가 많은지 파악 할 수 있고 그 주제에 맞게 포스팅을 추가할 수 있기 때문입니다.
 ![analytics-data2](../../../static/assets/images/google/google-analytics-data2.png)
-- 요즘 제 블로그에서는 [👉🏻코딩 테스트 알고리즘 강의 추천](https://shinsangeun.github.io/categories/Algorithm/online-lecture) 블로그가 페이지 뷰수가 많이 있더라구요. IT 개발자 대우가 좋아지다 보니, 코딩에 대한 관심도가 많은 것을 알 수 있었습니다.
+- 요즘 제 블로그에서는 [👉🏻코딩 테스트 알고리즘 강의 추천](https://shinsangeun.github.io/posts/algorithm/online-lecture) 블로그가 페이지 뷰수가 많이 있더라구요. IT 개발자 대우가 좋아지다 보니, 코딩에 대한 관심도가 많은 것을 알 수 있었습니다.
 
 - 구글 애널리틱스는 실시간 데이터를 유용하게 나타내주는 결과 인것 같습니다. `보고서` 메뉴에는 여러가지 정보를 확인 할 수 있는데요.
 - 이중에서 `잠재고객>개요` 메뉴에 보시면 `날짜별 사용자`, `신규 방문자`, `세션`, `평균 세션시간`, `인구 통계` 등 다양한 정보를 확인하실 수 있습니다.
@@ -55,7 +55,7 @@ description: "이번 포스팅 에서는 `Google Analytics`를 확인하는 방�
 - 또한 검색어에 대한 클릭수, 노출수가 표시됩니다. `페이지 별`, `국가별`, `기기별`, `검색 노출별`, `날짜 별`로 클릭수와 노출수가 나타납니다.
 
 ![google-search-console3](../../../static/assets/images/google/google-search-console3.png)
-- 구글 애널리틱스 결과와 마찬가지로  [👉🏻코딩 테스트 알고리즘 강의 추천](https://shinsangeun.github.io/categories/Algorithm/online-lecture) 검색 결과 클릭수와 노출수가 가장 많은것을 알수 있었습니다.
+- 구글 애널리틱스 결과와 마찬가지로  [👉🏻코딩 테스트 알고리즘 강의 추천](https://shinsangeun.github.io/posts/algorithm/online-lecture) 검색 결과 클릭수와 노출수가 가장 많은것을 알수 있었습니다.
 - 제가 보려고 정리한 내용인데 많은 사람들이 포스팅을 읽어주시다니 너무 감사한 기분이 들고, 더 좋은 내용을 포스팅 해야겠다는 생각이 들었습니다.
 
 
