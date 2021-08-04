@@ -16,6 +16,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-disqus',
+      options: {
+        shortname: 'shinsangeun-github-io-1'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: ['UA-178386171-1']

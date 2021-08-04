@@ -1,6 +1,6 @@
 // @flow strict
 import React from 'react';
-import ReactDisqusComments from 'react-disqus-comments';
+import {Disqus} from 'gatsby-plugin-disqus';
 import { useSiteMetadata } from '../../../hooks';
 
 type Props = {
@@ -16,12 +16,11 @@ const Comments = ({ postTitle, postSlug }: Props) => {
   }
 
   return (
-    <ReactDisqusComments
-      shortname={disqusShortname}
-      identifier={postTitle}
-      title={postTitle}
-      url={url + postSlug}
-    />
+    <Disqus
+        url={url}
+        identifier={postTitle}
+        title = {postTitle}
+      />
   );
 };
 
