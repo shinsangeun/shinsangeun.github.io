@@ -1,4 +1,478 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 02 Aug 2021 15:05:13 GMT</lastBuildDate><item><title><![CDATA[[Blog] Jekyll에서 Gatsby로 블로그 이전하기]]></title><description><![CDATA[블로그 개발 환경을 `Jekyll`에서 `Gatsby`로 이전하게 되었습니다.]]></description><link>https://shinsangeun.github.io//posts/blog/gatsby-blog</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/blog/gatsby-blog</guid><pubDate>Sun, 01 Aug 2021 09:20:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 04 Aug 2021 16:06:37 GMT</lastBuildDate><item><title><![CDATA[[Blog] Gatsby 블로그에 Disqus 댓글 기능 추가]]></title><description><![CDATA[Gatsby 블로그에 Disqus 댓글을 추가하는 방법에 대해 작성해 보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/blog/disqus-comment</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/blog/disqus-comment</guid><pubDate>Thu, 05 Aug 2021 03:10:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;저번 포스팅에 작성 한 것 처럼 &lt;a href=&quot;https://shinsangeun.github.io/posts/blog/gatsby-blog&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Jekyll에서 Gatsby로 블로그를 이전&lt;/a&gt; 하게 되었는데,&lt;br&gt;
+기존 블로그에 있던 Disqus 댓글 창이 Gatsby 에서 활성화 되지 않는 이슈가 있어서 적용하는 방법을 찾아보게 되었습니다.🤯  &lt;/p&gt;
+&lt;p&gt;그래서 이번 포스팅 에서는 &lt;strong&gt;Gatsby&lt;/strong&gt; 블로그에 &lt;U&gt;&lt;strong&gt;Disqus&lt;/strong&gt; 댓글을 추가하는 방법&lt;/U&gt;에 대해 작성해 보겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h2&gt;
+&lt;p&gt;댓글 플러그인 종류도 여러 가지 있는데 저는 가장 많이 쓰이는 &lt;code class=&quot;language-text&quot;&gt;Disqus&lt;/code&gt;를 선택 했습니다.&lt;br&gt;
+가끔 댓글을 쓰는 분들을 위해 필요한 기능 인 것 같아서 추가하게 되었습니다.&lt;/p&gt;
+&lt;p&gt;쉽게 추가할 수 있을 줄 알았는데..&lt;br&gt;
+기존 블로그에서 쓰던 Disqus라서 별 문제 없이 적용 될 거라고 생각 했던 것이 오산 이였습니다…🤐&lt;/p&gt;
+&lt;h2 id=&quot;2-이슈-발생&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EC%9D%B4%EC%8A%88-%EB%B0%9C%EC%83%9D&quot; aria-label=&quot;2 이슈 발생 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 이슈 발생&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 704px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/db7882a2776d510322a0f313959306fd/5ebd7/disqus-comment-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAVUlEQVQI1z2MWwrAMAgEe//b+k4+ol0NrTAsjLpPYSKizOxHVYf27j75ud6387VLd4IzGMjMerqwD1ikpMFTJxGNF0ERSpj5+k6gHsUrwSmKUxy38AUnsJtBRb4wXQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/db7882a2776d510322a0f313959306fd/8ac56/disqus-comment-1.webp 240w,
+/static/db7882a2776d510322a0f313959306fd/d3be9/disqus-comment-1.webp 480w,
+/static/db7882a2776d510322a0f313959306fd/9a172/disqus-comment-1.webp 704w&quot;
+              sizes=&quot;(max-width: 704px) 100vw, 704px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/db7882a2776d510322a0f313959306fd/8ff5a/disqus-comment-1.png 240w,
+/static/db7882a2776d510322a0f313959306fd/e85cb/disqus-comment-1.png 480w,
+/static/db7882a2776d510322a0f313959306fd/5ebd7/disqus-comment-1.png 704w&quot;
+            sizes=&quot;(max-width: 704px) 100vw, 704px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/db7882a2776d510322a0f313959306fd/5ebd7/disqus-comment-1.png&quot;
+            alt=&quot;issue&quot;
+            title=&quot;issue&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;블로그를 배포 하고 포스팅 하단을 보니 아래와 같이 문구가 적혀 있었습니다.  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    We were unable to load Disqus. If you are a moderator please see our trubleshooting guide.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;오류 내용은, Disqus를 로드 하는데 문제가 생겼으니 트러블 슈팅 가이드를 참고 하라는 것 이었습니다.&lt;/p&gt;
+&lt;h2 id=&quot;3-해결-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;3 해결 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 해결 방법&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://disqus.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Disqus 홈페이지&lt;/a&gt; 에 접속 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.08333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB+ElEQVQoz11STY/TMBDtr4XfwYkDJ+5wQkjLiSMXEEILCyxiu0jL7napqjS0TZOm+bITx5+PsVP1g5Fe7MmMn2feeLTia3icL9b4GCeYdVvMBaFZI6oTxG2OJfkJT7BqMyQU9/nej9kGM1bg4vc3REVEsQwj/G95CRTF3u2n7yBuXw2OlYA6xEw2hmvmJ8dH1jlYa2CNCj+Wr5/g7/PHwwFCl87QLm+CLzZj5D+fHQglg5Yl2vgOIp1CE9cI9PHmdkllPkdBwV1JR3dThtOAbILX3V5ALecw/A9kOoYo7qFJmpEnMu2Uusn2pN6iyuHzAvi6cLhaW/xKgR8JYT2gb0pIlkNWMcTiHrKcQG2uidBZJO8fobo7G2rasfJeI9kytJyBc45txbAiP9k22HINxR5g+QIim4RCVLMCTx+GofQ59c/SgZBFpE0d9tdzjjOS7+2NQloKSOMgtQmxJv5EhHEQRXYVWiGQ5UtfoTuZUj95AZldhv3VXODlh3O8uYyQNURGXL05VhzQWsEYGqq1MNYNFfq2PXGA7uiH3bfef3kKpN93c7GBzNfgzxijUdc1yrIMKOi57QgPNypqqWItlFLQSqNremh7nHNYlRRo2zaAkc513Rxa1lS20ho9kbCO9KJVE3nf96Edb61yICnBlYdDQ+/cnCqGf7mMTKS1dxVBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/43b7957bba35e769d4b17d3e68e8dc9e/8ac56/disqus-comment-2.webp 240w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/d3be9/disqus-comment-2.webp 480w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/e46b2/disqus-comment-2.webp 960w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/f992d/disqus-comment-2.webp 1440w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/882b9/disqus-comment-2.webp 1920w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/3852f/disqus-comment-2.webp 2374w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/43b7957bba35e769d4b17d3e68e8dc9e/8ff5a/disqus-comment-2.png 240w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/e85cb/disqus-comment-2.png 480w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/d9199/disqus-comment-2.png 960w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/07a9c/disqus-comment-2.png 1440w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/29114/disqus-comment-2.png 1920w,
+/static/43b7957bba35e769d4b17d3e68e8dc9e/49832/disqus-comment-2.png 2374w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/43b7957bba35e769d4b17d3e68e8dc9e/d9199/disqus-comment-2.png&quot;
+            alt=&quot;image2&quot;
+            title=&quot;image2&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Get Started&lt;/strong&gt; 버튼을 클릭 합니다.  &lt;/li&gt;
+&lt;li&gt;블로그에 Disqus를 install 하기 위해 &lt;code class=&quot;language-text&quot;&gt;하단(I want to install Disqus on my site) 버튼&lt;/code&gt;을 클릭 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fcd3b95031ed3439793e5f1c37404753/d5b59/disqus-comment-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 98.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAADn0lEQVQ4y3WTW09jVRiG979wLoZQ2lIOBcmMmUSdgxMHZ9QREm+991cYbwQGWihnOi1QR+Sgo1HjhYkzxImZGGO89WJAcSyUlkPPR8puu55Ze6/ugoIrefOttffu0y/fel/t5U8FPQ+QEqi9UaErBN1Gre9N1ffGe+M3RrX2lrTuUM0EnXwkuPSZ4I01wfVVwTWpG2sn55tfCK4siTOgBtC9UKFrsYoFNrq4sgR3vhK89VCYtfdLwe2H6vzu14KrK/K7kDi3S80dPMY9r9NVB/dI6GvLgtdXkBKmrpr7ExnnV5Y4t0utM3CEO1ima/6YtoDOzdUqzxKCWB52ssJUWCqSMwThDGTKgo+egj2IHM9/gB33i3QGSnQFj3D5y/Su6ZQqArWEqY2k4Mm2aJyN5fkNbAG4fAY4l6fDX8AdKNI6V+LNlTLJkkAIQaUmqMkazgi20gp2VFF16FchgaIOFCfA9tks7bM5Ov15nLMFbi2XsFamjARAuQp6DQo6FHX1zve7oPn+aaCyndY2k6Z9JkOHBLfO5Hg1VGTtD53vNyt886zCtxtVWaU2any3WTPr4+eCD3+E1gU5wzrI8rPmmkrQNp2S0DSu6TTXZqJ8/EOCwUdJBh6lGHic4t56mqH1DINSA+tZvE9yfLCalpepN0LR6NA1cYhrMkH7dBLHRIL3FmJybvxrFfTTJ/Vy6pci9qmiAoVOdegc36d14oC2yTh23yFvB6Mkj9TgjYsxLsWwUaKknlXq/+b5uYB9Mi8DUZUePgmG5vDFcPr2cEloy+g+7wQi5mXkdXUpqSOIl1TNH6u9scae5mmZyNK9oJvBsBKnOUZ3cYxFcY7vYfPGuOMPE81WiRdq7OeVYrkae1KH8tlutkZV3vjwTxlafCkZiLKcpREOlTjN7t3BMRrBAl/ybnFbQu8Gt6V26JuP0L+wS/9ilL7FmNQe/aF9bszGcBvuMIJhhkMlTrOPhLF7trHA9rEYTbLTi949muQILowc8NLIIRc8cZp8SWyTKak0zhnl3465nBkMK3Fay/BzWkb+wQI7JLh1bFcqimtcjuBBnPdXk/QtJ7nsT0hHxOmQjmivW83wsBEOK3GabegvbPe2aIA9BnhHdhzBKcG9oQP6l+Pc/TxOz+whjnHlCOXfZMPDVuK05sE/saC24b9NsN0Eb5vgpuEdLg5HaPJEzXGYNpNQ5d+zYK35kw2aBzY5HxzGUR+D89TFOaTN/g/8AhbzoW/gQoQCAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/fcd3b95031ed3439793e5f1c37404753/8ac56/disqus-comment-3.webp 240w,
+/static/fcd3b95031ed3439793e5f1c37404753/d3be9/disqus-comment-3.webp 480w,
+/static/fcd3b95031ed3439793e5f1c37404753/e46b2/disqus-comment-3.webp 960w,
+/static/fcd3b95031ed3439793e5f1c37404753/13018/disqus-comment-3.webp 1370w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/fcd3b95031ed3439793e5f1c37404753/8ff5a/disqus-comment-3.png 240w,
+/static/fcd3b95031ed3439793e5f1c37404753/e85cb/disqus-comment-3.png 480w,
+/static/fcd3b95031ed3439793e5f1c37404753/d9199/disqus-comment-3.png 960w,
+/static/fcd3b95031ed3439793e5f1c37404753/d5b59/disqus-comment-3.png 1370w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/fcd3b95031ed3439793e5f1c37404753/d9199/disqus-comment-3.png&quot;
+            alt=&quot;image3&quot;
+            title=&quot;image3&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;자신의 블로그 이름, 카테고리, 언어를 설정 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2e9e0a07da68167d9fd204c17a16bdd3/bd9eb/disqus-comment-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB80lEQVQ4y51UW3LbMAzM/a/R7371Bp3pT0+RxLWTGUnWg6Io8bXFkpIj2bKbVDMYaCRwgQUWfGqUhh4GqF5D6ez7wWCy7ks2Tg5FrfCktMHx9IbXwwHH4wnPL68oyxL/85SNAHa9gXNeMtg5k0UIMQXEGMUW/9iC2AVwOey9T+AhBETvEzDfwwZ4PwFjM6DOgDzUKoWuH/B2OuLH92+oqlLoFzDSY4HJ4EwW4w3dGK8A10GT9Xh+r/DeCHitUXQGnR5hxhGDMYnJR0vifUAv2RnMar3EWZ89Le5UdO03PZysxblpxbpURSWT7tpWAknTp0TJZspr261w/bDCohuFskm+UgvdUVQwfa6Hi3SsSMd7oR4wW0x+DbLIJKsgXtSwoaxlO6q6QdOqVAkFzy3i1Lu0TQaWScdJqp3gvL9MPfc+oLpHmbXUg8NZOzTirXOJAQ+RwTSL/7qXNz1kMHeZA5qkV6P0jd7MUsniD7trtwtIGr1cEATmpNtOSYIejUyfw2Df+O9TU+YHVkZA7vQg20Fql8mHTHct6H/KhoCkzIMEplTyNHPz3bwh9wR+d/VuR7St5HGF/cflEOYArlw1RJzFSh2hbQYNj66vRYdqRza9tO7XH+D3Cfh5AF7aL1yw57YX0Y5y7W+Nt8tiauf/nhV1h792ByGP2JeSAgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2e9e0a07da68167d9fd204c17a16bdd3/8ac56/disqus-comment-4.webp 240w,
+/static/2e9e0a07da68167d9fd204c17a16bdd3/d3be9/disqus-comment-4.webp 480w,
+/static/2e9e0a07da68167d9fd204c17a16bdd3/e46b2/disqus-comment-4.webp 960w,
+/static/2e9e0a07da68167d9fd204c17a16bdd3/f992d/disqus-comment-4.webp 1440w,
+/static/2e9e0a07da68167d9fd204c17a16bdd3/daf4e/disqus-comment-4.webp 1442w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2e9e0a07da68167d9fd204c17a16bdd3/8ff5a/disqus-comment-4.png 240w,
+/static/2e9e0a07da68167d9fd204c17a16bdd3/e85cb/disqus-comment-4.png 480w,
+/static/2e9e0a07da68167d9fd204c17a16bdd3/d9199/disqus-comment-4.png 960w,
+/static/2e9e0a07da68167d9fd204c17a16bdd3/07a9c/disqus-comment-4.png 1440w,
+/static/2e9e0a07da68167d9fd204c17a16bdd3/bd9eb/disqus-comment-4.png 1442w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2e9e0a07da68167d9fd204c17a16bdd3/d9199/disqus-comment-4.png&quot;
+            alt=&quot;image4&quot;
+            title=&quot;image4&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;다음 화면에서 맨 하단의 Basic plan을 선택 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bcd6c48a85699e9490631707ccd23a4f/df009/disqus-comment-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.75000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAABh0lEQVQoz31Sy27bMBDU/39HDj00Rduk+YEeUiDHBsjDQHpxbCeWrBclkrtLTlak7KRxEEGD4WM43F1u8eWa8O1G8P2WcXo94utfgx+3hPN7wdk9v+Iu88WC8WsxjQU/FecL0XnGdKawQ4fgBwABYnvQ0OjQ6ZwV9A6SOXrliOMvoqiaHlVr0BoL4pCWRbUSZp5hneD3+gr/+uVBE5IuZuiY9FDxvOuwhydJov3tMUaEoM7sIeTQ2Ared0D9iMCEyJI0+icW1RZPVYsJ27rD4BhPPWN0BPJqojfGIJC+Ag8tAlGKPDxcImwWoG0DNoMGEV8Np8gmw4mJGdVuh7LaoW1bsGjNomAcepRlibqu0fUmxR/J4nlbYr3eYBzHlEnQ9N4Z6mE7whgDIsp11gjtaLDabNSwOaxHITXcYrl8RNd1ua4Sjg3/f7M3hqsVnLXzhtZW6+qcS5jSPbzyR4Zxrsne0Hurmgbt4OBVwppaZH/UNLXhzw1zapwxtwqnFsmGby+e+ORPjRfcGQSUz0+r9AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/bcd6c48a85699e9490631707ccd23a4f/8ac56/disqus-comment-5.webp 240w,
+/static/bcd6c48a85699e9490631707ccd23a4f/d3be9/disqus-comment-5.webp 480w,
+/static/bcd6c48a85699e9490631707ccd23a4f/e46b2/disqus-comment-5.webp 960w,
+/static/bcd6c48a85699e9490631707ccd23a4f/f992d/disqus-comment-5.webp 1440w,
+/static/bcd6c48a85699e9490631707ccd23a4f/882b9/disqus-comment-5.webp 1920w,
+/static/bcd6c48a85699e9490631707ccd23a4f/b7138/disqus-comment-5.webp 2832w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/bcd6c48a85699e9490631707ccd23a4f/8ff5a/disqus-comment-5.png 240w,
+/static/bcd6c48a85699e9490631707ccd23a4f/e85cb/disqus-comment-5.png 480w,
+/static/bcd6c48a85699e9490631707ccd23a4f/d9199/disqus-comment-5.png 960w,
+/static/bcd6c48a85699e9490631707ccd23a4f/07a9c/disqus-comment-5.png 1440w,
+/static/bcd6c48a85699e9490631707ccd23a4f/29114/disqus-comment-5.png 1920w,
+/static/bcd6c48a85699e9490631707ccd23a4f/df009/disqus-comment-5.png 2832w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/bcd6c48a85699e9490631707ccd23a4f/d9199/disqus-comment-5.png&quot;
+            alt=&quot;image5&quot;
+            title=&quot;image5&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;  &lt;/li&gt;
+&lt;li&gt;다음 화면에서 자신의 블로그의 플랫폼을 선택합니다. 저는 Gatsby를 선택 했습니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/69a08f343857d3cb47bee23a9e04f5a1/23d36/disqus-comment-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAACJElEQVQoz02S3UsUYRTG98+p67yzvyGILgo06MokjDSVKBXrpugugrqMsED8jPxYVjO3NC1UysIoV9dCSm3XmZ3PnXlnZufX2d0cO/C8PGd43uc852VSfhCS3ciT+ZQjDCMsFXHl9Q8uZfJoXogr33pXd+lZ2cUUrRfEXJ2yaZu0sAOIVMCD/mEe3hlB+QEpX4Wk174xsfJVDENKfkTLbJ4LUzkKboATRHQu73B9KY8hWlfFNI8YNVgKQl9xr3uA+zee4ZUVqTiOCSvgV49/pUuKQ7l4VAeSZF8lLSW3jqOyzbCGaqWqRzo9zfj4WCJ4k80yOzNT4zXbtWFYHeJoxOffC6z/epvov++kBdN1Q8MwaWw8zamGBnRNw3Yczjdd5MzZcxwUNYlu4t46idtzAhxd1jZ5tNjH43f9mH4J3zcYfNksaMIpF2Vlcc1Iwhdjo8nEV3NZptOzScLwwxDh+8HjhHtLguVE/yU3xcZW+nhlS9bX/3sjiSXwku4wrqNe8l77NtaeJTyqDamYHhWrrk8VbUXXZJ7W0U0Oqs5itrbVyUqujUokF6OQm1vzdG3OYcWKcsHkye15ngos4QQ+2uUW9NYWKq5LSpdfozfzk46JbYpO1VCxvtPLx3w3ccXFiSL684v0bS/gxAG+ZjNwd4HnAkc4oUJvv4be0U7sefWVNUdRsI5X9JWD51tJr5UddEGtKgqjYGD8KQkP6nrLQtl2jf8F7CvPZhH5uFUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/69a08f343857d3cb47bee23a9e04f5a1/8ac56/disqus-comment-6.webp 240w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/d3be9/disqus-comment-6.webp 480w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/e46b2/disqus-comment-6.webp 960w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/f992d/disqus-comment-6.webp 1440w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/882b9/disqus-comment-6.webp 1920w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/78247/disqus-comment-6.webp 2354w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/69a08f343857d3cb47bee23a9e04f5a1/8ff5a/disqus-comment-6.png 240w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/e85cb/disqus-comment-6.png 480w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/d9199/disqus-comment-6.png 960w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/07a9c/disqus-comment-6.png 1440w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/29114/disqus-comment-6.png 1920w,
+/static/69a08f343857d3cb47bee23a9e04f5a1/23d36/disqus-comment-6.png 2354w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/69a08f343857d3cb47bee23a9e04f5a1/d9199/disqus-comment-6.png&quot;
+            alt=&quot;image6&quot;
+            title=&quot;image6&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;아주 친절 하게 Gatsby에 적용 하는 가이드를 알려 줍니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4c7b805915e2b84041d9557ffe545738/7e23a/disqus-comment-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAACFUlEQVQoz53QXUiTURzH8QVBXacpUnRRQWZagRBBORt0lWQERVB4USgbZQWuVerKt2YFXQTdBBVRFIiJ5SRx4nyZ1V0vmtoWGoKs3PuebT065/x2nmeVS+868OF/zp/D//w4GvPAPNcHE9QNLWAeiFPbP6dqcMSxvF2gWbD8laD5XWpf51hSP5TE3DdPTW8cTVyOkpiNAUlRZWYjYaJSiJAUFb0FYfG3ZNp+cVkfPM4Zpj5Mo/GGZ5kOyEjyInLMJ2ZI/O9KiPc14UhMpIkQk+OiJeN400e5sZHztTdVF823OFdtwXDlhtCE/lIDelMjBkFvasBwuYkL4k6F6Hf0DKLxhSL4Q1E8wRjzc0H83inejzgZHnPyaVSpLtXHz18YGXcx5poUJv4x6pxgePwr7hkfGk9AQvHdJ6kJbXYbR05XUVZZzbFyo+q4osLICb2JU2evcjKNci6rrOHomSpaOmziD4MRFG5PQP2HRy1W1m7ew4bCg2Tna8kpKBK1iIztRaxT5O5fIWtHMatydlF/534qoTrQG1QHPmvrZL24kHuglDzdYXYWl7BbV8LWvYfYsoLSL2HbvlIyxWO37z1MT5ga+FgkXLOpkOwCnUilFam0as3I05K5jJJakZVfzOqNhVy7+/RPQokf/gjJxE8mv7l43t5FW2cPL6y2JZ02WtPOrdZu2l/38rLLjrXbzpNXfTzod/MLrAdRSrqys1cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/4c7b805915e2b84041d9557ffe545738/8ac56/disqus-comment-7.webp 240w,
+/static/4c7b805915e2b84041d9557ffe545738/d3be9/disqus-comment-7.webp 480w,
+/static/4c7b805915e2b84041d9557ffe545738/e46b2/disqus-comment-7.webp 960w,
+/static/4c7b805915e2b84041d9557ffe545738/f992d/disqus-comment-7.webp 1440w,
+/static/4c7b805915e2b84041d9557ffe545738/882b9/disqus-comment-7.webp 1920w,
+/static/4c7b805915e2b84041d9557ffe545738/d6026/disqus-comment-7.webp 2850w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/4c7b805915e2b84041d9557ffe545738/8ff5a/disqus-comment-7.png 240w,
+/static/4c7b805915e2b84041d9557ffe545738/e85cb/disqus-comment-7.png 480w,
+/static/4c7b805915e2b84041d9557ffe545738/d9199/disqus-comment-7.png 960w,
+/static/4c7b805915e2b84041d9557ffe545738/07a9c/disqus-comment-7.png 1440w,
+/static/4c7b805915e2b84041d9557ffe545738/29114/disqus-comment-7.png 1920w,
+/static/4c7b805915e2b84041d9557ffe545738/7e23a/disqus-comment-7.png 2850w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/4c7b805915e2b84041d9557ffe545738/d9199/disqus-comment-7.png&quot;
+            alt=&quot;image7&quot;
+            title=&quot;image7&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;4-적용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EC%A0%81%EC%9A%A9&quot; aria-label=&quot;4 적용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 적용&lt;/h2&gt;
+&lt;p&gt;가이드에 있는 내용 대로 하나씩 적용을 해봅니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;npm install 을 진행 합니다.  &lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt; 파일에 아래 내용을 추가 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 392px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/85d3bc5a4f64e9159abc2b10aa1117f4/0acb4/disqus-comment-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABO0lEQVQoz4WRS07EMBBEcwBgx5otyShx/IkdO3YyI5IBxO9AXIejIFghcaOi7VgCMSNYPLVttcrV1YUbPKx1WLYLrsY9gp9gnYOUEkqpvznSU9hhTAdvJ4xuC90ZcCHAGFtpftV8btv2KCQYkhuhJLpOQysDq6NDAd0r9LaDNjJVQ/eEje44BAkI3oIneKKwLiSHUd33I5bpBjs/ozMaNhhIb8CshpwsWqfBBwMRejRkYMMFSqKOYtFhEhyyIP3izECCt5jHa0xhh47cLnWFx6bCXV3iviFyfWBV4omY2hosixa98zSeWi1TdjHHQHnOYU8jB7xszvFRnuK1PMNb5r1aa3z7LE/wXF/gkssUQeH8uhRBYj1tOzptWJOIC2joo/of2M+Ro2BcijE9jKbR2XfAPDcewA/f2tz7BbMkBSMjmOm2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/85d3bc5a4f64e9159abc2b10aa1117f4/8ac56/disqus-comment-8.webp 240w,
+/static/85d3bc5a4f64e9159abc2b10aa1117f4/86099/disqus-comment-8.webp 392w&quot;
+              sizes=&quot;(max-width: 392px) 100vw, 392px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/85d3bc5a4f64e9159abc2b10aa1117f4/8ff5a/disqus-comment-8.png 240w,
+/static/85d3bc5a4f64e9159abc2b10aa1117f4/0acb4/disqus-comment-8.png 392w&quot;
+            sizes=&quot;(max-width: 392px) 100vw, 392px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/85d3bc5a4f64e9159abc2b10aa1117f4/0acb4/disqus-comment-8.png&quot;
+            alt=&quot;image8&quot;
+            title=&quot;image8&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;기존에 있던 &lt;code class=&quot;language-text&quot;&gt;Comment.js&lt;/code&gt; 파일에 Disqus config를 추가 합니다.&lt;br&gt;
+(파일 경로: src/components/Posts/Comments/Comment.js)
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 634px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3af25a9c5d585040caab2075e28e82d2/374ac/disqus-comment-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.58333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACWklEQVQ4y5VUy27bMBD0B9kiKYkUH6Io2XLsJG3SoqcWAYoUveX/z9MhkzgxaudxGKwkm8PZnSEXd/f3uPv7gF9/HvD952+M85a4QFrPBeOG9QmH5/V5LFyfYMOAse8wpQlDSPBGQTU16kZBCAkpCdbD8xtYOJKF0OPbWGETPa7nPW5mx2owTA7DoLkh0Rs41oYb5YVKKcgMeYxC6ELEYBU6UyNx4Xa0mJOBdxqhq9G2VEsY20LrF8JTeCLskVyLcZzhfEStJKpKoGKL1as2n1su6qQ8SVwIOxfQu4h52CGFgH2UcOaxpfqMkmfSk4S+H2CM5Qdd5qBrQTUVVa5KFUIUVFVVkJ9fKz0i9HQ5zzAYiXVssVtbWOcQYsJA170PsB2/2Q4xctYpcfMOdd2cVpgJO98jdiQMDaMT6OyANbO42e4wbbYI3uFq9ri9jLi9GhF7X8ahThGGOMKS0LSqqEnjpihL40R39aG9R1PE0fvZljOh1g3GQKcZG2+ZN20Y7gaCMxVPeXsx4w1TygxJaLm44cA1YSSryFWgI3JVjJJ8x+FHQrYcGJvrdokfU4tJKzi6G5RAILEj1nKJVsqzc/uPMJIwMiqJJ2ScIrT1WOWYECv+KRN/jpBmBLHizDRuvt5gf7nHbn+Fi90l4zOg52+fVug5J20NT41F23VwDLvlRhXzlhXqjxMm9DTlghdDz7Yd1WTYagnPWXqSTXKFRh6bcp6QLvt8QfA26bjY0gxbS/hGFnczWinevQcP92E+Yp4K8ykZHK8vYjtZfNmFkk1Z11Bsu2b9CP4BFiFqTMJ/LKwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/3af25a9c5d585040caab2075e28e82d2/8ac56/disqus-comment-9.webp 240w,
+/static/3af25a9c5d585040caab2075e28e82d2/d3be9/disqus-comment-9.webp 480w,
+/static/3af25a9c5d585040caab2075e28e82d2/14369/disqus-comment-9.webp 634w&quot;
+              sizes=&quot;(max-width: 634px) 100vw, 634px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/3af25a9c5d585040caab2075e28e82d2/8ff5a/disqus-comment-9.png 240w,
+/static/3af25a9c5d585040caab2075e28e82d2/e85cb/disqus-comment-9.png 480w,
+/static/3af25a9c5d585040caab2075e28e82d2/374ac/disqus-comment-9.png 634w&quot;
+            sizes=&quot;(max-width: 634px) 100vw, 634px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/3af25a9c5d585040caab2075e28e82d2/374ac/disqus-comment-9.png&quot;
+            alt=&quot;image9&quot;
+            title=&quot;image9&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;추가 하고 다시 빌드를 하면 포스팅 하단에 disqus 댓글이 추가된 것을 확인 할 수 있습니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ea0c33fd62e7ea407d57f547b18140f0/08c33/disqus-comment-10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 71.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAABt0lEQVQ4y41TyW7bMBDVn/cDesmv9NBL0VsPAQL0UuTSoAEsW4ZdL1xFiZRIvo5ISZbqIukAAw5nhrM+FiCKMSJTHC7jPZ9CSsiRtda4+WffiaYYxaSLKdBCHh2VUthst9iUJXRtVr5xluOsL5aK3hzBrr9hmhb29AzOLuhMDf3yHW1Pdv4T4lziwjV6KyBPL1C6mbu5Cxh8D+dclvtRJpuzDbwPJHp0pPMhpCDOWYQk3yot8mXd5jhNTDZzfobk54V96bluu5gHvHCM8ZZkIO89euL3aK7QWofd/ohtdUyDl5xDMA7OBYwx4ELidL5CCIXLldO2B51CtT+AMZql0rcK88AiLcLjymtY1+HTocfnvcXXx194+rElc24phJGTHOC6DoySKlWvA9ZK4OnbFzJI1LThV2awYTWqAwOXTXr8Fg9LCsuA1a7Ew8cP1AZDS+13bQPbNOj6Ls31vwKO2y5ijO8O+l+6Jd8tJRlCuHMasjZUadu2M79VwCpgLn8afJjPATITbIYz/JXYjy2vluJoswkOBBml6wQRRVCQUlNVNsFFSEUwksln/qr0m17LinhH6Mg/7A/DukeqVEQ/6QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/ea0c33fd62e7ea407d57f547b18140f0/8ac56/disqus-comment-10.webp 240w,
+/static/ea0c33fd62e7ea407d57f547b18140f0/d3be9/disqus-comment-10.webp 480w,
+/static/ea0c33fd62e7ea407d57f547b18140f0/e46b2/disqus-comment-10.webp 960w,
+/static/ea0c33fd62e7ea407d57f547b18140f0/f992d/disqus-comment-10.webp 1440w,
+/static/ea0c33fd62e7ea407d57f547b18140f0/a7511/disqus-comment-10.webp 1570w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/ea0c33fd62e7ea407d57f547b18140f0/8ff5a/disqus-comment-10.png 240w,
+/static/ea0c33fd62e7ea407d57f547b18140f0/e85cb/disqus-comment-10.png 480w,
+/static/ea0c33fd62e7ea407d57f547b18140f0/d9199/disqus-comment-10.png 960w,
+/static/ea0c33fd62e7ea407d57f547b18140f0/07a9c/disqus-comment-10.png 1440w,
+/static/ea0c33fd62e7ea407d57f547b18140f0/08c33/disqus-comment-10.png 1570w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/ea0c33fd62e7ea407d57f547b18140f0/d9199/disqus-comment-10.png&quot;
+            alt=&quot;image10&quot;
+            title=&quot;image10&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;5-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;5 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5. 마치며&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Disqus 플러그인을 Gatsby 블로그에 적용 하는 방법에 대해 정리해 보았습니다.&lt;/li&gt;
+&lt;li&gt;저와 같은 이슈를 겪은 분들에게 도움이 되었으면 좋겠습니다!👍🏻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🤖✨&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Blog] Jekyll에서 Gatsby로 블로그 이전하기]]></title><description><![CDATA[블로그 개발 환경을 `Jekyll`에서 `Gatsby`로 이전하게 되었습니다.]]></description><link>https://shinsangeun.github.io//posts/blog/gatsby-blog</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/blog/gatsby-blog</guid><pubDate>Sun, 01 Aug 2021 09:20:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;블로그 개발 환경을 &lt;code class=&quot;language-text&quot;&gt;Jekyll&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;Gatsby&lt;/code&gt;로 이전하게 되었습니다.
 그래서 이번 포스팅에서는 &lt;code class=&quot;language-text&quot;&gt;블로그를 이전하게 된 이유&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Gatsby&lt;/code&gt; 설정 방법에 대해 작성해 보겠습니다.&lt;/p&gt;
 &lt;hr&gt;
@@ -65,6 +539,10 @@ Jekyll과 Gatsby는 폴더 구조, Markdown 파일 작성 방법, config 설정 
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;Gatsby는 Github에 Push를 하고 Deploy 까지 해줘야 실제 블로그에 적용이 됩니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deploy 명령어 : &lt;code class=&quot;language-text&quot;&gt;yarn clean &amp;amp;&amp;amp; gatsby build --prefix-paths &amp;amp;&amp;amp; gh-pages -d public&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&quot;4-gatsby-장점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-gatsby-%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;4 gatsby 장점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. Gatsby 장점&lt;/h3&gt;
 &lt;p&gt;블로그를 Jekyll에서 Gatsby로 이전하면서 느낀 &lt;strong&gt;장점&lt;/strong&gt;을 정리해 보았습니다. &lt;/p&gt;
 &lt;ol&gt;
@@ -87,7 +565,12 @@ Jekyll과 Gatsby는 폴더 구조, Markdown 파일 작성 방법, config 설정 
 &lt;/ol&gt;
 &lt;p&gt;Jekyll은 &lt;strong&gt;SEO&lt;/strong&gt; 최적화가 되지 않아서 불편했던 점이 있었는데, &lt;code class=&quot;language-text&quot;&gt;Gatsby&lt;/code&gt;는 페이지 내에 모든 콘텐츠가 생성 되어 있기 때문에 SEO 최적화가 가능 합니다.
 또한 static 페이지를 만들어 주는 것 뿐만 아니라, 필요에 따라 &lt;code class=&quot;language-text&quot;&gt;CSR&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;SSR&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;lazy loading&lt;/code&gt;을 적절히 사용 할 수 있어서 성능 면에서도 장점이 있습니다.👍🏻&lt;/p&gt;
-&lt;h2 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h2&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;반응형 웹 적용&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;기존의 Jekyll은 모바일 에서 화면이 깨지거나 대응이 잘 안되는 부분이 있었습니다.&lt;br&gt;
+Gastby로 블로그를 이전 하면서 모바일로 블로그를 보면 &lt;code class=&quot;language-text&quot;&gt;반응형 웹&lt;/code&gt;이 잘 적용 되어 있었고, 따로 설정 하지 않아도 자동으로 적용 되니 사용자 입장에서 편하고 좋았습니다.&lt;/p&gt;
+&lt;h2 id=&quot;5-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;5 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5. 마치며&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Gatsby 로 이전하는 내용은 기존 구글링 정보가 많아서 느낀 점과 사용 후기를 간략하게 정리해 보았습니다.&lt;/li&gt;
 &lt;li&gt;앞으로 &lt;strong&gt;Gatsby&lt;/strong&gt;로 블로그를 운영하며 더 좋은 포스팅으로 찾아 오겠습니다.🎈&lt;/li&gt;
