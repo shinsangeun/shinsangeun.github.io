@@ -6,8 +6,8 @@ draft: false
 slug: "advantage-disadvantage"
 category: "Nodejs"
 tags:
-    - "Nodejs"
-    - "Javascript"
+- "Nodejs"
+- "Javascript"
 description: "이번 포스팅 에서는 `Node.js`의 장단점과 활용 방법에 대해 알아보도록 하겠습니다."
 ---
 

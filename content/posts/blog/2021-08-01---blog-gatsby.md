@@ -77,7 +77,9 @@ Jekyll과 Gatsby는 폴더 구조, Markdown 파일 작성 방법, config 설정 
    
    - Jekyll 배포: [👉🏻Jekyll 블로그 생성기](https://shinsangeun.github.io//posts/blog/jekyll-1)
    - Gatsby 배포: gh-page, Netlify, vercel 
-
+   
+Gatsby는 Github에 Push를 하고 Deploy 까지 해줘야 실제 블로그에 적용이 됩니다.
+- Deploy 명령어 : `yarn clean && gatsby build --prefix-paths && gh-pages -d public`
 
 ### 4. Gatsby 장점
 
