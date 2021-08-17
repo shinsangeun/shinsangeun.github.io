@@ -6,8 +6,8 @@ const postCssPlugins = require('./postcss-config.js');
 module.exports = {
   pathPrefix: siteConfig.pathPrefix,
   siteMetadata: {
-    url: siteConfig.url,
-    title: siteConfig.title,
+    url: `https://shinsangeun.github.io/`,
+    title: '기록하며 성장하기',
     subtitle: siteConfig.subtitle,
     copyright: siteConfig.copyright,
     disqusShortname: siteConfig.disqusShortname,
