@@ -1,4 +1,384 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Aug 2021 15:12:59 GMT</lastBuildDate><item><title><![CDATA[[Blog] Gatsby 블로그에 Disqus 댓글 기능 추가]]></title><description><![CDATA[Gatsby 블로그에 Disqus 댓글을 추가하는 방법에 대해 작성해 보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/blog/disqus-comment</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/blog/disqus-comment</guid><pubDate>Thu, 05 Aug 2021 03:10:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Aug 2021 16:06:28 GMT</lastBuildDate><item><title><![CDATA[[Github] Mac OS - Authentication Token 발급 및 적용]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 Github에서 토큰 발급과 적용 방법을 알아보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/github/github-token</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/github/github-token</guid><pubDate>Fri, 20 Aug 2021 03:12:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번 포스팅 에서는 Github에서 &lt;strong&gt;Authentication Token 발급&lt;/strong&gt;과,&lt;br&gt;
+발급한 토큰을 &lt;strong&gt;Mac OS 환경에서 적용하는 방법&lt;/strong&gt;을 알아보겠습니다.👨‍🏫&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;1-github-배포-이슈&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-github-%EB%B0%B0%ED%8F%AC-%EC%9D%B4%EC%8A%88&quot; aria-label=&quot;1 github 배포 이슈 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Github 배포 이슈&lt;/h1&gt;
+&lt;p&gt;블로그를 수정하고 Deploy 하는 과정에서 자꾸 배포 에러가 발생해서 구글링을 하게 되었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead. remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information. fatal: unable to access &amp;#39;https://github.com/shinsangeun/shinsangeun.github.io.git/&amp;#39;: The requested URL returned error: 403&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이러한 에러가 뜨면서 배포가 제대로 실행 되지 않았습니다.&lt;br&gt;
+그런데 에러 내용을 살펴 보니, &lt;code class=&quot;language-text&quot;&gt;2021년 8월 13일&lt;/code&gt; 부터 Github의 토큰으로 비밀번호 인증이 되어야 한다고 하네요.  (엥?..제 생일 이예요!🥳)&lt;/p&gt;
+&lt;p&gt;그래서 부랴부랴 해결 방법을 찾게 되었습니다!&lt;/p&gt;
+&lt;h1 id=&quot;2-github-token-발급-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-github-token-%EB%B0%9C%EA%B8%89-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;2 github token 발급 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Github Token 발급 방법&lt;/h1&gt;
+&lt;p&gt;Github에서 토큰을 발급 하는 방법 입니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;자신의 Github에 로그인 합니다.&lt;/li&gt;
+&lt;li&gt;상단의 &lt;strong&gt;Profile &gt; Settings&lt;/strong&gt; 버튼을 클릭 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 448px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/880858d4bf5e278252582ca0fe09925a/33b38/git-profile-setting.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 249.58333333333331%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/880858d4bf5e278252582ca0fe09925a/8ac56/git-profile-setting.webp 240w,
+/static/880858d4bf5e278252582ca0fe09925a/76be4/git-profile-setting.webp 448w&quot;
+              sizes=&quot;(max-width: 448px) 100vw, 448px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/880858d4bf5e278252582ca0fe09925a/8ff5a/git-profile-setting.png 240w,
+/static/880858d4bf5e278252582ca0fe09925a/33b38/git-profile-setting.png 448w&quot;
+            sizes=&quot;(max-width: 448px) 100vw, 448px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/880858d4bf5e278252582ca0fe09925a/33b38/git-profile-setting.png&quot;
+            alt=&quot;setting&quot;
+            title=&quot;setting&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;왼쪽 하단에 &lt;strong&gt;Developer Settings&lt;/strong&gt; 버튼을 클릭합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 846px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4a702ef92b9cc16dcfb28ca936bd540a/5b481/git-developer-settings.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 79.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAACJElEQVQ4y32UWW/aQBSFLTUSFWHxPl5ZbIMhYLbQpEkfK1Xqa6U+Vupf6G+p1L97eu4QDAiTh09zBZczdzmD0bUUjnRMv46zskK52OlzvtrDC4e473uXuXaAHvHjEcI0RzKawjgJ+kw6xJIUxBmiQYEgyXSi7Sf1d5q3uO+EMO4+wjDuyIeT4EGMoozvST5fY755Qlk9onjY8PMA98w5wVwKCkGSQ/HiNJtdV2jxVLZCpBKk0RBxkJAUnu1rfCeoUcRlft+JYLqR7uJCUG4OLA+BGyDkzEIKCcqPkSRjROEArogQh3gkcXy4zI2HE/jR+LpCxSpsVjhhm+v9K1a7F0wlfnxBtX2GyZl1ZSGkz3YjR2G62GLB8chvriqUFhJXwenZsDsmnK4Jj7EjMVHsIPZCTeIFuqN238Uwn3HO3u2lzFafsGKFi+1n3rzFw/oJS8bDyQJt85Cnl8JldUyPthponZu2CdMCA24tHZd6i3Jm06U+xYO9MwtFnJ/kx6PyXPAMJpXLnZ6LzE+MLZ5stU20e25t7KPgmBeJtUY8jaaX0uPgHZXCFmgFJxjQFnFd/TH/KDgqlsgnKxTlpllQKGhs2fBy86y3V3F+8mqaKgyzAn6Raa5aPiaKUS0vhim4B+PKM6uf3hsdzj7/s8fXfz/w7e/P8y379fkeTQXE3+eofr+i+vXldstNXF1gicFps7aLVsvSNLb8nugFFNOitqr/yv4DOzuX1CLg61sAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/4a702ef92b9cc16dcfb28ca936bd540a/8ac56/git-developer-settings.webp 240w,
+/static/4a702ef92b9cc16dcfb28ca936bd540a/d3be9/git-developer-settings.webp 480w,
+/static/4a702ef92b9cc16dcfb28ca936bd540a/47c32/git-developer-settings.webp 846w&quot;
+              sizes=&quot;(max-width: 846px) 100vw, 846px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/4a702ef92b9cc16dcfb28ca936bd540a/8ff5a/git-developer-settings.png 240w,
+/static/4a702ef92b9cc16dcfb28ca936bd540a/e85cb/git-developer-settings.png 480w,
+/static/4a702ef92b9cc16dcfb28ca936bd540a/5b481/git-developer-settings.png 846w&quot;
+            sizes=&quot;(max-width: 846px) 100vw, 846px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/4a702ef92b9cc16dcfb28ca936bd540a/5b481/git-developer-settings.png&quot;
+            alt=&quot;setting&quot;
+            title=&quot;setting&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;왼쪽에 세번째 버튼 &lt;strong&gt;Personal access tokens&lt;/strong&gt; 버튼을 클릭하고, 새로운 토큰을 생성하기 위해 &lt;strong&gt;Generate new token&lt;/strong&gt; 버튼을 클릭 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8c059d5addac1fe26590a3a93d4d14aa/410b4/git-developer-settings2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAxklEQVQY002P2w6DIBBEfa+tXARBUEG8tWn6/383Xbdp2oeTJcwwO1SmT9BuxFU51LKD7gaM84GYdwxESBtqYXFpDM9aGEarDms5cOxPlLyhxIwYMqpleWBKK4S0kITlwB2RgibSxnKHizNR4IcCExcIv0JSAecGeCp0TmsDlAmotuOFsj0x02MfEgs67mh9grIRou0ZSeYT0QbcdEDDd6Sb8xy4iCF/pbSDPmk9N1Rk7DOFjyu3NH76++6PGzX8Lmu0/wQSb6rWZ1pI6EL6AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/8c059d5addac1fe26590a3a93d4d14aa/8ac56/git-developer-settings2.webp 240w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/d3be9/git-developer-settings2.webp 480w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/e46b2/git-developer-settings2.webp 960w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/f992d/git-developer-settings2.webp 1440w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/882b9/git-developer-settings2.webp 1920w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/c5068/git-developer-settings2.webp 2102w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/8c059d5addac1fe26590a3a93d4d14aa/8ff5a/git-developer-settings2.png 240w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/e85cb/git-developer-settings2.png 480w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/d9199/git-developer-settings2.png 960w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/07a9c/git-developer-settings2.png 1440w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/29114/git-developer-settings2.png 1920w,
+/static/8c059d5addac1fe26590a3a93d4d14aa/410b4/git-developer-settings2.png 2102w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/8c059d5addac1fe26590a3a93d4d14aa/d9199/git-developer-settings2.png&quot;
+            alt=&quot;setting2&quot;
+            title=&quot;setting2&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;상단의 &lt;strong&gt;Note&lt;/strong&gt;에는 자신이 설정할 토큰의 이름, &lt;strong&gt;Expiration&lt;/strong&gt;은 토큰 만료일을 설정 합니다. (저 같은 경우는 만료일을 1년으로 설정 했어요.)&lt;br&gt;
+Select scopes 에서는 &lt;strong&gt;repo&lt;/strong&gt; 를 전체 체크 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/026687f6a89c95ad60a2e3e2a1aa268d/59058/git-developer-settings3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABhUlEQVQoz42T226jMABE89pNgw2+YogxEEohkfqw//9ts2P3olTK7vZhBLLN8YzHHIRq0acVtenwq9JQ7ox42RHnDefpFWm5woZU5p6lpUx5nmr3UAdle4zLDWF4gfIDjI+YLxu1YyJ0nHcM0xVxys8dXdrQUr6fimwYC+h9M4uDpEPTDmWiJtzTYQgRorZQukXNedEEyOb9aewZ0pz/7jBTj8JQGk+M5UzAHLlzYyFONU5UdScp9FfsT306LMB7+pGDzga8Ljs8wd71aFxEQ1f5bKu7aM/SPYR+BwoCCbmtV8zDBV0b0YcBIR+JT9QIR2kdoOrvxTx2yOj2oyTFcoQK5WxDXGD7mWMJQnc48TwzsPovkIOqcbi80OH2xo9ZAq9MnHO7K0Gea0xZ12RgjvsT4JQWpHGFUh6ecSPjx2Fhwx0ES5GE6Z84zIOSLsZpRcc7JnNJjJ7fQzeipVvNsmpuKj++qbj+n8C8ILHl9fYb+S/KkXv+Mfni59j9tJX7epSPS/kDqtsUnVaxsKwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/026687f6a89c95ad60a2e3e2a1aa268d/8ac56/git-developer-settings3.webp 240w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/d3be9/git-developer-settings3.webp 480w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/e46b2/git-developer-settings3.webp 960w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/f992d/git-developer-settings3.webp 1440w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/882b9/git-developer-settings3.webp 1920w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/57b3a/git-developer-settings3.webp 2376w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/026687f6a89c95ad60a2e3e2a1aa268d/8ff5a/git-developer-settings3.png 240w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/e85cb/git-developer-settings3.png 480w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/d9199/git-developer-settings3.png 960w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/07a9c/git-developer-settings3.png 1440w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/29114/git-developer-settings3.png 1920w,
+/static/026687f6a89c95ad60a2e3e2a1aa268d/59058/git-developer-settings3.png 2376w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/026687f6a89c95ad60a2e3e2a1aa268d/d9199/git-developer-settings3.png&quot;
+            alt=&quot;setting3&quot;
+            title=&quot;setting3&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;4번의 과정이 모두 끝나면 하단의 &lt;strong&gt;Generate token&lt;/strong&gt; 버튼을 눌러서 토큰을 발급 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 760px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3ba6edf50b9f16361758af868108c856/3c051/git-developer-settings4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.500000000000004%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABLklEQVQY02WQ3U7CQBBGuVSg7e627La1pGSrUBETxT/QaIIxNiQqiYkQn0VfQNJQ3/hztoLaeHHyXezM2ZmpWVzB0DTJJBrCR5358PwYqp2gOzhF/2iEwfASvcMzREkfW46ETXWWgfraOkW8e0C5j9pGaHGSMYVISGipELoCO0LAZw4CQjk2As7QcVsE1ToeLMeFTX1NZmiV+UeoULckurHC8fsI2WqGyccU9/kTJsspsnyG61UG/ZqixwJ4yRBSn4CHe6Vs46gIGyTUJOy+jXH7OcdN/oxJ8YLx8hF3xQLnxQPkIoVmIWTvAkF6BRGlaJpp/wsl3U6hI1rQnodQMFqZE4zOwBHSuhGdIfHoU+Fi2+I0APuRmXWrQnOHdXJCkLwCN/n9Zpc9/ppfmeELKEaiFW81gjEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/3ba6edf50b9f16361758af868108c856/8ac56/git-developer-settings4.webp 240w,
+/static/3ba6edf50b9f16361758af868108c856/d3be9/git-developer-settings4.webp 480w,
+/static/3ba6edf50b9f16361758af868108c856/9046c/git-developer-settings4.webp 760w&quot;
+              sizes=&quot;(max-width: 760px) 100vw, 760px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/3ba6edf50b9f16361758af868108c856/8ff5a/git-developer-settings4.png 240w,
+/static/3ba6edf50b9f16361758af868108c856/e85cb/git-developer-settings4.png 480w,
+/static/3ba6edf50b9f16361758af868108c856/3c051/git-developer-settings4.png 760w&quot;
+            sizes=&quot;(max-width: 760px) 100vw, 760px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/3ba6edf50b9f16361758af868108c856/3c051/git-developer-settings4.png&quot;
+            alt=&quot;setting4&quot;
+            title=&quot;setting4&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;발급된 토큰을 &lt;strong&gt;꼭! 저장해 놓아야 합니다.&lt;/strong&gt;&lt;br&gt;
+새로고침 하면 안 보이기 때문에 다시 발급 해야 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3615a2ce3077caca104b2d0d10589888/ee3fb/git-developer-settings5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAzklEQVQY02WPS2sCMRRGZ2vRdh41ySS5SWakOg8fG5cudAQR29L//2u+5qZQKF0czrnfIpBsngssmyPc4QY1XhJ6d/11vZ3+WI0T5HAGjcwFPm5+f03tdhOyRSFRGAfvHDZE6LxHF7tzlOi5iU0YGLKpZXhDYT1K634gbh8fzCWqoHHaKHytJR5rhc/e4KPTkWju3uI99iNu7Hu82+0IubJQK5MQjU5k/OVStyjbPYowoKIGc2EwqxSeXhVm/6jT/lxJvLAj+bKGMAHCBnwDDntvH4g6LC0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/3615a2ce3077caca104b2d0d10589888/8ac56/git-developer-settings5.webp 240w,
+/static/3615a2ce3077caca104b2d0d10589888/d3be9/git-developer-settings5.webp 480w,
+/static/3615a2ce3077caca104b2d0d10589888/e46b2/git-developer-settings5.webp 960w,
+/static/3615a2ce3077caca104b2d0d10589888/c892f/git-developer-settings5.webp 1144w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/3615a2ce3077caca104b2d0d10589888/8ff5a/git-developer-settings5.png 240w,
+/static/3615a2ce3077caca104b2d0d10589888/e85cb/git-developer-settings5.png 480w,
+/static/3615a2ce3077caca104b2d0d10589888/d9199/git-developer-settings5.png 960w,
+/static/3615a2ce3077caca104b2d0d10589888/ee3fb/git-developer-settings5.png 1144w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/3615a2ce3077caca104b2d0d10589888/d9199/git-developer-settings5.png&quot;
+            alt=&quot;setting5&quot;
+            title=&quot;setting5&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;3-mac-os-적용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-mac-os-%EC%A0%81%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;3 mac os 적용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Mac OS 적용 방법&lt;/h1&gt;
+&lt;p&gt;2번까지의 과정을 모두 거쳐 토큰을 발급 하였습니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Mac OS&lt;/code&gt; 환경에서 적용 하는 방법 입니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;키체인 접근&lt;/strong&gt;을 엽니다. (Spotlight에서 검색 합니다: &lt;code class=&quot;language-text&quot;&gt;command + space bar&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;상단에 &lt;strong&gt;github&lt;/strong&gt;를 검색 합니다.
+github에 저장된 자신의 로그인 정보가 나타납니다. 이중에서 &lt;strong&gt;github.com, 인터넷 암호&lt;/strong&gt;를 더블 클릭 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 886px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3b0699256439bf870be4f220eee1c78a/cc155/git-developer-settings6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQY03WRy27bMBBF9SVt0jixZYvUixYlWRKjhx3HjtI6rZMiKNBFFv3/LzidaFWgyOJggBlyLu+l15gUd5viB4q+HXj9+QtXtxS2oswrNkUz0UivbToetiOn8xv97Z7e7afauTuG9sC33YhX1Q3Hw5Fqs6EqHdt2JwscrupkwUCWFqSxJdaGJFyz1ilZaP5H5nlk8LK8YBxHcpuTxYq2MNRlx/evZ+53D+hljD8LuL7wub70mX3E+/zLEi9OjLyuItQa5a9YLSLi0IrtQWw3BH7MfKa4/DTn6mLB1ee5XF6IwGKq/3Iji70wtXTdgF0bYhXRmAKrE8wqRM98NkmGy0qyIMJJpqWtRUSLqNhMc9QyQgexuHJTLF6oFO+oIJADltfTC7/HR57anrGqOfdb/jy/cMhLTiL84+mZ/d1RPqzGJFbyzSaO949T7y+WKsTpITpUnwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/3b0699256439bf870be4f220eee1c78a/8ac56/git-developer-settings6.webp 240w,
+/static/3b0699256439bf870be4f220eee1c78a/d3be9/git-developer-settings6.webp 480w,
+/static/3b0699256439bf870be4f220eee1c78a/b4685/git-developer-settings6.webp 886w&quot;
+              sizes=&quot;(max-width: 886px) 100vw, 886px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/3b0699256439bf870be4f220eee1c78a/8ff5a/git-developer-settings6.png 240w,
+/static/3b0699256439bf870be4f220eee1c78a/e85cb/git-developer-settings6.png 480w,
+/static/3b0699256439bf870be4f220eee1c78a/cc155/git-developer-settings6.png 886w&quot;
+            sizes=&quot;(max-width: 886px) 100vw, 886px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/3b0699256439bf870be4f220eee1c78a/cc155/git-developer-settings6.png&quot;
+            alt=&quot;setting6&quot;
+            title=&quot;setting6&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;여기에서 하단의 암호보기를 체크 한 후, 아까 위에서 &lt;strong&gt;발급 받았던 토큰&lt;/strong&gt;을 붙여 넣기 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 544px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7ecb8d271d8c50a258d5925efb4c36b9/b3e51/git-developer-settings7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJklEQVQ4y3WTSZLTMBiFfQ6q6W47niTPsS0P8RAyOA4ZKlVNUWyAPgQX4Ays2HIWltzp8ctJik5IL776bVl6fnq/pHwoMuw3AlGbQYQCIqYaH2scJqjyCqtFj3k7RyFKpOPznH/IsSzJEbgRFHNkgRkcjumAS+hZYmkW0ijF8+dnLKZLLN91aCftMJffgOkM3OJQuOUg4j48w4ZvMkROiIj+JBGRwLwhZ2mBPM4hyMn52zUBD+AxH4qjW3CiGvzHb7jffsIlx1Veo5t12L/fD1WKnSmS4j/KtERIRnwSVdyRDjvfIvkFsO9/yD5DUzS0zQUO2wO2/fYolB4XynrBSVC6lHEo3OQImQcjeYIdLBFQDqWYDIK7fjeIzuoZJjQmF96EmjX2xjApd0UGKu1GNuXHHfgsoMXlINJTdzerDdaLNdqyfXXLEiloqCYURluUgoETDbgUbJlVSGmxrlowRwzGyKZqw6JOmi8Y3uk7k431wmvBEDF1W9gOEtvFmLruPaiE9gL1kkcNPlXftBB6EcwLQRJryfa0WGBTTujMzVE3GzR1j/oGTb1GSXNFsUJDYrHjHx2eM/SloBuiSSrMkxR1WqEqZqizKR2jS2piIlrs1gd8+vgVX7Z7FHQJRo/GscvyMIeU39gJIJiLhLouBtxTvYJ7FIuDrqzx1PXYd2u6BNkpQ7odpmYOGKoBnapkRM/ao/4q0s3DnYq7N/d4S2j3KmzK/S+hEp/eHVcK7QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7ecb8d271d8c50a258d5925efb4c36b9/8ac56/git-developer-settings7.webp 240w,
+/static/7ecb8d271d8c50a258d5925efb4c36b9/d3be9/git-developer-settings7.webp 480w,
+/static/7ecb8d271d8c50a258d5925efb4c36b9/cd5ab/git-developer-settings7.webp 544w&quot;
+              sizes=&quot;(max-width: 544px) 100vw, 544px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7ecb8d271d8c50a258d5925efb4c36b9/8ff5a/git-developer-settings7.png 240w,
+/static/7ecb8d271d8c50a258d5925efb4c36b9/e85cb/git-developer-settings7.png 480w,
+/static/7ecb8d271d8c50a258d5925efb4c36b9/b3e51/git-developer-settings7.png 544w&quot;
+            sizes=&quot;(max-width: 544px) 100vw, 544px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7ecb8d271d8c50a258d5925efb4c36b9/b3e51/git-developer-settings7.png&quot;
+            alt=&quot;setting7&quot;
+            title=&quot;setting7&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;변경 사항 저장&lt;/strong&gt; 버튼을 누르고 적용한 이후에, 다시 배포를 실행하면 정상적으로 동작 하는 것을 확인 할 수 있습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h1&gt;
+&lt;p&gt;Github의 보안 강화 를 위해 토큰으로 로그인 하는 방식이 추가 된것 같아요!&lt;br&gt;
+평소에 잘 사용 하던 Github Blog가 Deploy가 안되서 당황스러웠는데, 최근에 이렇게 바뀌었는데 금방 알게 되어서 다행이네요.&lt;/p&gt;
+&lt;p&gt;토큰 발급 까지는 금방 했는데 Mac에서 키체인에서 적용 방법을 몰라서 급하게 정리해 보았습니다..🤯&lt;br&gt;
+다른 분들에게도 많은 도움이 되는 포스팅이였으면 좋겠습니다~!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면, &lt;strong&gt;추천 &amp;#x26;댓글&lt;/strong&gt; 부탁드려요!😎👍🏻&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Blog] Gatsby 블로그에 Disqus 댓글 기능 추가]]></title><description><![CDATA[Gatsby 블로그에 Disqus 댓글을 추가하는 방법에 대해 작성해 보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/blog/disqus-comment</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/blog/disqus-comment</guid><pubDate>Thu, 05 Aug 2021 03:10:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;저번 포스팅에 작성 한 것 처럼 &lt;a href=&quot;https://shinsangeun.github.io/posts/blog/gatsby-blog&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Jekyll에서 Gatsby로 블로그를 이전&lt;/a&gt; 하게 되었는데,&lt;br&gt;
 기존 블로그에 있던 Disqus 댓글 창이 Gatsby 에서 활성화 되지 않는 이슈가 있어서 적용하는 방법을 찾아보게 되었습니다.🤯  &lt;/p&gt;
 &lt;p&gt;그래서 이번 포스팅 에서는 &lt;strong&gt;Gatsby&lt;/strong&gt; 블로그에 &lt;U&gt;&lt;strong&gt;Disqus&lt;/strong&gt; 댓글을 추가하는 방법&lt;/U&gt;에 대해 작성해 보겠습니다.&lt;/p&gt;
