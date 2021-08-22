@@ -24,9 +24,53 @@ module.exports = {
       path: '/categories'
     },
     {
-      label: 'Tags',
-      path: '/tags'
-    }
+      label: 'Algorithm',
+      path: '/category/algorithm/'
+    },
+    {
+      label: 'Blog',
+      path: '/category/blog/'
+    },
+    {
+      label: 'Database',
+      path: '/category/database/'
+    },
+    {
+      label: 'Github',
+      path: '/category/github/'
+    },
+    {
+      label: 'Intellij',
+      path: '/category/intellij/'
+    },
+    {
+      label: 'Interview',
+      path: '/category/interview/'
+    },
+    {
+      label: 'Linux',
+      path: '/category/linux/'
+    },
+    {
+      label: 'Nodejs',
+      path: '/category/nodejs/'
+    },
+    {
+      label: 'Project',
+      path: '/category/project/'
+    },
+    {
+      label: 'Python',
+      path: '/category/python/'
+    },
+    {
+      label: 'React',
+      path: '/category/react/'
+    },
+    {
+      label: 'Web',
+      path: '/category/web/'
+    },
   ],
   author: {
     name: 'Sangeun shin',

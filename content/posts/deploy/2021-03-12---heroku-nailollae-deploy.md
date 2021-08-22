@@ -4,7 +4,7 @@ date: "2021-03-12 16:41:43"
 template: "post"
 draft: false
 slug: "heroku-nailollae"
-category: "Project"
+category: "Deploy"
 tags:
     - "heroku"
     - "deploy"
