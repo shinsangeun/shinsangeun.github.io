@@ -1,4 +1,345 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 04 Sep 2021 15:57:06 GMT</lastBuildDate><item><title><![CDATA[[Github] Mac OS - Authentication Token 발급 및 적용]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 Github에서 토큰 발급과 적용 방법을 알아보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/github/github-token</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/github/github-token</guid><pubDate>Fri, 20 Aug 2021 03:12:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 05 Sep 2021 15:19:45 GMT</lastBuildDate><item><title><![CDATA[[CSS] display 속성 & 종류 정리]]></title><description><![CDATA[CSS display 속성과 종류에 대해 알아 보도록 하겠습니다.]]></description><link>https://shinsangeun.github.io//posts/css/css-div-info</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/css/css-div-info</guid><pubDate>Sun, 05 Sep 2021 03:59:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;요즘 프론트엔드 개발을 하다 보니까 style을 적용 하기 위해서는 css가 필수 더라구요.&lt;br&gt;
+찾아본 것도 까먹거나 헷갈린 적이 있어서…🥲  &lt;/p&gt;
+&lt;p&gt;이번 포스팅을 통해  css의 &lt;strong&gt;display 속성과 종류&lt;/strong&gt;에 대해 알아 보겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;제가 React.js 에서 style을 적용할 때는, 주로 &lt;code class=&quot;language-text&quot;&gt;styled-components&lt;/code&gt;를 사용합니다.&lt;/li&gt;
+&lt;li&gt;사람 마다 css 적용 방법이 달라서 어떤 분은 &lt;code class=&quot;language-text&quot;&gt;scss&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;@emotion&lt;/code&gt;, 아니면 기존의 css 파일을 쓰는 경우도 있다고 하더라구요. 개인 취향의 차이 이니, 각자의 스타일에 맞게 적용하시면 될 것 같아요!&lt;/li&gt;
+&lt;li&gt;이번 포스팅 에서는 css의 여러 요소 중 에서도 display의 종류에 대해 알아보겠습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;2-display의-종류&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-display%EC%9D%98-%EC%A2%85%EB%A5%98&quot; aria-label=&quot;2 display의 종류 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. display의 종류&lt;/h2&gt;
+&lt;p&gt;(1) inline&lt;br&gt;
+(2) inline-block&lt;br&gt;
+(3) block&lt;br&gt;
+(4) none  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;display의 종류는 총 4가지 입니다. 아래의 예제를 통해 각각의 특징에 대해 알아보겠습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;3-styled-components-적용-예제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-styled-components-%EC%A0%81%EC%9A%A9-%EC%98%88%EC%A0%9C&quot; aria-label=&quot;3 styled components 적용 예제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. styled-components 적용 예제&lt;/h2&gt;
+&lt;p&gt;실제로 &lt;strong&gt;styled-components&lt;/strong&gt; 를 사용 해서 react.js에 css를 적용 하는 예제를 보여 드리겠습니다.&lt;/p&gt;
+&lt;p&gt;(1) display: &lt;strong&gt;inline&lt;/strong&gt; 일 경우,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;   import styled from &amp;#39;styled-components&amp;#39;
+
+    const Test = styled.div`
+        display: inline;
+        height: 500px;
+        width: 500px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+    
+    const Test2 = styled.div`
+        display: inline;
+        height: 500px;
+        width: 500px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+    const Test3 = styled.div`
+        display: inline;
+        height: 500px;
+        width: 500px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+    
+    const location = () =&amp;gt; {
+        return(
+            &amp;lt;&amp;gt;
+                &amp;lt;Test&amp;gt;
+                    테스트 상자
+                &amp;lt;/Test&amp;gt;
+                &amp;lt;Test2&amp;gt;
+                    테스트 상자2
+                &amp;lt;/Test2&amp;gt;
+                &amp;lt;Test3&amp;gt;
+                    테스트 상자3
+                &amp;lt;/Test3&amp;gt;
+    
+            &amp;lt;/&amp;gt;
+        )
+    }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 682px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d383c16c04687b1013d6a1ec8193e623/160a3/css-div-inline.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA3klEQVQY022LbU+CYBSG+f//wp/g+tC0tBk0sGxQAfZIrkReEsamICaoXD1pbX3w7NznPue6d5SFMSDSB2QPGqlUoF4Taj2WE4f4TRC6NmJ0z9QcMbefiYRLPBlL/kIwdo6e+x9sQp8ymKFs2222wyFf2h2V+Uhx0cVvddndXFHpBrVlsVdV9v0eQavDpn/LztCpTZP6h3cuybQnynxNVeQohTvnqGnC2vtkKRJiK6V0ZuSvkeTpyWUW6T4rO6AQ8n7P5J/cvQUrL6HhVMpBjv/6Cw5nxG9+jtM0shu+AUyeJrlP7JOhAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/d383c16c04687b1013d6a1ec8193e623/8ac56/css-div-inline.webp 240w,
+/static/d383c16c04687b1013d6a1ec8193e623/d3be9/css-div-inline.webp 480w,
+/static/d383c16c04687b1013d6a1ec8193e623/57e27/css-div-inline.webp 682w&quot;
+              sizes=&quot;(max-width: 682px) 100vw, 682px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/d383c16c04687b1013d6a1ec8193e623/8ff5a/css-div-inline.png 240w,
+/static/d383c16c04687b1013d6a1ec8193e623/e85cb/css-div-inline.png 480w,
+/static/d383c16c04687b1013d6a1ec8193e623/160a3/css-div-inline.png 682w&quot;
+            sizes=&quot;(max-width: 682px) 100vw, 682px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/d383c16c04687b1013d6a1ec8193e623/160a3/css-div-inline.png&quot;
+            alt=&quot;inline&quot;
+            title=&quot;inline&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이렇게 &lt;strong&gt;가로&lt;/strong&gt;로 3개의 테스트 상자가 만들어 지는 것을 볼 수 있습니다. 하지만 &lt;code class=&quot;language-text&quot;&gt;height: 500px;, width: 500px;&lt;/code&gt; 라고 크기를 지정 하였음에도 불구하고 width가 100%가 되게 합니다. 가로 한 줄을 다 차지 합니다.&lt;/li&gt;
+&lt;li&gt;따라서 &lt;code class=&quot;language-text&quot;&gt;display: inline;&lt;/code&gt; 요소는 &lt;U&gt;가로로 나열 되고, 요소의 크기는 지정이 안되는 것&lt;/U&gt;을 알 수 있습니다.
+(아래 소스 부터는 return 부분이 동일하므로 생략 합니다!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(2) display: &lt;strong&gt;inline-block&lt;/strong&gt; 일 경우,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;   import styled from &amp;#39;styled-components&amp;#39;
+
+    const Test = styled.div`
+        display: inline-block;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+
+    const Test2 = styled.div`
+        display: inline-block;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+    const Test3 = styled.div`
+        display: inline-block;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 783px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7c533e60f1b3f52826462d1479a93902/e51a6/css-div-inline-block.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.583333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA+0lEQVQoz22QQU7DMBBFc/+jsOQERSJIjSi0iihUiBUbCKWNPXETu7E/Y09I2qoj2bLet59Hk+U3t3DlG+pyA73VoB9euwbV5ht6uQYtStDHZ2LE+f5LY/v0Dlq+gFavoKpmTilTlUZWzBeIFXyP02o0bz2zxMPII2rJM4qZP3vjjmDh42q46BFCSIs3aBXgg6gEpROcDTBGBJKFMbNdQDYvngehdCghQGq6KI9E4RxgmlM+ZdZyh/d5MQqH5lJpFceAkf1zZ6Nw6PAiS8L8QYT+YoakcbWOPKeDuZ7Fz7LZnQiN6dG1kNUB+18e/gETG3hDgKrlfJa18tEfNOYhGfPYVbkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7c533e60f1b3f52826462d1479a93902/8ac56/css-div-inline-block.webp 240w,
+/static/7c533e60f1b3f52826462d1479a93902/d3be9/css-div-inline-block.webp 480w,
+/static/7c533e60f1b3f52826462d1479a93902/b408c/css-div-inline-block.webp 783w&quot;
+              sizes=&quot;(max-width: 783px) 100vw, 783px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7c533e60f1b3f52826462d1479a93902/8ff5a/css-div-inline-block.png 240w,
+/static/7c533e60f1b3f52826462d1479a93902/e85cb/css-div-inline-block.png 480w,
+/static/7c533e60f1b3f52826462d1479a93902/e51a6/css-div-inline-block.png 783w&quot;
+            sizes=&quot;(max-width: 783px) 100vw, 783px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7c533e60f1b3f52826462d1479a93902/e51a6/css-div-inline-block.png&quot;
+            alt=&quot;inline-block&quot;
+            title=&quot;inline-block&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이렇게 &lt;strong&gt;가로&lt;/strong&gt;로 3개의 테스트 상자가 만들어 지는 것을 볼 수 있습니다. 지정된 크기 &lt;code class=&quot;language-text&quot;&gt;height: 250px;, width: 250px;&lt;/code&gt; 대로 박스가 나타납니다.&lt;/li&gt;
+&lt;li&gt;따라서 &lt;code class=&quot;language-text&quot;&gt;display: inline-block;&lt;/code&gt; 요소는 &lt;U&gt;가로로 나열 되고, 요소의 크기는 지정이 된다는 것&lt;/U&gt;을 알 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(3) display: &lt;strong&gt;block&lt;/strong&gt; 일 경우,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;   import styled from &amp;#39;styled-components&amp;#39;
+
+    const Test = styled.div`
+        display: block;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+
+    const Test2 = styled.div`
+        display: block;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+    const Test3 = styled.div`
+        display: block;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fb8ce1f5ee4a175ddbedb82b11b072bb/07484/css-div-block.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 287.9166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA6CAYAAACwL3lLAAAACXBIWXMAABYlAAAWJQFJUiTwAAACHklEQVRYw+1YXW/TMBTN//8HPPIAD2hIAyS6CakT/QAqRtXBOo2JtVuSEdok7QZxSsPss+uPrJm6dG6lvaBYOvW9kX3s29uc69oZvP4Ar/kVbr0L9/0B3AbZtY/a7/vwDn34R8FKeH0C9ek4gJM8fwW02uA77yA6+xDNNsSbtxDdHgRgBU6IIqjmpClXj4Ry6TNJyL0mk2zBTf8w4lBQJ+CwmWaWztLq8pnI+9WQhHKWw1JtCLNScZBZCWWtOCQOTcgsfXBeRVgRVoSPR8jtheVe3BLO57ygakWFy30U+vI2jTWx44+BySUQTkkkc1wR6FlEg6KxIGAlwhHw0zM7HD5tYNQ+RVA7QFA/RrBHeNHS6HgIfgGBLxBcoBSSzD83hFmjDXzbB3qfgcEx8OUT0O8BXeovzuxDnpiQk2uTlLKawcWiGpRAJnSRZaap9EQDGmGj2iU/m7slYAnVq1cRVoSPTbgJlgmZWBaHOyieEy1KwN9sZVDW4U8io4cnh5lSW3fA4f74B3co4H6fwz3J4JK+Kn+IctCYs1Ntqx1GT7aQ7jaQvNwBq3fAdltgWzWwZ9tgzS4YRcB+czA6epch+QOMAkM4OydrGuov4Wqqi0NeeS4n1qHfhsyyxZR7YZGQtbK8QQmo3uWKsCL8H0pAOstvGzbYYqHF+SWGvLOQdNycRDeFlFBFOB4JJY5xJNQq60LOjYw2K8J1/ovYJOkGvW7Z7A/4HAoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/fb8ce1f5ee4a175ddbedb82b11b072bb/8ac56/css-div-block.webp 240w,
+/static/fb8ce1f5ee4a175ddbedb82b11b072bb/d3be9/css-div-block.webp 480w,
+/static/fb8ce1f5ee4a175ddbedb82b11b072bb/9e625/css-div-block.webp 540w&quot;
+              sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/fb8ce1f5ee4a175ddbedb82b11b072bb/8ff5a/css-div-block.png 240w,
+/static/fb8ce1f5ee4a175ddbedb82b11b072bb/e85cb/css-div-block.png 480w,
+/static/fb8ce1f5ee4a175ddbedb82b11b072bb/07484/css-div-block.png 540w&quot;
+            sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/fb8ce1f5ee4a175ddbedb82b11b072bb/07484/css-div-block.png&quot;
+            alt=&quot;block&quot;
+            title=&quot;block&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이번에는 &lt;strong&gt;세로&lt;/strong&gt;로 3개의 테스트 상자가 만들어 지는 것을 볼 수 있습니다. 지정된 크기 &lt;code class=&quot;language-text&quot;&gt;height: 250px;, width: 250px;&lt;/code&gt; 대로 박스가 나타납니다.&lt;/li&gt;
+&lt;li&gt;따라서 &lt;code class=&quot;language-text&quot;&gt;display: block;&lt;/code&gt; 요소는 &lt;U&gt;세로로 나열 되고, 요소의 크기는 지정이 된다는 것&lt;/U&gt;을 알 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(4) display: &lt;strong&gt;none&lt;/strong&gt; 일 경우,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;   import styled from &amp;#39;styled-components&amp;#39;
+
+    const Test = styled.div`
+        display: none;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+
+    const Test2 = styled.div`
+        display: none;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `
+    const Test3 = styled.div`
+        display: none;
+        height: 250px;
+        width: 250px;
+        color: red;
+        font-size: 20px;
+        border: 1px solid blue;
+    `&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6cf969c14da05c64fe7493679b719762/7321b/css-div-none.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAL0lEQVQoz2P4/vb1fzh+9/b/j/fvKMIM/6kMGP79+/efmhjsQhCDai4cNXAEGAgAquQZiKabxm4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/6cf969c14da05c64fe7493679b719762/8ac56/css-div-none.webp 240w,
+/static/6cf969c14da05c64fe7493679b719762/d3be9/css-div-none.webp 480w,
+/static/6cf969c14da05c64fe7493679b719762/e46b2/css-div-none.webp 960w,
+/static/6cf969c14da05c64fe7493679b719762/2754d/css-div-none.webp 1184w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/6cf969c14da05c64fe7493679b719762/8ff5a/css-div-none.png 240w,
+/static/6cf969c14da05c64fe7493679b719762/e85cb/css-div-none.png 480w,
+/static/6cf969c14da05c64fe7493679b719762/d9199/css-div-none.png 960w,
+/static/6cf969c14da05c64fe7493679b719762/7321b/css-div-none.png 1184w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/6cf969c14da05c64fe7493679b719762/d9199/css-div-none.png&quot;
+            alt=&quot;none&quot;
+            title=&quot;none&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이번에는 이름에서 느껴지는 것 처럼 화면에 아무것도 나타나지 않는 것을 확인 할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;따라서 &lt;code class=&quot;language-text&quot;&gt;display: none;&lt;/code&gt; 요소는 &lt;U&gt;화면 에서 나타나지 않고 크기 자체도 차지 하지 않는 것&lt;/U&gt;을 알 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;css display 가 헷갈리는 분들에게 도움이 되는 포스팅 이였으면 좋겠습니다.&lt;/li&gt;
+&lt;li&gt;요소들과 문법을 정리 해 놓으니 이번엔 안 까먹겠죠..?👍🏻 다른 css 요소들도 포스팅에 하나씩 정리해 보도록 할께요!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다. 읽어 주셔서 감사합니다!&lt;/p&gt;
+&lt;p&gt;이번 포스팅이 도움이 되셨으면 아래 &lt;strong&gt;좋아요&lt;/strong&gt; 버튼과,&lt;br&gt;
+궁금한 점이 있으시다면 언제든지 &lt;strong&gt;댓글&lt;/strong&gt;을 달아주세요!🤖✨&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Github] Mac OS - Authentication Token 발급 및 적용]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 Github에서 토큰 발급과 적용 방법을 알아보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/github/github-token</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/github/github-token</guid><pubDate>Fri, 20 Aug 2021 03:12:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅 에서는 Github에서 &lt;strong&gt;Authentication Token 발급&lt;/strong&gt;과,&lt;br&gt;
 발급한 토큰을 &lt;strong&gt;Mac OS 환경에서 적용하는 방법&lt;/strong&gt;을 알아보겠습니다.👨‍🏫&lt;/p&gt;
 &lt;hr&gt;
