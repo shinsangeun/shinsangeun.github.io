@@ -1,30 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 09 Sep 2021 15:30:23 GMT</lastBuildDate><item><title><![CDATA[[CSS] 여러 개의 이미지 & 글씨 겹쳐 보이게 하기]]></title><description><![CDATA[이번 포스팅 에서는 여러 이미지나 글씨를 화면에서 겹쳐 보이게 하는 방법을 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/css/css-image-relative</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/css/css-image-relative</guid><pubDate>Fri, 10 Sep 2021 02:01:10 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
-&lt;p&gt;이번 포스팅 에서는 CSS를 사용하여 여러 개의 이미지나 글씨를 화면에 겹쳐 보이게 하는 방법을 소개해 드리겠습니다.🌈&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
-&lt;p&gt;웹 페이지에서 흔히 볼 수 있는 배너 같은거를 만들 때 사용 되는 방법 입니다. 배너 위에 타이틀이 있고, 서브 타이틀이 있는 배너 다들 한번씩은 보셨죠?&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;배너 이미지&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;타이틀 이미지&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;서브 타이틀&lt;/code&gt; 이미지 3개가 주어 졌을 때 여러 개의 이미지를 겹쳐서 보이게 하는 방법을 알려 드리겠습니다.&lt;/p&gt;
-&lt;h3 id=&quot;2-css-문법-요소&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-css-%EB%AC%B8%EB%B2%95-%EC%9A%94%EC%86%8C&quot; aria-label=&quot;2 css 문법 요소 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. CSS 문법 요소&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;display: relative;&lt;/li&gt;
-&lt;li&gt;display: absolue;&lt;/li&gt;
-&lt;li&gt;z-index: 10;&lt;br&gt;
-오늘 이 방법을 적용하고 배울 CSS 요소 입니다. 이것만 확실히 알면 이미지 겹쳐 보이게 하기 완전 쉽게 적용 할 수 있어요! (야나두?..🥲)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;3-적용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EC%A0%81%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;3 적용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 적용 방법&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;웹 개발 시에 쿠키 값을 유지하고, 공유 하는 작업은 처음 해봐서 블로그에 적게 되었습니다. 생각보다 간단 하죠?!🤭&lt;/li&gt;
-&lt;li&gt;생각 보다 간단 하지만 구글링하고 삽질하는데 시간이 꽤 오래 걸려서…저 같은 분들에게 도움이 되셨으면 좋겠어요!👍🏻&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;/p&gt;
-&lt;p&gt;이번 포스팅이 도움이 되셨으면 아래 &lt;strong&gt;좋아요&lt;/strong&gt; 버튼과,&lt;br&gt;
-궁금한 점이 있으시다면 언제든지 &lt;strong&gt;댓글&lt;/strong&gt;을 달아주세요!🤖✨&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Javascript] 같은 도메인 간 쿠키 값 공유하기]]></title><description><![CDATA[이번 포스팅 에서는 같은 도메인 간 쿠키(cookie) 값을 공유하는 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/javascript/cookie-domain</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/javascript/cookie-domain</guid><pubDate>Thu, 09 Sep 2021 02:01:10 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 14 Sep 2021 13:55:22 GMT</lastBuildDate><item><title><![CDATA[[Javascript] 같은 도메인 간 쿠키 값 공유하기]]></title><description><![CDATA[이번 포스팅 에서는 같은 도메인 간 쿠키(cookie) 값을 공유하는 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/javascript/cookie-domain</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/javascript/cookie-domain</guid><pubDate>Thu, 09 Sep 2021 02:01:10 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅 에서는 같은 도메인 간에 &lt;code class=&quot;language-text&quot;&gt;쿠키(cookie)&lt;/code&gt;🍪 값을 공유하는 방법에 대해 소개해 드리겠습니다.  &lt;/p&gt;
 &lt;p&gt;🗣 참고: &lt;a href=&quot;https://shinsangeun.github.io/posts/web/cookie-session&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;👉🏻[Web] 쿠키(Cookie)와 세션(Session)&lt;/a&gt; 포스팅에 쿠키와 세션에 대한 내용도 읽어보세요!🙆🏻‍♀️&lt;/p&gt;
 &lt;hr&gt;
@@ -64,10 +38,101 @@
 &lt;ul&gt;
 &lt;li&gt;이렇게 setCookie 함수에 Domain을 추가 함으로써, 같은 도메인 간에는 서로 같은 쿠키 값이 유지 되게 됩니다. 만약에 &lt;code class=&quot;language-text&quot;&gt;ccc.test.co.kr&lt;/code&gt; 라는 도메인이 있다면 거기에도 같은 쿠키 값이 공유되게 됩니다. &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&quot;4-확인-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;4 확인 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 확인 방법&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/768b141791a05543d70bbea083020744/844cc/application.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAACCUlEQVQozyWS6W7TQBSF8xhIpU3iePd43+04i504aQsq6kIR/KkE6g8E4jXgBXjdj5vw4+jOvTM6c86Zmfz68ZP9duBmPPDh9h3bbsVxf2DY9Bx247me+n2/43o/chh23Mj6/jDwfui5G0ZGmfVtx3HYM3l4/sLCz0iqFV6Uo9kBuuWjSzVshWWaXFxpXFzOyOoVVbfDDQummnWenfD2as6biynKD5l8/fZKuNzRDkeW3ZomT8nykrSoieOEJElJBb5ctnz5Q//9L4uH32j9K0moiJP8fCaKEuq6EYUPH7k0FV65JogLmtU1WXeLmy5RaYMVZGhuxMz0qLstm901rswW0s/musBgphlcTTUiETB5fHwWix5p1VFXDWPbsJE82rJk3ba0Rc4uVSRBwPFwR9+PZzWuG+B7PoFj4/gJnuNR5hmTp6dPKNmoqlrs5mzzmGWW0hUlS+k3ZcG6rqnKmvvNC/v9Hd26JwpjQqWI/ECqj+2nYj37r9AV9pO6IsvJ6y3teqTbjGSnfKJMcqqwoprAr1AqYqGbzKZzdNM9u5vrNprholxPMrx/Yiqv6jcDSbkkSkuytidteukl1zAjDFKcsET3YiEIMd1EFBWSo0I3bJRl4RiGCHNF4fNnZkLoFR2myNbktoV1+joCJ8JwhMQWkjMCLDcWwgjLS+SMwjAdXMvGNkwccfoPko4jho/yEYIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/768b141791a05543d70bbea083020744/8ac56/application.webp 240w,
+/static/768b141791a05543d70bbea083020744/d3be9/application.webp 480w,
+/static/768b141791a05543d70bbea083020744/e46b2/application.webp 960w,
+/static/768b141791a05543d70bbea083020744/83135/application.webp 1306w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/768b141791a05543d70bbea083020744/8ff5a/application.png 240w,
+/static/768b141791a05543d70bbea083020744/e85cb/application.png 480w,
+/static/768b141791a05543d70bbea083020744/d9199/application.png 960w,
+/static/768b141791a05543d70bbea083020744/844cc/application.png 1306w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/768b141791a05543d70bbea083020744/d9199/application.png&quot;
+            alt=&quot;example1&quot;
+            title=&quot;example1&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+웹 페이지에서 &lt;strong&gt;개발자 도구 &gt; Application&lt;/strong&gt; 을 선택합니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5fbd640e36968b5ed45eb541c9ab28ca/b1584/checkCookie.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAADGklEQVQ4y4VU2XLTWhDUh1wS77K1WJK1eJFkJ3aCE2IWk9jGMbEDSUiAKgI83edLUcVfN9NDnCeq7sPUSEfn9HT3zJHx678fmE9fY71c4fryHS7mC1yt3mIzn+PmfIXNbIab1Qrr01N82mxwdX6O8+kpvm5WuF0u8OnNEu9l3/pshnfybNx+/IxW1IEXxNgtVlAo1VCqNRAGIbqeD6dSg2fW0SgU4TcsmLYHyw2QdFLE7R7a3RxxN0PUTuEGEYyPAjjYG2F8dII0G8BxBcT1kMhm2/FQbzjI+kN00wEsu4mG5UrxCEGYaPA5ijvwJWf5AMbV9Qd9yQdDeH6oh2ynKWuhHqgKW7Lp7x+ialqoVOsKymKMWt2G67VgSu70Uhhf7r8hlAotOUx2ZMSNfO9lewoSixxK48GavFvyncwYytiXLERSMrwTyYkcGB0cYXR4BFtAydDzW1KoC1MKECzN90XFSL75wsbR4k1RRGbWA9NumomHd3foZzlev5oi7fbQkAbYlqU2EISbO70+BsOn2BuN1YZ6w4XbbMFpBsqYoMxJuyuA9/9ieDLH89klmu19iSGCKBfJsTKipEiYRgnjT6O4RnYEpEW+TAglxwS8+P4T/uQa+Zt7pIsvyJbfkDxbw/c5GrkyDGWs2GkGQWgDraGnBGw+5DBKYGwu1kiiCGcyuNOXr3AqQz55dqIdHx4eC2imQP29A/WS3nESCBaEbQViULYynC2WiEXO5MUU4+MJhgdj9S8QyfSQctq9XOeQvnGMKI9MKZtgLqWLDWHUhnE2WyjAgXR4OHqKvswj38tyQ/55UsDObukxCrxJEruF8mPommR+Z2OM+XwpN6SPmeSTyUsBPtZuFYrlx8PcvM1/i+03yjYu1pdqPI1l91il3rBRKlV1E9c4j5Tot2IdZtrA8aFkZnb+yU7xDyDvMrV35IIzOLj0pVSuauVyxdSN9K5m2npztrOnaw/5keHNhzv9EfDnMDoc65Uz65ZK3kpi9Z3doua/xXYPgQXwFtWqiVYr0uvGn4JlOyLVQUU2kCF/CP8XpXJNR+o3LXgnFzUfrDwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5fbd640e36968b5ed45eb541c9ab28ca/8ac56/checkCookie.webp 240w,
+/static/5fbd640e36968b5ed45eb541c9ab28ca/d3be9/checkCookie.webp 480w,
+/static/5fbd640e36968b5ed45eb541c9ab28ca/e46b2/checkCookie.webp 960w,
+/static/5fbd640e36968b5ed45eb541c9ab28ca/ec5ae/checkCookie.webp 1342w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5fbd640e36968b5ed45eb541c9ab28ca/8ff5a/checkCookie.png 240w,
+/static/5fbd640e36968b5ed45eb541c9ab28ca/e85cb/checkCookie.png 480w,
+/static/5fbd640e36968b5ed45eb541c9ab28ca/d9199/checkCookie.png 960w,
+/static/5fbd640e36968b5ed45eb541c9ab28ca/b1584/checkCookie.png 1342w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5fbd640e36968b5ed45eb541c9ab28ca/d9199/checkCookie.png&quot;
+            alt=&quot;example2&quot;
+            title=&quot;example2&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;strong&gt;Cookie &gt; 해당 도메인&lt;/strong&gt; 을 선택하고, 지정한 쿠키의 이름을 Filter에 검색해서 찾습니다.&lt;br&gt;
+(저는 예시로 로컬 서버로 띄워서 캡처 했어요!)&lt;/p&gt;
+&lt;p&gt;최상위 도메인을 바꿔 가면서 테스트 해 보고 쿠키 값이 동일 하게 유지 되면 성공, 쿠키 값이 도메인에 따라 2개가 생긴다면 캐시를 지우고 다시 적용해 봐야 합니다.&lt;/p&gt;
 &lt;h3 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;웹 개발 시에 쿠키 값을 유지하고, 공유 하는 작업은 처음 해봐서 블로그에 적게 되었습니다. 생각보다 간단 하죠?!🤭&lt;/li&gt;
-&lt;li&gt;생각 보다 간단 하지만 구글링하고 삽질하는데 시간이 꽤 오래 걸려서…저 같은 분들에게 도움이 되셨으면 좋겠어요!👍🏻&lt;/li&gt;
+&lt;li&gt;생각 보다 간단 하지만 구글링하고 삽질하는데 시간이 꽤 오래 걸려서…저 처럼 삽질 하지 마시고 빠르게 적용해 보세요!👍🏻&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;오늘 준비한 내용은 여기까지 입니다.  &lt;/p&gt;
