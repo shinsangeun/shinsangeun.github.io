@@ -57,9 +57,20 @@ function setCookie(cname, cvalue, exdays) {
 - 이렇게 setCookie 함수에 Domain을 추가 함으로써, 같은 도메인 간에는 서로 같은 쿠키 값이 유지 되게 됩니다. 만약에 `ccc.test.co.kr` 라는 도메인이 있다면 거기에도 같은 쿠키 값이 공유되게 됩니다. 
 
 
+### 4. 확인 방법
+![example1](../../../static/assets/images/javascript/cookie-domain/application.png)
+웹 페이지에서 **개발자 도구 > Application** 을 선택합니다.
+
+![example2](../../../static/assets/images/javascript/cookie-domain/checkCookie.png)
+**Cookie > 해당 도메인** 을 선택하고, 지정한 쿠키의 이름을 Filter에 검색해서 찾습니다.  
+(저는 예시로 로컬 서버로 띄워서 캡처 했어요!)
+
+최상위 도메인을 바꿔 가면서 테스트 해 보고 쿠키 값이 동일 하게 유지 되면 성공, 쿠키 값이 도메인에 따라 2개가 생긴다면 캐시를 지우고 다시 적용해 봐야 합니다.
+
+
 ### 4. 마치며
 - 웹 개발 시에 쿠키 값을 유지하고, 공유 하는 작업은 처음 해봐서 블로그에 적게 되었습니다. 생각보다 간단 하죠?!🤭
-- 생각 보다 간단 하지만 구글링하고 삽질하는데 시간이 꽤 오래 걸려서...저 같은 분들에게 도움이 되셨으면 좋겠어요!👍🏻
+- 생각 보다 간단 하지만 구글링하고 삽질하는데 시간이 꽤 오래 걸려서...저 처럼 삽질 하지 마시고 빠르게 적용해 보세요!👍🏻
 
 -----
 
