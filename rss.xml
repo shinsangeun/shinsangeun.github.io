@@ -1,4 +1,192 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Oct 2021 15:36:23 GMT</lastBuildDate><item><title><![CDATA[[Javascript] 같은 도메인 간 쿠키 값 공유하기]]></title><description><![CDATA[이번 포스팅 에서는 같은 도메인 간 쿠키(cookie) 값을 공유하는 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/javascript/cookie-domain</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/javascript/cookie-domain</guid><pubDate>Thu, 09 Sep 2021 02:01:10 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Oct 2021 17:10:41 GMT</lastBuildDate><item><title><![CDATA[[React] Web share api - 모바일 웹 공유하기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `React.js` 에서 모바일 웹 공유하기 기능을 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-web-share</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-web-share</guid><pubDate>Mon, 11 Oct 2021 03:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번 포스팅 에서는 &lt;code class=&quot;language-text&quot;&gt;React.js&lt;/code&gt;를 사용해서 모바일 웹에서 페이지 공유하기 기능을 소개해 드리겠습니다.
+모바일 웹 공유하기 시, 사용할 라이브러리는 Web share api 입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-모바일-웹-공유하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%9B%B9-%EA%B3%B5%EC%9C%A0%ED%95%98%EA%B8%B0&quot; aria-label=&quot;1 모바일 웹 공유하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 모바일 웹 공유하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;모바일 웹 공유하기 기능이란, 카카오나 네이버에서 웹 페이지 링크를 공유 할 때 ‘공유하기’ 버튼을 누르면 하단에 나타나는 팝업 기능 입니다.&lt;/li&gt;
+&lt;li&gt;예를 들어 ios에서 하단에 공유하기 버튼을 누르면 아래와 같은 창이 나타납니다. (안드로이드 에서도 팝업이 하단에 나타납니다.)
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 330px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b39efa2363b83ae65db2f5eda41f96ae/d9ecf/react-share-api.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 112.91666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEyElEQVQ4y32VW28bVRDH/X2AF74Cj/CA2iJRHgD1hYfSAm0lWtRKfQRCVZr2oYUiSNskJW0JguaekMROyMW52G7ixEnsXNbr+L5eX3e9tn/M2cSoQsCRRrtzduY/M/+Zc9bz59wc3d3djIxN8uvvYwwMjjM4OMTExBQLC0sMD48xO7/MUiDM6OgEXt8cfv8SLwIrTP0xwfS0l7GxcR739jA1NYkHWVPTs3R197O9EyMYDLC0tCxOflZWVl3nYCDAjM/LnAQ/PEywuDDP4uKCa5vPZaiUiujxOM2Gg6fZbHC78w7vnHhboi4Rje2xtbWFpunoiSTxuC4gSRKJQ9EPSafTZNIpctk0WXnmsxlX17UDzIKBp1wuu1G3t7fRdZ1sNksmk6GQz1Eu5MUxS1r0fC5HxcxjGjny8q1g5DHyWdnPyjPnZlosltqAh9SdOiV5TyZTApZlNXLAkD+GpicwxCm2H2dgMUo4qgmogAiwVS5QKxUkgADn8xRzh0eAKSljdHSatdUgtbJJaGufD78P8FZnkJvPNzGzKa4/XePNzhBnfwoS3dehXubrBY1bfk3ebVJRP8boNTzVaoW8YfDpJ59z52YnzVaL+fU9Tt1d5+S9La70b0jWOue7Nzn13Ran76/xYldAHIuzkxrX53XVV9Lr4xSGL+OpVCrs7u0JoTk2NCl1J4m2H6Oj18uZO8Pc8D3BKCZ5Mr7CmW+n+ejxA0J6gAMtxclHs1zom+Fg5wUF4btqZvCUSiU6Ojq4dOkSly5ekI7fYnZ2hu6HP/LwwQ8MDP2GCjoyNMizvsf09D5kbX1NRmaVX/p6eCoyNjaKok7ZeWq1GuFwmEAg6MrGxgZqr2W1wBJ6anWKEtSpi9KyoVl3Ha1qzf2O3cK2bFRi1arMoW3XhVMxbDmuOHXV7RJhc5ulQgjdTFKvVtnSTCaCBoGodLZcIVMy8Brr+Iwweem0Gm7b2sOjwIqVKr3bDoMHNi2JslpY52a5i35rnLtmL5VijbN9RT7oqvBeV5G4XudW/jmvJK7yauILbmd9YCygrb+LpyXd2slaXPY1+MrvYJowkppkoDDldu9G4h77aZMvly0yDbi3YbO65/DZ3n2ux/u5ctDDx7FnkBth9Oc38DgyQ0apSqJQRzMsKa/BamaN06FzIue5GvnGzfpiqMyJRYv3lyukxfbR/hSvzVzl9dlr9BwsQymEmTgnJQtnZak/uh1hfzcqhJelETYxfZeFTT+lYhlLmmSKjT+yQypvyPca1XKV4GaYUGQDSygrV2pHZ1kBul0TLuuOgy1Py7Jo1KVJUqJtW1Rk+GvSGMeqCXhV9COxxU6JslcHRD09CsCRc6zmSN0kppCoRqBQKJCRm0TpajWbTRoizZekrStf6xjYBVSb6oY5urY0IpEIu7u7riQSCRewJUfyv5a6XKoqY8Fy59CWsv9vuRkJYPMfGbZFBWs0GkcZKu6UsboLV1ZWiMVirgSDQTdTdXL+LcO27gjv6qQpalQ/3JLrxxm2jVRUtadEOfzbUrat46zbGNZRyUccqptaZRmXf4PqulptotXZflmUs4rdTqBYLLqgir6/AQ2Zr2Qy6QKrrNQNPDk5ic/nw+v1uqLe1Z6i5OUs1VQ4xyP3Fy3qgFad/6t/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b39efa2363b83ae65db2f5eda41f96ae/8ac56/react-share-api.webp 240w,
+/static/b39efa2363b83ae65db2f5eda41f96ae/f2908/react-share-api.webp 330w&quot;
+              sizes=&quot;(max-width: 330px) 100vw, 330px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b39efa2363b83ae65db2f5eda41f96ae/8ff5a/react-share-api.png 240w,
+/static/b39efa2363b83ae65db2f5eda41f96ae/d9ecf/react-share-api.png 330w&quot;
+            sizes=&quot;(max-width: 330px) 100vw, 330px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b39efa2363b83ae65db2f5eda41f96ae/d9ecf/react-share-api.png&quot;
+            alt=&quot;web-share&quot;
+            title=&quot;web-share&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;카카오톡, 문자 메세지, Slack 등등 어떤 메신저로 공유 할지 선택 해서 해당 페이지를 공유할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-web-share-api-사용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-web-share-api-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;2 web share api 사용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Web share api 사용 방법&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;이렇게 공유하기 기능을 개발 하기 위해서는 &lt;strong&gt;Web share api&lt;/strong&gt;를 이용 하는데요. 사용 방법은 의외로 아주 간단 합니다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;기본예제는 아래와 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;url: 공유할 URL을 작성합니다.&lt;/li&gt;
+&lt;li&gt;text: 공유할 본문을 작성합니다.&lt;/li&gt;
+&lt;li&gt;title: 공유할 제목을 작성합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;if (navigator.share) {
+  navigator.share({
+      title: &amp;#39;기록하며 성장하기&amp;#39;,
+      text: &amp;#39;Hello World&amp;#39;,
+      url: &amp;#39;https://shinsangeun.github.io&amp;#39;,
+  })
+    .then(() =&amp;gt; console.log(&amp;#39;공유 성공&amp;#39;))
+    .catch((error) =&amp;gt; console.log(&amp;#39;공유 실패&amp;#39;, error));
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;[📍주의 사항]&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;해당 기능은 &lt;strong&gt;https://&lt;/strong&gt; 환경에서만 지원 된다는 특징이 있습니다. &lt;strong&gt;http://&lt;/strong&gt; 인 환경에서는, 공유하기 기능이 실행 되지 않습니다.&lt;/li&gt;
+&lt;li&gt;text, url 두 속성 중 하나 이상을 필수로 넣어야 합니다. &lt;/li&gt;
+&lt;li&gt;navigator.share가 지원 되는 환경에서는 실행 되고, 지원 되지 않는 환경에서는 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;가 return 됩니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;3-reactjs-사용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-reactjs-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;3 reactjs 사용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. React.js 사용 방법&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;간단한 예제 코드를 적용해 보았습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const SearchBtn = styled.button`
+  margin: 10px;
+  border: none;
+  border-radius: 4px;
+  height: 25px;
+  font-size: 18px;
+  background-color: #74b9ff;
+  color: white;
+  :hover{
+      background-color: #99c6f5;
+  }
+`;
+
+const handle = () =&amp;gt; {
+  if (navigator.share) {
+      navigator.share({
+          title: &amp;#39;기록하며 성장하기&amp;#39;,
+          text: &amp;#39;Hello World&amp;#39;,
+          url: &amp;#39;https://shinsangeun.github.io&amp;#39;,
+      });
+  }else{
+      alert(&amp;quot;공유하기가 지원되지 않는 환경 입니다.&amp;quot;)
+  }
+}
+
+const season = () =&amp;gt; {
+  return(
+   &amp;lt;SearchBtn onClick={() =&amp;gt; {handle()}}&amp;gt;
+        공유하기
+    &amp;lt;/SearchBtn&amp;gt;
+)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;결과&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EA%B3%BC&quot; aria-label=&quot;결과 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결과&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;https:// 페이지에서 &lt;code class=&quot;language-text&quot;&gt;공유하기&lt;/code&gt; 버튼 생성
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 828px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/f5964e03602ce19e201d024a7b989ca6/8efc2/react-share-page1.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 216.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAArCAYAAAB4pah1AAAACXBIWXMAAAsTAAALEwEAmpwYAAAD6ElEQVRIx+1XW09iVxQ+/6p/wMfGOhxuQ4ilKoeL6FAqMCpekkmbjA+Npg/aJhYfHC8PmmjTFxOHXp6wVhMfdISoxaqIoAMH0JmBc77uvQCrziDMlKR96E4+1tlrr73OWnuvvQ+foNfrYbFY4Ha7YbPZwPsGg+EeGKHVm9AsmtGsa0ebw49WyQv346/wsc4GQafTwWw2o7OzE1arFVqt9i2IonirrxF1+OSBDqLeDKvjET5td8Dd0wuNoRVCe0c7enp64HK54HQ6KVKv1wufz8fgpWe/30+S23HpZWNenx/uz7+AZHPC7uiEq9sNq80BwWQy0YTu7m6WsoSuri709/cjEAigr68Pvb2PSQYC/WRX0vVicHCQnEuSjTl0UABtbW0Q5ubmUMH8/Dxhdna2LtycU/EhoMFNKBaLaCQaHyH9qirUQgEqe0Opq0JRlFuo6Li83+Edg1oT6oowf5rAi6dfI/lsnpRHx8eIRCLY3t7G2toaVlZWcHBwQOC6fD5/v0M5foIfBQGnLWZSBr8PwuPxYHh4mOqrqakJCwsLVPhTU1NIJBJVsyGHF5fnCDZ/hP0nA6QMrT7H5OQkpqenMTo6SsdteXkZq6urGB8fx9nZWXWHFeXx5QlkJVs2VKgEMpkMRRMOh5HNlsbi8Tiurq5q7/LNNjQ0hKWlJayvr2NsbAyhUIj0xXIV1C4b1hSlZLyzs0O3zsjICCYmJuiyCAaD1ynWLps75cLTWVxcxObmJmFmZoZkvSUl1KrBetKs6pC3wisZF8cHeB76iTZja2uLdjiXy9UVpVBZF76ztNvpCI6SLxCN7GF3d5fWdGNj47qY617Dhl0OqVQK0WiU6ovXHI8qdhhjRy+Kvb19QiwWQ+HNG2QzaRwmc0jnXlV3yNcmmUwinU7TOiXYKbg4TyGbPkcuc4G8nKZxpVhATmaF/jIPOf/6/VLOFYA/MsCf7HDEcx9w21QWWiGhInyk4umvCr4JK5j8XSVdZS9qleJbEXKnqUvgRGY7znDKorwqfEAdVt7MHX35i4pvf1Px3bqKJz+r+GH3ZgbvGeFrdjBiaeAwU5L7L4Hzy39wUhrzkbrTePq3gP9ahP87/Jcd/n3BNgaNj1CWZcjsnivJKmAffMK1jvfT7+wLkiTRn20rl+x7zMF1pLcyae2A1c4Ygt3FnkvjZG/vojmkk+zocHqoL2i1OmiMFohl+sDBqQbRCU4jRA00JonAn7XiA2b/GVosPjauI53IeEtLqwei7iEEo9EIIyM0xvvIjtFUwg2d0VAmSGx+ST4kUiS8ywGPjrOqgYGBEsUogz9zOsEpCLe5NY8xMM7C/gJxZNsqay1G5gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source srcset=&quot;/static/f5964e03602ce19e201d024a7b989ca6/8ac56/react-share-page1.webp 240w,
+/static/f5964e03602ce19e201d024a7b989ca6/d3be9/react-share-page1.webp 480w,
+/static/f5964e03602ce19e201d024a7b989ca6/712de/react-share-page1.webp 828w&quot; sizes=&quot;(max-width: 828px) 100vw, 828px&quot; type=&quot;image/webp&quot;&gt;
+          &lt;source srcset=&quot;/static/f5964e03602ce19e201d024a7b989ca6/8ff5a/react-share-page1.png 240w,
+/static/f5964e03602ce19e201d024a7b989ca6/e85cb/react-share-page1.png 480w,
+/static/f5964e03602ce19e201d024a7b989ca6/8efc2/react-share-page1.png 828w&quot; sizes=&quot;(max-width: 828px) 100vw, 828px&quot; type=&quot;image/png&quot;&gt;
+          &lt;img class=&quot;gatsby-resp-image-image&quot; src=&quot;/static/f5964e03602ce19e201d024a7b989ca6/8efc2/react-share-page1.png&quot; alt=&quot;react share page1&quot; title=&quot;react share page1&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Web share api&lt;/code&gt;가 지원 되는 환경일 때
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 289px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/fa17a18a2f207b58a07a9ac2f38e87e0/c969a/react-share-page2.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 214.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source srcset=&quot;/static/fa17a18a2f207b58a07a9ac2f38e87e0/8ac56/react-share-page2.webp 240w,
+/static/fa17a18a2f207b58a07a9ac2f38e87e0/99c3f/react-share-page2.webp 289w&quot; sizes=&quot;(max-width: 289px) 100vw, 289px&quot; type=&quot;image/webp&quot;&gt;
+          &lt;source srcset=&quot;/static/fa17a18a2f207b58a07a9ac2f38e87e0/8ff5a/react-share-page2.png 240w,
+/static/fa17a18a2f207b58a07a9ac2f38e87e0/c969a/react-share-page2.png 289w&quot; sizes=&quot;(max-width: 289px) 100vw, 289px&quot; type=&quot;image/png&quot;&gt;
+          &lt;img class=&quot;gatsby-resp-image-image&quot; src=&quot;/static/fa17a18a2f207b58a07a9ac2f38e87e0/c969a/react-share-page2.png&quot; alt=&quot;react share page2&quot; title=&quot;react share page2&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Web share api&lt;/code&gt;가 지원 되지 않는 환경일 때
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/1f2f955d0e770fd8f10a89efde825bb6/3dde1/react-share-page4.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 30.41666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABPklEQVQY022Py0oCcRTGfYWgTGlsvKLmbbzllIqSt2zZIqgWLg3KGW2aUJuxAonsDVr0ANWyZ2lX1GoU2kn7r//8J0yxAz++c+PjHNPXxzt6nQ5OGwLOxCbkZouqJIgzqtM6acwhkX69VsPDoI/vzzeYtNEI63x6QjKVBr+ZBRdL0jy1kZlgY51YtbsMWILDDafHj4VFK+rHAvQwaZqGYmkbpXIVuXyBaum3Lld2UChWkEjyWAuEEQhGpuDg8/rg9bhhMS9BJJdSwxG5MJPNIxSOIsLFwUUThDiisQTN9V4wxM2Y6bXfH0Cuuo+9oxts7ZLX5Y5hOBwO6ZLFyoCxObDCsHMwNjudGWonr7uwbDajcngB6f4VB8oLGq22YTgej3E7uEO3q0BVL6Govf9RplD/9Oq6D/m8jcenZ2r4A0C/+h8JXBXjAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source srcset=&quot;/static/1f2f955d0e770fd8f10a89efde825bb6/8ac56/react-share-page4.webp 240w,
+/static/1f2f955d0e770fd8f10a89efde825bb6/d3be9/react-share-page4.webp 480w,
+/static/1f2f955d0e770fd8f10a89efde825bb6/e46b2/react-share-page4.webp 960w,
+/static/1f2f955d0e770fd8f10a89efde825bb6/5304f/react-share-page4.webp 1018w&quot; sizes=&quot;(max-width: 960px) 100vw, 960px&quot; type=&quot;image/webp&quot;&gt;
+          &lt;source srcset=&quot;/static/1f2f955d0e770fd8f10a89efde825bb6/8ff5a/react-share-page4.png 240w,
+/static/1f2f955d0e770fd8f10a89efde825bb6/e85cb/react-share-page4.png 480w,
+/static/1f2f955d0e770fd8f10a89efde825bb6/d9199/react-share-page4.png 960w,
+/static/1f2f955d0e770fd8f10a89efde825bb6/3dde1/react-share-page4.png 1018w&quot; sizes=&quot;(max-width: 960px) 100vw, 960px&quot; type=&quot;image/png&quot;&gt;
+          &lt;img class=&quot;gatsby-resp-image-image&quot; src=&quot;/static/1f2f955d0e770fd8f10a89efde825bb6/d9199/react-share-page4.png&quot; alt=&quot;react share page4&quot; title=&quot;react share page4&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;카카오톡&lt;/code&gt; 공유하기 결과
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 828px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/01aa67fff8bca8424599abeb0af4b552/8efc2/react-share-page3.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 84.58333333333331%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAADEklEQVQ4y22Tf0hTURTHXyVGKBGhQUomSBQRSyK1nBqbqalgy5qbZas2mkqhsKzQ0lCiAhMikCLsd5lKRmWROP+wEJe1pWE5nc/tbe/t59t8e/Nt773NWdes/Hk4HO49l885l3vuF6Iw61L3mm0kgjq0sAs2UKh1ErVS/xwcuREU71Xjgz+hRdgkavGYzG6jgUQRD2YiTYh9VIsNDbqNeg9qBFsPZnTBOrjtDar8tAi2eC34JGbGkQHzaL9Nr8FG+9GRz8hwH1hYYTWqVVl0X5zod5duZGIYhhbe1u7UDRvVH3vftYz1fTCqlfovXbCqE1Mr0a9KpL9rXNUJ8iBjUPe4EQO0sK1D39k03lqtfV5TfIhbXpje06gwt191vL4+/qLW1FaHtNYNPalRNVU9q5N+fd86D0YtPqtD2VjXXCHquVEiSd/Jj495dfnE04sSxdG8vMw02eGs88fzqk8LL8iOpO7Zce/2TWj+UzE2vL66QibOLZMe5iVz4rdHn5MLS2Uni0QiiThblM8X5fNys7k83u5U7ta2h7fmYK/Fxtqdjxpq5AW8SvkhbsL2qOiInH3xBVmJWzZHysQpFYp8RaVEdkZcVCwsOiVovn9nDkZ/aME85RJxSCgUEbl2w/qwiHVrQkJXboyOTEzmHDmWmlu4v6RMcK2huLu79u59eWfHY+j/ncc0g4TBxE9LgyBoVciq1SugsPDQzXGbdiVxYrbFhkdFbuPE7k6K4x3gPGiS1dcLOl7eXTAqv91VfrZ0LzchI4OfnZkuLZZJS6U5+YKUzAP8PEHBsQJRkfBgofDSFcX5qtK37S0LPwlqDdDMBDHhJgiSJHEcp2n611KbngbB76EWw36vD8Aup5MgCCeOk243RVFeigpMTQFm1mZhlpxc0tlHs36/z0czLEszjI+e2U4Fg9N/gPmdWc9i2MKQngDD+H30f59i2CDgWX/QHwiygb+RDTDOiWVUNSM9bE6DoCIYIYHAtjGNHf4GokM/AEQGjqBl9Txf2ARisuv0LsOYdVRj032zjIASg0CbFGb7Dd7I9YJOPoY4AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source srcset=&quot;/static/01aa67fff8bca8424599abeb0af4b552/8ac56/react-share-page3.webp 240w,
+/static/01aa67fff8bca8424599abeb0af4b552/d3be9/react-share-page3.webp 480w,
+/static/01aa67fff8bca8424599abeb0af4b552/712de/react-share-page3.webp 828w&quot; sizes=&quot;(max-width: 828px) 100vw, 828px&quot; type=&quot;image/webp&quot;&gt;
+          &lt;source srcset=&quot;/static/01aa67fff8bca8424599abeb0af4b552/8ff5a/react-share-page3.png 240w,
+/static/01aa67fff8bca8424599abeb0af4b552/e85cb/react-share-page3.png 480w,
+/static/01aa67fff8bca8424599abeb0af4b552/8efc2/react-share-page3.png 828w&quot; sizes=&quot;(max-width: 828px) 100vw, 828px&quot; type=&quot;image/png&quot;&gt;
+          &lt;img class=&quot;gatsby-resp-image-image&quot; src=&quot;/static/01aa67fff8bca8424599abeb0af4b552/8efc2/react-share-page3.png&quot; alt=&quot;react share page3&quot; title=&quot;react share page3&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;작성한 title, text, url이 정상적으로 공유 되는 것을 확인 할 수 있습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;이번에 실무에서 필요하게 된 기능을 구현 하게 되어서 정리하게 되었습니다.&lt;/li&gt;
+&lt;li&gt;모바일 웹 사용량이 늘어나면서, 간단한 Web API를 통해 토이 프로젝트에서도 사용하기 좋을 기능 인 것 같아요!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Javascript] 같은 도메인 간 쿠키 값 공유하기]]></title><description><![CDATA[이번 포스팅 에서는 같은 도메인 간 쿠키(cookie) 값을 공유하는 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/javascript/cookie-domain</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/javascript/cookie-domain</guid><pubDate>Thu, 09 Sep 2021 02:01:10 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅 에서는 같은 도메인 간에 &lt;code class=&quot;language-text&quot;&gt;쿠키(cookie)&lt;/code&gt;🍪 값을 공유하는 방법에 대해 소개해 드리겠습니다.  &lt;/p&gt;
 &lt;p&gt;🗣 참고: &lt;a href=&quot;https://shinsangeun.github.io/posts/web/cookie-session&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;👉🏻[Web] 쿠키(Cookie)와 세션(Session)&lt;/a&gt; 포스팅에 쿠키와 세션에 대한 내용도 읽어보세요!🙆🏻‍♀️&lt;/p&gt;
 &lt;hr&gt;
