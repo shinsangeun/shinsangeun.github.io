@@ -1,4 +1,209 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Oct 2021 17:10:41 GMT</lastBuildDate><item><title><![CDATA[[React] Web share api - 모바일 웹 공유하기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `React.js` 에서 모바일 웹 공유하기 기능을 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-web-share</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-web-share</guid><pubDate>Mon, 11 Oct 2021 03:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Nov 2021 15:35:38 GMT</lastBuildDate><item><title><![CDATA[[React] react-player 라이브러리 다뤄보기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 react-player를 활용 하여 라이브러리를 소개 해보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-player</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-player</guid><pubDate>Tue, 09 Nov 2021 03:47:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;오늘은 React.js 기반의 &lt;strong&gt;react-player&lt;/strong&gt; 라는 라이브러리에 대해 소개해 보겠습니다.
+플레이어 기능이 들어가는 프로젝트가 있어서 리서치 하다가 알게된 라이브러리 인데, 실제로 써보니까 간단하고 유용한 라이브러리여서 블로그에 정리해 보겠습니다.  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;1 소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 소개&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;플레이어로 가장 많이 쓰고 유명한 &lt;code class=&quot;language-text&quot;&gt;video.js&lt;/code&gt;를 리서치 하다가 react.js 기반의 플레이어를 찾게 되었습니다.&lt;/li&gt;
+&lt;li&gt;몇 가지 라이브러리를 찾게 되었는데 그 중에서 &lt;code class=&quot;language-text&quot;&gt;react-player&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;react-video&lt;/code&gt;가 구현 내용에 적합 했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-요구사항&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD&quot; aria-label=&quot;2 요구사항 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 요구사항&lt;/h3&gt;
+&lt;p&gt;아래의 요구사항에 맞는 플레이어 라이브러리를 조사 하다 보니, react 기반 라이브러리 중에서는 &lt;code class=&quot;language-text&quot;&gt;react-player&lt;/code&gt; 가 가장 적합 했습니다.  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;자동 재생 (autoPlay)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;플레이어가 끝났을 때 다음 영상 자동 재생 &lt;/li&gt;
+&lt;li&gt;기본 설정은 음소거 상태 (브라우저 별로 자동 재생 정책이 다르기 때문)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;플레이어 광고 없음&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;광고가 붙으면, 여러가지 라이브러리를 붙여야 하기 때문에 일단 배제 함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;간단하고 쓰기 쉬운 플레이어&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;러닝 커브가 낮은, 빨리 가져다 쓰기 편한 라이브러리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;React.js(Next.js) 프로젝트에 사용하기 편한 라이브러리&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Control UI 커스텀 가능&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;재생, 일시정지, 뒤로가기 등 UI 커스텀 가능 범위&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;다양한 브라우저 호환&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IE, Chrome, Firefox, Edge…등&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;3-기본-셋팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EA%B8%B0%EB%B3%B8-%EC%85%8B%ED%8C%85&quot; aria-label=&quot;3 기본 셋팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 기본 셋팅&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/react-player&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;npm 사이트&lt;/a&gt; 에 내용이 잘 정리되어 있어서, 플레이어 샘플 코드를 실행 시킵니다.&lt;/li&gt;
+&lt;li&gt;개발 시작 하기 전에 &lt;a href=&quot;https://cookpete.com/react-player/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;테스트 페이지&lt;/a&gt; 에서 플레이어를 커스텀 하고 테스트 할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;1-패키지-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;1 패키지 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 패키지 설치&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm i react-player&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;2-테스트-코드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C&quot; aria-label=&quot;2 테스트 코드 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 테스트 코드&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import ReactPlayer from &amp;#39;react-player/lazy&amp;#39;;
+
+const Video = ({playList, index}) =&amp;gt; {
+    return (
+        &amp;lt;&amp;gt;
+            &amp;lt;h2&amp;gt;Player Test&amp;lt;/h2&amp;gt;
+            &amp;lt;div className=&amp;#39;player-wrapper&amp;#39;&amp;gt;
+                &amp;lt;ReactPlayer
+                    className=&amp;#39;react-player&amp;#39;
+                    url={&amp;#39;https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4&amp;#39;}    // 플레이어 url
+                    width=&amp;#39;800px&amp;#39;         // 플레이어 크기 (가로)
+                    height=&amp;#39;500px&amp;#39;        // 플레이어 크기 (세로)
+                    playing={true}        // 자동 재생 on
+                    muted={true}          // 자동 재생 on
+                    controls={true}       // 플레이어 컨트롤 노출 여부
+                    light={false}         // 플레이어 모드
+                    pip={true}            // pip 모드 설정 여부
+                    poster={&amp;#39;https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg&amp;#39;}   // 플레이어 초기 포스터 사진
+                    onEnded={() =&amp;gt; handleVideo()}  // 플레이어 끝났을 때 이벤트
+                /&amp;gt;
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/&amp;gt;
+    )
+}
+
+export default Video;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;자동 재생 설정을 하려면, playing과 muted를 &lt;strong&gt;true&lt;/strong&gt;로 해야 autoplay 설정이 됩니다.&lt;/li&gt;
+&lt;li&gt;위의 코드를 로컬에서 실행하면 아래와 같은 화면이 나타납니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/c4451/react_player.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAADhUlEQVQ4y22Sa0ybVRiA+8t/Gi/zkszEn8bsn0tGQBhsQwSFOCGRzBBgG1LXDebayrjagsjXC2O6MAQGIpvoKmOX6FAExrgMtjIk07bjUtpyqRRYcBklLtB+j6fsEmM8yZP3PefkPO97To5icGgIl8uFw+FgbW2N0JBlmf+ORyuhvf/bfzQUPp8Pv9/Pyr17BIOB0InHhx4TEILgv0WymAYFIoo8IM4FN4oJ4f3JGVhcgjsLsORDnltA9i0ii7l8V/B3KBd4xf7KMv7VZQJrAQLrawyMjVLzy2ksXQ20dNTi8o6j8I+Nw8wM8vQ0slvIRQHZM4c8L1iag7te5FUvgUWR/7VAx+BVRmZGuO2z0nihhcqv9VQ3l2CuUWObuIFidWoM5kMStxAKqcuDLArw56xArM+LuBxijoAoKH1VT/NAI4PuJmos1ZxoFsKmEqrqNDicViF02MAzJTp0CTwPxa6NjoNeIfROc190y/IS13uvoCz9nKrvv6H5UhlftBgw1udhqtZQVvURo7f6UazYb4FrQiCu7hbRMylwPmDWDQuz3HZZ+c3ezqeVOtJ0FeQXGygvP4xUm0dRhYoy40EKijK4Yb2KYn3id/GGE6Krcdbdk/innNxxullyevCJ79Rpa8V8sQB9rZK0j1V8UPAZBw7kU6BVUnwsh9yCveSXKlFpU+kd6ETR22flpwEbzT02TnY5qOm2U939B/U9Y9QP3kRtKSO38hCHSrLZo9GSfKSY1HQN+zLTUZUrySrcx351Bgnvv8PPfUJY162i4Vou3w0puTyyn/PXNZzpKqS1U0tjTyVHmiSy9DlkalWk5B0kSZ1LSraK9L0pqDRJHC5NR6new674bbRfuYyivT+avpux9I/GMOKIxO5JZmIqFZs9kY5radScTef4qWTx8Enoj73JUWkHGl00R3U7+aQwlhxtDNmaaFI+3MKvva0ozlly6f4xC3NtOMcbI6k/u41TljBaLsbSdj6TtrZkvj0Xzukfoqg9E4HpZCSG6jf4su5dTtSlUGSOFMSQod5Cz5AQxsW9SvLu13gr8WWidr7A6xFPsTXyScKin2ZrxCbCt7/I9thN7Eh4lpiEZ0R8jl1vP09s/CvEJb5E/O7NJLy3mbCoJ7hwqQGFZKjAZDYhSRJGoxGjwfSAUG4U/8xk2MgNhhCmh9GIZJCokAwbuclkRqfTMzw8zD9Ff1BnCWspQQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/8ac56/react_player.webp 240w,
+/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/d3be9/react_player.webp 480w,
+/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/e46b2/react_player.webp 960w,
+/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/f992d/react_player.webp 1440w,
+/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/a7dc3/react_player.webp 1450w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/8ff5a/react_player.png 240w,
+/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/e85cb/react_player.png 480w,
+/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/d9199/react_player.png 960w,
+/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/07a9c/react_player.png 1440w,
+/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/c4451/react_player.png 1450w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/8b6aaea96fcd4d0d6ac08e3f95a36cfd/d9199/react_player.png&quot;
+            alt=&quot;react_player&quot;
+            title=&quot;react_player&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;3-플레이어-커스텀-하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%95%98%EA%B8%B0&quot; aria-label=&quot;3 플레이어 커스텀 하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 플레이어 커스텀 하기&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;플레이어 영상이 끝났을 때 다음 영상이 자동 재생 되도록 하는 기능을 추가해 보겠습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;ReactPlayer
+  url={[
+    &amp;#39;https://www.youtube.com/watch?v=oUFJJNQGwhk&amp;#39;,
+    &amp;#39;https://www.youtube.com/watch?v=jNgP6d9HraI&amp;#39;
+  ]}
+/&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Youtube의 경우 링크가 여러개 일 때 플레이어 영상 링크를 배열로 &lt;strong&gt;url&lt;/strong&gt;에 넣어주면 알아서 다음 영상으로 자동 재생이 됩니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ReactPlayer&lt;/strong&gt; 안에 &lt;strong&gt;onEnded&lt;/strong&gt; 라는 이벤트 함수가 있는데, 이 함수는 &lt;U&gt;플레이어 영상이 끝났을 때 실행 되는 이벤트&lt;/U&gt; 입니다.&lt;/li&gt;
+&lt;li&gt;onEnded 함수 안에 &lt;U&gt;플레이어 url을 다음 영상으로 교체하여 재생 시키는 기능&lt;/U&gt;을 구현 해 보겠습니다. (자세한 설명은 &lt;a href=&quot;https://www.npmjs.com/package/react-player&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;npm 설명&lt;/a&gt; 에 있는 &lt;strong&gt;Callback Props&lt;/strong&gt; 부분을 참고 해주세요!)&lt;/li&gt;
+&lt;li&gt;아래는 Typescript 기반 소스 입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import ReactPlayer from &amp;#39;react-player/lazy&amp;#39;;
+import React, {useEffect, useState} from &amp;quot;react&amp;quot;;
+
+type VideoPlayerProps = {
+    title: string;
+    vodPlaylistId: string;
+}
+
+const VideoPlayer = ({title, vodPlaylistId}: VideoPlayerProps) =&amp;gt; {
+    const [playIndex, setPlayIndex] = useState(0);
+    const playList = [
+        {index:1, url: &amp;#39;https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4&amp;#39;},
+        {index:2, url: &amp;#39;http://sample.vodobox.net/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8&amp;#39;},
+        {index:3, url: &amp;#39;http://playertest.longtailvideo.com/adaptive/wowzaid3/playlist.m3u8&amp;#39;}
+    ];
+
+    const handleNextVideo = (video: string | any[], playIndex: number) =&amp;gt; {
+        if(playIndex === video.length - 1){
+            setPlayIndex(0);
+        }else{
+            setPlayIndex(playIndex + 1);
+        }
+    }
+
+    const selectVideo = (index: number) =&amp;gt; {
+        setPlayIndex(index);
+    }
+
+    if(playList === null) return &amp;lt;p&amp;gt;Loading...&amp;lt;/p&amp;gt;;
+
+    return (
+        &amp;lt;&amp;gt;
+            &amp;lt;h2&amp;gt;Player Test&amp;lt;/h2&amp;gt;
+            &amp;lt;ReactPlayer
+                url={playList[playIndex].url}
+                playing
+                controls
+                muted
+                progressInterval={1000}
+                pip={true}
+                onEnded={() =&amp;gt; {handleNextVideo(playList, playIndex)}}
+                width={&amp;#39;800px&amp;#39;}
+                height={&amp;#39;500px&amp;#39;}
+            /&amp;gt;
+        &amp;lt;/&amp;gt;
+    )
+}
+
+export default VideoPlayer;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;playList&lt;/strong&gt; 를 정의 해놓고 &lt;strong&gt;handleNextVideo&lt;/strong&gt; 라는 함수를 만들어서, &lt;strong&gt;onEnded&lt;/strong&gt; 함수가 호출 될 때 마다 video 배열의 index를 1씩 증가 시킵니다.&lt;/li&gt;
+&lt;li&gt;만약 playList를 API를 통해 받아와야 한다면, &lt;U&gt;useEffect 부분에 axios API 연동하는 부분을 추가&lt;/U&gt;해서 url을 동적으로 생성 할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;현재 &lt;strong&gt;react-player&lt;/strong&gt;에서 youtube 타입 영상은 영상에 인덱스가 있어서 onEnded 함수를 구현하지 않아도 자동 재생이 지원이 되는데, 다른 타입의 영상은 지원이 되지 않는다고 해서 handleNextVideo 함수를 구현 해 보았습니다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;엄청난 삽질 끝에…자동 재생을 추가하게 되어서 블로그에 정리해 보았습니다. react-player 라이브러리를 사용하시는 분들께 유용한 포스팅이 되었으면 좋겠습니다.&lt;/li&gt;
+&lt;li&gt;다른 기능을 추가하게 된다면 한번 더 정리 해 보겠습니다!🥲&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[React] Web share api - 모바일 웹 공유하기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `React.js` 에서 모바일 웹 공유하기 기능을 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-web-share</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-web-share</guid><pubDate>Mon, 11 Oct 2021 03:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅 에서는 &lt;code class=&quot;language-text&quot;&gt;React.js&lt;/code&gt;를 사용해서 모바일 웹에서 페이지 공유하기 기능을 소개해 드리겠습니다.
 모바일 웹 공유하기 시, 사용할 라이브러리는 Web share api 입니다.&lt;/p&gt;
 &lt;hr&gt;
