@@ -19,18 +19,14 @@ description: "안녕하세요! 이번 포스팅 에서는 react-player를 활용
 -----
 
 ### 1. 소개
-- 플레이어로 가장 많이 쓰고 유명한 `video.js`를 리서치 하다가 react.js 기반의 플레이어를 찾게 되었습니다.
-- 몇 가지 라이브러리를 찾게 되었는데 그 중에서 `react-player`, `react-video`가 구현 내용에 적합 했습니다.
+- 플레이어로 가장 많이 쓰고 유명한 `video.js`를 리서치 하다가 react.js 기반의 플레이어를 찾게 되었습니다. npm 라이브러리 중에서 `react-player`, `react-video`가 요구 사항에 맞는 구현 내용에 적합 했습니다.
 
 
 ### 2. 요구사항
-아래의 요구사항에 맞는 플레이어 라이브러리를 조사 하다 보니, react 기반 라이브러리 중에서는 `react-player` 가 가장 적합 했습니다.  
-
 1. 자동 재생 (autoPlay)
    - 플레이어가 끝났을 때 다음 영상 자동 재생 
    - 기본 설정은 음소거 상태 (브라우저 별로 자동 재생 정책이 다르기 때문)
-2. 플레이어 광고 없음
-   - 광고가 붙으면, 여러가지 라이브러리를 붙여야 하기 때문에 일단 배제 함
+2. 플레이어 재생 시 광고 없음
 3. 간단하고 쓰기 쉬운 플레이어
    - 러닝 커브가 낮은, 빨리 가져다 쓰기 편한 라이브러리
 4. React.js(Next.js) 프로젝트에 사용하기 편한 라이브러리
@@ -42,7 +38,7 @@ description: "안녕하세요! 이번 포스팅 에서는 react-player를 활용
 
 ### 3. 기본 셋팅
 - [npm 사이트](https://www.npmjs.com/package/react-player) 에 내용이 잘 정리되어 있어서, 플레이어 샘플 코드를 실행 시킵니다.
-- 개발 시작 하기 전에 [테스트 페이지](https://cookpete.com/react-player/) 에서 플레이어를 커스텀 하고 테스트 할 수 있습니다.
+- 개발 시작 전에 [샘플 테스트 페이지](https://cookpete.com/react-player/) 에서 플레이어를 커스텀 하고 테스트 할 수 있습니다.
 
 #### 1. 패키지 설치
 ```
@@ -95,11 +91,13 @@ export default Video;
   ]}
 />
 ```
-- Youtube의 경우 링크가 여러개 일 때 플레이어 영상 링크를 배열로 **url**에 넣어주면 알아서 다음 영상으로 자동 재생이 됩니다.
 
+- Youtube의 경우 링크가 여러개 일 때 플레이어 영상 링크를 배열로 **url**에 넣어주면 알아서 다음 영상으로 자동 재생이 됩니다.
+- 하지만 Youtube가 아닌 링크는 영상이 끝났을 때 다음 영상으로 자동 재생이 지원 되지 않아서, Youtube 타입이 아닌 영상이 실행 되도록 이벤트 함수를 추가 했습니다.
+
+##### 3-1. onEnded 함수 커스텀 하기
 - **ReactPlayer** 안에 **onEnded** 라는 이벤트 함수가 있는데, 이 함수는 <U>플레이어 영상이 끝났을 때 실행 되는 이벤트</U> 입니다.
 - onEnded 함수 안에 <U>플레이어 url을 다음 영상으로 교체하여 재생 시키는 기능</U>을 구현 해 보겠습니다. (자세한 설명은 [npm 설명](https://www.npmjs.com/package/react-player) 에 있는 **Callback Props** 부분을 참고 해주세요!)
-
 - 아래는 Typescript 기반 소스 입니다.
 
 ```
@@ -154,14 +152,46 @@ const VideoPlayer = ({title, vodPlaylistId}: VideoPlayerProps) => {
 export default VideoPlayer;
 ```
 
-- **playList** 를 정의 해놓고 **handleNextVideo** 라는 함수를 만들어서, **onEnded** 함수가 호출 될 때 마다 video 배열의 index를 1씩 증가 시킵니다.
-- 만약 playList를 API를 통해 받아와야 한다면, <U>useEffect 부분에 axios API 연동하는 부분을 추가</U>해서 url을 동적으로 생성 할 수 있습니다.
-- 현재 **react-player**에서 youtube 타입 영상은 영상에 인덱스가 있어서 onEnded 함수를 구현하지 않아도 자동 재생이 지원이 되는데, 다른 타입의 영상은 지원이 되지 않는다고 해서 handleNextVideo 함수를 구현 해 보았습니다. 
+##### 3-2. 코드 설명
+- 현재 **react-player**에서 youtube 타입 영상은 영상에 인덱스가 있어서 onEnded 함수를 구현하지 않아도 자동 재생이 지원이 되는데, 다른 타입의 영상은 지원이 되지 않는다고 해서 handleNextVideo 함수를 구현 했습니다.
 
+```
+...  
+onEnded={() => {handleNextVideo(playList, playIndex)}}
+...  
+const handleNextVideo = (video: string | any[], playIndex: number) => {
+        if(playIndex === video.length - 1){
+            setPlayIndex(0);
+        }else{
+            setPlayIndex(playIndex + 1);
+        }
+    }
+```
+
+- **playList** 에 정의 해놓고 **handleNextVideo** 라는 함수를 만들어서 영상이 끝나고 **onEnded** 함수가 호출 될 때 마다 video 배열의 index를 **+1 씩 증가** 시킵니다.
+- 만약 API를 통해 playList를 받아와야 한다면 컴포넌트 렌더링 시 <U>useEffect 부분에 axios나 fetch를 사용 해서 API 연동하는 부분을 추가</U>하면 videoList를 동적으로 생성 할 수 있습니다.
+- 예시 코드
+
+```
+const [videoList, setVideoList] = useState(0);
+
+useEffect(() => {
+   getVideoList();
+ }, [])
+
+const getVideoList = async () => {
+   try{
+      await fetch(`API url 링크`)
+      .then(res =>  setVideoList(res.data.data));
+   }catch (e){
+      console.log("e:",e);
+   }
+}
+```
 
 ### 4. 마치며
 - 엄청난 삽질 끝에...자동 재생을 추가하게 되어서 블로그에 정리해 보았습니다. react-player 라이브러리를 사용하시는 분들께 유용한 포스팅이 되었으면 좋겠습니다.
-- 다른 기능을 추가하게 된다면 한번 더 정리 해 보겠습니다!🥲
+- 다른 기능을 추가하게 된다면 한번 더 정리 해 보겠습니다!
 
 -----
 
