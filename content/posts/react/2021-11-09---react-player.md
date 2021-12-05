@@ -1,5 +1,5 @@
 ---
-title: "[React] react-player 라이브러리 다뤄보기"
+title: "[React] react-player 소개 및 활용 (feat. onEnded)"
 date: "2021-11-09 12:47:20"
 template: "post"
 slug: "react-player"
@@ -8,13 +8,13 @@ tags:
 - "React"
 - "Next.js"
 - "react-player"
-description: "안녕하세요! 이번 포스팅 에서는 react-player를 활용 하여 라이브러리를 소개 해보겠습니다."
+description: "안녕하세요! 이번 포스팅 에서는 react-player를 활용 하여 라이브러리를 커스텀 하는 방법에 대해 소개 해보겠습니다."
 ---
 
 안녕하세요!
 
-오늘은 React.js 기반의 **react-player** 라는 라이브러리에 대해 소개해 보겠습니다.
-플레이어 기능이 들어가는 프로젝트가 있어서 리서치 하다가 알게된 라이브러리 인데, 실제로 써보니까 간단하고 유용한 라이브러리여서 블로그에 정리해 보겠습니다.  
+오늘은 React.js 기반의 **react-player** 라는 라이브러리에 대해 소개해 보겠습니다.  
+플레이어 기능이 들어가는 프로젝트가 있어서 리서치 하다가 알게된 라이브러리 인데, 실제로 사용 해보니 간단하고 유용해서 내용을 정리해 보겠습니다.  
 
 -----
 
@@ -37,7 +37,7 @@ description: "안녕하세요! 이번 포스팅 에서는 react-player를 활용
    
 
 ### 3. 기본 셋팅
-- [npm 사이트](https://www.npmjs.com/package/react-player) 에 내용이 잘 정리되어 있어서, 플레이어 샘플 코드를 실행 시킵니다.
+- [npm 사이트](https://www.npmjs.com/package/react-player) 에 사용법이 정리되어 있어서 참고하여 샘플 코드를 실행 시킵니다.
 - 개발 시작 전에 [샘플 테스트 페이지](https://cookpete.com/react-player/) 에서 플레이어를 커스텀 하고 테스트 할 수 있습니다.
 
 #### 1. 패키지 설치
