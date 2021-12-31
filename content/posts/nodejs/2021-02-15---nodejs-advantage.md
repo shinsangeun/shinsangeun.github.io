@@ -1,6 +1,6 @@
 ---
 title: "[Node.js] Node.js의 장단점과 활용"
-date: "2021-02-15-12:43:33"
+date: "2021-02-15 12:43:33"
 template: "post"
 draft: false
 slug: "advantage-disadvantage"
