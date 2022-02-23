@@ -1,4 +1,380 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Dec 2021 15:34:55 GMT</lastBuildDate><item><title><![CDATA[[Daily] 2021년의 회고록]]></title><description><![CDATA[안녕하세요! 벌써 2021년 12월이 끝나가고 2022년 새해가 다가오네요.]]></description><link>https://shinsangeun.github.io//posts/daily/daily-post-2021-12</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/daily/daily-post-2021-12</guid><pubDate>Fri, 31 Dec 2021 10:23:00 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 23 Feb 2022 15:55:11 GMT</lastBuildDate><item><title><![CDATA[[React] 무한 스크롤 구현 방법 (feat.react-infinite-scroll-component)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `React.js`에서 무한 스크롤 구현 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-infinite-scroll</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-infinite-scroll</guid><pubDate>Wed, 23 Feb 2022 03:47:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번 포스팅 에서는 무한 스크롤 라이브러리를 활용 하여 &lt;code class=&quot;language-text&quot;&gt;React.js&lt;/code&gt; 프로젝트에서 사용하는 방법에 대해 소개해 드리겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;데이터가 많아지면 페이지 로딩이 느려지는 이슈가 있어서, 개선 방법을 찾아보다가 스크롤 시 마다 데이터를 호출 하면 페이지 로딩 속도를 빠르게 할 수 있다는 아이디어를 얻게 되었습니다.&lt;/li&gt;
+&lt;li&gt;React에서 무한 스크롤을 사용하기 위해서 여러가지 라이브러리를 찾아 보게 되었습니다. 다양한 단어(&lt;code class=&quot;language-text&quot;&gt;무한 스크롤&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;react-virtualize&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;infinite-scoll&lt;/code&gt;)로 불리는 무한 스크롤을 쉽고 간단하게 사용 할 수 있는 라이브러리를 선택 해 보았습니다.&lt;/li&gt;
+&lt;li&gt;제가 선택한 무한 스크롤 라이브러리는 &lt;strong&gt;react-infinite-scroll-component&lt;/strong&gt; 입니다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-react-infinite-scroll-component-사용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-react-infinite-scroll-component-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;2 react infinite scroll component 사용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. react-infinite-scroll-component 사용 방법&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;공식 사이트: &lt;a href=&quot;https://github.com/ankeetmaini/react-infinite-scroll-component&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Github 링크&lt;/a&gt;, &lt;a href=&quot;https://www.npmjs.com/package/react-infinite-scroll-component&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;npm 링크&lt;/a&gt;, &lt;a href=&quot;https://codesandbox.io/s/r7rp40n0zm?file=/src/index.js:91-122&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;sandbox 예제&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(2022.02 기준) 현재 주간 다운로드 수는 &lt;strong&gt;382,210&lt;/strong&gt; 이고, 6년전 부터 아직까지는 꾸준히 업데이트 되고 있어요.&lt;/li&gt;
+&lt;li&gt;여러가지 무한 스크롤 관련 라이브러리를 직접 사용 해 보았을 때, 소스가 직관적이고 사용하기 편해서 선택하게 되었습니다. (⛔️ 개인적인 견해이기 때문에 꼭! 이 라이브러리를 필수로 사용 해야 한다는 것은 아니니 참고만 부탁 드립니다.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;모듈-설치-및-설명&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AA%A8%EB%93%88-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EB%AA%85&quot; aria-label=&quot;모듈 설치 및 설명 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;모듈 설치 및 설명&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;해당 라이브러리를 사용하기 위해서 먼저 모듈을 설치 해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install react-infinite-scroll-component&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Github 링크에서 &lt;code class=&quot;language-text&quot;&gt;README.md&lt;/code&gt;에 있는 글을 바탕으로 간략하게 설명 해 드리겠습니다.&lt;/li&gt;
+&lt;li&gt;기본 예제 코드&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;InfiniteScroll
+  dataLength={items.length} //This is important field to render the next data
+  next={fetchData}
+  hasMore={true}
+  loader={&amp;lt;h4&amp;gt;Loading...&amp;lt;/h4&amp;gt;}
+  endMessage={
+    &amp;lt;p style={{ textAlign: &amp;#39;center&amp;#39; }}&amp;gt;
+      &amp;lt;b&amp;gt;Yay! You have seen it all&amp;lt;/b&amp;gt;
+    &amp;lt;/p&amp;gt;
+  }
+  // below props only if you need pull down functionality
+  refreshFunction={this.refresh}
+  pullDownToRefresh
+  pullDownToRefreshThreshold={50}
+  pullDownToRefreshContent={
+    &amp;lt;h3 style={{ textAlign: &amp;#39;center&amp;#39; }}&amp;gt;&amp;amp;#8595; Pull down to refresh&amp;lt;/h3&amp;gt;
+  }
+  releaseToRefreshContent={
+    &amp;lt;h3 style={{ textAlign: &amp;#39;center&amp;#39; }}&amp;gt;&amp;amp;#8593; Release to refresh&amp;lt;/h3&amp;gt;
+  }
+&amp;gt;
+  {items}
+&amp;lt;/InfiniteScroll&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;infinitescroll-컴포넌트-파라미터-설명&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#infinitescroll-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0-%EC%84%A4%EB%AA%85&quot; aria-label=&quot;infinitescroll 컴포넌트 파라미터 설명 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;InfiniteScroll 컴포넌트 파라미터 설명&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;dataLength: 데이터를 로드할 때 사용 하는 data 길이 (필수: 없으면 에러)&lt;/li&gt;
+&lt;li&gt;next: 다음 데이터를 호출 하기 위해 사용 하는 함수&lt;/li&gt;
+&lt;li&gt;hasMore: 스크롤 뒤에 호출 할 데이터의 유/무 (없으면 false로 해도 되지만, false 일 때는 스크롤을 아래로 내렸을 때 데이터 호출 되지 않음)&lt;/li&gt;
+&lt;li&gt;loader: 데이터가 로딩 중일 때 표시 되는 문구 or 컴포넌트&lt;/li&gt;
+&lt;li&gt;endMessage: 데이터 호출이 완료 되고 더이상 데이터가 없을 경우 표시되는 문구 or 컴포넌트&lt;/li&gt;
+&lt;li&gt;아래 있는 내용은 저도 사용해 보지는 않았지만, pull down 시 사용하는 함수 입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;3-활용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%ED%99%9C%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;3 활용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 활용 방법&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;실제 사용 할 때는 API 연동을 해서 사용하기 때문에 &lt;strong&gt;react-infinite-scroll-component&lt;/strong&gt;의 &lt;a href=&quot;https://codesandbox.io/s/r7rp40n0zm?file=/src/index.js:91-122&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;sandbox 예제&lt;/a&gt; 를 활용 해서 &lt;code class=&quot;language-text&quot;&gt;API 연동&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;페이징&lt;/code&gt;을 추가 했습니다.&lt;/li&gt;
+&lt;li&gt;무한 스크롤을 하기 위해 API 연동이 필요 하여 &lt;a href=&quot;https://yts.mx/api/v2/list_movies.json&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;영화 API&lt;/a&gt; 를 사용 하였습니다.&lt;/li&gt;
+&lt;li&gt;예제 활용 코드 (test.tsx 파일)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import InfiniteScroll from &amp;quot;react-infinite-scroll-component&amp;quot;;
+import {useEffect, useState} from &amp;quot;react&amp;quot;;
+import axios from &amp;quot;axios&amp;quot;;
+
+const style = {
+    height: 40, border: &amp;quot;1px solid green&amp;quot;, margin: 10, padding: 8
+};
+
+const test = () =&amp;gt; {
+    const [pageNum, setPageNum] = useState(1);
+    const [data, setData] = useState(&amp;#39;&amp;#39;);
+
+    const getMovieList = async (pageNum: number) =&amp;gt; {
+        await axios
+            .get(`https://yts.mx/api/v2/list_movies.json?page=${pageNum}`)
+            .then((res) =&amp;gt; {
+                data === &amp;#39;&amp;#39; ? setData(res.data.data.movies) : setData(data.concat(res.data.data.movies));
+            });
+    }
+
+    useEffect( () =&amp;gt; {
+        getMovieList(pageNum);
+    }, []);
+
+    const fetchMoreData = () =&amp;gt; {
+        setPageNum (pageNum +1);
+        getMovieList(pageNum+1);
+    }
+
+    if(data === &amp;#39;&amp;#39; || data === undefined) return &amp;lt;&amp;gt;loading...&amp;lt;/&amp;gt;;
+
+    console.log(&amp;quot;Data==&amp;gt;&amp;quot;, data);
+
+    return(
+        &amp;lt;div&amp;gt;
+            &amp;lt;h1&amp;gt;Movie: react-infinite-scroll-component&amp;lt;/h1&amp;gt;
+            &amp;lt;hr /&amp;gt;
+            &amp;lt;div id=&amp;quot;scrollableDiv&amp;quot; style={{ height: 600, overflow: &amp;quot;auto&amp;quot; }}&amp;gt;
+                &amp;lt;InfiniteScroll
+                    dataLength={data.length}
+                    next={fetchMoreData}
+                    hasMore={true}
+
+                    // next={type === &amp;quot;movie&amp;quot; ? fetchMoreData : () =&amp;gt; {}}
+                    // hasMore={type === &amp;quot;movie&amp;quot;}
+
+                    loader={&amp;lt;h4&amp;gt;Loading...&amp;lt;/h4&amp;gt;}
+                    scrollableTarget=&amp;quot;scrollableDiv&amp;quot;
+                &amp;gt;
+                    {data.map((i: any, index: number) =&amp;gt; (
+                        &amp;lt;div style={style} key={index}&amp;gt;
+                            순서: {index+1} 영화 제목: {data[index].title}
+                        &amp;lt;/div&amp;gt;
+                    ))}
+                &amp;lt;/InfiniteScroll&amp;gt;
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+    )
+}
+
+export default test;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;코드-설명&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C-%EC%84%A4%EB%AA%85&quot; aria-label=&quot;코드 설명 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드 설명&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;페이지가 랜딩 될 때 &lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;를 통해 &lt;code class=&quot;language-text&quot;&gt;getMovieList(pageNum)&lt;/code&gt; 함수를 한번 호출 합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;https://yts.mx/api/v2/list_movies.json?page=${pageNum}&lt;/code&gt; API를 호출 하여 pageNum이 1인 데이터를 호출 합니다.&lt;/li&gt;
+&lt;li&gt;처음 데이터 호출 시에는 data가 &lt;code class=&quot;language-text&quot;&gt;useState(&amp;#39;&amp;#39;)&lt;/code&gt; 이므로 &lt;code class=&quot;language-text&quot;&gt;setData(res.data.data.movies)&lt;/code&gt;가 실행 됩니다.&lt;/li&gt;
+&lt;li&gt;데이터 호출이 정상적으로 되면 아래와 같이 리스트가 화면에 나타납니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/523d6a58df074e25f36e3580957fbcc8/9f9a4/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 99.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAACcklEQVQ4y5VUi1LiQBDM/3+Xd3WHCIoaNATyfhJIINm8SNK3MwrqlSiG6prZ2t2hp2dmlWz6B9vxbyTTv0iXGkL1Hok2Z7/2bDS+jTZw2Da+I333de2gsJbITV1ieYKiPjxgpevwXReWYcAyDeiahrmqwrFthL7P+45lwZVr01jBNk25Z6Ftagx9j77rMEiQVUaja0ymUzw9PWMymUj7hOn0FqPRCLPZDLP7e4xvbvD4qGI8HuPq6hdG19e4vbtD27YYAPT9gH4YMEgoh6FF2ZTIRQ5RC4hK4LNv4Ksfv6qt+G5FkH5RFVCCTQDDNbAwFzAcA04otamLFzSf4N1e2ZYnVIcKu3IHJcoi2IHNQSmYbutYZ2uIg0Be58iby1C0BVKRQgm3IVbuCpqpsV05Lz4xF63A/sKgxJgDJrsEYRLCizzE2xjRJkKQBAg3IUQjPqT1FU4px2nM2mkrDbbsNcuzGBSYdTr8MGCUSg1DqaFnwo1dmL7sschB2ZUX6/chZdJwaS9ZN8MzuCjH9bPxzIfo8HcFoqJkIpMa7hPWzI1c+LGP7X6Luq85hbqTtnuzVKRzIGmyUgb0Eg8La4H5cs7srMACsY53a640SUKW1sRkX+8/Be1xwLU86IYu96K/9rkXLd86+UcbbSMWv2jOsyRZFGpi0zWxlC8HtQ75WZGhkz9KldJv+ob976pMWjNDYkGsvNjj/iOf0uZ/bc6M4P+QRaHUFT/xeUJUXWUNqbLURpt886rZ5a3DAYkh6UNVJnbENi1Srpr4Qq+zGtKkUFFIw+Ok0ORQ+zRdc9LnEhABhR7F41s34M3vhx5d3/0IdOcfupbv3yWFqxUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/523d6a58df074e25f36e3580957fbcc8/8ac56/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.webp 240w,
+/static/523d6a58df074e25f36e3580957fbcc8/d3be9/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.webp 480w,
+/static/523d6a58df074e25f36e3580957fbcc8/e46b2/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.webp 960w,
+/static/523d6a58df074e25f36e3580957fbcc8/f992d/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.webp 1440w,
+/static/523d6a58df074e25f36e3580957fbcc8/9fbc2/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.webp 1560w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/523d6a58df074e25f36e3580957fbcc8/8ff5a/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.png 240w,
+/static/523d6a58df074e25f36e3580957fbcc8/e85cb/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.png 480w,
+/static/523d6a58df074e25f36e3580957fbcc8/d9199/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.png 960w,
+/static/523d6a58df074e25f36e3580957fbcc8/07a9c/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.png 1440w,
+/static/523d6a58df074e25f36e3580957fbcc8/9f9a4/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.png 1560w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/523d6a58df074e25f36e3580957fbcc8/d9199/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8.png&quot;
+            alt=&quot;list&quot;
+            title=&quot;list&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;F12를 눌러서 콘솔창을 확인 해 보시면, 데이터의 갯수와 내용을 확인 할 수 있습니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2ca54cfe95bff2e825fdb133138a60da/252a4/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 11.249999999999998%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAWElEQVQI143Myw2AIAAEUUpRQb4CIoFIPBgx2n9Ha7ABPbzbZMhRL5RtR8oF1gX4OUJpCyHNp9aFmBHTirBkDJSD1PMGFxpm8tDGvUauQJkAG+Vvbdb1DA8rBzv5+YPdngAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2ca54cfe95bff2e825fdb133138a60da/8ac56/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 240w,
+/static/2ca54cfe95bff2e825fdb133138a60da/d3be9/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 480w,
+/static/2ca54cfe95bff2e825fdb133138a60da/e46b2/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 960w,
+/static/2ca54cfe95bff2e825fdb133138a60da/bf23a/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 1314w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2ca54cfe95bff2e825fdb133138a60da/8ff5a/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.png 240w,
+/static/2ca54cfe95bff2e825fdb133138a60da/e85cb/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.png 480w,
+/static/2ca54cfe95bff2e825fdb133138a60da/d9199/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.png 960w,
+/static/2ca54cfe95bff2e825fdb133138a60da/252a4/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.png 1314w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2ca54cfe95bff2e825fdb133138a60da/d9199/%EC%B4%88%EA%B8%B0%EB%8D%B0%EC%9D%B4%ED%84%B0.png&quot;
+            alt=&quot;data&quot;
+            title=&quot;data&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;스크롤을 내리다가 스크롤이 화면 맨 아래쪽에 위치 했을 때, &lt;code class=&quot;language-text&quot;&gt;next&lt;/code&gt; 파라미터에 있는 &lt;code class=&quot;language-text&quot;&gt;fetchMoreData&lt;/code&gt; 함수가 실행 됩니다. (&lt;code class=&quot;language-text&quot;&gt;hasMore&lt;/code&gt;가 &lt;strong&gt;true&lt;/strong&gt;인 상태에서! &lt;strong&gt;false&lt;/strong&gt;일 때는 동작하지 않음)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;fetchMoreData&lt;/code&gt; 함수 에서는 pageNum을 1페이지씩 증가 시키고, &lt;code class=&quot;language-text&quot;&gt;getMovieList(pageNum+1)&lt;/code&gt; 함수를 다시 호출 합니다. 초기에는 1페이지의 데이터를 호출하고, 다음 부터는 2, 3, 4…페이지 번호를 하나씩 늘리면서 API 데이터를 호출 하게 되는 &lt;U&gt;페이징 처리&lt;/U&gt;가 가능 합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const fetchMoreData = () =&amp;gt; {
+    setPageNum (pageNum +1);
+    getMovieList(pageNum+1);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;getMovieList(pageNum+1)&lt;/code&gt; 함수가 실행 되면 setData를 할 때&lt;br&gt;
+초기 로딩 시에는 &lt;U&gt;setData(res.data.data.movies)&lt;/U&gt; 함수가 실행 되고, 데이터가 있을 경우에는 &lt;U&gt;setData(data.concat(res.data.data.movies))&lt;/U&gt; 함수가 실행됩니다.&lt;br&gt;
+&lt;strong&gt;concat&lt;/strong&gt; 함수를 사용하여 데이터를 합칩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;data === &amp;#39;&amp;#39; ? setData(res.data.data.movies) : setData(data.concat(res.data.data.movies));&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;무한 스크롤이 정상 동작 하면 스크롤을 내릴 때 마다 API 데이터의 다음 페이지를 호출 하여 데이터가 점차 늘어 납니다.&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6437a9832115eeeb10ade74ac680c70c/844cc/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABGUlEQVQoz3WR21bCQAxF+x8CBaH360zboRf1kapQ5f9/JuYERiksH/ZKJpOcnkydw/hBjempblrKC01FWUnMciXxlttampWkK0OmHagb3ijhs9I1OYfxkwpVU1XvRazkHCDHQJzk5AcxBWEyAzXcZSyOfj9ISENwfD+yWPvg8N7tPXBYXo3AZcTi4nD6OnODfnAI4DBJC3EURukM1GK+gzjmPD/m/qug0oZp5KtwhAHPj2QtG23+Vw/FVV5cnga5rhpyTtM3mf3A9L9rQhjObLTgbFfGWd38lDRTl5VP01lEei623cuMrn+VZkTcN6YTN3geRAvef+eFpFRFzpEFnxaurLDdBf+CgfVmS8vVhlbu8wyXWSzXsvIPGwD5GmIcDyMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/6437a9832115eeeb10ade74ac680c70c/8ac56/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 240w,
+/static/6437a9832115eeeb10ade74ac680c70c/d3be9/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 480w,
+/static/6437a9832115eeeb10ade74ac680c70c/e46b2/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 960w,
+/static/6437a9832115eeeb10ade74ac680c70c/83135/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 1306w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/6437a9832115eeeb10ade74ac680c70c/8ff5a/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.png 240w,
+/static/6437a9832115eeeb10ade74ac680c70c/e85cb/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.png 480w,
+/static/6437a9832115eeeb10ade74ac680c70c/d9199/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.png 960w,
+/static/6437a9832115eeeb10ade74ac680c70c/844cc/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.png 1306w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/6437a9832115eeeb10ade74ac680c70c/d9199/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8B%9C%EB%8D%B0%EC%9D%B4%ED%84%B0.png&quot;
+            alt=&quot;스크롤시데이터&quot;
+            title=&quot;스크롤시데이터&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fbd9018d3b1bba7ed8145a7ade13c635/bc81a/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB5ElEQVQoz02S627aQBCFeZUkTfEFm4uhqZSqVcKlUd//T1SzvkJtp7g1GGxDm9OZIUb16mjWK+3Z7+xsx3VdeMqD+90Fz9VSQSmF5XKJwA/QNA34S9MM08UTNN1GfzSBPhhBHzownQlsZwx7cg9rOEYnXIdQgUK0jrBKVghWAeIkxub3Bptig7IqcaLhhR4+P8xh9kYwrQGuuwauNQM3pFuaG9YQes9GJ0oieLGH8EeIsilxpFH/rVH9qUTt2jJUmM6+kqENw7Twnkw0zUSXKs/t/gg9OqgTZzG8lY/sV4Zds8O23op29U5UVFvUrzXcwMV88Q0WbRxSZDYwTJsO6MMgjZw7WPaQDNMYKlJIfiYoDoVQHY6Hi5jwRITqjZApBnRXXDW9B92wRLJmE2GYhERIkaly/CQn46oQIyEmwobGs3rGw+NcKFgXOtMWMTWbdtYva7m/fJdTxFIo2Wx/3IvK+nyHru/icbpAf+DAGd9RxA8i/ucD2JDn0hQVeWBjNqpO1cVMDN+a0kbmzXx/TMexOS5H5zVWJ0oj+Gtf9FK8oDyW56ZQXBbHr14racps9iQULRmrjepMPp4jZ3mGdJNKU/JtLoT/N2Xf7OUd+nGA+09fcHV1I8+mJWvru1sNXXqT/wCuqSxbsFtL/AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/fbd9018d3b1bba7ed8145a7ade13c635/8ac56/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 240w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/d3be9/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 480w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/e46b2/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 960w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/f992d/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 1440w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/882b9/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 1920w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/38c53/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.webp 2862w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/fbd9018d3b1bba7ed8145a7ade13c635/8ff5a/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.png 240w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/e85cb/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.png 480w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/d9199/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.png 960w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/07a9c/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.png 1440w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/29114/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.png 1920w,
+/static/fbd9018d3b1bba7ed8145a7ade13c635/bc81a/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.png 2862w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/fbd9018d3b1bba7ed8145a7ade13c635/d9199/%EC%98%81%ED%99%94%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EB%8D%B0%EC%9D%B4%ED%84%B0.png&quot;
+            alt=&quot;영화리스트_데이터&quot;
+            title=&quot;영화리스트_데이터&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;다른 데이터를 화면에 보여 주고 싶으면 콘솔의 데이터를 확인 하셔서 원하는 파라미터를 사용 하시면 됩니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5e9a00ea06d15b96d813d36e674e9364/f09ab/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACHUlEQVQ4y2WTaZKjMAyFc5MOhgA2YDD7ErL1UjVVM1Vz/8u8ecLp7qTnh0pYNp+eJHunjcXpfIMta6TawOQWWVYhTQx0mn1ZKsaYWMLvOOW+KdB3I/p2wDivjGXYBSqG6yZ0/czNG/r+hHq8IiwdIrGqRlS33ruG3kFnFraoYLISimfCfkCicxyiBLt9cICpOtTNgKH5i9KOiK1FsK5Q0wwl/nqFOp28Z0wPE+x6RsYE2XpCeqS6cULa9h6Yux5NS+nNH1QlN5g1WI5QPKTow/MZ6sj1smwW3K6bL1lqRyF5ReUf71BU+gysf1Mh5T8Cjx4YUmlIJZIgpcp8WZFwP6SZ8wVFP/keCjBz3TOw+qHwcoGaFw9n6RG/TT8iZ+kJLZAYzxxMLsAIRTuj5rQ694slL0iL0pf4ULIo3IBH703Hclmyq7stgXp72wa3AXMCq4Yqq3fU1QVJliEUhcP4pcz30CcRuEASqrQEVgQn7J9yn8DmB9BkHiRAmbSAZD37ofhE89a/gsCWQM3/A/eksL8Dz1SYf/8owEeF7JfcO0tILSAp+fXVK+ZFvwMXOGZo3Qcad0Wa575XWw+X//on64TfKRNolh0zJsPRfG27l30IU4+8UxOcvaLIBxwSDdW0COoGAb3q+m/PyxvyQmu+Hm0dElsRNiLiICN9n7IuHJs7orAtn5PdehLHGpIs4P7+05S34B4XkzMv931Z/wM+UZWZaXX1EAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5e9a00ea06d15b96d813d36e674e9364/8ac56/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.webp 240w,
+/static/5e9a00ea06d15b96d813d36e674e9364/d3be9/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.webp 480w,
+/static/5e9a00ea06d15b96d813d36e674e9364/e46b2/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.webp 960w,
+/static/5e9a00ea06d15b96d813d36e674e9364/e19c7/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.webp 1250w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5e9a00ea06d15b96d813d36e674e9364/8ff5a/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.png 240w,
+/static/5e9a00ea06d15b96d813d36e674e9364/e85cb/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.png 480w,
+/static/5e9a00ea06d15b96d813d36e674e9364/d9199/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.png 960w,
+/static/5e9a00ea06d15b96d813d36e674e9364/f09ab/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.png 1250w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5e9a00ea06d15b96d813d36e674e9364/d9199/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%82%B4%EC%9A%A9.png&quot;
+            alt=&quot;데이터내용&quot;
+            title=&quot;데이터내용&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;이 방법을 통해 페이지 로딩 지연 이슈를 개선 하게 되었고, 무한 스크롤을 구현하기 위해 여러가지 방법을 시도해 보다가 블로그에 정리해 보았습니다.&lt;/li&gt;
+&lt;li&gt;또한 &lt;code class=&quot;language-text&quot;&gt;ie11&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;safari&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;chrome&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;edge&lt;/code&gt; 등 &lt;U&gt;다양한 브라우저에서도 모두 정상 동작 한다는 점&lt;/U&gt;이 매우 마음에 들었습니다. 무한 스크롤을 구현하게 되신다면 추천 드립니다!&lt;/li&gt;
+&lt;li&gt;내용이 도움이 되셨다면 아래 &lt;strong&gt;좋아요&lt;/strong&gt;나 &lt;strong&gt;댓글&lt;/strong&gt; 부탁 드립니다!👍🏻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Daily] 2021년의 회고록]]></title><description><![CDATA[안녕하세요! 벌써 2021년 12월이 끝나가고 2022년 새해가 다가오네요.]]></description><link>https://shinsangeun.github.io//posts/daily/daily-post-2021-12</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/daily/daily-post-2021-12</guid><pubDate>Fri, 31 Dec 2021 10:23:00 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;벌써 2021년 12월이 끝나가고 2022년 새해가 다가오네요..(시간 멈춰!🤐)&lt;br&gt;
 2021년 올해를 돌아보고 2022년, 새해 목표와 다짐을 작성해 보겠습니다!&lt;/p&gt;
 &lt;h3 id=&quot;1-2021년-회고록&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-2021%EB%85%84-%ED%9A%8C%EA%B3%A0%EB%A1%9D&quot; aria-label=&quot;1 2021년 회고록 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 2021년 회고록&lt;/h3&gt;
@@ -399,6 +775,38 @@ const getVideoList = async () =&amp;gt; {
 &lt;li&gt;엄청난 삽질 끝에…자동 재생을 추가하게 되어서 블로그에 정리해 보았습니다. react-player 라이브러리를 사용하시는 분들께 유용한 포스팅이 되었으면 좋겠습니다.&lt;/li&gt;
 &lt;li&gt;다른 기능을 추가하게 된다면 한번 더 정리 해 보겠습니다!&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[React] 마우스 스크롤 시 상단 헤더 고정 (feat. useRef)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 useRef를 활용 하여 마우스 스크롤 시 페이지 상단 헤더 고정하는 방법에 대해 알려 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-useRef</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-useRef</guid><pubDate>Fri, 15 Oct 2021 03:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번에 진행하는 프로젝트 중에 &lt;U&gt;페이지 상단 헤더&lt;/U&gt;나 카테고리를 마우스 스크롤 시 고정하는 기능을 구현 해야 했는데요.&lt;br&gt;
+&lt;strong&gt;window.scrollEvent&lt;/strong&gt; 를 사용하면 금방 적용 할 줄 알았는데,&lt;br&gt;
+생각 보다 시간이 많이 소요 되어서 적용 방법을 블로그에 정리 해 보고자 합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-상단-고정-예제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EC%83%81%EB%8B%A8-%EA%B3%A0%EC%A0%95-%EC%98%88%EC%A0%9C&quot; aria-label=&quot;1 상단 고정 예제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 상단 고정 예제&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;PC 웹, 모바일 웹 (네이버나 블로그 같은 곳)에서 흔히 볼 수 있는 상단 메뉴 고정 방식 인데요.&lt;br&gt;
+&lt;img src=&quot;https://github.com/shinsangeun/shinsangeun.github.io/blob/master/static/assets/gif/scroll.mov&quot; alt=&quot;scroll&quot;&gt;&lt;/li&gt;
+&lt;li&gt;네이버 창에서 스크롤 시, 상단에 검색창 부분은 고정이 되어 있는 것을 볼 수 있습니다.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-useref-활용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-useref-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;2 useref 활용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. useRef 활용하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;상단 고정 기능을 개발 하기 위해서 먼저 &lt;code class=&quot;language-text&quot;&gt;useRef&lt;/code&gt;에 대해 알아보겠습니다.&lt;/li&gt;
+&lt;li&gt;useRef란, React에서 사용 하는 라이브러리 입니다. 이 기능을 사용 하게 되면, &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;기본예제는 아래와 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;url: 공유할 URL을 작성합니다.&lt;/li&gt;
+&lt;li&gt;text: 공유할 본문을 작성합니다.&lt;/li&gt;
+&lt;li&gt;title: 공유할 제목을 작성합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;3-예제-코드-및-설명&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EC%98%88%EC%A0%9C-%EC%BD%94%EB%93%9C-%EB%B0%8F-%EC%84%A4%EB%AA%85&quot; aria-label=&quot;3 예제 코드 및 설명 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 예제 코드 및 설명&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;예제 코드 입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 &lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
 이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[React] Web share api - 모바일 웹 공유하기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `React.js` 에서 모바일 웹 공유하기 기능을 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-web-share</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-web-share</guid><pubDate>Mon, 11 Oct 2021 03:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
