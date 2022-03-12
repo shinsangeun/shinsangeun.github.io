@@ -1,4 +1,220 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 23 Feb 2022 15:55:11 GMT</lastBuildDate><item><title><![CDATA[[React] 무한 스크롤 구현 방법 (feat.react-infinite-scroll-component)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `React.js`에서 무한 스크롤 구현 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-infinite-scroll</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-infinite-scroll</guid><pubDate>Wed, 23 Feb 2022 03:47:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 12 Mar 2022 14:41:09 GMT</lastBuildDate><item><title><![CDATA[[Javascript] 이벤트 버블링 소개 / 겹쳐진 영역 이벤트 버블링 막기 (in React.js)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `Javascript`의 이벤트 버블링이란 무엇인지 알아보고, `React.js`에서 사용 하는 방법에 대해 알아보도록 하겠습니다.]]></description><link>https://shinsangeun.github.io//posts/javascript/event-bubbling</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/javascript/event-bubbling</guid><pubDate>Sat, 12 Mar 2022 09:47:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번 포스팅 에서는 &lt;code class=&quot;language-text&quot;&gt;Javascript&lt;/code&gt;의 이벤트 버블링이란 무엇인지 알아보고,
+&lt;code class=&quot;language-text&quot;&gt;React.js&lt;/code&gt;에서 사용 하는 방법에 대해 알아보도록 하겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;1-이벤트-버블링-소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B2%84%EB%B8%94%EB%A7%81-%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;1 이벤트 버블링 소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 이벤트 버블링 소개&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;프론트 엔드 면접을 볼 때 가끔 Javascript의 이벤트 버블링에 대한 질문이 있었는데요. 그 당시에는 정확한 개념을 잘 몰랐다가 이번에 예제를 통해 사용방법을 알게 되어 작성해 보겠습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;이벤트 버블링&lt;/strong&gt;이란, 부모와 자식의 이벤트가 동시에 발생 할 때 겹치는 영역이 있는 경우 부모의 이벤트가 발생하는 현상 입니다.&lt;/li&gt;
+&lt;li&gt;아래 예제를 통해 알아보겠습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;2-reactjs-사용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-reactjs-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;2 reactjs 사용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. React.js 사용 방법&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;화면에 컴포넌트 안에서 부모와 자식 컴포넌트가 있을 때 각각의 이벤트가 존재 한다고 가정 합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;블로그 링크 이동!&lt;/code&gt;을 누르면 새창으로 블로그 링크가 열리고, &lt;code class=&quot;language-text&quot;&gt;github 링크 이동!&lt;/code&gt;을 누르면 새창으로 github 링크가 열리는 컴포넌트를 만들었습니다.&lt;/li&gt;
+&lt;li&gt;이 때 겹쳐진 영역을 클릭하면 &lt;U&gt;자식의 이벤트(github 링크 이동)&lt;/U&gt;이 실행 되어야 하는데, &lt;U&gt;부모의 이벤트(블로그 링크 이동)&lt;/U&gt;가 실행 됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-1-예제-코드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-1-%EC%98%88%EC%A0%9C-%EC%BD%94%EB%93%9C&quot; aria-label=&quot;2 1 예제 코드 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2-1. 예제 코드&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import styled from &amp;#39;styled-components&amp;#39;;
+
+const Menu5 = styled.div`
+    height: 100px;width: 80%;color: red;border: 1px solid blue;font-size: 20px;position: absolute;margin: 20px;
+`;
+
+const Menu6 = styled.div`
+    height: 50px;width: 50%;color: red;font-size: 20px;border: 1px solid blue;position: relative;margin: 10px;left: 20px;
+`
+
+const handleLink = (type) =&amp;gt; {
+    console.log(&amp;quot;type==&amp;gt;&amp;quot;, type)
+    if(type === &amp;quot;blog&amp;quot;){
+        window.location.href = &amp;quot;https://shinsangeun.github.io/&amp;quot;;
+    }else{
+        window.location.href = &amp;quot;https://github.com/shinsangeun&amp;quot;;
+    }
+}
+
+const location = () =&amp;gt; {
+    return(
+        &amp;lt;Menu5 onClick={() =&amp;gt; handleLink( &amp;quot;blog&amp;quot;)}&amp;gt;
+            블로그 링크 이동!
+            &amp;lt;Menu6 onClick={() =&amp;gt; handleLink( &amp;quot;github&amp;quot;)}&amp;gt;
+                github 링크 이동!
+            &amp;lt;/Menu6&amp;gt;
+        &amp;lt;/Menu5&amp;gt;
+    )
+}
+
+export default location;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;위의 코드를 실행 시키면 아래와 같은 화면이 보여집니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9cdf32b60aae0f0cf1893be440cd7781/e92cd/event-bubbling.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 23.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAoUlEQVQY043O2wrCMBAE0Pz/Z/nis9eqtLSVtkJRtNckzSbjBkUtiHXhMBCyy4h8PkO5WaLYBchWC5y2a5T7AO0x+VuT+kxRxRGETArIKEefnSEVIDt6sm+9hZa/KZ/KQgxBCDpEoDABXWuQA4jGBg1Yi8nR/E80F43uNjCDrmItmBtpasctHR92vPSdUpxM+EbGfjQyjuHFmMe7bzjF8a07qF6C4qPPYDIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/9cdf32b60aae0f0cf1893be440cd7781/8ac56/event-bubbling.webp 240w,
+/static/9cdf32b60aae0f0cf1893be440cd7781/d3be9/event-bubbling.webp 480w,
+/static/9cdf32b60aae0f0cf1893be440cd7781/e46b2/event-bubbling.webp 960w,
+/static/9cdf32b60aae0f0cf1893be440cd7781/f992d/event-bubbling.webp 1440w,
+/static/9cdf32b60aae0f0cf1893be440cd7781/da455/event-bubbling.webp 1778w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/9cdf32b60aae0f0cf1893be440cd7781/8ff5a/event-bubbling.png 240w,
+/static/9cdf32b60aae0f0cf1893be440cd7781/e85cb/event-bubbling.png 480w,
+/static/9cdf32b60aae0f0cf1893be440cd7781/d9199/event-bubbling.png 960w,
+/static/9cdf32b60aae0f0cf1893be440cd7781/07a9c/event-bubbling.png 1440w,
+/static/9cdf32b60aae0f0cf1893be440cd7781/e92cd/event-bubbling.png 1778w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/9cdf32b60aae0f0cf1893be440cd7781/d9199/event-bubbling.png&quot;
+            alt=&quot;event-bubbling&quot;
+            title=&quot;event-bubbling&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;화면에서 겹쳐진 영역의 “github 링크 이동!” 을 클릭해보면, console 영역에 type이 github, blog 2개가 찍힙니다. 또한 페이지 링크는 블로그 링크로 연결 됩니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 526px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/99ad37d07d1ba1987c4f31471fa3da35/2d7ab/event-type.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.916666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAkklEQVQY05WOyw6CMBQF+f//MyhSeRmBQoG2KG7o2JK4NfUkk7u5mUwyLZrAYiyLtsza+GtQ84K2Frs+/V2jSfZ9p27upJeMsm4YRsWj7RBFSXYVZLnAOUf4i8ELHaNStF2PUhOrL+qlpOsl2hi27X0IY0nAHWWn9ExZ1chh9MKBXBTcioqwb2GUUL8cv/ZPXeADQRWD0WUtzv4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/99ad37d07d1ba1987c4f31471fa3da35/8ac56/event-type.webp 240w,
+/static/99ad37d07d1ba1987c4f31471fa3da35/d3be9/event-type.webp 480w,
+/static/99ad37d07d1ba1987c4f31471fa3da35/9752a/event-type.webp 526w&quot;
+              sizes=&quot;(max-width: 526px) 100vw, 526px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/99ad37d07d1ba1987c4f31471fa3da35/8ff5a/event-type.png 240w,
+/static/99ad37d07d1ba1987c4f31471fa3da35/e85cb/event-type.png 480w,
+/static/99ad37d07d1ba1987c4f31471fa3da35/2d7ab/event-type.png 526w&quot;
+            sizes=&quot;(max-width: 526px) 100vw, 526px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/99ad37d07d1ba1987c4f31471fa3da35/2d7ab/event-type.png&quot;
+            alt=&quot;event-type&quot;
+            title=&quot;event-type&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;영역이 겹쳐져 있는 부분을 클릭 했을 때, &lt;U&gt;자식 컴포넌트와 부모 컴포넌트의 이벤트가 동시에 실행 되는 것&lt;/U&gt;을 알 수 있습니다. 이러한 현상을 &lt;strong&gt;이벤트 버블링&lt;/strong&gt; 이라고 합니다.&lt;/li&gt;
+&lt;li&gt;우리가 만든 handleLink를 의도한 대로 실행 시키려면 이벤트 버블링을 막아야 하는데, 이벤트 버블링을 막기 위해서는 어떻게 해야 하는지 예제 코드를 통해 알아보겠습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;3-이벤트-버블링-막기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B2%84%EB%B8%94%EB%A7%81-%EB%A7%89%EA%B8%B0&quot; aria-label=&quot;3 이벤트 버블링 막기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 이벤트 버블링 막기&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;이벤트 버블링을 막기 위해서는 &lt;code class=&quot;language-text&quot;&gt;event&lt;/code&gt; 파라미터를 추가해 주면 됩니다.&lt;/li&gt;
+&lt;li&gt;handleLink에 &lt;code class=&quot;language-text&quot;&gt;event&lt;/code&gt; 파라미터를 추가 해주고 이벤트 함수 &lt;strong&gt;event.stopPropagation()&lt;/strong&gt; 를 추가 해 줍니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const handleLink = (event, type) =&amp;gt; {
+    event.stopPropagation();
+    console.log(&amp;quot;type==&amp;gt;&amp;quot;, type)
+    if(type === &amp;quot;blog&amp;quot;){
+       window.location.href = &amp;quot;https://shinsangeun.github.io/&amp;quot;;
+    }else{
+       window.location.href = &amp;quot;https://github.com/shinsangeun&amp;quot;;
+    }
+}
+
+const location = () =&amp;gt; {
+    return(
+        &amp;lt;Menu5 onClick={(event) =&amp;gt; handleLink(event, &amp;quot;blog&amp;quot;)}&amp;gt;
+            블로그 링크 이동!
+            &amp;lt;Menu6 onClick={(event) =&amp;gt; handleLink( event,&amp;quot;github&amp;quot;)}&amp;gt;
+                github 링크 이동!
+            &amp;lt;/Menu6&amp;gt;
+        &amp;lt;/Menu5&amp;gt;
+    )
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;화면에서 겹쳐진 영역의 “github 링크 이동!” 을 클릭해보면, console 영역에 type이 github 1개만 찍힙니다. 페이지 링크는 github 링크로 연결 됩니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 432px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/92fccba43afc001984020a4a09ba7ba6/0e0c3/event-type2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 15.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAgUlEQVQI132OzQ6CQAyEef83M0Q9GOJBUCBRD0qUbYH9cXds17M0mcwk37RpMS8LXqPBW2UIxBNGcc2G+JeFaVbG07yqwvsAHec8mnOLTbnDqW5w6Xo8ngMO1RGt5HK7x/V2z92UEv6NHPSw7oMYI6y1IPkkhJCXlBFzdmXq2lvTFyed54zDOjfyAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/92fccba43afc001984020a4a09ba7ba6/8ac56/event-type2.webp 240w,
+/static/92fccba43afc001984020a4a09ba7ba6/0bafe/event-type2.webp 432w&quot;
+              sizes=&quot;(max-width: 432px) 100vw, 432px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/92fccba43afc001984020a4a09ba7ba6/8ff5a/event-type2.png 240w,
+/static/92fccba43afc001984020a4a09ba7ba6/0e0c3/event-type2.png 432w&quot;
+            sizes=&quot;(max-width: 432px) 100vw, 432px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/92fccba43afc001984020a4a09ba7ba6/0e0c3/event-type2.png&quot;
+            alt=&quot;event-type2&quot;
+            title=&quot;event-type2&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;해당 함수는 현재 발생한 이벤트 이후의 이벤트 들을 막아주는(이벤트 전파를 막아주는) 함수 입니다. 이 함수를 추가해 주면 겹쳐진 영역을 클릭했을 때 자신의 이벤트만 실행 되게 됩니다.&lt;/li&gt;
+&lt;li&gt;자세한 설명은 &lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/API/Event/stopPropagation&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;👉🏻mdn web docs&lt;/a&gt; 를 참고 해 주세요!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;3-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;3 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 마치며&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;여기까지 이벤트 버블링이란 무엇인지, 사용 방법에 대해 정리 해 보았습니다. 겹치는 부분이 있을 때는 어떻게 이벤트를 한번만 실행 하게 하는지 구글링을 하다가 찾게 되었는데 이벤트 버블링의 개념을 알게 되어 도움이 되었습니다.&lt;/li&gt;
+&lt;li&gt;내용이 도움이 되셨다면 아래 &lt;strong&gt;좋아요&lt;/strong&gt;나 &lt;strong&gt;댓글&lt;/strong&gt; 부탁 드립니다!👍🏻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[React] 무한 스크롤 구현 방법 (feat.react-infinite-scroll-component)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `React.js`에서 무한 스크롤 구현 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-infinite-scroll</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-infinite-scroll</guid><pubDate>Wed, 23 Feb 2022 03:47:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅 에서는 무한 스크롤 라이브러리를 활용 하여 &lt;code class=&quot;language-text&quot;&gt;React.js&lt;/code&gt; 프로젝트에서 사용하는 방법에 대해 소개해 드리겠습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
@@ -775,38 +991,6 @@ const getVideoList = async () =&amp;gt; {
 &lt;li&gt;엄청난 삽질 끝에…자동 재생을 추가하게 되어서 블로그에 정리해 보았습니다. react-player 라이브러리를 사용하시는 분들께 유용한 포스팅이 되었으면 좋겠습니다.&lt;/li&gt;
 &lt;li&gt;다른 기능을 추가하게 된다면 한번 더 정리 해 보겠습니다!&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
-이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[React] 마우스 스크롤 시 상단 헤더 고정 (feat. useRef)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 useRef를 활용 하여 마우스 스크롤 시 페이지 상단 헤더 고정하는 방법에 대해 알려 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-useRef</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-useRef</guid><pubDate>Fri, 15 Oct 2021 03:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
-&lt;p&gt;이번에 진행하는 프로젝트 중에 &lt;U&gt;페이지 상단 헤더&lt;/U&gt;나 카테고리를 마우스 스크롤 시 고정하는 기능을 구현 해야 했는데요.&lt;br&gt;
-&lt;strong&gt;window.scrollEvent&lt;/strong&gt; 를 사용하면 금방 적용 할 줄 알았는데,&lt;br&gt;
-생각 보다 시간이 많이 소요 되어서 적용 방법을 블로그에 정리 해 보고자 합니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;1-상단-고정-예제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EC%83%81%EB%8B%A8-%EA%B3%A0%EC%A0%95-%EC%98%88%EC%A0%9C&quot; aria-label=&quot;1 상단 고정 예제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 상단 고정 예제&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;PC 웹, 모바일 웹 (네이버나 블로그 같은 곳)에서 흔히 볼 수 있는 상단 메뉴 고정 방식 인데요.&lt;br&gt;
-&lt;img src=&quot;https://github.com/shinsangeun/shinsangeun.github.io/blob/master/static/assets/gif/scroll.mov&quot; alt=&quot;scroll&quot;&gt;&lt;/li&gt;
-&lt;li&gt;네이버 창에서 스크롤 시, 상단에 검색창 부분은 고정이 되어 있는 것을 볼 수 있습니다.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;2-useref-활용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-useref-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;2 useref 활용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. useRef 활용하기&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;상단 고정 기능을 개발 하기 위해서 먼저 &lt;code class=&quot;language-text&quot;&gt;useRef&lt;/code&gt;에 대해 알아보겠습니다.&lt;/li&gt;
-&lt;li&gt;useRef란, React에서 사용 하는 라이브러리 입니다. 이 기능을 사용 하게 되면, &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;기본예제는 아래와 같습니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;url: 공유할 URL을 작성합니다.&lt;/li&gt;
-&lt;li&gt;text: 공유할 본문을 작성합니다.&lt;/li&gt;
-&lt;li&gt;title: 공유할 제목을 작성합니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;3-예제-코드-및-설명&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EC%98%88%EC%A0%9C-%EC%BD%94%EB%93%9C-%EB%B0%8F-%EC%84%A4%EB%AA%85&quot; aria-label=&quot;3 예제 코드 및 설명 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 예제 코드 및 설명&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;예제 코드 입니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 &lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
 이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[React] Web share api - 모바일 웹 공유하기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 `React.js` 에서 모바일 웹 공유하기 기능을 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-web-share</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-web-share</guid><pubDate>Mon, 11 Oct 2021 03:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
