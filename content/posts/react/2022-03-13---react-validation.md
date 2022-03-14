@@ -20,7 +20,9 @@ description: "안녕하세요! 이번 포스팅 에서는 React.js에서 회원�
 
 ### 1. 개요
 회원가입 시 필요한 이름, 휴대폰, 이메일을 만들고 유효성 체크 기능을 구현 해 보겠습니다.
-- 이름: 필수값, 한글만 등록 가능, 10글자 이하 (홍길동)
+
+#### 항목별 조건
+- 이름: 필수값, 한글만 등록 가능, 1글자 이상 50글자 이하 (홍길동)
 - 휴대폰: 필수값, 숫자만 등록 가능, 11글자 이하 (010-1111-2222)
 - 이메일: 선택값, 영문만 등록 가능 (test@test.com)
 - 회원 가입 동의: 필수값, 체크 안하면 등록 안됨
@@ -63,10 +65,10 @@ const [name, setName] = useState<string>('');       // 이름
 const [phone, setPhone] = useState<string>('');     // 휴대폰
 const [email, setEmail] = useState<string>('');     // 이메일
 
-const [isName, setIsName] = useState<boolean>(false);       // 이름 유효성 체크 
+const [isName, setIsName] = useState<boolean>(false);       // 이름 유효성 체크 & 작성 여부 
 const [isKor, setIsKor] = useState<boolean>(false);         // 한글 유효성 체크
-const [isPhone, setIsPhone] = useState<boolean>(false);     // 휴대폰 유효성 체크
-const [isEmail, setIsEmail] = useState<boolean>(false);     // 이메일 유효성 체크
+const [isPhone, setIsPhone] = useState<boolean>(false);     // 휴대폰 유효성 체크 & 작성 여부
+const [isEmail, setIsEmail] = useState<boolean>(false);     // 이메일 유효성 체크 & 작성 여부
 const [isChecked, setIsChecked] = useState<boolean>(false);       // 동의 여부 유효성 체크
 ```
 
@@ -98,12 +100,12 @@ const checkSpc = (str: string) => {
 }
 ```
 
-#### 3-3. 유효성 체크 함수 (useCallback)
+#### 3-3. 변수별 onChange 함수 (useCallback)
 
 input 값에 값을 입력 할 때마다 console 에 값이 찍히도록 추가 했는데, 값이 변할 때 마다 콘솔에 **e.target.value** 이 찍혀서 변수 값을 셋팅 할 수 있습니다.
 ![console](../../../static/assets/images/react/react-validation/console.png)
 
-1. onChangeName 함수 (setIsName, setIsKor, setName을 셋팅 함)
+1. **이름** : onChangeName 함수 (setIsName, setIsKor, setName을 셋팅 함)
    - regex.test(e.target.value) 이 true 이고, 이름 입력 값 length가 0 일 경우 `setIsName`는 **false**로 셋팅
    - e.target.value 값이 한글이고, 영어가 아니고, 특수문자가 아니고, 입력 값 length가 1 < value <= 50 일 경우 `setIsKor`, `setIsName` 둘 다 **true**로 셋팅
    - e.target.value 값이 한글이 아니거나, 영어거나, 특수문자가 있거나, 입력 값 length가 1 < value <= 50 일 경우 `setIsKor`는 **false**, `setIsName`은 **true**로 셋팅
@@ -134,7 +136,7 @@ const onChangeName = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 }, [])
 ```
 
-2. onChangePhone 함수 (setPhone, setIsPhone을 셋팅 함)
+2. **휴대폰** : onChangePhone 함수 (setPhone, setIsPhone을 셋팅 함)
    - regex.test(e.target.value) 이 true 이고, 휴대폰 입력 값 length가 10 이나 11일 경우 `setPhone`에 값을 넣고, `setIsPhone`는 **true**로 셋팅 / 아니면 `setIsPhone`는 **false**로 셋팅
 
 ```
@@ -150,7 +152,7 @@ const onChangePhone = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 }, [])
 ```
 
-3. onChangeEmail 함수 (setEmail, setIsEmail을 셋팅 함)
+3. **이메일** : onChangeEmail 함수 (setEmail, setIsEmail을 셋팅 함)
     - regex.test(e.target.value) 이 true 이면 `setEmail`에 값을 넣고, `setIsEmail`는 **true**로 셋팅 / 아니면 `setIsEmail`는 **false**로 셋팅
 
 ```
@@ -167,7 +169,7 @@ const onChangeEmail = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 }, [])
 ```
 
-4. changeHandler 함수 (setIsChecked을 셋팅 함)
+4. **체크박스** : changeHandler 함수 (setIsChecked을 셋팅 함)
     - checked && id === "check" 이면 `setIsChecked`는 **true**로 셋팅 / 아니면 `setIsChecked`는 **false**로 셋팅
     
 ```
