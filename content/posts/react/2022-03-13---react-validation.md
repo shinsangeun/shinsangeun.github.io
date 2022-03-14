@@ -29,6 +29,8 @@ description: "안녕하세요! 이번 포스팅 에서는 React.js에서 회원�
 
 
 ### 2. 화면 구현
+⛔ ️styled-components 부분은 생략 하였습니다.
+
 1. 이름 값에 입력 할 때마다 **onChangeName** 가 실행 됩니다.
 2. 휴대폰 값을 입력 할 때마다 **onChangePhone** 함수가 실행 됩니다.
 3. 이메일을 입력 할 때마다 **onChangeEmail** 함수가 실행 됩니다.
@@ -53,7 +55,7 @@ return(
 
 ### 3. 구현 방법
 
-#### 2-1. 초기 변수값 셋팅
+#### 3-1. 초기 변수값 셋팅
 - 이름, 휴대폰, 이메일에 대한 변수 값과 유효성 체크에 대한 변수 값을 **useState**로 선언 합니다.
 
 ```
@@ -68,7 +70,7 @@ const [isEmail, setIsEmail] = useState<boolean>(false);     // 이메일 유효�
 const [isChecked, setIsChecked] = useState<boolean>(false);       // 동의 여부 유효성 체크
 ```
 
-#### 2-2. 유효성 체크 함수
+#### 3-2. 유효성 체크 함수
 1. 한글 체크
 
 ```
@@ -96,7 +98,7 @@ const checkSpc = (str: string) => {
 }
 ```
 
-#### 2-3. 유효성 체크 함수 (useCallback)
+#### 3-3. 유효성 체크 함수 (useCallback)
 
 input 값에 값을 입력 할 때마다 console 에 값이 찍히도록 추가 했는데, 값이 변할 때 마다 콘솔에 **e.target.value** 이 찍혀서 변수 값을 셋팅 할 수 있습니다.
 ![console](../../../static/assets/images/react/react-validation/console.png)
