@@ -1,10 +1,229 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 13 Mar 2022 08:17:55 GMT</lastBuildDate><item><title><![CDATA[[React] 회원가입 기능 구현 (이름, 이메일, 전화번호  유효성 체크)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 React.js에서 회원가입 유효성 체크 기능에 대해 알아보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-validation</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-validation</guid><pubDate>Sun, 13 Mar 2022 05:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 21 Mar 2022 12:21:36 GMT</lastBuildDate><item><title><![CDATA[[React] 동영상 파일 첨부 기능 추가하기 (feat. FormData)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 React.js에서 동영상을 첨부하는 기능을 구현해 보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-file-upload</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-file-upload</guid><pubDate>Mon, 21 Mar 2022 11:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번 포스팅 에서는 React.js에서 &lt;a href=&quot;https://shinsangeun.github.io/posts/react/react-validation&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;👉🏻회원 가입 기능 구현&lt;/a&gt;(이전글 참고) 에 이어서 동영상 이나 이미지 파일을 첨부하는 기능을 구현해 보겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
+&lt;p&gt;게시판에 글을 쓸 때면 첨부 파일(사진, 동영상)을 올리는 기능이 있는데요.&lt;br&gt;
+글을 업로드 한다고 가정 하고 React.js에서 제목, 내용, 파일 첨부 기능을 구현해 보겠습니다.&lt;/p&gt;
+&lt;h4 id=&quot;항목별-조건&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%95%AD%EB%AA%A9%EB%B3%84-%EC%A1%B0%EA%B1%B4&quot; aria-label=&quot;항목별 조건 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;항목별 조건&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;제목: 필수값, 1글자 이상 100글자 이하&lt;/li&gt;
+&lt;li&gt;내용: 필수값, 1글자 이상 1000글자 이하&lt;/li&gt;
+&lt;li&gt;파일 첨부: 선택값, 파일은 최대 1개, 300MB 이하 첨부만 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 852px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/36343727ca5216b39a40dce21145a781/47ff6/screenshot.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 170.83333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAAACXBIWXMAABYlAAAWJQFJUiTwAAAC30lEQVRIx+VWW08TQRTe/+eLlxcTJcSohOoDoa1FosQGe0OXRPtq4gMYQAwmCk1UpMUAAUyIGmy5pVjBtF6A6m73fvncme0iW6nYRRMTJ/kyM2dPv/nOmTkzZZqbz2B0dAwDA4MYHn6AoaH7tB8ZeUhtfX396O+/90sQn8HBIRw9dgJMV9c1FItFCIKAjY0N7Ozs0Hk2m4WqKmikXe68Aqa11YdkMolUKoVQKGSpGgDLsgiHw1hYWKCOiqJA07S6UFWV+rX7g2Di8QSd6LoOnufpR8eB2EzTPBC6blB/f+ASmGg0TieVikB7syrfMGxnwzDouD4MuvCuwlgsgXK5jHw+7yJqBISUErYHfyi07HQlumIjsMIledxVSAg5jkOp9NGzQlfIZFPILm5tbVWVHiJk/56QFUWlK3mBqmruTSEh53K5XYWNtLoKSWK9hFuX8HcP8b9DeHDurCNGYdLzuD9hbbLrKjKrRerAJmxrawcTicTsWrauL0mSIYgiRFGiR4FWQc0RIXOYBkpfNcysy3j5XsZ8weo3dQSvRi2FkSi2v3zGUi6LQuEdVleWsba6AqHCO1pdoRrV6asPKthMBSNvJAy/FnF7SkJLRw+YcHecCuZEDYJioKKY4GQTvGxAkHVwknWtSTpV69Q5Ubhd0bFYVLH8SUWupCBfBs76rJC7IwmqgZccQsMms3pJNekCgmK6atz4adPsHAaDITA3enpcRm/NIbQu2NZQFFObwNMlEeMr8r54vmqDjmtAbM+WJbwoAKdaAmCOX7iO5JwJNv0NvRkevZNu3LRsd+cF3JkV6Lj2O/kNm+Zwa0bDkSYrh+eCUYyvA48WBYxmpX0xVsfu4PFbEU/WgJPnLYWJ6iNlGrr3FJp2DgMkh3tfvcPWMn31/jphw9HuIQz8p4SxmH0fkv8zXl8956H3kwuWZXvxp1qooxOMz3cRs7NzmJhII52Z9ISJdAbT0zM43dSM79070l/gk95CAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/36343727ca5216b39a40dce21145a781/8ac56/screenshot.webp 240w,
+/static/36343727ca5216b39a40dce21145a781/d3be9/screenshot.webp 480w,
+/static/36343727ca5216b39a40dce21145a781/39392/screenshot.webp 852w&quot;
+              sizes=&quot;(max-width: 852px) 100vw, 852px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/36343727ca5216b39a40dce21145a781/8ff5a/screenshot.png 240w,
+/static/36343727ca5216b39a40dce21145a781/e85cb/screenshot.png 480w,
+/static/36343727ca5216b39a40dce21145a781/47ff6/screenshot.png 852w&quot;
+            sizes=&quot;(max-width: 852px) 100vw, 852px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/36343727ca5216b39a40dce21145a781/47ff6/screenshot.png&quot;
+            alt=&quot;react upload&quot;
+            title=&quot;react upload&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-화면-구현&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%ED%99%94%EB%A9%B4-%EA%B5%AC%ED%98%84&quot; aria-label=&quot;2 화면 구현 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 화면 구현&lt;/h3&gt;
+&lt;p&gt;⛔ ️styled-components 부분은 생략 하였습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;이름 값에 입력 할 때마다 &lt;strong&gt;onChangeName&lt;/strong&gt; 가 실행 됩니다.&lt;/li&gt;
+&lt;li&gt;제목 값에 입력 할 때마다 &lt;strong&gt;onChangeTitle&lt;/strong&gt; 가 실행 됩니다.&lt;/li&gt;
+&lt;li&gt;내용 값을 입력 할 때마다 &lt;strong&gt;onChangeContent&lt;/strong&gt; 함수가 실행 됩니다.&lt;/li&gt;
+&lt;li&gt;파일 첨부를 하면 &lt;strong&gt;onChangeAttach&lt;/strong&gt; 함수가 실행 됩니다.&lt;br&gt;
+(영상 파일 첨부 기능이므로 &lt;strong&gt;type=“file”&lt;/strong&gt; 에 &lt;code class=&quot;language-text&quot;&gt;accept=&amp;quot;video/*&amp;quot;&lt;/code&gt; 파라미터를 추가해 줍니다.)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;return(
+        &amp;lt;&amp;gt;
+            &amp;lt;h1&amp;gt;게시글 등록&amp;lt;/h1&amp;gt;
+            &amp;lt;Text type=&amp;quot;text&amp;quot; name=&amp;quot;name&amp;quot; onChange={onChangeName} placeholder={&amp;quot;*이름&amp;quot;}/&amp;gt;
+            &amp;lt;Text type=&amp;quot;text&amp;quot; name=&amp;quot;title&amp;quot; onChange={onChangeTitle} placeholder={&amp;quot;*제목&amp;quot;}/&amp;gt;
+            &amp;lt;Contents type=&amp;quot;text&amp;quot; name=&amp;quot;content&amp;quot; onChange={onChangeContent} placeholder={&amp;quot;*내용&amp;quot;}/&amp;gt;
+            &amp;lt;FileWrap&amp;gt;
+                &amp;lt;Text type=&amp;quot;file&amp;quot; id=&amp;quot;attachFile&amp;quot; name=&amp;quot;attachFile&amp;quot; onChange={onChangeAttach} accept=&amp;quot;video/*&amp;quot; placeholder={&amp;quot;첨부파일&amp;quot;} /&amp;gt;
+                &amp;lt;div className=&amp;quot;text&amp;quot;&amp;gt;{attachFilename === &amp;#39;&amp;#39; ? &amp;#39;파일을 선택해주세요&amp;#39; : attachFilename}&amp;lt;/div&amp;gt;
+                &amp;lt;div className=&amp;quot;btn&amp;quot;&amp;gt;&amp;lt;span&amp;gt;파일선택&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+            &amp;lt;/FileWrap&amp;gt;
+            {(attach !== &amp;#39;&amp;#39; &amp;amp;&amp;amp; isAttach)|| attachFilename !== &amp;#39;&amp;#39; ? &amp;lt;Close onClick={onReset}/&amp;gt;: &amp;lt;&amp;gt;&amp;lt;/&amp;gt;}
+            &amp;lt;ConsentDescription className={&amp;quot;description&amp;quot;}&amp;gt;파일은 최대 1개, 300MB 까지 가능 합니다.&amp;lt;/ConsentDescription&amp;gt;&amp;lt;br/&amp;gt;
+            &amp;lt;Submit onClick={() =&amp;gt; onSubmit()}&amp;gt;
+                &amp;lt;SubmitText&amp;gt;등록&amp;lt;/SubmitText&amp;gt;
+            &amp;lt;/Submit&amp;gt;
+        &amp;lt;/&amp;gt;
+    )&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;3-구현-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EA%B5%AC%ED%98%84-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;3 구현 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 구현 방법&lt;/h3&gt;
+&lt;h4 id=&quot;3-1-초기-변수값-셋팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-1-%EC%B4%88%EA%B8%B0-%EB%B3%80%EC%88%98%EA%B0%92-%EC%85%8B%ED%8C%85&quot; aria-label=&quot;3 1 초기 변수값 셋팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3-1. 초기 변수값 셋팅&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;이름, 제목, 내용, 파일에 대한 변수 값과 유효성 체크에 대한 변수 값을 &lt;strong&gt;useState&lt;/strong&gt;로 선언 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const [name, setName] = useState&amp;lt;string&amp;gt;(&amp;#39;&amp;#39;);                        // 이름
+const [title, setTitle] = useState&amp;lt;string&amp;gt;(&amp;#39;&amp;#39;);                      // 제목
+const [content, setContent] = useState&amp;lt;string&amp;gt;(&amp;#39;&amp;#39;);                  // 내용
+const [attach, setAttach] = useState&amp;lt;string&amp;gt;(&amp;#39;&amp;#39;);                    // 파일 첨부
+const [attachFilename, setAttachFilename] = useState&amp;lt;string&amp;gt;(&amp;#39;&amp;#39;);    // 첨부한 파일 제목
+
+const [isName, setIsName] = useState&amp;lt;boolean&amp;gt;(false);                // 이름 유효성 체크 
+const [isKor, setIsKor] = useState&amp;lt;boolean&amp;gt;(false);                  // 한글 유효성 체크
+const [isTitle, setIsTitle] = useState&amp;lt;boolean&amp;gt;(false);              // 제목 유효성 체크 &amp;amp; 작성 여부
+const [isContent, setIsContent] = useState&amp;lt;boolean&amp;gt;(false);          // 내용 유효성 체크 &amp;amp; 작성 여부
+const [isAttach, setIsAttach] = useState&amp;lt;boolean&amp;gt;(false);            // 파일 첨부 여부&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;3-2-변수별-onchange-함수-usecallback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-2-%EB%B3%80%EC%88%98%EB%B3%84-onchange-%ED%95%A8%EC%88%98-usecallback&quot; aria-label=&quot;3 2 변수별 onchange 함수 usecallback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3-2. 변수별 onChange 함수 (useCallback)&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;제목&lt;/strong&gt; : onChangeTitle 함수 (setTitle, setIsTitle을 셋팅 함)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;e.target.value.length 가 1 이상 이고 100 이하 일 경우에 &lt;code class=&quot;language-text&quot;&gt;setTitle&lt;/code&gt;에  &lt;strong&gt;e.target.value&lt;/strong&gt; 값 셋팅, &lt;code class=&quot;language-text&quot;&gt;setIsTitle&lt;/code&gt;은 &lt;strong&gt;true&lt;/strong&gt;로 셋팅&lt;/li&gt;
+&lt;li&gt;아니면 &lt;code class=&quot;language-text&quot;&gt;setIsTitle&lt;/code&gt;은 &lt;strong&gt;false&lt;/strong&gt;로 셋팅 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const onChangeTitle = useCallback((e: React.ChangeEvent&amp;lt;HTMLInputElement&amp;gt;) =&amp;gt; {
+     if(e.target.value.length &amp;gt; 1 &amp;amp;&amp;amp; e.target.value.length &amp;lt;= 100){
+         setTitle(e.target.value);
+         setIsTitle(true);
+     } else {
+         setIsTitle(false);
+     }
+ }, [])&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;내용&lt;/strong&gt; : onChangeContent 함수 (setContent, setIsContent 셋팅 함)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;e.target.value.length 가 1 이상 이고 1000 이하 일 경우에 &lt;code class=&quot;language-text&quot;&gt;setContent&lt;/code&gt;에  &lt;strong&gt;e.target.value&lt;/strong&gt; 값 셋팅, &lt;code class=&quot;language-text&quot;&gt;setIsContent&lt;/code&gt;은 &lt;strong&gt;true&lt;/strong&gt;로 셋팅&lt;/li&gt;
+&lt;li&gt;아니면 &lt;code class=&quot;language-text&quot;&gt;setIsContent&lt;/code&gt;은 &lt;strong&gt;false&lt;/strong&gt;로 셋팅&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const onChangeContent = useCallback((e: React.ChangeEvent&amp;lt;HTMLInputElement&amp;gt;) =&amp;gt; {
+     if(e.target.value.length &amp;gt; 1 &amp;amp;&amp;amp; e.target.value.length &amp;lt;= 1000){
+         setContent(e.target.value);
+         setIsContent(true);
+     } else {
+         setIsContent(false);
+     }
+ }, [])&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;파일 첨부&lt;/strong&gt; : onChangeContent 함수 (setContent, setIsContent 셋팅 함)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;maxSize: 300MB 파일 용량 체크&lt;/li&gt;
+&lt;li&gt;e.target.files[0].size 가 maxSize를 초과하면 얼럿 창 띄우고 파일 첨부 칸에 빈 메세지 표시, &lt;code class=&quot;language-text&quot;&gt;setIsAttach&lt;/code&gt;은 &lt;strong&gt;false&lt;/strong&gt;로 셋팅&lt;/li&gt;
+&lt;li&gt;e.target.files[0].size 가 maxSize를 초과 하지 않으면 &lt;code class=&quot;language-text&quot;&gt;setAttach&lt;/code&gt;은 &lt;strong&gt;e.target.files[0]&lt;/strong&gt; 파일 값 셋팅, &lt;code class=&quot;language-text&quot;&gt;setIsAttach&lt;/code&gt;은 &lt;strong&gt;true&lt;/strong&gt;로 셋팅&lt;/li&gt;
+&lt;li&gt;아이폰, ios, 사파리 일 경우에는 비디오 파일 이름이 이상한 값으로 들어가기 때문에 &lt;code class=&quot;language-text&quot;&gt;setAttachFilename&lt;/code&gt;에 &lt;strong&gt;1개의 비디오&lt;/strong&gt; 라는 변수 값을 셋팅 함&lt;/li&gt;
+&lt;li&gt;아이폰, ios, 사파리가 아닐 경우에는 &lt;code class=&quot;language-text&quot;&gt;setAttachFilename&lt;/code&gt;에 &lt;strong&gt;e.target.files[0].name&lt;/strong&gt; 라는 파일 제목을 셋팅 함&lt;/li&gt;
+&lt;li&gt;파일 첨부가 아무것도 없을 경우에는 &lt;code class=&quot;language-text&quot;&gt;setIsAttach&lt;/code&gt;를 &lt;strong&gt;false&lt;/strong&gt;로 셋팅&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const onChangeAttach = useCallback((e: React.ChangeEvent&amp;lt;HTMLInputElement&amp;gt;) =&amp;gt; {
+     const maxSize = 300 * 1024 * 1024;
+
+     if(e.target.value.length &amp;gt; 1){
+         if(e.target.files[0].size &amp;gt; maxSize){
+             alert(&amp;#39;파일 용량을 초과 하였습니다.&amp;#39;)
+             document.getElementById(&amp;#39;attachFile&amp;#39;).value = &amp;quot;&amp;quot;;
+             setIsAttach(false);
+         }else{
+             setAttach(e.target.files[0]);
+             setIsAttach(true);
+
+             // 파일이름
+             const iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+             if(iOS) {
+                 setAttachFilename(&amp;quot;1개의 비디오&amp;quot;);
+             } else {
+                 setAttachFilename(e.target.files[0].name);
+             }
+         }
+     } else {
+         setIsAttach(false);
+     }
+ }, [])&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;등록&lt;/strong&gt; : onSubmit 함수&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;formData에 이름, 제목, 내용, 파일을 추가 합니다.&lt;/li&gt;
+&lt;li&gt;유효성 검사에 따라 alert 창을 노출 합니다.&lt;/li&gt;
+&lt;li&gt;이름, 제목, 내용이 다 있으면 post 방식으로 API 주소로 데이터를 보냅니다.&lt;/li&gt;
+&lt;li&gt;데이터를 정상적으로 보내면 &lt;strong&gt;/submit&lt;/strong&gt; 링크로 리다이렉트 시킵니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt; const onSubmit = async () =&amp;gt; {
+     const formData = new FormData();
+     formData.append(&amp;#39;name&amp;#39;, name);
+     formData.append(&amp;#39;title&amp;#39;, title);
+     formData.append(&amp;#39;content&amp;#39;, content);
+     formData.append(&amp;#39;file&amp;#39;, attach);
+
+     const config = {
+         headers: {
+             &amp;quot;content-type&amp;quot;: &amp;quot;multipart/form-data&amp;quot;,
+         },
+     };
+
+     if(!isName) return alert(&amp;quot;이름을 입력해주세요.&amp;quot;);
+     if(!isKor) return alert(&amp;quot;이름을 한글로 입력해 주세요.&amp;quot;);
+     if(!isTitle) return alert(&amp;quot;제목을 입력해주세요.&amp;quot;);
+     if(!isContent) return alert(&amp;quot;내용을 입력해주세요.&amp;quot;);
+
+     if(isName &amp;amp;&amp;amp; isTitle &amp;amp;&amp;amp; isContent){
+         try {
+             await axios
+                 .post(API 주소 입력, formData, config)
+                 .then((res) =&amp;gt; {
+                     if (res.data.result === &amp;quot;success&amp;quot;) {
+                         location.href = &amp;quot;/submit&amp;quot;;
+                     }
+                 })
+         } catch (err) {
+             console.error(err)
+         }
+     }
+ }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;5-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;5 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5. 마치며&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;React.js에서 파일을 첨부하는 기능에 대해 구현해 보았습니다.&lt;/li&gt;
+&lt;li&gt;내용이 도움이 되셨다면 아래 &lt;strong&gt;좋아요&lt;/strong&gt;나 &lt;strong&gt;댓글&lt;/strong&gt; 부탁 드립니다!👍🏻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[React] 회원가입 기능 구현 (이름, 이메일, 전화번호  유효성 체크)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 React.js에서 회원가입 유효성 체크 기능에 대해 알아보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-validation</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-validation</guid><pubDate>Sun, 13 Mar 2022 05:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅 에서는 React.js에서 회원가입 기능을 구현해 보고 &lt;strong&gt;useCallback&lt;/strong&gt; 함수를 사용하여 유효성 체크 하는 방법에 대해 알아보겠습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
 &lt;p&gt;회원가입 시 필요한 이름, 휴대폰, 이메일을 만들고 유효성 체크 기능을 구현 해 보겠습니다.&lt;/p&gt;
+&lt;h4 id=&quot;항목별-조건&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%95%AD%EB%AA%A9%EB%B3%84-%EC%A1%B0%EA%B1%B4&quot; aria-label=&quot;항목별 조건 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;항목별 조건&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;이름: 필수값, 한글만 등록 가능, 10글자 이하 (홍길동)&lt;/li&gt;
+&lt;li&gt;이름: 필수값, 한글만 등록 가능, 1글자 이상 50글자 이하 (홍길동)&lt;/li&gt;
 &lt;li&gt;휴대폰: 필수값, 숫자만 등록 가능, 11글자 이하 (010-1111-2222)&lt;/li&gt;
 &lt;li&gt;이메일: 선택값, 영문만 등록 가능 (test@test.com)&lt;/li&gt;
 &lt;li&gt;회원 가입 동의: 필수값, 체크 안하면 등록 안됨&lt;/li&gt;
@@ -51,6 +270,7 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&quot;2-화면-구현&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%ED%99%94%EB%A9%B4-%EA%B5%AC%ED%98%84&quot; aria-label=&quot;2 화면 구현 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 화면 구현&lt;/h3&gt;
+&lt;p&gt;⛔ ️styled-components 부분은 생략 하였습니다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;이름 값에 입력 할 때마다 &lt;strong&gt;onChangeName&lt;/strong&gt; 가 실행 됩니다.&lt;/li&gt;
 &lt;li&gt;휴대폰 값을 입력 할 때마다 &lt;strong&gt;onChangePhone&lt;/strong&gt; 함수가 실행 됩니다.&lt;/li&gt;
@@ -71,7 +291,7 @@
     &amp;lt;/&amp;gt;
 )&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;3-구현-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EA%B5%AC%ED%98%84-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;3 구현 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 구현 방법&lt;/h3&gt;
-&lt;h4 id=&quot;2-1-초기-변수값-셋팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-1-%EC%B4%88%EA%B8%B0-%EB%B3%80%EC%88%98%EA%B0%92-%EC%85%8B%ED%8C%85&quot; aria-label=&quot;2 1 초기 변수값 셋팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2-1. 초기 변수값 셋팅&lt;/h4&gt;
+&lt;h4 id=&quot;3-1-초기-변수값-셋팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-1-%EC%B4%88%EA%B8%B0-%EB%B3%80%EC%88%98%EA%B0%92-%EC%85%8B%ED%8C%85&quot; aria-label=&quot;3 1 초기 변수값 셋팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3-1. 초기 변수값 셋팅&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;이름, 휴대폰, 이메일에 대한 변수 값과 유효성 체크에 대한 변수 값을 &lt;strong&gt;useState&lt;/strong&gt;로 선언 합니다.&lt;/li&gt;
 &lt;/ul&gt;
@@ -79,12 +299,12 @@
 const [phone, setPhone] = useState&amp;lt;string&amp;gt;(&amp;#39;&amp;#39;);     // 휴대폰
 const [email, setEmail] = useState&amp;lt;string&amp;gt;(&amp;#39;&amp;#39;);     // 이메일
 
-const [isName, setIsName] = useState&amp;lt;boolean&amp;gt;(false);       // 이름 유효성 체크 
+const [isName, setIsName] = useState&amp;lt;boolean&amp;gt;(false);       // 이름 유효성 체크 &amp;amp; 작성 여부 
 const [isKor, setIsKor] = useState&amp;lt;boolean&amp;gt;(false);         // 한글 유효성 체크
-const [isPhone, setIsPhone] = useState&amp;lt;boolean&amp;gt;(false);     // 휴대폰 유효성 체크
-const [isEmail, setIsEmail] = useState&amp;lt;boolean&amp;gt;(false);     // 이메일 유효성 체크
+const [isPhone, setIsPhone] = useState&amp;lt;boolean&amp;gt;(false);     // 휴대폰 유효성 체크 &amp;amp; 작성 여부
+const [isEmail, setIsEmail] = useState&amp;lt;boolean&amp;gt;(false);     // 이메일 유효성 체크 &amp;amp; 작성 여부
 const [isChecked, setIsChecked] = useState&amp;lt;boolean&amp;gt;(false);       // 동의 여부 유효성 체크&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;2-2-유효성-체크-함수&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-2-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EC%B2%B4%ED%81%AC-%ED%95%A8%EC%88%98&quot; aria-label=&quot;2 2 유효성 체크 함수 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2-2. 유효성 체크 함수&lt;/h4&gt;
+&lt;h4 id=&quot;3-2-유효성-체크-함수&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-2-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EC%B2%B4%ED%81%AC-%ED%95%A8%EC%88%98&quot; aria-label=&quot;3 2 유효성 체크 함수 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3-2. 유효성 체크 함수&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;한글 체크&lt;/li&gt;
 &lt;/ol&gt;
@@ -106,7 +326,7 @@ const [isChecked, setIsChecked] = useState&amp;lt;boolean&amp;gt;(false);       
     const regExp = /[~!@#$%^&amp;amp;*()_+|&amp;lt;&amp;gt;?:{}]/;
     return regExp.test(str);
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;2-3-유효성-체크-함수-usecallback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-3-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EC%B2%B4%ED%81%AC-%ED%95%A8%EC%88%98-usecallback&quot; aria-label=&quot;2 3 유효성 체크 함수 usecallback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2-3. 유효성 체크 함수 (useCallback)&lt;/h4&gt;
+&lt;h4 id=&quot;3-3-변수별-onchange-함수-usecallback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-3-%EB%B3%80%EC%88%98%EB%B3%84-onchange-%ED%95%A8%EC%88%98-usecallback&quot; aria-label=&quot;3 3 변수별 onchange 함수 usecallback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3-3. 변수별 onChange 함수 (useCallback)&lt;/h4&gt;
 &lt;p&gt;input 값에 값을 입력 할 때마다 console 에 값이 찍히도록 추가 했는데, 값이 변할 때 마다 콘솔에 &lt;strong&gt;e.target.value&lt;/strong&gt; 이 찍혀서 변수 값을 셋팅 할 수 있습니다.
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -157,7 +377,7 @@ const [isChecked, setIsChecked] = useState&amp;lt;boolean&amp;gt;(false);       
     &lt;/span&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;onChangeName 함수 (setIsName, setIsKor, setName을 셋팅 함)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이름&lt;/strong&gt; : onChangeName 함수 (setIsName, setIsKor, setName을 셋팅 함)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;regex.test(e.target.value) 이 true 이고, 이름 입력 값 length가 0 일 경우 &lt;code class=&quot;language-text&quot;&gt;setIsName&lt;/code&gt;는 &lt;strong&gt;false&lt;/strong&gt;로 셋팅&lt;/li&gt;
 &lt;li&gt;e.target.value 값이 한글이고, 영어가 아니고, 특수문자가 아니고, 입력 값 length가 1 &amp;#x3C; value &amp;#x3C;= 50 일 경우 &lt;code class=&quot;language-text&quot;&gt;setIsKor&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;setIsName&lt;/code&gt; 둘 다 &lt;strong&gt;true&lt;/strong&gt;로 셋팅&lt;/li&gt;
@@ -190,7 +410,7 @@ const [isChecked, setIsChecked] = useState&amp;lt;boolean&amp;gt;(false);       
 }, [])&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;
-&lt;p&gt;onChangePhone 함수 (setPhone, setIsPhone을 셋팅 함)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;휴대폰&lt;/strong&gt; : onChangePhone 함수 (setPhone, setIsPhone을 셋팅 함)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;regex.test(e.target.value) 이 true 이고, 휴대폰 입력 값 length가 10 이나 11일 경우 &lt;code class=&quot;language-text&quot;&gt;setPhone&lt;/code&gt;에 값을 넣고, &lt;code class=&quot;language-text&quot;&gt;setIsPhone&lt;/code&gt;는 &lt;strong&gt;true&lt;/strong&gt;로 셋팅 / 아니면 &lt;code class=&quot;language-text&quot;&gt;setIsPhone&lt;/code&gt;는 &lt;strong&gt;false&lt;/strong&gt;로 셋팅&lt;/li&gt;
 &lt;/ul&gt;
@@ -208,7 +428,7 @@ const [isChecked, setIsChecked] = useState&amp;lt;boolean&amp;gt;(false);       
 }, [])&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol start=&quot;3&quot;&gt;
 &lt;li&gt;
-&lt;p&gt;onChangeEmail 함수 (setEmail, setIsEmail을 셋팅 함)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이메일&lt;/strong&gt; : onChangeEmail 함수 (setEmail, setIsEmail을 셋팅 함)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;regex.test(e.target.value) 이 true 이면 &lt;code class=&quot;language-text&quot;&gt;setEmail&lt;/code&gt;에 값을 넣고, &lt;code class=&quot;language-text&quot;&gt;setIsEmail&lt;/code&gt;는 &lt;strong&gt;true&lt;/strong&gt;로 셋팅 / 아니면 &lt;code class=&quot;language-text&quot;&gt;setIsEmail&lt;/code&gt;는 &lt;strong&gt;false&lt;/strong&gt;로 셋팅&lt;/li&gt;
 &lt;/ul&gt;
@@ -227,7 +447,7 @@ const [isChecked, setIsChecked] = useState&amp;lt;boolean&amp;gt;(false);       
 }, [])&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol start=&quot;4&quot;&gt;
 &lt;li&gt;
-&lt;p&gt;changeHandler 함수 (setIsChecked을 셋팅 함)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;체크박스&lt;/strong&gt; : changeHandler 함수 (setIsChecked을 셋팅 함)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;checked &amp;#x26;&amp;#x26; id === “check” 이면 &lt;code class=&quot;language-text&quot;&gt;setIsChecked&lt;/code&gt;는 &lt;strong&gt;true&lt;/strong&gt;로 셋팅 / 아니면 &lt;code class=&quot;language-text&quot;&gt;setIsChecked&lt;/code&gt;는 &lt;strong&gt;false&lt;/strong&gt;로 셋팅&lt;/li&gt;
 &lt;/ul&gt;
@@ -6319,6 +6539,36 @@ A: 해당 주소로 요청을 하고, 응답을 받는 과정..입니다...(?)&l
 &lt;ul&gt;
 &lt;li&gt;조인에 대한 내용을 다시 한번 정리 하며 대학교 때 배웠던 기억이 나네요..😋&lt;/li&gt;
 &lt;li&gt;여러 가지 종류의 조인이 있어서 외우기 힘들지만, 벤다이어 그램으로 기억 하는 방법도 좋은 것 같아요!👍🏻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Node.js] 클로저(Closure)란?]]></title><description><![CDATA[이번 포스팅 에서는 `Javascript`에서 중요한 개념 중 하나인 클로저(Closure)에 대해 작성해 보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/nodejs/closure-function</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/nodejs/closure-function</guid><pubDate>Thu, 28 Jan 2021 14:22:33 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번 포스팅 에서는 &lt;code class=&quot;language-text&quot;&gt;Javascript&lt;/code&gt;에서 중요한 개념 중 하나인 &lt;strong&gt;클로저&lt;/strong&gt;에 대해 작성해 보겠습니다.&lt;br&gt;
+저도 클로저는 들어보기만 하고 정확한 개념을 다시 짚어 보기 위해 정리 해 보겠습니다!😄&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-클로저closure란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%ED%81%B4%EB%A1%9C%EC%A0%80closure%EB%9E%80&quot; aria-label=&quot;1 클로저closure란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 클로저(Closure)란?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;클로저는 함수를 일급 객체로 취급하는 함수형 프로그래밍 언어에서 사용되는 중요한 특성 입니다.&lt;/li&gt;
+&lt;li&gt;클로저는 “함수가 선언 됐을 때의 렉시컬 환경(Lexical environment)” 입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;2-클로저-함수-예제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%ED%81%B4%EB%A1%9C%EC%A0%80-%ED%95%A8%EC%88%98-%EC%98%88%EC%A0%9C&quot; aria-label=&quot;2 클로저 함수 예제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 클로저 함수 예제&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;outerFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;innerFunc&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;innerFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;outerFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;함수 &lt;code class=&quot;language-text&quot;&gt;outerFunc&lt;/code&gt; 내에서 내부함수 &lt;code class=&quot;language-text&quot;&gt;innerFunc&lt;/code&gt;가 선언 되고 호출 되었습니다. &lt;/li&gt;
+&lt;li&gt;이때 내부함수 &lt;code class=&quot;language-text&quot;&gt;innerFunc&lt;/code&gt;는 자신을 포함하고 있는 외부함수 &lt;code class=&quot;language-text&quot;&gt;outerFunc&lt;/code&gt;의 변수 x에 접근할 수 있습니다. 이는 함수 &lt;code class=&quot;language-text&quot;&gt;innerFunc&lt;/code&gt;가 함수 &lt;code class=&quot;language-text&quot;&gt;outerFunc&lt;/code&gt;의 내부에 선언되었기 때문 입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;스코프는 함수를 호출할 때가 아니라 함수를 어디에 선언하였는지에 따라 결정된다. 이를 렉시컬 스코핑(Lexical scoping)라 한다. 
+위 예제의 함수 innerFunc는 함수 outerFunc의 내부에서 선언되었기 때문에 함수 innerFunc의 상위 스코프는 함수 outerFunc이다. 
+함수 innerFunc가 전역에 선언되었다면 함수 innerFunc의 상위 스코프는 전역 스코프가 된다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference.&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://poiemaweb.com/js-closure&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;👉🏻클로저&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
