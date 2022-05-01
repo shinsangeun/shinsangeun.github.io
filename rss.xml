@@ -1,4 +1,363 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 21 Mar 2022 12:21:36 GMT</lastBuildDate><item><title><![CDATA[[React] 동영상 파일 첨부 기능 추가하기 (feat. FormData)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 React.js에서 동영상을 첨부하는 기능을 구현해 보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-file-upload</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-file-upload</guid><pubDate>Mon, 21 Mar 2022 11:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 01 May 2022 15:05:53 GMT</lastBuildDate><item><title><![CDATA[[Next.js] Amcharts5 그래프 사용 및 커스텀 하기]]></title><description><![CDATA[안녕하세요! 이번 포스팅에서는 Amcharts5를 사용방법과 커스텀 하는 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/nextjs/react-amchart</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/nextjs/react-amchart</guid><pubDate>Sun, 01 May 2022 14:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번 포스팅 에서는 오픈소스 차트인 Amcharts5를 사용방법과 커스텀 하는 방법에 대해 소개해 드리겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;여러가지 react 오픈소스 차트를 찾아보던 중에 알게된 차트인 &lt;a href=&quot;https://www.amcharts.com/demos/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Amcharts&lt;/a&gt; 에 대해 작성해 보겠습니다. 차트 버전은 &lt;strong&gt;amcharts4, 5&lt;/strong&gt;가 있고 공식 문서에 차트에 대한 설명과 데모가 자세히 나와 있어서 커스텀 하기에도 수월 했습니다.&lt;/li&gt;
+&lt;li&gt;참고 했던 다른 차트 중에서는 &lt;a href=&quot;https://www.chartjs.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;charts.js&lt;/a&gt; &amp;#x26; &lt;a href=&quot;https://www.highcharts.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Highcharts&lt;/a&gt; 가 있었는데 원하는 차트 모양이 가장 적절한 amcharts로 선택 하게 되었습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-amcharts-사용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-amcharts-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;2 amcharts 사용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Amcharts 사용 방법&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;공식 사이트는 &lt;a href=&quot;https://www.amcharts.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;👉🏻이 곳&lt;/a&gt; 입니다. 바 그래프, 원 그래프, 워드 클라우드 차트, 라인 차트 등 다양한 차트를 한눈에 볼 수 있고 버전 별로 비교해 볼 수 있습니다.&lt;/li&gt;
+&lt;li&gt;원하는 차트 유형을 선택 하고 데모 소스도 확인해 볼 수 있습니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/86c3137c6992176a4376c4006ecf05e9/bc81a/amcharts1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAACLklEQVQoz32RS08TYRSG+1uAlYkgMSYmxo0rBRNXxoV/x70xgjcIFii9UKA3UMREF0aMGkQN0QhIhFLGtjO9zXwz05mWxzMDSOLCL3kn5/qe95yJxO6PEXs0SXxqnqnxOIlomrmZDAuJHNlUnkwyJ8gzL7HU9AKpJ1Gm7o4wPSp9IxPEHowTvfeYSUFy9CmRnoEhevqHuHjlNucv32Lw0k3OXLhBz9mr9Emut/9aiMDvDXBumL7B6/QODId9AfokFsQDO5JML5KaWyKTe0E2v0Lh2SsWcivERd2MKAvyIaQmmV4iPrtIYrYgvvTNL4UI7JBHEOH4GU2HetM6cen4XvDlv697jMPTUKRlWpiCvbJJsXJk+67izXedj2sNaHsox5WYS8V0eLlt8KXcYGuzzthEkbFYkWxBQymLVssiopSDbdsc6Ba/DUWjZdNpO2zst1hd1nE3dTwZUFMuaRly522R/I8qe1I/t14l81XntZC7wqGUfUpYqir0uo1pHSV8z8PrdrBdT/JSIyoNq01DtUPFrihud3w8Qafrhz1B3V/CYN1yzcaxj/yaKK3IXXd1GSLqjKbCEvKOHM2X+xoyvHSg2NUUWlnhOs6xQvtkZSUr2zRNm67v8v5bnefvDFbWapQPbFa3ahQKFQ6FiI7Dp60GDxP7RBc1sstl2v+uXKmpkDRYue06aBXFzk/5WUUZUnUoGRYbH2o0PxdxjQpaQ0h3TNZ/WWxrsq6QBeL+AI8JqOwrWfYTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/86c3137c6992176a4376c4006ecf05e9/8ac56/amcharts1.webp 240w,
+/static/86c3137c6992176a4376c4006ecf05e9/d3be9/amcharts1.webp 480w,
+/static/86c3137c6992176a4376c4006ecf05e9/e46b2/amcharts1.webp 960w,
+/static/86c3137c6992176a4376c4006ecf05e9/f992d/amcharts1.webp 1440w,
+/static/86c3137c6992176a4376c4006ecf05e9/882b9/amcharts1.webp 1920w,
+/static/86c3137c6992176a4376c4006ecf05e9/38c53/amcharts1.webp 2862w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/86c3137c6992176a4376c4006ecf05e9/8ff5a/amcharts1.png 240w,
+/static/86c3137c6992176a4376c4006ecf05e9/e85cb/amcharts1.png 480w,
+/static/86c3137c6992176a4376c4006ecf05e9/d9199/amcharts1.png 960w,
+/static/86c3137c6992176a4376c4006ecf05e9/07a9c/amcharts1.png 1440w,
+/static/86c3137c6992176a4376c4006ecf05e9/29114/amcharts1.png 1920w,
+/static/86c3137c6992176a4376c4006ecf05e9/bc81a/amcharts1.png 2862w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/86c3137c6992176a4376c4006ecf05e9/d9199/amcharts1.png&quot;
+            alt=&quot;amchart1&quot;
+            title=&quot;amchart1&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;그래프 별로 다양한 인터렉션과 애니메이션이 있어서 용도별로 다양하게 선택해서 사용할 수 있습니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4c532496a4cd930f66cf6e345e1549a8/bc81a/amcharts2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB60lEQVQoz6WQX0/TUBjGGy/0RkV0wwxlW9vZdcjWqWiiiRq90YGGRG9IJIFwYfgahmsjunXghLmu3doZpGuBT7AvxMb+k/j4nk7RgXee5Jfnfc6f57zncEb6C4wNDZZhw8hb0LdMVIrb2DEdVCsubFLbcrBdsmEVv6OSK6C4loGu0jk1DyO7icLHz9AIK/sVnJCYAR9PITY9h4iSAj/1DEL8OQRSUZmBdPslpFsvjhGTswSpMgshkQI7z2oGT54rUxfmNxd5fQebuo0SecOsQi9XSR3Pl6hDD6p1b83+xaBm+1kOg8Nf4+gH/ntwh4dNHNQb2N/fw+rqO6ysvIWmadgj7zgOHHeA67qn2N2lP7Zt1Go1NJstNBpNcJ1OFw0KfHDvDsL8NQhiEDx/nXQCvEAqDDQUHkcwNEyY9vn8I3izMI9+/witVnsQWKfAx4/uIxYTEY/LkGURUVmATP43UpSHGAkNIUUFBMb9WFxaGA5kHT598hA3pyRM31WQTMqIJ6IUFEFs8oYHq6PeRX9g8xPBAJaXF090eFCHokxi7OooAgEf6SX4x0a851zxXcTo5fPEhVOw9bPnzuDV6zkvkP0j1+v10W53YFplFApbyOU2sL6uQlXTx2Qyn/6Jmk3jw9p7VB3bC+x2e/gJamj5teCCTnwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/4c532496a4cd930f66cf6e345e1549a8/8ac56/amcharts2.webp 240w,
+/static/4c532496a4cd930f66cf6e345e1549a8/d3be9/amcharts2.webp 480w,
+/static/4c532496a4cd930f66cf6e345e1549a8/e46b2/amcharts2.webp 960w,
+/static/4c532496a4cd930f66cf6e345e1549a8/f992d/amcharts2.webp 1440w,
+/static/4c532496a4cd930f66cf6e345e1549a8/882b9/amcharts2.webp 1920w,
+/static/4c532496a4cd930f66cf6e345e1549a8/38c53/amcharts2.webp 2862w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/4c532496a4cd930f66cf6e345e1549a8/8ff5a/amcharts2.png 240w,
+/static/4c532496a4cd930f66cf6e345e1549a8/e85cb/amcharts2.png 480w,
+/static/4c532496a4cd930f66cf6e345e1549a8/d9199/amcharts2.png 960w,
+/static/4c532496a4cd930f66cf6e345e1549a8/07a9c/amcharts2.png 1440w,
+/static/4c532496a4cd930f66cf6e345e1549a8/29114/amcharts2.png 1920w,
+/static/4c532496a4cd930f66cf6e345e1549a8/bc81a/amcharts2.png 2862w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/4c532496a4cd930f66cf6e345e1549a8/d9199/amcharts2.png&quot;
+            alt=&quot;amchart2&quot;
+            title=&quot;amchart2&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;3-활용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%ED%99%9C%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;3 활용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 활용 방법&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;사용했던 ahcmarts5 차트를 간단하게 보여 드리겠습니다.&lt;/li&gt;
+&lt;li&gt;서울과 경기에 대한 갯수를 나타내는 라인 차트를 next.js에서 사용해 보았습니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f2ac9c61efdd872c02741c8bf6a1d6f3/3dde1/example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABYElEQVQoz4VSWU4DMQzN6ekF+sslEIfgBCyiUhmpBQmxtJPdyeRhO0OhrRAjPb043p49MTFGlFLQWsM0TUf8jZ/7budSz+Jr7XfGOQciOjj+gvjRJpQ6YUx05KsMoi7KiLrKiFRhU+GkdlYosY/KpBB1EktcuM0xnMTobJbLJXa7HT59wbtNrKDqCoRrLdo5RIJlOMbeZ/WHTMpS5Hb9gcvrB+wcwdzf38GHiMBdXexK20EdK2JbEGdl+0DcaNKznyeynrDaWl2H6UsuOoKMpIU5MObOIzeRMcUvCYnPIVX129jj5P77M957xJTnhIoxFPjclYriPduO7TrvTFD0L4vKont/enO4Wb3oFEaeTZI/JNtgtXVqOgZ+2TQraL/u5esiGh5fHa5ut7Cs1qSUIEUzc875wOkfFhBlfXLeeTwPa83VkeUtWmuVx3GE3J3yqV/OPgRtMAwDLhYLbDYbfAFNCwtj0jLAzgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/f2ac9c61efdd872c02741c8bf6a1d6f3/8ac56/example.webp 240w,
+/static/f2ac9c61efdd872c02741c8bf6a1d6f3/d3be9/example.webp 480w,
+/static/f2ac9c61efdd872c02741c8bf6a1d6f3/e46b2/example.webp 960w,
+/static/f2ac9c61efdd872c02741c8bf6a1d6f3/5304f/example.webp 1018w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/f2ac9c61efdd872c02741c8bf6a1d6f3/8ff5a/example.png 240w,
+/static/f2ac9c61efdd872c02741c8bf6a1d6f3/e85cb/example.png 480w,
+/static/f2ac9c61efdd872c02741c8bf6a1d6f3/d9199/example.png 960w,
+/static/f2ac9c61efdd872c02741c8bf6a1d6f3/3dde1/example.png 1018w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/f2ac9c61efdd872c02741c8bf6a1d6f3/d9199/example.png&quot;
+            alt=&quot;example&quot;
+            title=&quot;example&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;next.js(react.js)에서 amcharts를 사용할 때는 &lt;a href=&quot;https://nextjs.org/docs/advanced-features/dynamic-import&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;dynamic&lt;/a&gt; 와 동기적으로 수행 되는 &lt;a href=&quot;https://ko.reactjs.org/docs/hooks-reference.html#uselayouteffect&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;useLayoutEffect&lt;/a&gt; 를 사용해야 합니다. (각각에 대한 자세한 설명은 공식문서를 참고해 주세요!)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;부모 컴포넌트: chart.tsx 파일&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;dynamic 함수를 사용하여 Charts를 호출 합니다. loading 중 일 경우에 나타낼 컴포넌트를 설정하고, ssr를 false로 셋팅 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import dynamic from &amp;quot;next/dynamic&amp;quot;;
+
+const Chart = dynamic(
+    // @ts-ignore
+    () =&amp;gt; import(&amp;quot;../components/chart/Chart&amp;quot;),
+    { loading: () =&amp;gt; &amp;lt;p&amp;gt;loading...&amp;lt;/p&amp;gt;, ssr: false }
+);
+
+const chart = () =&amp;gt; {
+    return &amp;lt;Chart /&amp;gt;;
+}
+
+export default chart;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;자식 컴포넌트: Charts.tsx 파일&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;useLayoutEffect 함수를 사용하여 차트를 생성합니다. 맨 마지막에 생성한 차트를 return 시켜줍니다.&lt;/li&gt;
+&lt;li&gt;xAxis: x축에 대한 데이터 입력 (날짜)&lt;/li&gt;
+&lt;li&gt;yAxis: y축에 대한 데이터 입력 (갯수)&lt;/li&gt;
+&lt;li&gt;createSeries: 차트 그리는 부분&lt;/li&gt;
+&lt;li&gt;strokeWidth: 라인 차트 두께&lt;/li&gt;
+&lt;li&gt;series.get(“tooltip”).label.set(“text”, ”[bold]{name}[/]: {valueY}”): 툴팁 글씨 셋팅&lt;/li&gt;
+&lt;li&gt;chart.set(“cursor”…): 차트 커서 셋팅 (alwaysShow: true일 경우에는 초기 셋팅 부터 커서가 노출 됩니다.)&lt;/li&gt;
+&lt;li&gt;positionX, positionY: 커서의 위치 셋팅&lt;/li&gt;
+&lt;li&gt;width: “1000px”, height: “500px”: 그래프 영역 크기 셋팅&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import { useLayoutEffect } from &amp;quot;react&amp;quot;;
+import * as am4core from &amp;quot;@amcharts/amcharts4/core&amp;quot;;
+import am4themes_animated from &amp;quot;@amcharts/amcharts4/themes/animated&amp;quot;;
+
+import * as am5 from &amp;quot;@amcharts/amcharts5&amp;quot;;
+import * as am5xy from &amp;quot;@amcharts/amcharts5/xy&amp;quot;;
+
+am4core.useTheme(am4themes_animated);
+
+const Chart = () =&amp;gt; {
+    useLayoutEffect(() =&amp;gt; {
+        let root = am5.Root.new(&amp;quot;chartdiv&amp;quot;);
+        const chart = root.container.children.push(
+            am5xy.XYChart.new(root, {
+                wheelY: &amp;quot;zoomX&amp;quot;
+            })
+        );
+
+        // 데이터 셋팅
+        const data = [{
+            date: new Date(2021, 0, 1).getTime(),
+            value: 100,
+            value2: 220
+        }, {
+            date: new Date(2021, 0, 2).getTime(),
+            value: 320,
+            value2: 300
+        }, {
+            date: new Date(2021, 0, 3).getTime(),
+            value: 216,
+            value2: 120
+        }, {
+            date: new Date(2021, 0, 4).getTime(),
+            value: 150,
+            value2: 190
+        }, {
+            date: new Date(2021, 0, 5).getTime(),
+            value: 156,
+            value2: 190
+        }, {
+            date: new Date(2021, 0, 6).getTime(),
+            value: 199,
+            value2: 120
+        }, {
+            date: new Date(2021, 0, 7).getTime(),
+            value: 114,
+            value2: 300
+        }, {
+            date: new Date(2021, 0, 8).getTime(),
+            value: 269,
+            value2: 290
+        }, {
+            date: new Date(2021, 0, 9).getTime(),
+            value: 190,
+            value2: 290
+        }, {
+            date: new Date(2021, 0, 10).getTime(),
+            value: 380,
+            value2: 170
+        }, {
+            date: new Date(2021, 0, 11).getTime(),
+            value: 250,
+            value2: 200
+        }, {
+            date: new Date(2021, 0, 12).getTime(),
+            value: 110,
+            value2: 210
+        }, {
+            date: new Date(2021, 0, 13).getTime(),
+            value: 185,
+            value2: 85
+        }, {
+            date: new Date(2021, 0, 14).getTime(),
+            value: 105,
+            value2: 244
+        }];
+
+        // Create Y-axis
+        let yAxis = chart.yAxes.push(
+            am5xy.ValueAxis.new(root, {
+                extraTooltipPrecision: 1,
+                renderer: am5xy.AxisRendererY.new(root, {
+                    minGridDistance: 30
+                })
+            })
+        );
+
+        // Create X-Axis
+        let xAxis = chart.xAxes.push(
+            am5xy.DateAxis.new(root, {
+                baseInterval: { timeUnit: &amp;quot;day&amp;quot;, count: 1 },
+                renderer: am5xy.AxisRendererX.new(root, {
+                    minGridDistance: 20,
+                    cellStartLocation: 0.2,
+                    cellEndLocation: 0.8
+                })
+            })
+        );
+
+        // Create series
+        function createSeries(name: string, field: string) {
+            var series = chart.series.push(
+                am5xy.LineSeries.new(root, {
+                    name: name,
+                    xAxis: xAxis,
+                    yAxis: yAxis,
+                    valueYField: field,
+                    valueXField: &amp;quot;date&amp;quot;,
+                    tooltip: am5.Tooltip.new(root, {})
+                })
+            );
+
+            series.strokes.template.setAll({
+                strokeWidth: 2
+            });
+
+            series.events.on(&amp;quot;datavalidated&amp;quot;, function() {
+                // @ts-ignore
+                chart.get(&amp;quot;cursor&amp;quot;).setAll({
+                    positionX: 0.99,
+                    positionY: 0.4,
+                    xAxis: xAxis,
+                    yAxis: yAxis,
+                    alwaysShow: true
+                });
+            });
+
+            // @ts-ignore
+            series.get(&amp;quot;tooltip&amp;quot;).label.set(&amp;quot;text&amp;quot;, &amp;quot;[bold]{name}[/]: {valueY}&amp;quot;)
+            series.data.setAll(data);
+        }
+
+        createSeries(&amp;quot;서울&amp;quot;, &amp;quot;value&amp;quot;);
+        createSeries(&amp;quot;경기&amp;quot;, &amp;quot;value2&amp;quot;);
+
+        // Add cursor
+        chart.set(&amp;quot;cursor&amp;quot;, am5xy.XYCursor.new(root, {
+            behavior: &amp;quot;none&amp;quot;,
+            xAxis: xAxis,
+        }));
+
+        xAxis.set(&amp;quot;tooltip&amp;quot;, am5.Tooltip.new(root, {
+            themeTags: [&amp;quot;axis&amp;quot;]
+        }));
+
+        yAxis.set(&amp;quot;tooltip&amp;quot;, am5.Tooltip.new(root, {
+            themeTags: [&amp;quot;axis&amp;quot;]
+        }));
+
+        return () =&amp;gt; {
+            chart.dispose();
+        };
+    }, []);
+
+    return(
+        &amp;lt;div id={&amp;quot;chartdiv&amp;quot;} style={{width: &amp;quot;1000px&amp;quot;, height: &amp;quot;500px&amp;quot;}}/&amp;gt;
+    )
+}
+
+export default Chart;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Next.js에서 amcharts5를 사용 하는 방법과 활용 방법에 대해 알아 보았습니다.&lt;/li&gt;
+&lt;li&gt;내용이 도움이 되셨다면 아래 &lt;strong&gt;좋아요&lt;/strong&gt;나 &lt;strong&gt;댓글&lt;/strong&gt; 부탁 드립니다!👍🏻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[React] 동영상 파일 첨부 기능 추가하기 (feat. FormData)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 React.js에서 동영상을 첨부하는 기능을 구현해 보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-file-upload</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-file-upload</guid><pubDate>Mon, 21 Mar 2022 11:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅 에서는 React.js에서 &lt;a href=&quot;https://shinsangeun.github.io/posts/react/react-validation&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;👉🏻회원 가입 기능 구현&lt;/a&gt;(이전글 참고) 에 이어서 동영상 이나 이미지 파일을 첨부하는 기능을 구현해 보겠습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
