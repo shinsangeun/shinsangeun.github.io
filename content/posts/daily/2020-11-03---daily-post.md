@@ -7,7 +7,7 @@ slug: "daily-post-2020-11"
 category: "Daily"
 tags:
   - "Daily"
-description: "안녕하세요! 벌써 11월이 다가왔습니다."
+ description: "안녕하세요! 벌써 11월이 다가왔습니다."
 ---
 
 안녕하세요!  

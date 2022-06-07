@@ -7,7 +7,7 @@ slug: "daily-post-2020-12"
 category: "Daily"
 tags:
   - "Daily"
-description: "안녕하세요! 벌써 2020년 12월이 끝나가고 2021년 새해가 다가오네요."
+ description: "안녕하세요! 벌써 2020년 12월이 끝나가고 2021년 새해가 다가오네요."
 ---
 
 안녕하세요!  
