@@ -2,12 +2,12 @@
 title: "[Daily] 2020년의 회고록"
 date: "2020-12-29 17:00:00"
 template: "post"
-draft: false
+draft: true
 slug: "daily-post-2020-12"
 category: "Daily"
 tags:
   - "Daily"
- description: "안녕하세요! 벌써 2020년 12월이 끝나가고 2021년 새해가 다가오네요."
+description: "안녕하세요! 벌써 2020년 12월이 끝나가고 2021년 새해가 다가오네요."
 ---
 
 안녕하세요!  
