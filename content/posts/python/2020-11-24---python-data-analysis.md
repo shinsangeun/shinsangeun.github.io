@@ -57,7 +57,7 @@ description: "이번 포스팅은 Python을 이용 해서 개발 시에 많은 �
   - [랜덤 포레스트 vs 고객 이탈 예측을 위한 신경망](https://towardsdatascience.com/random-forest-vs-neural-networks-for-predicting-customer-churn-691666c7431e)
   
 - 의사 결정 트리(Decision Tree)
-  - 그래프
+  - [그래프](https://www.scaler.com/topics/decision-tree-algorithm/)
     - [Graphviz 패키지 설치](https://graphviz.org/download/)
     - [환경 변수 설정 방법 1](https://stackoverflow.com/questions/35064304/runtimeerror-make-sure-the-graphviz-executables-are-on-your-systems-path-aft)
     - [환경 변수 설정 방법 2](https://datascience.stackexchange.com/questions/37428/graphviz-not-working-when-imported-inside-pydotplus-graphvizs-executables-not)
