@@ -15,13 +15,12 @@ description: "안녕하세요! 이번 포스팅 에서는 Github에서 Code spac
 
 이번 포스팅 에서는 Github에서 새로 생긴(지 좀 된..) **Github Code Space**에 대해 알아보겠습니다.👨‍🏫
 
+Github에 들어가면 어느 순간부터 **Code Space** 라는 버튼이 생겨있었습니다.  
+최근 호기심에 잠깐 사용해보았는데, 간단하지만 정말 유용한 기능이라고 생각되어 블로그에 소개해 드리겠습니다.
+
 -----
-# 1. 개요
-Github에 들어가면 어느 순간부터 Code Space 라는 버튼이 생겨있었습니다.  
-한번도 사용해 보지는 않았었는데, 어느 날 호기심에 사용해보았는데 정말 유용한 기능이라고 생각되어 블로그에 소개해 드리겠습니다!
 
-
-# 2. 사용 방법
+# 1. 사용 방법
 1. Github 상단에 자신의 프로필을 클릭하여 'Your CodeSpace' 버튼을 클릭 합니다.
     ![profile1](../../../static/assets/images/github/github-profile.png)
 
@@ -37,7 +36,7 @@ Github에 들어가면 어느 순간부터 Code Space 라는 버튼이 생겨있
     ![codespace3](../../../static/assets/images/github/github-codespace3.png)
 
 
-# 3. 후기
+# 2. 사용 후기
 사실 별거 아니라고 생각했었는데, 막상 사용해 보니 너무 너무 편하고  
 개발툴을 사용하지 않고도 작업이 가능하다는게 신기하고 새로운 환경이라고 생각 합니다.
 
