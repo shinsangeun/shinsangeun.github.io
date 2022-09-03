@@ -1,4 +1,197 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 07 Jun 2022 14:43:17 GMT</lastBuildDate><item><title><![CDATA[[Next.js] XSS 취약점과 해결 방안 (next.config.js 설정)]]></title><description><![CDATA[안녕하세요! 이번 포스팅에서는 Next.js에서 XSS 취약점 조치하는 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/nextjs/next-xss</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/nextjs/next-xss</guid><pubDate>Sun, 05 Jun 2022 16:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 03 Sep 2022 06:54:17 GMT</lastBuildDate><item><title><![CDATA[[Github] Git Code Space 사용방법 및 후기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 Github에서 Code space 사용하는 방법에 대해 알아보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/github/github-codeSpace</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/github/github-codeSpace</guid><pubDate>Sun, 21 Aug 2022 14:12:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;이번 포스팅 에서는 Github에서 새로 생긴(지 좀 된..) &lt;strong&gt;Github Code Space&lt;/strong&gt;에 대해 알아보겠습니다.👨‍🏫&lt;/p&gt;
+&lt;p&gt;Github에 들어가면 어느 순간부터 &lt;strong&gt;Code Space&lt;/strong&gt; 라는 버튼이 생겨있었습니다.&lt;br&gt;
+최근 호기심에 잠깐 사용해보았는데, 간단하지만 정말 유용한 기능이라고 생각되어 블로그에 소개해 드리겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;1-사용-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;1 사용 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 사용 방법&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Github 상단에 자신의 프로필을 클릭하여 ‘Your CodeSpace’ 버튼을 클릭 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 204px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/46d633bd89ccc977ed75048179719ec4/779ef/github-profile.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 276.96078431372547%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/46d633bd89ccc977ed75048179719ec4/fc2fe/github-profile.webp 204w&quot;
+              sizes=&quot;(max-width: 204px) 100vw, 204px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/46d633bd89ccc977ed75048179719ec4/779ef/github-profile.png 204w&quot;
+            sizes=&quot;(max-width: 204px) 100vw, 204px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/46d633bd89ccc977ed75048179719ec4/779ef/github-profile.png&quot;
+            alt=&quot;profile1&quot;
+            title=&quot;profile1&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;페이지 이동 후 ‘New Codespace’ 버튼을 클릭 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b0aff4d52ea4231fe8a9ee24d0861b81/29114/github-codespace.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.916666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABk0lEQVQoz41R207CUBCsihFtaU9ber/QFhCqEqMvJvpDarhI5SKg0Uf/etxzECUQgw+TPZ2dnd3uSotiiOLhHpNuFx+TCd7HIxFfnwu8DPqYDQYC86LAYjQmjAQ/7fUwfexi1qc3YT58wufbApJ0pEI6VLB/ooM5NWh2LLBXZpBKCuUqIi9QkgUOjg2ULQdyM4CkaN86BUeqBUk1PaimC8MJYQcpLA4/gVb1BFTDpbwvIqv6QsuqIcyoBjtPwdwAGnlUDAdumFID3QGHzGyR8OsdeEkuCoUobiJuXYtmXKdbAYJGB356joq2rOP8iWbB8mqQZLYkKzSBn5wiqrcRpi04YQbTjRFmbUQZ59pgZMb5uJ4LOFEGWf81rC4Nl8RqytU3j16tiYCa+BQ5vLjxU8yxrv/TMGle4OL6FknrEgFNdXZ1h5zA15ASd9q5oYlz2nOK9dotQ9GN78gOYdCvGi4dxgrB7Ag6vz69NToGf+vEaXSgnYY8ciHfp2JQNAMo5nbcXM3OHe7Cun7nhP/Ghn5l+AXmDibptCWs1wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b0aff4d52ea4231fe8a9ee24d0861b81/8ac56/github-codespace.webp 240w,
+/static/b0aff4d52ea4231fe8a9ee24d0861b81/d3be9/github-codespace.webp 480w,
+/static/b0aff4d52ea4231fe8a9ee24d0861b81/e46b2/github-codespace.webp 960w,
+/static/b0aff4d52ea4231fe8a9ee24d0861b81/f992d/github-codespace.webp 1440w,
+/static/b0aff4d52ea4231fe8a9ee24d0861b81/882b9/github-codespace.webp 1920w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b0aff4d52ea4231fe8a9ee24d0861b81/8ff5a/github-codespace.png 240w,
+/static/b0aff4d52ea4231fe8a9ee24d0861b81/e85cb/github-codespace.png 480w,
+/static/b0aff4d52ea4231fe8a9ee24d0861b81/d9199/github-codespace.png 960w,
+/static/b0aff4d52ea4231fe8a9ee24d0861b81/07a9c/github-codespace.png 1440w,
+/static/b0aff4d52ea4231fe8a9ee24d0861b81/29114/github-codespace.png 1920w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b0aff4d52ea4231fe8a9ee24d0861b81/d9199/github-codespace.png&quot;
+            alt=&quot;codespace&quot;
+            title=&quot;codespace&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;자신이 생성할 레포지토리와 브랜치, 지역을 선택 합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/87704e3cbce7f7e3b4932fdd9c0f4741/33a7b/github-codespace2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABhUlEQVQoz5VSS27CMBSki1ZAcAJO4jj/uCQpooCQkCpxgqqL3qWn6BV6jB6h+15q+p5RKIWw6GJkP2s8b95nMA0z9GGm+EwRJhXyssbUj+ktxzV+h4EzVeiDkBFu7gSeX17x+fWNavWE26HAZKZx7Q9jMJlF6IOQGmMirDY7vL1/oFjt4QiJCb1f+8OwDvky9kKM3ODEoUbVPCIuW7gzBdMskZoHjIg3ZBCXz/H0INTpDLrA14X94AUJXOrXKcn1k0NSiiW1oi7uMTctTH4PX/7yLgQTciOjwt470VOMCb5U2FRzbNsl1qaG9g+J/ghyuSo1iIvaTpYnzBBn/XIIHpWfqARFZlDSn9DXl4LsMIhL6Ly2QuySYy7/tBzLpeRRWqFdblFQi1yp+0sOaN9MuyahypbLENcm6lHpqiTh2nJ6BXkpQyqB+8cuz50dQVP1Mlr4hlq0aCCC+Mi1e3gMqDfcy25tesV4op5CuDLI9gvoHTkMexz+F46g5A7t4CS0jo/vJPwDHHosPtkWnVYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/87704e3cbce7f7e3b4932fdd9c0f4741/8ac56/github-codespace2.webp 240w,
+/static/87704e3cbce7f7e3b4932fdd9c0f4741/d3be9/github-codespace2.webp 480w,
+/static/87704e3cbce7f7e3b4932fdd9c0f4741/e46b2/github-codespace2.webp 960w,
+/static/87704e3cbce7f7e3b4932fdd9c0f4741/03b0b/github-codespace2.webp 1119w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/87704e3cbce7f7e3b4932fdd9c0f4741/8ff5a/github-codespace2.png 240w,
+/static/87704e3cbce7f7e3b4932fdd9c0f4741/e85cb/github-codespace2.png 480w,
+/static/87704e3cbce7f7e3b4932fdd9c0f4741/d9199/github-codespace2.png 960w,
+/static/87704e3cbce7f7e3b4932fdd9c0f4741/33a7b/github-codespace2.png 1119w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/87704e3cbce7f7e3b4932fdd9c0f4741/d9199/github-codespace2.png&quot;
+            alt=&quot;codespace2&quot;
+            title=&quot;codespace2&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;모두 선택한 이후 ‘Create codespace’ 버튼을 클릭하여 생성 합니다.&lt;/li&gt;
+&lt;li&gt;자신이 선택한 레포지토리가 빌드 된 이후에 &lt;strong&gt;Visual Studio&lt;/strong&gt; 가 실행 됩니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/01719dcc0aba713e15427cbf34acab4e/7970d/github-codespace3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABT0lEQVQoz31S2Y7CMBDrd0BL29zpRQ+KQGL//7O8nrCw7KrwYE07UZyxPdm6rhiGI7quR896PI5omoimi7DBwYcA1wRY5+Ci/62eZ94nSC/GCMeajcsJgT9aadTGJXKvKhRFgSIvkOc59vs81XfY73aw1qJpO2TTNHOiFkopGDYDX1RViZpQP9B1hbIscTgc3kLOq6oi4TxDSIOnNJLF2MCRWKA4sTYW3llUvCBT/yd69B41G+cF19sXTucz/QgY6GHbtgniqXgocrTWfy5ukd4Jx5EXB0rWMJxGCKU3TRP6vqMdTZKydXmLNJNUJeE7ocE49FiWBZfLlfVE0j71X6Vt4TnhTMkt0xFJxjom3qZgHOUbF5i++hjG64SCJFmC0NokrwZO1HXygHq+LAl+SlnO6rq+pzyv52S8+CcLLQsa+C8LG+nf41vW6p1/r8TfV54bOE6RZS8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/01719dcc0aba713e15427cbf34acab4e/8ac56/github-codespace3.webp 240w,
+/static/01719dcc0aba713e15427cbf34acab4e/d3be9/github-codespace3.webp 480w,
+/static/01719dcc0aba713e15427cbf34acab4e/e46b2/github-codespace3.webp 960w,
+/static/01719dcc0aba713e15427cbf34acab4e/f992d/github-codespace3.webp 1440w,
+/static/01719dcc0aba713e15427cbf34acab4e/36414/github-codespace3.webp 1908w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/01719dcc0aba713e15427cbf34acab4e/8ff5a/github-codespace3.png 240w,
+/static/01719dcc0aba713e15427cbf34acab4e/e85cb/github-codespace3.png 480w,
+/static/01719dcc0aba713e15427cbf34acab4e/d9199/github-codespace3.png 960w,
+/static/01719dcc0aba713e15427cbf34acab4e/07a9c/github-codespace3.png 1440w,
+/static/01719dcc0aba713e15427cbf34acab4e/7970d/github-codespace3.png 1908w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/01719dcc0aba713e15427cbf34acab4e/d9199/github-codespace3.png&quot;
+            alt=&quot;codespace3&quot;
+            title=&quot;codespace3&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;2-사용-후기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EC%82%AC%EC%9A%A9-%ED%9B%84%EA%B8%B0&quot; aria-label=&quot;2 사용 후기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 사용 후기&lt;/h1&gt;
+&lt;p&gt;사실 별거 아니라고 생각했었는데, 막상 사용해 보니 너무 너무 편하고&lt;br&gt;
+개발툴을 사용하지 않고도 작업이 가능하다는게 신기하고 새로운 환경이라고 생각 합니다.&lt;/p&gt;
+&lt;p&gt;특정 브랜치를 선택 할 수도 있고 급하게 개발 할 건이 생겼을 때나 개발 툴을 사용하기 어려운 환경이라면
+코드 스페이스를 아주 유용하게 사용할 수 있을 것 같아요. 커밋과 푸시도 당연히 되고, 일반 개발툴을 사용하는 느낌과 똑같아요.&lt;/p&gt;
+&lt;p&gt;예전에 개발 툴 없이 바로 개발할 수 있을 수는 없을까 하는 생각을 해본 적이 있었는데&lt;br&gt;
+역시 저만 그런 생각을 하는 게 아니였나 봅니당..🤐&lt;/p&gt;
+&lt;p&gt;간단하고 쉽게 개발할 수 있는 code space와 함께 즐거운 코딩이 되는 포스팅이였으면 좋겠습니다~!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면, &lt;strong&gt;추천 &amp;#x26;댓글&lt;/strong&gt; 부탁드려요!😎👍🏻&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Next.js] XSS 취약점과 해결 방안 (next.config.js 설정)]]></title><description><![CDATA[안녕하세요! 이번 포스팅에서는 Next.js에서 XSS 취약점 조치하는 방법에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/nextjs/next-xss</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/nextjs/next-xss</guid><pubDate>Sun, 05 Jun 2022 16:44:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅에서는 &lt;code class=&quot;language-text&quot;&gt;Next.js&lt;/code&gt;에서 &lt;strong&gt;XSS&lt;/strong&gt; 취약점 조치하는 방법에 대해 소개해 드리겠습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
@@ -9499,7 +9692,7 @@ cv2.__version__&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;li&gt;
 &lt;p&gt;의사 결정 트리(Decision Tree)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;그래프&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.scaler.com/topics/decision-tree-algorithm/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;그래프&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://graphviz.org/download/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Graphviz 패키지 설치&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/35064304/runtimeerror-make-sure-the-graphviz-executables-are-on-your-systems-path-aft&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;환경 변수 설정 방법 1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://datascience.stackexchange.com/questions/37428/graphviz-not-working-when-imported-inside-pydotplus-graphvizs-executables-not&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;환경 변수 설정 방법 2&lt;/a&gt;&lt;/li&gt;
