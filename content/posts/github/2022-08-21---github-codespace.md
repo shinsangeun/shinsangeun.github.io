@@ -2,7 +2,6 @@
 title: "[Github] Git Code Space 사용방법 및 후기"
 date: "2022-08-21 23:12:23"
 template: "post"
-draft: false
 slug: "github-codeSpace"
 category: "Github"
 tags:
