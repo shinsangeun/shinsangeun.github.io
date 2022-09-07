@@ -1,4 +1,183 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 03 Sep 2022 06:54:17 GMT</lastBuildDate><item><title><![CDATA[[Github] Git Code Space 사용방법 및 후기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 Github에서 Code space 사용하는 방법에 대해 알아보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/github/github-codeSpace</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/github/github-codeSpace</guid><pubDate>Sun, 21 Aug 2022 14:12:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[기록하며 성장하기]]></title><description><![CDATA[기록하며 성장하는 개발자가 되고 싶습니다.]]></description><link>https://shinsangeun.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 07 Sep 2022 15:20:08 GMT</lastBuildDate><item><title><![CDATA[[React] react-player 활용 (feat. 특정 시간 재생)]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 react-player 라이브러리를 활용 하여 특정 시간만 영상 재생을 하는 기능에 대해 소개해 드리겠습니다.]]></description><link>https://shinsangeun.github.io//posts/react/react-player-2</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/react/react-player-2</guid><pubDate>Wed, 07 Sep 2022 14:47:20 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;p&gt;지난번에 소개해 드린 &lt;strong&gt;react-player&lt;/strong&gt; 에 대한 포스팅이 블로그에서 가장 많은 페이지 뷰를 기록 했습니다!👍🏻&lt;br&gt;
+그만큼 많은 분들이 사용하고 찾아보는 라이브러리 이겠죠..?!&lt;/p&gt;
+&lt;p&gt;이번 포스팅에서는 react-player에서 특정 시간만 영상 재생을 하는 기능에 대해 소개해 드리겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;1 개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개요&lt;/h3&gt;
+&lt;p&gt;react-player에 대한 간단한 소개와 설치, 셋팅 방법은 &lt;a href=&quot;https://shinsangeun.github.io/posts/react/react-player&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;[React] react-player 소개 및 활용 (feat. onEnded)&lt;/a&gt; 여기를 참고해 주세요!&lt;/p&gt;
+&lt;h4 id=&quot;2-샘플-코드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EC%83%98%ED%94%8C-%EC%BD%94%EB%93%9C&quot; aria-label=&quot;2 샘플 코드 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 샘플 코드&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import ReactPlayer from &amp;#39;react-player/lazy&amp;#39;;
+
+const Video = ({playList, index}) =&amp;gt; {
+    return (
+        &amp;lt;&amp;gt;
+            &amp;lt;h2&amp;gt;Player Test&amp;lt;/h2&amp;gt;
+            &amp;lt;div className=&amp;#39;player-wrapper&amp;#39;&amp;gt;
+                &amp;lt;ReactPlayer
+                    className=&amp;#39;react-player&amp;#39;
+                    url={&amp;#39;https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4&amp;#39;}    // 플레이어 url
+                    width=&amp;#39;800px&amp;#39;         // 플레이어 크기 (가로)
+                    height=&amp;#39;500px&amp;#39;        // 플레이어 크기 (세로)
+                    playing={true}        // 자동 재생 on
+                    muted={true}          // 자동 재생 on
+                    controls={true}       // 플레이어 컨트롤 노출 여부
+                    light={false}         // 플레이어 모드
+                    pip={true}            // pip 모드 설정 여부
+                    poster={&amp;#39;https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg&amp;#39;}   // 플레이어 초기 포스터 사진
+                    onEnded={() =&amp;gt; handleVideo()}  // 플레이어 끝났을 때 이벤트
+                /&amp;gt;
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/&amp;gt;
+    )
+}
+
+export default Video;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;자동 재생 설정을 하려면, playing과 muted를 &lt;strong&gt;true&lt;/strong&gt;로 해야 autoplay 설정이 됩니다.&lt;/li&gt;
+&lt;li&gt;위의 코드를 로컬에서 실행하면 아래와 같은 화면이 나타납니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 822px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/15370036be0f4eafce9746547d7002df/f73a1/playerTime.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 12.083333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAjElEQVQI1zWLOwrCQBQAcwchjS4IhrSWFp5Ai6CSTfZlf9kQrQSP5ClEzOXGD1gMUwyTnYctt+uGbig4iGKvcyrJOXaKqi6pTYGJCjsuaNKcpldIv8SnNXEscZcSGVfsTjMerztZTIKPhhiFEARrDdZ9abFe40KLDwbnzc9/nP901xA+X0wdWldM05M3TVlQWpswA/4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/15370036be0f4eafce9746547d7002df/8ac56/playerTime.webp 240w,
+/static/15370036be0f4eafce9746547d7002df/d3be9/playerTime.webp 480w,
+/static/15370036be0f4eafce9746547d7002df/355f1/playerTime.webp 822w&quot;
+              sizes=&quot;(max-width: 822px) 100vw, 822px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/15370036be0f4eafce9746547d7002df/8ff5a/playerTime.png 240w,
+/static/15370036be0f4eafce9746547d7002df/e85cb/playerTime.png 480w,
+/static/15370036be0f4eafce9746547d7002df/f73a1/playerTime.png 822w&quot;
+            sizes=&quot;(max-width: 822px) 100vw, 822px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/15370036be0f4eafce9746547d7002df/f73a1/playerTime.png&quot;
+            alt=&quot;react_player&quot;
+            title=&quot;react_player&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3-특정-구간-재생&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%ED%8A%B9%EC%A0%95-%EA%B5%AC%EA%B0%84-%EC%9E%AC%EC%83%9D&quot; aria-label=&quot;3 특정 구간 재생 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 특정 구간 재생&lt;/h4&gt;
+&lt;p&gt;플레이어의 특정 구간만 재생 할 수 있는 코드를 추가해 보겠습니다.
+onDuration, getDuration 등 다양한 함수들이 있어서 테스트를 해보았는데 생각보다 간단한(?) 방법이 있었습니다 .&lt;/p&gt;
+&lt;p&gt;react-player github에 있는 &lt;a href=&quot;https://github.com/CookPete/react-player/issues/433&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;👉🏻이슈&lt;/a&gt; 를 참고 하였고,
+맨 하단에 있는 방법으로 추가하니 원하는 방향으로 정상 동작 하였습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;url={playerUrl + &amp;quot;#t=${startTime},${endTime}&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;url에 startTime과 endTime 파라미터를 추가해주면 됩니다.
+적용한 코드는 아래와 같습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import ReactPlayer from &amp;#39;react-player/lazy&amp;#39;;
+import {useState, useRef} from &amp;quot;react&amp;quot;;
+
+type VideoPlayerProps = {
+    title: string;
+    vodPlaylistId: string;
+}
+
+const VideoPlayer = ({}: VideoPlayerProps) =&amp;gt; {
+    const [playIndex, setPlayIndex] = useState(0);
+    const playerRef = useRef();
+
+    const playList = [
+        {index:1, url: &amp;#39;https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4&amp;#39;},
+        {index:2, url: &amp;#39;http://sample.vodobox.net/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8&amp;#39;},
+        {index:3, url: &amp;#39;http://playertest.longtailvideo.com/adaptive/wowzaid3/playlist.m3u8&amp;#39;}
+    ];
+
+    if(playList === null) return &amp;lt;p&amp;gt;Loading...&amp;lt;/p&amp;gt;;
+
+    return (
+        &amp;lt;&amp;gt;
+            &amp;lt;h2&amp;gt;Player Test&amp;lt;/h2&amp;gt;
+            &amp;lt;ReactPlayer
+                // @ts-ignore
+                ref={playerRef}
+                // @ts-ignore
+                url={playList[playIndex].url + &amp;quot;#t=3,10&amp;quot;}
+                playing
+                controls
+                muted
+                progressInterval={1000}
+                pip={true}
+                width={&amp;#39;800px&amp;#39;}
+                height={&amp;#39;500px&amp;#39;}
+            /&amp;gt;
+        &amp;lt;/&amp;gt;
+    )
+}
+
+export default VideoPlayer;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;“#t=3,10”&lt;/strong&gt; 을 추가함으로써 플레이어는 3초 지점에 영상이 재생되고 10초 지점에 영상이 멈추게 됩니다.&lt;br&gt;
+영상이 재생 되고 10초 지점에 일시 정지 되는 모습 입니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 822px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/15370036be0f4eafce9746547d7002df/f73a1/playerTime.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 12.083333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAjElEQVQI1zWLOwrCQBQAcwchjS4IhrSWFp5Ai6CSTfZlf9kQrQSP5ClEzOXGD1gMUwyTnYctt+uGbig4iGKvcyrJOXaKqi6pTYGJCjsuaNKcpldIv8SnNXEscZcSGVfsTjMerztZTIKPhhiFEARrDdZ9abFe40KLDwbnzc9/nP901xA+X0wdWldM05M3TVlQWpswA/4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/15370036be0f4eafce9746547d7002df/8ac56/playerTime.webp 240w,
+/static/15370036be0f4eafce9746547d7002df/d3be9/playerTime.webp 480w,
+/static/15370036be0f4eafce9746547d7002df/355f1/playerTime.webp 822w&quot;
+              sizes=&quot;(max-width: 822px) 100vw, 822px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/15370036be0f4eafce9746547d7002df/8ff5a/playerTime.png 240w,
+/static/15370036be0f4eafce9746547d7002df/e85cb/playerTime.png 480w,
+/static/15370036be0f4eafce9746547d7002df/f73a1/playerTime.png 822w&quot;
+            sizes=&quot;(max-width: 822px) 100vw, 822px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/15370036be0f4eafce9746547d7002df/f73a1/playerTime.png&quot;
+            alt=&quot;img.png&quot;
+            title=&quot;img.png&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;초(seconds) 를 기준으로 동작 되어서 &lt;strong&gt;“#t=72,100”&lt;/strong&gt; 로 설정하면 &lt;U&gt;1분 12초에 영상이 재생&lt;/U&gt; 되고 &lt;U&gt;1분 40초에 영상이 정지&lt;/U&gt; 됩니다.&lt;/p&gt;
+&lt;h3 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;이렇게 간단하고 쉬운 옵션이 있는데.. 왜 github &lt;code class=&quot;language-text&quot;&gt;ReadMe.md&lt;/code&gt; 에는 어려운 onDuration(), getDuration() 함수만 있고 이런 자세한 내용이 안 쓰여져 있는 건지..!아쉽네요🧐&lt;/li&gt;
+&lt;li&gt;그래도 원하는 기능을 구현 할 수 있게 라이브러리가 잘 만들어져 있어서 아주 유용하게 쓸 수 있을 것 같아요🤘🏻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 준비한 내용은 여기까지 입니다.&lt;br&gt;
+이번 포스팅이 도움이 되셨거나 궁금한 점이 있으시다면 언제든지 댓글을 달아주세요!🙋🏻‍♀️✨    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Github] Git Code Space 사용방법 및 후기]]></title><description><![CDATA[안녕하세요! 이번 포스팅 에서는 Github에서 Code space 사용하는 방법에 대해 알아보겠습니다.]]></description><link>https://shinsangeun.github.io//posts/github/github-codeSpace</link><guid isPermaLink="false">https://shinsangeun.github.io//posts/github/github-codeSpace</guid><pubDate>Sun, 21 Aug 2022 14:12:23 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요!&lt;/p&gt;
 &lt;p&gt;이번 포스팅 에서는 Github에서 새로 생긴(지 좀 된..) &lt;strong&gt;Github Code Space&lt;/strong&gt;에 대해 알아보겠습니다.👨‍🏫&lt;/p&gt;
 &lt;p&gt;Github에 들어가면 어느 순간부터 &lt;strong&gt;Code Space&lt;/strong&gt; 라는 버튼이 생겨있었습니다.&lt;br&gt;
 최근 호기심에 잠깐 사용해보았는데, 간단하지만 정말 유용한 기능이라고 생각되어 블로그에 소개해 드리겠습니다.&lt;/p&gt;
@@ -2119,6 +2298,9 @@ const getVideoList = async () =&amp;gt; {
       console.log(&amp;quot;e:&amp;quot;,e);
    }
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;️-추가-️&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EF%B8%8F-%EC%B6%94%EA%B0%80-%EF%B8%8F&quot; aria-label=&quot;️ 추가 ️ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;⛔️ 추가!! ⛔️&lt;/h3&gt;
+&lt;p&gt;react-player에서 영상의 특정 구간만 재생하는 기능을 추가 업로드 하였습니다.&lt;br&gt;
+&lt;a href=&quot;/posts/react/react-player-2&quot;&gt;👉🏻[React] react-player 활용 (feat. 특정 시간 재생)&lt;/a&gt; 포스팅 참고해주세요!&lt;/p&gt;
 &lt;h3 id=&quot;4-마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;4 마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 마치며&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;엄청난 삽질 끝에…자동 재생을 추가하게 되어서 블로그에 정리해 보았습니다. react-player 라이브러리를 사용하시는 분들께 유용한 포스팅이 되었으면 좋겠습니다.&lt;/li&gt;
