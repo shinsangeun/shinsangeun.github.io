@@ -8,7 +8,7 @@ module.exports = {
   copyright: '© All rights reserved.',
   disqusShortname: 'shinsangeun',
   postsPerPage: 5,
-  googleAnalyticsId: 'UA-178386171-1',
+  googleAnalyticsId: 'G-BGYPDL0T9B',
   useKatex: false,
   menu: [
     {
